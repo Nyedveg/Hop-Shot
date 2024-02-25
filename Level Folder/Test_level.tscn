@@ -1,10 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhlaitb243u7v"]
+[gd_scene load_steps=2 format=3 uid="uid://bhlaitb243u7v"]
 
-[ext_resource type="Script" path="res://Level Folder/CharacterController.gd" id="1_j2ws2"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_oecld"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjkyw"]
+[ext_resource type="PackedScene" uid="uid://wg8lue5g6rtw" path="res://character_body.tscn" id="1_6ll7d"]
 
 [node name="TestLevel" type="Node3D"]
 
@@ -22,20 +18,7 @@ size = Vector3(10, 10, 5)
 use_collision = true
 size = Vector3(10, 0.4, 10)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23795, 0)
-script = ExtResource("1_j2ws2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("CapsuleMesh_oecld")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_gjkyw")
-
-[node name="Neck" type="Node3D" parent="CharacterBody3D"]
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38171, -0.482841)
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_6ll7d")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.537638, 0.843176, 0, -0.843176, 0.537638, 0, 6.77775, 0)
