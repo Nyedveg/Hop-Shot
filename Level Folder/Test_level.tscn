@@ -1,24 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhlaitb243u7v"]
+[gd_scene load_steps=5 format=3 uid="uid://bhlaitb243u7v"]
 
 [ext_resource type="PackedScene" uid="uid://wg8lue5g6rtw" path="res://character_body.tscn" id="1_6ll7d"]
+[ext_resource type="Texture2D" uid="uid://d4jxj26ayodck" path="res://Materials/Textures/tutorial_env_texture.png" id="2_2g3po"]
+[ext_resource type="Environment" uid="uid://c4dh5pp7mfow7" path="res://Materials/Environment/Galaxy1_environment.tres" id="3_4btyy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un7cd"]
+albedo_texture = ExtResource("2_2g3po")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="TestLevel" type="Node3D"]
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.826029, -0.563627, 0, 0.563627, 0.826029, 0, 7.32601, 9.555)
-use_collision = true
-size = Vector3(10, 10, 5)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.927171, 0.374639, 0, -0.374639, 0.927171, 0, 2.9288, -5.98199)
-use_collision = true
-size = Vector3(10, 10, 5)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-use_collision = true
-size = Vector3(10, 0.4, 10)
-
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_6ll7d")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.537638, 0.843176, 0, -0.843176, 0.537638, 0, 6.77775, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 0, -20)
+use_collision = true
+material = SubResource("StandardMaterial3D_un7cd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_4btyy")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 5, -20)
+use_collision = true
+material = SubResource("StandardMaterial3D_un7cd")
+
+[node name="GlowText" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80165, -11.8968)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="GlowText"]
+light_energy = 1.955
+light_size = 0.676
+omni_range = 8.07866
+
+[node name="Label3D" type="Label3D" parent="GlowText"]
+billboard = 1
+text = "Can you jump?"
+font_size = 128
+
+[node name="GlowText2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.168, -12.5651)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="GlowText2"]
+light_energy = 1.955
+light_size = 0.676
+omni_range = 8.07866
+
+[node name="Label3D" type="Label3D" parent="GlowText2"]
+billboard = 1
+text = "lmao"
+font_size = 128

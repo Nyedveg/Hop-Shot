@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wg8lue5g6rtw"]
 
-[ext_resource type="Script" path="res://Level Folder/CharacterController.gd" id="1_nbxft"]
+[ext_resource type="Script" path="res://Scripts/CharacterController.gd" id="1_ik2jo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oecld"]
 
@@ -8,7 +8,7 @@
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1_nbxft")
+script = ExtResource("1_ik2jo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_oecld")
@@ -19,4 +19,4 @@ shape = SubResource("CapsuleShape3D_gjkyw")
 [node name="Neck" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38171, -0.482841)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38171, -0.370981)
