@@ -3,9 +3,9 @@ extends CharacterBody3D
 # MOVEMENT SPEEDS.
 var speed
 # NORMAL SPEED.
-var normal_speed = 5.0
+var normal_speed = 10.0
 # SPRINT/RUNING SPEED.
-var sprint_speed = 15.0
+var sprint_speed = 20.0
 # accel_in_air STANDS FOR ACCELERATION IN HANPPENING IN AIR. 
 # accel_normal STANDS FOR ACCELERATION IN NOT HANPPENING IN AIR BUT INSTEAD ON GROUND.
 const accel_normal = 10.0
@@ -25,7 +25,7 @@ var crouch_height = 1.0
 # LOWEST HEIGHT AND MAXIMUM TRANSITION SPEED OF CROUCHING.
 var crouch_speed = 10.0
 # CROUCH MOVEMENT SPEED
-var crouch_move_speed = 2.0
+var crouch_move_speed = 5.0
 # MOUSE SENSITIVITY.
 var mouse_sense = 0.15
 #IMPROTANT VARIABLES FOR PLAYER MOVEMENT.

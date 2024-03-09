@@ -71,7 +71,7 @@ libraries = {
 }
 
 [node name="AimCast" type="RayCast3D" parent="Head/Camera3D"]
-target_position = Vector3(0, 0, -100)
+target_position = Vector3(0, 0, -50)
 
 [node name="TextureRect" type="TextureRect" parent="Head/Camera3D"]
 anchors_preset = 8

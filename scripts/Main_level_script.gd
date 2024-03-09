@@ -15,3 +15,7 @@ func _on_player_shot_fired(pos):
 	var collider = collider_obj.instantiate()
 	add_child(collider)
 	collider.position = pos
+
+func _on_death_zone_body_entered(body):
+	print("You died")
+	body.position = Vector3.ZERO + Vector3(0,5,0)
