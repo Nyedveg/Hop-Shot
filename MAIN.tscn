@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3tejip5bt721"]
+[gd_scene load_steps=5 format=3 uid="uid://b3tejip5bt721"]
 
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://PLAYER/Player.tscn" id="1_for5s"]
+[ext_resource type="Script" path="res://Main_level_script.gd" id="1_it46c"]
 [ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://WEAPONS/weapon.tscn" id="2_cfkjj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukhvu"]
@@ -11,6 +12,7 @@ emission = Color(0, 0.278431, 0, 1)
 emission_energy_multiplier = 1.84
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_it46c")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 8.72539, 0)
@@ -26,3 +28,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="weapon" parent="." instance=ExtResource("2_cfkjj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80221, 0.0575008, 4.6292)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.773498, -0.6338, 0, 0.6338, 0.773498, 0, 19.9316, 5.73489)
+use_collision = true
+size = Vector3(3.82837, 3.09546, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.909396, 0.415932, 0, -0.415932, 0.909396, 0, 10.8057, -1.68509)
+use_collision = true
+size = Vector3(3.82837, 3.09546, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.699776, -0.714363, 0, 0.714363, 0.699776, 0, 2.09771, 6.1888)
+use_collision = true
+size = Vector3(3.82837, 3.09546, 1)
+
+[connection signal="shot_fired" from="Player" to="." method="_on_player_shot_fired"]

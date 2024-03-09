@@ -32,7 +32,9 @@ var mouse_sense = 0.15
 var is_forward_moving = false
 var direction = Vector3()
 #WEAPON VARIABLES
-var damage = 100 #filler
+var damage = 100
+
+signal shot_fired(position)
 
 # PLAYER.
 @onready var head := $Head
@@ -93,6 +95,7 @@ func _process(delta):
 			hand_anim.play("firing_animation")
 		if aimcast.is_colliding():
 			var target = aimcast.get_collider()
+			emit_signal("shot_fired", aimcast.get_collision_point())
 		
 	# IF ESCAPE IS PRESSED IT WILL SHOW THE MOUSE CURSOR.
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -124,10 +127,10 @@ func _process(delta):
 		accel = accel_normal
 		velocity.y -= jump_velocity
 	# HANDLES JUMP.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 	# IF THE PLAYER PRESSES THE "ui_accept" AND WHEN THE CHARACTER IS ON THE FLOOR,
 	# SET THE Y VELOCITY TO THE JUMP VELOCITY.
-		velocity.y = jump_velocity
+	#	velocity.y = jump_velocity
 	#MAKES IT MOVE.
 	velocity = velocity.lerp(direction * speed, accel * delta)
 	#MOVES THE BODY BASED ON VELOCITY.

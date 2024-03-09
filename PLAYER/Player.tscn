@@ -47,7 +47,8 @@ _data = {
 "firing_animation": SubResource("Animation_vwggl")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["movable"]]
+wall_min_slide_angle = 0.0
 script = ExtResource("1_8knlq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -69,7 +70,8 @@ libraries = {
 }
 
 [node name="AimCast" type="RayCast3D" parent="Head/Camera3D"]
-target_position = Vector3(0, 0, -1000)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180045, 0, 0)
+target_position = Vector3(0, 0, -100)
 
 [node name="Head_check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501792, 0)
