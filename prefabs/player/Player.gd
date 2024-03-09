@@ -48,8 +48,8 @@ signal shot_fired(position)
 # Dictionary of weapon scenes
 var weapons = {
 	"weapon": {
-		"weapon_scene": preload("res://WEAPONS/weapon_hr.tscn"),
-		"drop_scene": preload("res://WEAPONS/weapon.tscn")
+		"weapon_scene": preload("res://weapons/weapon_hr.tscn"),
+		"drop_scene": preload("res://weapons/weapon.tscn")
 	}
 	# Add more weapons here... ALSO DONT FORGET THE ,
 }

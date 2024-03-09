@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3tejip5bt721"]
 
-[ext_resource type="Script" path="res://Main_level_script.gd" id="1_e5oxr"]
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_e5oxr"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_83fl6"]
 [ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://weapons/weapon.tscn" id="3_l4mva"]
 
