@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8k7wuwngd6pi"]
 
-[ext_resource type="Script" path="res://scripts/bullet_collider_script.gd" id="1_ji46w"]
+[ext_resource type="Script" path="res://scripts/bullet_collider_script.gd" id="1_lmeg2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3vnj"]
 albedo_color = Color(1, 0, 0, 1)
@@ -10,7 +10,7 @@ radius = 2.30166
 
 [node name="Collider" type="CSGSphere3D"]
 material = SubResource("StandardMaterial3D_b3vnj")
-script = ExtResource("1_ji46w")
+script = ExtResource("1_lmeg2")
 
 [node name="Timer" type="Timer" parent="."]
 

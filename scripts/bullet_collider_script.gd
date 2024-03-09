@@ -2,7 +2,7 @@ extends CSGSphere3D
 
 @export var x_speed = 7
 @export var z_speed = 7
-@export var y_speed = 17
+@export var y_speed = 12
 
 @onready var timer = $Timer
 
@@ -12,7 +12,7 @@ func _ready():
 	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_area_3d_body_entered(body):

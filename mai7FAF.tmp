@@ -28,11 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="weapon" parent="." instance=ExtResource("3_l4mva")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80221, 0.0575008, 4.6292)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9316, 7.73726, 12.018)
-use_collision = true
-size = Vector3(3.82837, 15.2562, 1)
-
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.773498, -0.6338, 0, 0.6338, 0.773498, 0, 19.9316, 5.73489)
 use_collision = true
