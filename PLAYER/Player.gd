@@ -31,12 +31,17 @@ var mouse_sense = 0.15
 #IMPROTANT VARIABLES FOR PLAYER MOVEMENT.
 var is_forward_moving = false
 var direction = Vector3()
+#WEAPON VARIABLES
+var damage = 100 #filler
+
 # PLAYER.
 @onready var head := $Head
 @onready var camera3d := $Head/Camera3D
 @onready var player_capsule := $CollisionShape3D
 @onready var head_check := $Head_check
 @onready var hand = $Head/Camera3D/Hand
+@onready var aimcast = $Head/Camera3D/AimCast
+@onready var hand_anim = $Head/Camera3D/Hand/AnimationPlayer
 
 # Dictionary of weapon scenes
 var weapons = {
@@ -83,6 +88,13 @@ func _process(delta):
 	weapon_drop()
 	# ADDS CROUCHING TO THE PLAYER MEANING IT CALLS THE CROUCH FUNCTION WHICH WE MADE.
 	CROUCH(delta)
+	#WEAPON SHOOTING
+	if Input.is_action_just_pressed("fire"):
+		if !hand_anim.is_playing():
+			hand_anim.play("firing_animation")
+		if aimcast.is_colliding():
+			var target = aimcast.get_collider()
+		
 	# IF ESCAPE IS PRESSED IT WILL SHOW THE MOUSE CURSOR.
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
