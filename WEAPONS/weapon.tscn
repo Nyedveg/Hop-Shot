@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxlhpwp5e5gig"]
+
+[ext_resource type="Script" path="res://WEAPONS/Area3D.gd" id="1_547lj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_roaat"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cljmk"]
+size = Vector3(0.46, 0.33, 0.96)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w4vt8"]
+size = Vector3(0.26, 0.19, 0.56)
+
+[node name="weapon" type="Area3D"]
+script = ExtResource("1_547lj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_roaat")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0, 0)
+mesh = SubResource("BoxMesh_cljmk")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_w4vt8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -34,13 +34,13 @@ var direction = Vector3()
 @onready var camera3d := $Head/Camera3D
 @onready var player_capsule := $CollisionShape3D
 @onready var head_check := $Head_check
-@onready var hand = $Head/Hand
+@onready var hand = $Head/Camera3D/Hand
 
 # Dictionary of weapon scenes
 var weapons = {
 	"weapon": {
-		"weapon_scene": preload("res://weapon_hr.tscn"),
-		"drop_scene": preload("res://weapon.tscn")
+		"weapon_scene": preload("res://WEAPONS/weapon_hr.tscn"),
+		"drop_scene": preload("res://WEAPONS/weapon.tscn")
 	}
 	# Add more weapons here... ALSO DONT FORGET THE ,
 }
@@ -64,8 +64,8 @@ func _input(event):
 		
 
 func weapon_drop():
-	if Input.is_action_just_pressed("interact"):
-		if ! $Head/Hand.get_children().is_empty():
+	if Input.is_action_just_pressed("PICKUP"):
+		if ! $Head/Camera3D/Hand.get_children().is_empty():
 			var weapon_node = $Head/Camera3D/Hand.get_child(0)
 			var weapon_name = weapon_node.name
 			if weapons.has(weapon_name):
@@ -89,7 +89,7 @@ func _process(delta):
 	# GETS KEYBOARD INPUT.
 	# GET THE INPUT DIRECTION AND HANDLE THE MOVEMENT/DECELERATION.
 	# AS GOOD PRACTICE, YOU SHOULD REPLACE UI ACTIONS WITH CUSTOM GAMEPLAY ACTIONS.
-	var input_direction = Input.get_vector("left", "right", "forward", "back")
+	var input_direction = Input.get_vector("MOVE_LEFT", "MOVE_RIGHT", "MOVE_FORWARD", "MOVE_BACKWARD")
 	if input_direction.y < 0.0:
 		is_forward_moving = true
 	else:
