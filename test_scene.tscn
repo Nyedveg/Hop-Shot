@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c044i4nwht0qo"]
+
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://Player.tscn" id="1_7xa04"]
+[ext_resource type="PackedScene" uid="uid://s6hfubba1gq5" path="res://weapon.tscn" id="3_8qvba"]
+
+[node name="Test_Scene" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.697593, 0)
+use_collision = true
+size = Vector3(8.12085, 1, 9.58105)
+
+[node name="Player" parent="." instance=ExtResource("1_7xa04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 1)
+
+[node name="Gun A" parent="." instance=ExtResource("3_8qvba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
