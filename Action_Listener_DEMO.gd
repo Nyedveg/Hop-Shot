@@ -6,7 +6,7 @@ var pressedD = false
 var all_pressed = false
 @onready var text_pop = $"../TextPop"
 @onready var spawn_in = $"../spawn_weapon"
-var weapons = preload("res://WEAPONS/weapon.tscn")
+var weapons = preload("res://weapons/weapon.tscn")
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
@@ -20,16 +20,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("MOVE_BACKWARD"):
+	if Input.is_action_just_pressed("move_backward"):
 		pressedS = true
 		print("S")
-	if Input.is_action_just_pressed("MOVE_FORWARD"):
+	if Input.is_action_just_pressed("move_forward"):
 		pressedW = true
 		print("W")
-	if Input.is_action_just_pressed("MOVE_RIGHT"):
+	if Input.is_action_just_pressed("move_right"):
 		pressedD = true
 		print("D")
-	if Input.is_action_just_pressed("MOVE_LEFT"):
+	if Input.is_action_just_pressed("move_left"):
 		pressedA = true
 		print("A")
 		

@@ -56,7 +56,6 @@ var weapons = {
 
 func spawn_weapon(weapon_name):
 	var weapon = weapons[weapon_name].weapon_scene.instantiate()
-	print(weapon_name)
 	weapon.position = hand.position
 	hand.add_child(weapon)
 
@@ -74,7 +73,7 @@ func _input(event):
 		
 
 func weapon_drop():
-	if Input.is_action_just_pressed("PICKUP"):
+	if Input.is_action_just_pressed("interact"):
 		if ! $Head/Camera3D/Hand.get_children().is_empty():
 			var weapon_node = $Head/Camera3D/Hand.get_child(0)
 			var weapon_name = weapon_node.name
@@ -107,7 +106,7 @@ func _process(delta):
 	# GETS KEYBOARD INPUT.
 	# GET THE INPUT DIRECTION AND HANDLE THE MOVEMENT/DECELERATION.
 	# AS GOOD PRACTICE, YOU SHOULD REPLACE UI ACTIONS WITH CUSTOM GAMEPLAY ACTIONS.
-	var input_direction = Input.get_vector("MOVE_LEFT", "MOVE_RIGHT", "MOVE_FORWARD", "MOVE_BACKWARD")
+	var input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if input_direction.y < 0.0:
 		is_forward_moving = true
 	else:
@@ -128,11 +127,7 @@ func _process(delta):
 		accel = accel_normal
 		velocity.y -= jump_velocity
 	# HANDLES JUMP.
-<<<<<<< HEAD
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-=======
-	if Input.is_action_just_pressed("JUMP") and is_on_floor():
->>>>>>> dd1013bf0cee661d6e621e7e37237f0a36760fb4
 	# IF THE PLAYER PRESSES THE "ui_accept" AND WHEN THE CHARACTER IS ON THE FLOOR,
 	# SET THE Y VELOCITY TO THE JUMP VELOCITY.
 	#	velocity.y = jump_velocity

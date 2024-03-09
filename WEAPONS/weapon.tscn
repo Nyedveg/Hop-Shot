@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxlhpwp5e5gig"]
 
-[ext_resource type="Script" path="res://WEAPONS/Area3D.gd" id="1_547lj"]
+[ext_resource type="Script" path="res://weapons/Area3D.gd" id="1_6cx6y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_roaat"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -15,7 +15,7 @@ albedo_color = Color(0.0470588, 0.980392, 1, 1)
 size = Vector3(0.26, 0.19, 0.56)
 
 [node name="weapon" type="Area3D"]
-script = ExtResource("1_547lj")
+script = ExtResource("1_6cx6y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_roaat")
