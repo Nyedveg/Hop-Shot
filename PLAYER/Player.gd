@@ -56,6 +56,7 @@ var weapons = {
 
 func spawn_weapon(weapon_name):
 	var weapon = weapons[weapon_name].weapon_scene.instantiate()
+	print(weapon_name)
 	weapon.position = hand.position
 	hand.add_child(weapon)
 
@@ -127,7 +128,11 @@ func _process(delta):
 		accel = accel_normal
 		velocity.y -= jump_velocity
 	# HANDLES JUMP.
+<<<<<<< HEAD
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+=======
+	if Input.is_action_just_pressed("JUMP") and is_on_floor():
+>>>>>>> dd1013bf0cee661d6e621e7e37237f0a36760fb4
 	# IF THE PLAYER PRESSES THE "ui_accept" AND WHEN THE CHARACTER IS ON THE FLOOR,
 	# SET THE Y VELOCITY TO THE JUMP VELOCITY.
 	#	velocity.y = jump_velocity

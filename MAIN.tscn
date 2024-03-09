@@ -29,6 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="weapon" parent="." instance=ExtResource("2_cfkjj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80221, 0.0575008, 4.6292)
 
+<<<<<<< HEAD
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.773498, -0.6338, 0, 0.6338, 0.773498, 0, 19.9316, 5.73489)
 use_collision = true
@@ -45,3 +46,8 @@ use_collision = true
 size = Vector3(3.82837, 3.09546, 1)
 
 [connection signal="shot_fired" from="Player" to="." method="_on_player_shot_fired"]
+=======
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 0.1, 2.099, 2.5, -8.514)
+use_collision = true
+>>>>>>> dd1013bf0cee661d6e621e7e37237f0a36760fb4
