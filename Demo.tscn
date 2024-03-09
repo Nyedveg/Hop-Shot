@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5yrluw2onqj3"]
 
-[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="1_jcyoc"]
-[ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="2_x6u6b"]
+[ext_resource type="PackedScene" path="res://PLAYER/Player.tscn" id="1_jcyoc"]
+[ext_resource type="Script" path="res://Action_Listener_DEMO.gd" id="2_x6u6b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olof5"]
 albedo_color = Color(0.54902, 0.0156863, 0, 1)
