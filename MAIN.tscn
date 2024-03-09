@@ -4,7 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://WEAPONS/weapon.tscn" id="2_cfkjj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukhvu"]
-albedo_color = Color(0.0156863, 0.0156863, 0, 1)
+albedo_color = Color(0.54902, 0.0156863, 0, 1)
+roughness = 0.34
+emission_enabled = true
+emission = Color(0, 0.278431, 0, 1)
+emission_energy_multiplier = 1.84
 
 [node name="Node3D" type="Node3D"]
 

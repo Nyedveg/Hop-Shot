@@ -5,7 +5,7 @@ var speed
 # NORMAL SPEED.
 var normal_speed = 5.0
 # SPRINT/RUNING SPEED.
-var sprint_speed = 10.0
+var sprint_speed = 15.0
 # accel_in_air STANDS FOR ACCELERATION IN HANPPENING IN AIR. 
 # accel_normal STANDS FOR ACCELERATION IN NOT HANPPENING IN AIR BUT INSTEAD ON GROUND.
 const accel_normal = 10.0
@@ -24,6 +24,8 @@ var normal_height = 2.0
 var crouch_height = 1.0
 # LOWEST HEIGHT AND MAXIMUM TRANSITION SPEED OF CROUCHING.
 var crouch_speed = 10.0
+# CROUCH MOVEMENT SPEED
+var crouch_move_speed = 2.0
 # MOUSE SENSITIVITY.
 var mouse_sense = 0.15
 #IMPROTANT VARIABLES FOR PLAYER MOVEMENT.
@@ -101,6 +103,8 @@ func _process(delta):
 	if Input.is_action_pressed("crouch") and Input.is_action_pressed("sprint"):
 		speed = normal_speed
 	# ADDS JUMPING AND GRAVITY.
+	if Input.is_action_pressed("crouch"):
+		speed = crouch_move_speed
 	if not is_on_floor():
 		accel = accel_in_air
 		velocity.y -= gravity * delta
