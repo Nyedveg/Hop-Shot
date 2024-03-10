@@ -95,6 +95,8 @@ func _physics_process(delta):
 			hand_anim.play("firing_animation")
 		if aimcast.is_colliding() && aimcast.get_collider().is_in_group("shootable"):
 			emit_signal("shot_fired", aimcast.get_collision_point())
+			var projectile_vector = position - aimcast.get_collision_point()
+			velocity += projectile_vector / 10
 		
 	# IF ESCAPE IS PRESSED IT WILL SHOW THE MOUSE CURSOR.
 	if Input.is_action_just_pressed("ui_cancel"):
