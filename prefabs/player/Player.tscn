@@ -49,6 +49,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" groups=["movable"]]
+collision_layer = 3
+collision_mask = 3
 wall_min_slide_angle = 0.0
 script = ExtResource("1_8knlq")
 
@@ -72,6 +74,7 @@ libraries = {
 
 [node name="AimCast" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -50)
+collision_mask = 4
 
 [node name="TextureRect" type="TextureRect" parent="Head/Camera3D"]
 anchors_preset = 8
@@ -90,6 +93,7 @@ texture = ExtResource("2_b0r1b")
 [node name="Head_check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501792, 0)
 target_position = Vector3(0, 1, 0)
+collision_mask = 2
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.407248, -1)

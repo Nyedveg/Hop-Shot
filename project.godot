@@ -63,6 +63,12 @@ fire={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="basic"
+3d_physics/layer_3="raycastable"
+
 [physics]
 
 3d/default_gravity=15.3
