@@ -18,9 +18,9 @@ func _process(_delta):
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("movable"):
 		var projectile_vector = body.position - position
-		body.velocity.y = projectile_vector.y * y_speed
-		body.velocity.x = projectile_vector.x * x_speed
-		body.velocity.z = projectile_vector.z * z_speed
+		body.velocity.y += projectile_vector.y * y_speed
+		body.velocity.x += projectile_vector.x * x_speed
+		body.velocity.z += projectile_vector.z * z_speed
 		queue_free()
 
 

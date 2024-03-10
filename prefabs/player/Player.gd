@@ -85,15 +85,15 @@ func weapon_drop():
 
 # CALLED EVERY FRAME. 'DELTA' IS THE ELAPSED TIME SINCE THE PREVIOUS FRAME.
 # ALSO THIS WILL HANDLE ALL THE PLAYERS MOVEMENT AND PHYSICS.
-func _process(delta):
+func _physics_process(delta):
 	weapon_drop()
 	# ADDS CROUCHING TO THE PLAYER MEANING IT CALLS THE CROUCH FUNCTION WHICH WE MADE.
-	CROUCH(delta)
+	crouch(delta)
 	#WEAPON SHOOTING
 	if Input.is_action_just_pressed("fire"):
 		if !hand_anim.is_playing():
 			hand_anim.play("firing_animation")
-		if aimcast.is_colliding():
+		if aimcast.is_colliding() && aimcast.get_collider().is_in_group("shootable"):
 			var target = aimcast.get_collider()
 			emit_signal("shot_fired", aimcast.get_collision_point())
 		
@@ -122,13 +122,13 @@ func _process(delta):
 		speed = crouch_move_speed
 	if not is_on_floor():
 		accel = accel_in_air
-		velocity.y -= gravity * delta
+		velocity.y -= gravity * delta * 2
 	else:
 		accel = accel_normal
 		velocity.y -= jump_velocity
 	# HANDLES JUMP.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-	# IF THE PLAYER PRESSES THE "ui_accept" AND WHEN THE CHARACTER IS ON THE FLOOR,
+	#if Input.is_action_just_pressed("jump") and is_on_floor():
+	# IF THE PLAYER PRESSES THE "jump" AND WHEN THE CHARACTER IS ON THE FLOOR,
 	# SET THE Y VELOCITY TO THE JUMP VELOCITY.
 	#	velocity.y = jump_velocity
 	#MAKES IT MOVE.
@@ -137,7 +137,7 @@ func _process(delta):
 	move_and_slide()
 
 # THE CROUCH FUNCTION.
-func CROUCH(delta):
+func crouch(delta):
 	var colliding = false
 	if head_check.is_colliding():
 		colliding = true
@@ -152,4 +152,4 @@ func CROUCH(delta):
 		sprint_speed = 10.0
 		jump_velocity = 4.5
 		player_capsule.shape.height += crouch_speed * delta
-	player_capsule.shape.height =  clamp(player_capsule.shape.height, crouch_height,normal_height)
+	player_capsule.shape.height = clamp(player_capsule.shape.height, crouch_height,normal_height)
