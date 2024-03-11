@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://wy26dg8hoi5t"]
+[gd_scene load_steps=8 format=3 uid="uid://b5yrluw2onqj3"]
 
+<<<<<<<< HEAD:Demo.tscn
+[ext_resource type="PackedScene" path="res://PLAYER/Player.tscn" id="1_jcyoc"]
+[ext_resource type="Script" path="res://Action_Listener_DEMO.gd" id="2_x6u6b"]
+========
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_ugyfp"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_6t302"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="3_exxvl"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/death_zone.tscn" id="4_sm8u1"]
+>>>>>>>> main:Tutorial_Level.tscn
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olof5"]
 albedo_color = Color(0.54902, 0.0156863, 0, 1)
