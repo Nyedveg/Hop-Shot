@@ -90,5 +90,5 @@ offset_right = 41.0
 offset_bottom = 112.0
 label_settings = SubResource("LabelSettings_a4i52")
 
-[connection signal="shot_fired" from="Player" to="." method="_on_player_shot_fired"]
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
