@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_e5oxr"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_83fl6"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_t1ju2"]
-[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://WEAPONS/weapon.tscn" id="3_l4mva"]
+[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://weapons/weapon.tscn" id="3_l4mva"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/death_zone.tscn" id="5_34waj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2e8i"]
@@ -90,5 +90,5 @@ offset_right = 41.0
 offset_bottom = 112.0
 label_settings = SubResource("LabelSettings_a4i52")
 
-[connection signal="shot_fired" from="Player" to="." method="_on_player_shot_fired"]
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
