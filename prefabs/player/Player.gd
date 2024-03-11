@@ -31,10 +31,8 @@ var mouse_sense = 0.15
 #IMPROTANT VARIABLES FOR PLAYER MOVEMENT.
 var is_forward_moving = false
 var direction = Vector3()
-#WEAPON VARIABLES
-var damage = 100
 
-signal shot_fired(position)
+signal player_shot_fired(pos)
 
 # PLAYER.
 @onready var head := $Head
@@ -42,8 +40,6 @@ signal shot_fired(position)
 @onready var player_capsule := $CollisionShape3D
 @onready var head_check := $Head_check
 @onready var hand = $Head/Camera3D/Hand
-@onready var aimcast = $Head/Camera3D/AimCast
-@onready var hand_anim = $Head/Camera3D/Hand/AnimationPlayer
 
 # Dictionary of weapon scenes
 var weapons = {
@@ -70,7 +66,6 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sense))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90.0), deg_to_rad(90.0))
-		
 
 func weapon_drop():
 	if Input.is_action_just_pressed("interact"):
@@ -89,21 +84,12 @@ func _physics_process(delta):
 	weapon_drop()
 	# ADDS CROUCHING TO THE PLAYER MEANING IT CALLS THE CROUCH FUNCTION WHICH WE MADE.
 	crouch(delta)
-	#WEAPON SHOOTING
-	if Input.is_action_just_pressed("fire"):
-		if !hand_anim.is_playing():
-			hand_anim.play("firing_animation")
-		if aimcast.is_colliding() && aimcast.get_collider().is_in_group("shootable"):
-			emit_signal("shot_fired", aimcast.get_collision_point())
-			var projectile_vector = position - aimcast.get_collision_point()
-			velocity += projectile_vector / 10
 		
 	# IF ESCAPE IS PRESSED IT WILL SHOW THE MOUSE CURSOR.
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#GET KEYBOARD INPUT.
 	direction = Vector3.ZERO
-	speed = normal_speed
 	# GETS KEYBOARD INPUT.
 	# GET THE INPUT DIRECTION AND HANDLE THE MOVEMENT/DECELERATION.
 	# AS GOOD PRACTICE, YOU SHOULD REPLACE UI ACTIONS WITH CUSTOM GAMEPLAY ACTIONS.
@@ -116,11 +102,14 @@ func _physics_process(delta):
 	#SWITCHING BETWEEN SPEEDS 
 	if Input.is_action_pressed("sprint") and is_forward_moving:
 		speed = sprint_speed
-	if Input.is_action_pressed("crouch") and Input.is_action_pressed("sprint"):
+	elif Input.is_action_pressed("crouch") and Input.is_action_pressed("sprint"):
 		speed = normal_speed
 	# ADDS JUMPING AND GRAVITY.
-	if Input.is_action_pressed("crouch"):
+	elif Input.is_action_pressed("crouch"):
 		speed = crouch_move_speed
+	else:
+		speed = normal_speed
+		
 	if not is_on_floor():
 		accel = accel_in_air
 		velocity.y -= gravity * delta * 2
@@ -150,7 +139,11 @@ func crouch(delta):
 		player_capsule.shape.height -= crouch_speed * delta
 	elif not colliding:
 		# IT WILL INCREASE THE SIZE OF THE CAPSULE BY THE CROUCHING SPEED AND RESETS THE JUMP VALUE.
-		sprint_speed = 10.0
+		sprint_speed = 20.0
 		jump_velocity = 4.5
 		player_capsule.shape.height += crouch_speed * delta
 	player_capsule.shape.height = clamp(player_capsule.shape.height, crouch_height,normal_height)
+
+
+func _on_weapon_handler_shot_fired(pos):
+	emit_signal("player_shot_fired", pos)
