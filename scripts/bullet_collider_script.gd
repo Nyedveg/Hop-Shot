@@ -2,7 +2,7 @@ extends CSGSphere3D
 
 @export var x_speed = 10
 @export var z_speed = 10
-@export var y_speed = 17
+@export var y_speed = 20
 
 @onready var timer = $Timer
 
