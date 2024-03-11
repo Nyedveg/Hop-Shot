@@ -33,7 +33,10 @@ var is_forward_moving = false
 var direction = Vector3()
 
 signal player_shot_fired(pos)
-
+signal equip_gun()
+signal player_set_ammo(ammoCount)
+signal player_change_ammo(ammoCount)
+signal player_update_ammo(currentAmmo)
 # PLAYER.
 @onready var head := $Head
 @onready var camera3d := $Head/Camera3D
@@ -54,6 +57,7 @@ func spawn_weapon(weapon_name):
 	var weapon = weapons[weapon_name].weapon_scene.instantiate()
 	weapon.position = hand.position
 	hand.add_child(weapon)
+	emit_signal("equip_gun")
 
 # CALLED WHEN THE NODE ENTERS THE SCENE TREE FOR THE FIRST TIME.
 func _ready():
@@ -147,3 +151,12 @@ func crouch(delta):
 
 func _on_weapon_handler_shot_fired(pos):
 	emit_signal("player_shot_fired", pos)
+	
+func _on_node_3d_change_ammo(setAmmo):
+	emit_signal("player_change_ammo", setAmmo)
+
+func _on_node_3d_set_ammo(ammoCount):
+	emit_signal("player_set_ammo", ammoCount)
+
+func _on_weapon_handler_update_ammo(currentAmmo):
+	emit_signal("player_update_ammo", currentAmmo)
