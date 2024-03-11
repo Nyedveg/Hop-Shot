@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_tc0dm"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_6b1fb"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_nsvj8"]
-[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://weapons/weapon.tscn" id="4_gq7sd"]
+[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://WEAPONS/weapon.tscn" id="4_gq7sd"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/death_zone.tscn" id="5_h46ue"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
