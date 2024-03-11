@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=15 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_cvrlx"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
+[ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/ammo_create.tscn" id="7_e53so"]
+[ext_resource type="PackedScene" uid="uid://b8k7wuwngd6pi" path="res://prefabs/collider.tscn" id="8_2bh8q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("2_cvrlx")
@@ -39,6 +41,9 @@ tracks/0/keys = {
 _data = {
 "float": SubResource("Animation_jlcpy")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_3y3nh"]
+font_size = 64
 
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_3sc4y")
@@ -110,6 +115,23 @@ libraries = {
 "": SubResource("AnimationLibrary_i2dle")
 }
 autoplay = "float"
+
+[node name="AmmoLabel" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -88.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_3y3nh")
+
+[node name="AmmoCreate" parent="." instance=ExtResource("7_e53so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931564, 0.0574996, -12.4489)
+
+[node name="Collider" parent="." instance=ExtResource("8_2bh8q")]
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
