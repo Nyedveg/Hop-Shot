@@ -15,21 +15,23 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	speed_label.text = var_to_str(player.velocity)
+	speed_label.text = var_to_str(ceil(player.velocity.length()))
 
-# A signal emmited by the player, when the weapon gets shot
+# A SIGNAL EMITTED BY THE PLAYER WHEN THE WEAPON GETS SHOT
 func _on_player_player_shot_fired(pos):
 	var collider = collider_obj.instantiate()
 	add_child(collider)
 	collider.position = pos
-	startAmmo -= 1
 
+# CALLED WHEN PLAYER FALLS OUT OF THE MAP
 func _on_death_zone_body_entered(body):
 	print("You died")
 	body.position = Vector3.ZERO + Vector3(0,5,0)
 
+# PASSTHROUGH FOR UPDATING PLAYER'S AMMO COUMT
 func _on_ammo_create_change_ammo(ammoCount):
 	emit_signal("change_ammo", ammoCount)
 
+# UPDATES THE UI TO SHOW CURRENT AMMO
 func _on_player_player_update_ammo(currentAmmo):
 	ammo_label.text = var_to_str(currentAmmo)

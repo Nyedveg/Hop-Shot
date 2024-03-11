@@ -148,15 +148,18 @@ func crouch(delta):
 		player_capsule.shape.height += crouch_speed * delta
 	player_capsule.shape.height = clamp(player_capsule.shape.height, crouch_height,normal_height)
 
-
+# SHOT SPAWNING PASSTHROUGH FORM WEAPON HANDLER
 func _on_weapon_handler_shot_fired(pos):
 	emit_signal("player_shot_fired", pos)
 	
+# MAIN SCENE PASSTHROUGH FOR INCRAMENTING AMMO
 func _on_node_3d_change_ammo(setAmmo):
 	emit_signal("player_change_ammo", setAmmo)
 
+# MAIN SCENE PASSTHROUGH FOR SETTING BULLET COUNT
 func _on_node_3d_set_ammo(ammoCount):
 	emit_signal("player_set_ammo", ammoCount)
 
+# UI UPDATER PASSTHROUGH FOR UPDATING AMMO COUNT
 func _on_weapon_handler_update_ammo(currentAmmo):
 	emit_signal("player_update_ammo", currentAmmo)
