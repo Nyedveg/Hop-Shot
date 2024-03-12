@@ -1,58 +1,122 @@
-[gd_scene load_steps=9 format=3 uid="uid://bul5w0lnjf230"]
+[gd_scene load_steps=12 format=3 uid="uid://bul5w0lnjf230"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_tc0dm"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_6b1fb"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_nsvj8"]
-[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://WEAPONS/weapon.tscn" id="4_gq7sd"]
-[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/death_zone.tscn" id="5_h46ue"]
+[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_gq7sd"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_h46ue"]
+[ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_rkx14"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdh8x"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_652cf"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_idw4x"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_ovsp0"]
+font_size = 64
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("2_6b1fb")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 
-[sub_resource type="LabelSettings" id="LabelSettings_aqurh"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_pvu24"]
-font_size = 64
-
-[node name="Level_template" type="Node3D"]
+[node name="Level" type="Node3D"]
 script = ExtResource("1_tc0dm")
+startAmmo = 20
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 8.72539, 0)
-shadow_enabled = true
+[node name="Player" parent="." instance=ExtResource("3_nsvj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." groups=["shootable"]]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 88.0
+text = "Speed
+"
+label_settings = SubResource("LabelSettings_bdh8x")
+
+[node name="SpeedLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 89.0
+offset_right = 41.0
+offset_bottom = 177.0
+label_settings = SubResource("LabelSettings_652cf")
+
+[node name="Label2" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1662.0
+offset_top = 854.0
+offset_right = 1874.0
+offset_bottom = 942.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Bullets"
+label_settings = SubResource("LabelSettings_idw4x")
+
+[node name="AmmoLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1840.0
+offset_top = 952.0
+offset_right = 1880.0
+offset_bottom = 1040.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_ovsp0")
+
+[node name="Controllers" type="Node3D" parent="."]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="weapon" parent="Environment" instance=ExtResource("4_gq7sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19779, 0.0575008, 5.6292)
+
+[node name="floor" type="CSGBox3D" parent="Environment" groups=["shootable"]]
 use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(136.504, 0.115, 55)
 material = SubResource("StandardMaterial3D_xhfb4")
 
-[node name="Player" parent="." instance=ExtResource("3_nsvj8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 8.72539, 0)
+shadow_enabled = true
 
-[node name="weapon" parent="." instance=ExtResource("4_gq7sd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80221, 0.0575008, 4.6292)
+[node name="AmmoCreate3" parent="Environment" instance=ExtResource("6_rkx14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
 
-[node name="Death_Zone" parent="." instance=ExtResource("5_h46ue")]
+[node name="AmmoCreate2" parent="Environment" instance=ExtResource("6_rkx14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -7)
+
+[node name="AmmoCreate" parent="Environment" instance=ExtResource("6_rkx14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="Areas" type="Node3D" parent="."]
+
+[node name="Death_Zone" parent="Areas" instance=ExtResource("5_h46ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Speed
-"
-label_settings = SubResource("LabelSettings_aqurh")
-
-[node name="SpeedLabel" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 89.0
-offset_right = 41.0
-offset_bottom = 112.0
-label_settings = SubResource("LabelSettings_pvu24")
-
+[connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
-[connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
+[connection signal="player_update_ammo" from="Player" to="." method="_on_player_player_update_ammo"]
+[connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://djviime4g1lhc"]
 
-[ext_resource type="Script" path="res://ammo_box_script.gd" id="1_s5i4o"]
+[ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="1_s5i4o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6nl5"]
 albedo_color = Color(0.054902, 0.313726, 0.101961, 1)
