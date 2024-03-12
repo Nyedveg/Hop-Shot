@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxlhpwp5e5gig"]
 
-[ext_resource type="Script" path="res://weapons/Area3D.gd" id="1_6cx6y"]
+[ext_resource type="Script" path="res://prefabs/game objects/interactable/weapon/Area3D.gd" id="1_yc23j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_roaat"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -19,14 +19,14 @@ size = Vector3(0.26, 0.19, 0.56)
 [node name="weapon" type="Area3D"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_6cx6y")
+script = ExtResource("1_yc23j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_roaat")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0, 0)

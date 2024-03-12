@@ -32,25 +32,25 @@ var mouse_sense = 0.15
 var is_forward_moving = false
 var direction = Vector3()
 
-signal player_shot_fired(pos)
+signal player_shot_fired(pos : Vector3)
 signal equip_gun()
-signal player_set_ammo(ammoCount)
-signal player_change_ammo(ammoCount)
-signal player_update_ammo(currentAmmo)
+signal player_set_ammo(ammoCount : int)
+signal player_change_ammo(ammoCount : int)
+signal UI_update_ammo(currentAmmo : int)
+
 # PLAYER.
 @onready var head := $Head
-@onready var camera3d := $Head/Camera3D
+@onready var camera3d := $Head/Camera
 @onready var player_capsule := $CollisionShape3D
 @onready var head_check := $Head_check
-@onready var hand = $Head/Camera3D/Hand
+@onready var hand = $Head/Camera/Hand
 
 # Dictionary of weapon scenes
 var weapons = {
 	"weapon": {
-		"weapon_scene": preload("res://weapons/weapon_hr.tscn"),
-		"drop_scene": preload("res://weapons/weapon.tscn")
+		"weapon_scene": preload("res://prefabs/game objects/interactable/weapon/weapon_hr.tscn"),
+		"drop_scene": preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
 	}
-	# Add more weapons here... ALSO DONT FORGET THE ,
 }
 
 func spawn_weapon(weapon_name):
@@ -71,21 +71,9 @@ func _input(event):
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90.0), deg_to_rad(90.0))
 
-func weapon_drop():
-	if Input.is_action_just_pressed("interact"):
-		if ! $Head/Camera3D/Hand.get_children().is_empty():
-			var weapon_node = $Head/Camera3D/Hand.get_child(0)
-			var weapon_name = weapon_node.name
-			if weapons.has(weapon_name):
-				var weapon_to_drop = weapons[weapon_name].drop_scene.instantiate()
-				get_tree().get_root().add_child(weapon_to_drop)
-				weapon_to_drop.global_transform = $Node3D.global_transform
-				weapon_node.queue_free()
-
 # CALLED EVERY FRAME. 'DELTA' IS THE ELAPSED TIME SINCE THE PREVIOUS FRAME.
 # ALSO THIS WILL HANDLE ALL THE PLAYERS MOVEMENT AND PHYSICS.
 func _physics_process(delta):
-	weapon_drop()
 	# ADDS CROUCHING TO THE PLAYER MEANING IT CALLS THE CROUCH FUNCTION WHICH WE MADE.
 	crouch(delta)
 		
@@ -148,15 +136,14 @@ func crouch(delta):
 		player_capsule.shape.height += crouch_speed * delta
 	player_capsule.shape.height = clamp(player_capsule.shape.height, crouch_height,normal_height)
 
-
+# SHOT SPAWNING PASSTHROUGH FORM WEAPON HANDLER
 func _on_weapon_handler_shot_fired(pos):
 	emit_signal("player_shot_fired", pos)
-	
-func _on_node_3d_change_ammo(setAmmo):
-	emit_signal("player_change_ammo", setAmmo)
 
-func _on_node_3d_set_ammo(ammoCount):
-	emit_signal("player_set_ammo", ammoCount)
-
+# UI UPDATER PASSTHROUGH FOR UPDATING AMMO COUNT
 func _on_weapon_handler_update_ammo(currentAmmo):
-	emit_signal("player_update_ammo", currentAmmo)
+	emit_signal("UI_update_ammo", currentAmmo)
+
+# MAIN SCENE PASSTHROUGH FOR SETTING BULLET COUNT
+func _on_level_template_set_ammo(setAmmo):
+	emit_signal("player_set_ammo", setAmmo)
