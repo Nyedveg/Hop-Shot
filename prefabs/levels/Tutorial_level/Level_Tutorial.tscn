@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=14 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_cvrlx"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
-[ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/ammo_create.tscn" id="7_e53so"]
-[ext_resource type="PackedScene" uid="uid://b8k7wuwngd6pi" path="res://prefabs/collider.tscn" id="8_2bh8q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("2_cvrlx")
@@ -42,7 +40,10 @@ _data = {
 "float": SubResource("Animation_jlcpy")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_3y3nh"]
+[sub_resource type="LabelSettings" id="LabelSettings_3q4n1"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_pukly"]
 font_size = 64
 
 [node name="Level_template" type="Node3D"]
@@ -116,6 +117,21 @@ libraries = {
 }
 autoplay = "float"
 
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -186.0
+offset_right = -6.0
+offset_bottom = -98.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Bullets"
+label_settings = SubResource("LabelSettings_3q4n1")
+
 [node name="AmmoLabel" type="Label" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
@@ -126,12 +142,14 @@ offset_left = -40.0
 offset_top = -88.0
 grow_horizontal = 0
 grow_vertical = 0
-label_settings = SubResource("LabelSettings_3y3nh")
+label_settings = SubResource("LabelSettings_pukly")
 
-[node name="AmmoCreate" parent="." instance=ExtResource("7_e53so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931564, 0.0574996, -12.4489)
-
-[node name="Collider" parent="." instance=ExtResource("8_2bh8q")]
+[node name="Label3" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Speed
+"
+label_settings = SubResource("LabelSettings_3q4n1")
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
