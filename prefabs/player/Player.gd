@@ -47,10 +47,9 @@ signal player_update_ammo(currentAmmo)
 # Dictionary of weapon scenes
 var weapons = {
 	"weapon": {
-		"weapon_scene": preload("res://weapons/weapon_hr.tscn"),
-		"drop_scene": preload("res://weapons/weapon.tscn")
+		"weapon_scene": preload("res://prefabs/game objects/interactable/weapon/weapon_hr.tscn"),
+		"drop_scene": preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
 	}
-	# Add more weapons here... ALSO DONT FORGET THE ,
 }
 
 func spawn_weapon(weapon_name):
@@ -148,15 +147,14 @@ func crouch(delta):
 		player_capsule.shape.height += crouch_speed * delta
 	player_capsule.shape.height = clamp(player_capsule.shape.height, crouch_height,normal_height)
 
-
+# SHOT SPAWNING PASSTHROUGH FORM WEAPON HANDLER
 func _on_weapon_handler_shot_fired(pos):
 	emit_signal("player_shot_fired", pos)
-	
-func _on_node_3d_change_ammo(setAmmo):
-	emit_signal("player_change_ammo", setAmmo)
 
-func _on_node_3d_set_ammo(ammoCount):
-	emit_signal("player_set_ammo", ammoCount)
-
+# UI UPDATER PASSTHROUGH FOR UPDATING AMMO COUNT
 func _on_weapon_handler_update_ammo(currentAmmo):
 	emit_signal("player_update_ammo", currentAmmo)
+
+# MAIN SCENE PASSTHROUGH FOR SETTING BULLET COUNT
+func _on_level_template_set_ammo(setAmmo):
+	emit_signal("player_set_ammo", setAmmo)

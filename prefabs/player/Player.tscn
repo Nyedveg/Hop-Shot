@@ -60,12 +60,15 @@ shape = SubResource("CapsuleShape3D_kjnyq")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
-[node name="Weapon_handler" type="Node3D" parent="Head"]
-script = ExtResource("2_rsuso")
-
 [node name="Camera3D" type="Camera3D" parent="Head"]
 environment = SubResource("Environment_oslwl")
 near = 0.001
+
+[node name="Weapon_handler" type="Node3D" parent="Head/Camera3D"]
+script = ExtResource("2_rsuso")
+
+[node name="Directional" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="AimCast" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -50)
@@ -98,8 +101,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 1, 0)
 collision_mask = 2
 
-[connection signal="equip_gun" from="." to="Head/Weapon_handler" method="_on_player_equip_gun"]
-[connection signal="player_change_ammo" from="." to="Head/Weapon_handler" method="_on_player_player_change_ammo"]
-[connection signal="player_set_ammo" from="." to="Head/Weapon_handler" method="_on_player_player_set_ammo"]
-[connection signal="shot_fired" from="Head/Weapon_handler" to="." method="_on_weapon_handler_shot_fired"]
-[connection signal="update_ammo" from="Head/Weapon_handler" to="." method="_on_weapon_handler_update_ammo"]
+[connection signal="equip_gun" from="." to="Head/Camera3D/Weapon_handler" method="_on_player_equip_gun"]
+[connection signal="player_change_ammo" from="." to="Head/Camera3D/Weapon_handler" method="_on_player_player_change_ammo"]
+[connection signal="player_set_ammo" from="." to="Head/Camera3D/Weapon_handler" method="_on_player_player_set_ammo"]
+[connection signal="shot_fired" from="Head/Camera3D/Weapon_handler" to="." method="_on_weapon_handler_shot_fired"]
+[connection signal="update_ammo" from="Head/Camera3D/Weapon_handler" to="." method="_on_weapon_handler_update_ammo"]
