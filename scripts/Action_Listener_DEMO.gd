@@ -6,7 +6,7 @@ var pressedD = false
 var all_pressed = false
 @onready var text_pop = $"../TextPop"
 @onready var spawn_in = $"../spawn_weapon"
-var weapons = preload("res://weapons/weapon.tscn")
+var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
@@ -36,7 +36,4 @@ func _process(delta):
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
 		spawn_weapon()
-		
-		
-		
 		

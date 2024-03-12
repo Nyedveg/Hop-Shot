@@ -160,6 +160,20 @@ collision_layer = 6
 collision_mask = 6
 size = Vector3(6.24805, 4.78345, 1)
 
+[node name="CSGBox3D14" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.9001, 10, -20.0774)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(10, 20, 10)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.0766, 10, -26.215)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(38.1479, 20, 2.415)
+
 [node name="CSGBox3D12" type="CSGBox3D" parent="Environment" groups=["shootable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5186, 7.51517, -22.5024)
 use_collision = true
@@ -200,6 +214,12 @@ billboard = 2
 text = "Double  jump (3.5m)"
 font_size = 128
 
+[node name="Walljump" type="Label3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.478, 2.63571, -20.1778)
+billboard = 2
+text = "Walljump"
+font_size = 128
+
 [node name="Sprint DJ" type="Label3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6823, 6.55899, 20.2498)
 billboard = 2
@@ -224,6 +244,6 @@ font_size = 128
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 
 [connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
+[connection signal="UI_update_ammo" from="Player" to="." method="_on_player_ui_update_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
-[connection signal="player_update_ammo" from="Player" to="." method="_on_player_player_update_ammo"]
 [connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]
