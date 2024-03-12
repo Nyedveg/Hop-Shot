@@ -2,9 +2,9 @@ extends Node3D
 
 var collider_obj = preload( "res://prefabs/collider.tscn")
 
-@onready var speed_label = $UI/SpeedLabel
+@onready var speed_label = $SpeedLabel
 @onready var player = $Player
-@onready var ammo_label = $UI/AmmoLabel
+@onready var ammo_label = $AmmoLabel
 
 @export var startAmmo: int
 signal set_ammo(setAmmo)

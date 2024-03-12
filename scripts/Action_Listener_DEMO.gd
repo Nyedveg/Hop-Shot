@@ -36,4 +36,3 @@ func _process(delta):
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
 		spawn_weapon()
-		
