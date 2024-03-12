@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_e5oxr"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_83fl6"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_t1ju2"]
-[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="3_l4mva"]
+[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://weapon/weapon.tscn" id="3_l4mva"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_34waj"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_hhs8r"]
 
@@ -18,9 +18,9 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_a4i52"]
 font_size = 64
 
-[node name="test" type="Node3D"]
+[node name="Node3D" type="Node3D"]
 script = ExtResource("1_e5oxr")
-startAmmo = 20
+startAmmo = 5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 8.72539, 0)
@@ -122,7 +122,9 @@ label_settings = SubResource("LabelSettings_a4i52")
 [node name="AmmoCreate" parent="." instance=ExtResource("6_hhs8r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931564, 0.0574996, -12.4489)
 
+[connection signal="change_ammo" from="." to="Player" method="_on_node_3d_change_ammo"]
 [connection signal="set_ammo" from="." to="Player" method="_on_node_3d_set_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="player_update_ammo" from="Player" to="." method="_on_player_player_update_ammo"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
+[connection signal="change_ammo" from="AmmoCreate" to="." method="_on_ammo_create_change_ammo"]
