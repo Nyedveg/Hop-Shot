@@ -3,7 +3,7 @@ extends CharacterBody3D
 # MOVEMENT SPEEDS.
 var speed
 # NORMAL SPEED.
-var normal_speed = 10.0
+var normal_speed = 8.0
 # SPRINT/RUNING SPEED.
 var sprint_speed = 20.0
 # accel_in_air STANDS FOR ACCELERATION IN HANPPENING IN AIR. 
@@ -147,3 +147,4 @@ func _on_weapon_handler_update_ammo(currentAmmo):
 # MAIN SCENE PASSTHROUGH FOR SETTING BULLET COUNT
 func _on_level_template_set_ammo(setAmmo):
 	emit_signal("player_set_ammo", setAmmo)
+		

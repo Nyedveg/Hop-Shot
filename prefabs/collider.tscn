@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8k7wuwngd6pi"]
+[gd_scene load_steps=4 format=3 uid="uid://b8k7wuwngd6pi"]
 
 [ext_resource type="Script" path="res://scripts/bullet_collider_script.gd" id="1_lmeg2"]
 
@@ -7,13 +7,6 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4bhyt"]
 radius = 3.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_337go"]
-transparency = 1
-albedo_color = Color(1, 0.443137, 0, 0.0784314)
-
-[sub_resource type="SphereMesh" id="SphereMesh_1rd2j"]
-material = SubResource("StandardMaterial3D_337go")
 
 [node name="Collider" type="CSGSphere3D"]
 material = SubResource("StandardMaterial3D_b3vnj")
@@ -25,10 +18,6 @@ script = ExtResource("1_lmeg2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_4bhyt")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(6.085, 0, 0, 0, 6.085, 0, 0, 0, 6.085, 0, 0, 0)
-mesh = SubResource("SphereMesh_1rd2j")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
