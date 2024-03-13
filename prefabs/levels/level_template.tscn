@@ -26,7 +26,7 @@ uv1_triplanar = true
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_tc0dm")
-startAmmo = 20
+startAmmo = 100
 
 [node name="Player" parent="." instance=ExtResource("3_nsvj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -118,5 +118,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 
 [connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
-[connection signal="player_update_ammo" from="Player" to="." method="_on_player_player_update_ammo"]
 [connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]

@@ -26,7 +26,7 @@ uv1_triplanar = true
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3t6vb")
-startAmmo = 20
+startAmmo = 100
 
 [node name="Player" parent="." instance=ExtResource("2_8jvgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

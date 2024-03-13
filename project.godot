@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/aspect="expand"
 
 [input]
@@ -67,5 +68,6 @@ fire={
 
 [physics]
 
-3d/default_gravity=15.3
+3d/physics_engine="JoltPhysics3D"
+3d/default_gravity=15.2
 2d/default_gravity=930.0
