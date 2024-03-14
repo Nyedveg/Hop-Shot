@@ -33,9 +33,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 0
@@ -60,14 +62,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1662.0
-offset_top = 854.0
-offset_right = 1874.0
-offset_bottom = 942.0
+offset_left = -212.0
+offset_top = -187.0
+offset_bottom = -99.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Bullets"
 label_settings = SubResource("LabelSettings_idw4x")
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="AmmoLabel" type="Label" parent="UI"]
 layout_mode = 1
@@ -76,13 +79,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1840.0
-offset_top = 952.0
-offset_right = 1880.0
-offset_bottom = 1040.0
+offset_left = -40.0
+offset_top = -88.0
 grow_horizontal = 0
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_ovsp0")
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Controllers" type="Node3D" parent="."]
 
