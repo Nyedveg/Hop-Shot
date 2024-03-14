@@ -29,7 +29,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 0.594603, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.50971, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.296706, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -41,7 +41,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 0.258816, 1),
 "update": 0,
-"values": [Vector3(0.180779, -0.0996468, -0.185), Vector3(0.251, -0.1, -0.185), Vector3(0.180779, -0.0996468, -0.185)]
+"values": [Vector3(0.180779, -0.0996468, -0.185), Vector3(0.181, -0.075, -0.185), Vector3(0.180779, -0.0996468, -0.185)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_goww4"]

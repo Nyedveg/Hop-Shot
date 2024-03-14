@@ -79,7 +79,7 @@ func _physics_process(delta):
 		
 	# IF ESCAPE IS PRESSED IT WILL SHOW THE MOUSE CURSOR.
 	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().quit()
 	#GET KEYBOARD INPUT.
 	direction = Vector3.ZERO
 	# GETS KEYBOARD INPUT.

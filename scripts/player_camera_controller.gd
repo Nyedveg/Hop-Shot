@@ -18,7 +18,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	camera.fov = default_fov + player.velocity.length() / 2
+	if player.is_forward_moving:
+		camera.fov = default_fov + player.velocity.length() / 2
 	
 	if shake_strength > 0:
 		shake_strength = lerp(shake_strength, 0.0, shakeFade * delta)
