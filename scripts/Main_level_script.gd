@@ -32,3 +32,4 @@ func _on_death_zone_body_entered(body):
 # UPDATES THE UI TO SHOW CURRENT AMMO
 func _on_player_ui_update_ammo(currentAmmo):
 	ammo_label.text = var_to_str(currentAmmo)
+
