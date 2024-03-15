@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b7nunh4n2ktoy"
-path="res://.godot/imported/Hopper_Gun._Painted.glb-096dee5cb86a9c02542f183fbeb2d2ca.scn"
+path="res://.godot/imported/Hopper_Gun._Painted.glb-ae59dffc0d30a307bd18204e764cf1f2.scn"
 
 [deps]
 
-source_file="res://models/Hopper_Gun._Painted.glb"
-dest_files=["res://.godot/imported/Hopper_Gun._Painted.glb-096dee5cb86a9c02542f183fbeb2d2ca.scn"]
+source_file="res://models/Hopper/Hopper_Gun._Painted.glb"
+dest_files=["res://.godot/imported/Hopper_Gun._Painted.glb-ae59dffc0d30a307bd18204e764cf1f2.scn"]
 
 [params]
 
