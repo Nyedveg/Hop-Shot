@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpuhvimqytsb"]
+[gd_scene load_steps=12 format=3 uid="uid://cpuhvimqytsb"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3t6vb"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_8jvgf"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_4dse7"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="5_n2r0x"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_mx6eb"]
-[ext_resource type="PackedScene" uid="uid://0japaqc502xd" path="res://prefabs/game objects/finish_zone.tscn" id="7_rm03l"]
+[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/finish_zone.tscn" id="7_vjeah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("5_n2r0x")
@@ -173,13 +173,13 @@ billboard = 2
 text = "Single jump (0.5m)"
 font_size = 128
 
+[node name="Finish_Zone" parent="Environment" instance=ExtResource("7_vjeah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4032, 0.669742, 0)
+
 [node name="Areas" type="Node3D" parent="."]
 
 [node name="Death_Zone" parent="Areas" instance=ExtResource("3_aijol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
-
-[node name="Finish_Zone" parent="Areas" instance=ExtResource("7_rm03l")]
-transform = Transform3D(1, 0.00032047, 0.000147001, -0.000320457, 1, -0.000100151, -0.000147029, 0.000100109, 1, -72.9192, -0.921745, -0.929637)
 
 [connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
 [connection signal="UI_update_ammo" from="Player" to="." method="_on_player_ui_update_ammo"]
