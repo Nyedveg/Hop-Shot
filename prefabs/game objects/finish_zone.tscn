@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0japaqc502xd"]
+[gd_scene load_steps=6 format=3 uid="uid://b1gu6f8hnmb1a"]
 
 [ext_resource type="Texture2D" uid="uid://4uns88e16jxc" path="res://textures/360_F_370539127_zcUHQTNUaGbyEMeaexk5UiuPT0NLgjeW.jpg" id="1_7qmp4"]
 [ext_resource type="Script" path="res://prefabs/game objects/finish_zone.gd" id="1_y2vkc"]
@@ -17,6 +17,7 @@ material = SubResource("StandardMaterial3D_dk26y")
 
 [node name="Finish_Zone" type="Area3D"]
 script = ExtResource("1_y2vkc")
+scene = "res://prefabs/levels/level_template.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_m1lgb")
