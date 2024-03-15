@@ -1,6 +1,5 @@
 [gd_scene load_steps=13 format=3 uid="uid://cpuhvimqytsb"]
 
-
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3t6vb"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_8jvgf"]
 [ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="2_86wyy"]
@@ -13,6 +12,14 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("5_n2r0x")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5n2sv"]
+albedo_texture = ExtResource("5_n2r0x")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4rnl"]
+albedo_texture = ExtResource("5_n2r0x")
 uv1_triplanar = true
 
 [node name="Level" type="Node3D"]
@@ -79,27 +86,6 @@ collision_layer = 6
 collision_mask = 6
 size = Vector3(9, 4.78345, 13.3174)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Environment" groups=["shootable"]]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 17.6842, 14.0534)
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-size = Vector3(6.24805, 4.78345, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Environment" groups=["shootable"]]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 15.146, 21.1575)
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-size = Vector3(6.24805, 4.78345, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Environment" groups=["shootable"]]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 7.23846, 13.2778)
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-size = Vector3(6.24805, 4.78345, 1)
-
 [node name="CSGBox3D14" type="CSGBox3D" parent="Environment" groups=["shootable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.9001, 10, -20.0774)
 use_collision = true
@@ -135,12 +121,21 @@ collision_layer = 7
 collision_mask = 7
 size = Vector3(5, 0.5, 4.999)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Environment" groups=["shootable"]]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 2.6494, 21.4108)
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(-4.37114e-08, 0.173648, -0.984807, 0, 0.984807, 0.173648, 1, 7.5904e-09, -4.30473e-08, 5.57032, 2.37274, 78.1627)
 use_collision = true
 collision_layer = 7
 collision_mask = 7
-size = Vector3(6.24805, 4.78345, 1)
+size = Vector3(101.013, 56.4216, 1)
+material = SubResource("StandardMaterial3D_5n2sv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(-4.37114e-08, -0.173648, -0.984807, 0, 0.984807, -0.173648, 1, -7.5904e-09, -4.30473e-08, -5.08988, 4.0725, 78.4883)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(100.938, 56.4216, 1)
+material = SubResource("StandardMaterial3D_h4rnl")
 
 [node name="Triple Jump" type="Label3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4927, 2.20066, -17.5058)

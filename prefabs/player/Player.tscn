@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2h5wi5d0wwxc"]
+[gd_scene load_steps=12 format=3 uid="uid://c2h5wi5d0wwxc"]
 
 [ext_resource type="Script" path="res://prefabs/player/Player.gd" id="1_8knlq"]
 [ext_resource type="Texture2D" uid="uid://oh70s64d6ot7" path="res://textures/temp_crosshair.png" id="2_b0r1b"]
@@ -15,6 +15,11 @@ sky_material = SubResource("ProceduralSkyMaterial_m1bpa")
 [sub_resource type="Environment" id="Environment_oslwl"]
 background_mode = 2
 sky = SubResource("Sky_xnenq")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_fr2ux"]
+auto_exposure_enabled = true
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.2
 
 [sub_resource type="Animation" id="Animation_o8d01"]
 resource_name = "firing_animation"
@@ -63,10 +68,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="Camera_Controller" type="Node3D" parent="Head"]
 script = ExtResource("2_fsb5k")
-default_fov = 75
+default_fov = 75.0
 
 [node name="Camera" type="Camera3D" parent="Head"]
 environment = SubResource("Environment_oslwl")
+attributes = SubResource("CameraAttributesPractical_fr2ux")
 near = 0.001
 
 [node name="Weapon_handler" type="Node3D" parent="Head/Camera"]
