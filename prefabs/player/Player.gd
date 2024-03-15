@@ -5,11 +5,11 @@ var speed
 # NORMAL SPEED.
 var normal_speed = 8.0
 # SPRINT/RUNING SPEED.
-var sprint_speed = 20.0
+var sprint_speed = 15.0
 # accel_in_air STANDS FOR ACCELERATION IN HANPPENING IN AIR. 
 # accel_normal STANDS FOR ACCELERATION IN NOT HANPPENING IN AIR BUT INSTEAD ON GROUND.
 const accel_normal = 10.0
-const accel_in_air = 1.0
+const accel_in_air = 0.8
 #THESE CONSTANTS DEFINE TWO ACCELERATION VALUES:
 #THESE VALUES CONTROL HOW QUICKLY THE PLAYER SPEEDS UP AND SLOWS DOWN IN DIFFERENT CONTEXTS.
 # ACCEL_NORMAL FOR WHEN THE PLAYER IS ON THE GROUND, AND ACCEL_IN_AIR FOR WHEN THE PLAYER IS IN THE AIR. 
@@ -131,7 +131,7 @@ func crouch(delta):
 		player_capsule.shape.height -= crouch_speed * delta
 	elif not colliding:
 		# IT WILL INCREASE THE SIZE OF THE CAPSULE BY THE CROUCHING SPEED AND RESETS THE JUMP VALUE.
-		sprint_speed = 20.0
+		sprint_speed = 15.0
 		jump_velocity = 4.5
 		player_capsule.shape.height += crouch_speed * delta
 	player_capsule.shape.height = clamp(player_capsule.shape.height, crouch_height,normal_height)
@@ -148,3 +148,4 @@ func _on_weapon_handler_update_ammo(currentAmmo):
 func _on_level_template_set_ammo(setAmmo):
 	emit_signal("player_set_ammo", setAmmo)
 		
+
