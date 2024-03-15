@@ -67,8 +67,11 @@ script = ExtResource("2_fsb5k")
 default_fov = 75.0
 
 [node name="Camera" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0223418, 0)
 environment = SubResource("Environment_oslwl")
 near = 0.001
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Head/Camera"]
 
 [node name="Weapon_handler" type="Node3D" parent="Head/Camera"]
 script = ExtResource("2_rsuso")
