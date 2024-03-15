@@ -2,18 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkxpwvfcgk7d8"
-path.s3tc="res://.godot/imported/Hopper_Gun_Hopper_Ball_UV_2.png-3f87199b9585bb3abd9097a3fb320e6e.s3tc.ctex"
+uid="uid://dobv2o0be4a5m"
+path.s3tc="res://.godot/imported/HP_Tree2_rsz_hp_tree_texture.png-7f6554f28cf1ee017bd4dd122fef4481.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://models/Hopper_Gun_Hopper_Ball_UV_2.png"
-dest_files=["res://.godot/imported/Hopper_Gun_Hopper_Ball_UV_2.png-3f87199b9585bb3abd9097a3fb320e6e.s3tc.ctex"]
+source_file="res://models/trees/green_tree/HP_Tree2_rsz_hp_tree_texture.png"
+dest_files=["res://.godot/imported/HP_Tree2_rsz_hp_tree_texture.png-7f6554f28cf1ee017bd4dd122fef4481.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d21v2y71j42my"]
 
-[ext_resource type="PackedScene" uid="uid://b7nunh4n2ktoy" path="res://models/Hopper_Gun._Painted.glb" id="1_63n4s"]
+[ext_resource type="PackedScene" uid="uid://b7nunh4n2ktoy" path="res://models/Hopper/Hopper_Gun._Painted.glb" id="1_63n4s"]
 
 [node name="weapon" type="Node3D"]
 
