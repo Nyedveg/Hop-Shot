@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxlhpwp5e5gig"]
+[gd_scene load_steps=7 format=3 uid="uid://bxlhpwp5e5gig"]
 
 [ext_resource type="Script" path="res://prefabs/game objects/interactable/weapon/Area3D.gd" id="1_yc23j"]
 
@@ -7,6 +7,8 @@ size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cljmk"]
 size = Vector3(0.46, 0.33, 0.96)
+
+[sub_resource type="Skin" id="Skin_x40cd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u0xj"]
 albedo_color = Color(0.0470588, 0.980392, 1, 1)
@@ -30,6 +32,7 @@ collision_mask = 3
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0, 0)
 layers = 2
 mesh = SubResource("BoxMesh_cljmk")
+skin = SubResource("Skin_x40cd")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_2u0xj")
 
