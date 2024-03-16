@@ -23,7 +23,7 @@ func _physics_process(_delta):
 			ammo -= 1
 			hand_anim.play("firing_animation")
 			emit_signal("update_ammo", ammo)
-			emit_signal("shake_camera", 0.15)
+			emit_signal("shake_camera", 0.05)
 			if aimcast.is_colliding() && aimcast.get_collider().is_in_group("shootable"):
 				emit_signal("shot_fired", aimcast.get_collision_point())
 
@@ -40,3 +40,4 @@ func _on_player_player_change_ammo(ammoCount):
 func _on_player_player_set_ammo(ammoCount):
 	ammo = ammoCount
 	emit_signal("update_ammo", ammo)
+

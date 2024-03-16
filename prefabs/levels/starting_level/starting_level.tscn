@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://djfgl770c3pnm"]
+
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_k07er"]
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_pqolb"]
+[ext_resource type="PackedScene" uid="uid://blcgyfj31qa1" path="res://prefabs/game objects/static/trees/tree_1.tscn" id="4_r3k7q"]
+[ext_resource type="PackedScene" uid="uid://06weksxavykt" path="res://prefabs/game objects/static/trees/tree_3.tscn" id="5_piahr"]
+[ext_resource type="PackedScene" uid="uid://b7dgcbofxdgep" path="res://prefabs/game objects/static/trees/tree_4.tscn" id="6_6jmcy"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="6_ugoj2"]
+[ext_resource type="PackedScene" uid="uid://cjnpcdc2whkje" path="res://prefabs/game objects/static/trees/tree_2.tscn" id="7_32rsn"]
+[ext_resource type="PackedScene" uid="uid://cd12xpp01vyq4" path="res://prefabs/levels/starting_level/starting_level_base.tscn" id="8_ptdgw"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_k07er")
+startAmmo = 100
+
+[node name="Player" parent="." instance=ExtResource("2_pqolb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Controllers" type="Node3D" parent="."]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 8.72539, 0)
+shadow_enabled = true
+
+[node name="Areas" type="Node3D" parent="."]
+
+[node name="Death_Zone" parent="Areas" instance=ExtResource("6_ugoj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
+
+[node name="Tree1" parent="." instance=ExtResource("4_r3k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.10097, -0.373224, 8.01909)
+
+[node name="Tree2" parent="." instance=ExtResource("4_r3k7q")]
+transform = Transform3D(0.491439, 0, 0.491439, 0, 0.695, 0, -0.491439, 0, 0.491439, -4, -1.72833, -10)
+
+[node name="Tree3" parent="." instance=ExtResource("5_piahr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -3.73843, -42)
+
+[node name="Tree4" parent="." instance=ExtResource("6_6jmcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -1.73438, 28)
+
+[node name="Tree5" parent="." instance=ExtResource("7_32rsn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, -4.09017, 6)
+
+[node name="Tree6" parent="." instance=ExtResource("6_6jmcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -5.93863, -24)
+
+[node name="Tree7" parent="." instance=ExtResource("5_piahr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -36)
+
+[node name="Tree8" parent="." instance=ExtResource("7_32rsn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -15)
+
+[node name="Tree9" parent="." instance=ExtResource("6_6jmcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 13)
+
+[node name="Tree10" parent="." instance=ExtResource("4_r3k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 41)
+
+[node name="starting_level_base" parent="." instance=ExtResource("8_ptdgw")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 97.91, 24.1762, 163.577)
+
+[connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
+[connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]

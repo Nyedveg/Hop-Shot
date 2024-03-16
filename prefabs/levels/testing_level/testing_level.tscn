@@ -2,87 +2,34 @@
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3t6vb"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_8jvgf"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="2_86wyy"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="3_aijol"]
 [ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_4dse7"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="5_n2r0x"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_mx6eb"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_bdh8x"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_652cf"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_idw4x"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_ovsp0"]
-font_size = 64
+[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/finish_zone.tscn" id="7_vjeah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("5_n2r0x")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5n2sv"]
+albedo_texture = ExtResource("5_n2r0x")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4rnl"]
+albedo_texture = ExtResource("5_n2r0x")
+uv1_triplanar = true
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3t6vb")
-startAmmo = 20
+startAmmo = 100
+
+[node name="UI" parent="." instance=ExtResource("2_86wyy")]
 
 [node name="Player" parent="." instance=ExtResource("2_8jvgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="UI"]
-layout_mode = 0
-offset_right = 189.0
-offset_bottom = 88.0
-text = "Speed
-"
-label_settings = SubResource("LabelSettings_bdh8x")
-
-[node name="SpeedLabel" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 89.0
-offset_right = 41.0
-offset_bottom = 177.0
-label_settings = SubResource("LabelSettings_652cf")
-
-[node name="Label2" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1662.0
-offset_top = 854.0
-offset_right = 1874.0
-offset_bottom = 942.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Bullets"
-label_settings = SubResource("LabelSettings_idw4x")
-
-[node name="AmmoLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1840.0
-offset_top = 952.0
-offset_right = 1880.0
-offset_bottom = 1040.0
-grow_horizontal = 0
-grow_vertical = 0
-label_settings = SubResource("LabelSettings_ovsp0")
 
 [node name="Controllers" type="Node3D" parent="."]
 
@@ -139,27 +86,6 @@ collision_layer = 6
 collision_mask = 6
 size = Vector3(9, 4.78345, 13.3174)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Environment" groups=["shootable"]]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 17.6842, 14.0534)
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-size = Vector3(6.24805, 4.78345, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Environment" groups=["shootable"]]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 15.146, 21.1575)
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-size = Vector3(6.24805, 4.78345, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Environment" groups=["shootable"]]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 7.23846, 13.2778)
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-size = Vector3(6.24805, 4.78345, 1)
-
 [node name="CSGBox3D14" type="CSGBox3D" parent="Environment" groups=["shootable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.9001, 10, -20.0774)
 use_collision = true
@@ -195,12 +121,21 @@ collision_layer = 7
 collision_mask = 7
 size = Vector3(5, 0.5, 4.999)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Environment" groups=["shootable"]]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 2.6494, 21.4108)
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(-4.37114e-08, 0.173648, -0.984807, 0, 0.984807, 0.173648, 1, 7.5904e-09, -4.30473e-08, 5.57032, 2.37274, 78.1627)
 use_collision = true
 collision_layer = 7
 collision_mask = 7
-size = Vector3(6.24805, 4.78345, 1)
+size = Vector3(101.013, 56.4216, 1)
+material = SubResource("StandardMaterial3D_5n2sv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(-4.37114e-08, -0.173648, -0.984807, 0, 0.984807, -0.173648, 1, -7.5904e-09, -4.30473e-08, -5.08988, 4.0725, 78.4883)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(100.938, 56.4216, 1)
+material = SubResource("StandardMaterial3D_h4rnl")
 
 [node name="Triple Jump" type="Label3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4927, 2.20066, -17.5058)
@@ -238,12 +173,23 @@ billboard = 2
 text = "Single jump (0.5m)"
 font_size = 128
 
+[node name="Finish_Zone" parent="Environment" instance=ExtResource("7_vjeah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4032, 0.669742, 0)
+
 [node name="Areas" type="Node3D" parent="."]
 
 [node name="Death_Zone" parent="Areas" instance=ExtResource("3_aijol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 
+[node name="CSGBox3D10" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1086, 2.52091, -22.4825)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(5, 0.5, 4.999)
+
 [connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
 [connection signal="UI_update_ammo" from="Player" to="." method="_on_player_ui_update_ammo"]
+[connection signal="UI_update_ammo" from="Player" to="UI" method="_on_player_ui_update_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]
