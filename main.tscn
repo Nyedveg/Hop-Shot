@@ -125,4 +125,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931564, 0.0574996, -12.448
 [connection signal="set_ammo" from="." to="Player" method="_on_node_3d_set_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
-[connection signal="change_ammo" from="AmmoCreate" to="." method="_on_ammo_create_change_ammo"]
