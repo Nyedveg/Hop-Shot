@@ -163,4 +163,4 @@ func _on_weapon_handler_update_ammo(currentAmmo):
 # MAIN SCENE PASSTHROUGH FOR SETTING BULLET COUNT
 func _on_level_template_set_ammo(setAmmo):
 	emit_signal("player_set_ammo", setAmmo)
-		
+	

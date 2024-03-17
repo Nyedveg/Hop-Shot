@@ -1,17 +1,45 @@
-[gd_scene load_steps=16 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=21 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
+[ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="2_82xxh"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_cvrlx"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_bwhtu"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
+[ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="7_88d2d"]
+[ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="8_n14p2"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="8_o1ut4"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kq6c1"]
+lightmap_size_hint = Vector2i(96, 44)
+top_radius = 3.0
+bottom_radius = 3.0
+radial_segments = 6
+rings = 6
+cap_top = false
+cap_bottom = false
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("2_cvrlx")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
+
+[sub_resource type="Animation" id="Animation_lny85"]
+resource_name = "Text_type"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_jlcpy"]
 resource_name = "float"
@@ -30,25 +58,13 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.3, -5), Vector3(0, 1.6, -5), Vector3(0, 1.3, -5)]
 }
 
-[sub_resource type="Animation" id="Animation_lny85"]
-resource_name = "Text_type"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/RichTextLabel:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
+[sub_resource type="Animation" id="Animation_2lfkb"]
+resource_name = "camera_transition_90deg"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2dle"]
 _data = {
 "Text_type": SubResource("Animation_lny85"),
+"camera_transition_90deg": SubResource("Animation_2lfkb"),
 "float": SubResource("Animation_jlcpy")
 }
 
@@ -67,11 +83,20 @@ font_size = 64
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_3sc4y")
 
+[node name="tube" type="Node3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="tube"]
+transform = Transform3D(0.8, 0, 0, 0, 15, 0, 0, 0, 0.8, 0, 23.805, 0)
+layers = 7
+mesh = SubResource("CylinderMesh_kq6c1")
+material = ExtResource("2_82xxh")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 8.72539, 0)
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0115672, 0)
 use_collision = true
 collision_layer = 6
 collision_mask = 6
@@ -126,6 +151,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("7_88d2d")
+script = ExtResource("8_n14p2")
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 0
@@ -186,13 +213,16 @@ theme_override_fonts/normal_font = ExtResource("6_e77r4")
 theme_override_font_sizes/normal_font_size = 35
 scroll_active = false
 visible_characters = 0
-visible_ratio = 0.0
+visible_ratio = 0.733333
 
 [node name="Random" type="Node3D" parent="."]
 
 [node name="AmmoCreate" parent="Random" instance=ExtResource("8_o1ut4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 ammoValue = 1500
+
+[node name="Timer" type="Timer" parent="Random"]
+wait_time = 2.0
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

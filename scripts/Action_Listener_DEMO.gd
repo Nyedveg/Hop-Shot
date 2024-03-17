@@ -10,11 +10,16 @@ var all_pressed = false
 @onready var text_pop = $"../TextPop"
 @onready var spawn_in = $"../spawn_weapon"
 @onready var player = $"../Player"
+@onready var camera = $"../Player/Head/Camera"
+@onready var cameraAnimation = $"../Player/Head/Camera_Controller/AnimationPlayer"
+@onready var timer = $"../Random/Timer"
+@onready var animationNode = $"../Floating_animation"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
 var offset = Vector3(0,0.8,-5)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
 @onready var crate = $"../Random/AmmoCreate"
+@onready var cylinder = $"../tube/CSGCylinder3D"
 
 var temp = 0
 
@@ -30,33 +35,42 @@ func spawn_weapon():
 func _on_weapon_picked_up():
 	text_pop.visible = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	text_pop.visible = false
-	label3.visible = true
+	label3.visible = false
 	crate.position = ammoCratePosition
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
 	
 	original_text = label3.text
+	set_player_pos_onready()
+	set_camera_on_ready()
 	
-	if crate.has_node("ammo_box_script"):
-		var ammoBox = crate.get_node("ammo_box_script")
-		label3.text = "Ammo Value: " + str(ammoBox.ammoValue)
-		#crate.connect("player_change_ammo", self, "_on_player_change_ammo")
-		temp = ammoBox.ammoValue
-		print("DDDDDDDDDDDD" + ammoBox.ammoValue)
-	else:
-		print("ammo_box_script not found")
-	
-
-	
+	timer.start()
+	await timer.timeout
+	animationNode.play("Text_type")
+	label3.visible = true
+	cameraAnimation.play("new_animation")
 
 func _on_player_change_ammo(value):
 	label3.text = "Ammo Value: " + str(value)
 
+func set_camera_on_ready():
+	camera.rotation_degrees = Vector3(-90,0,0)
+
+func set_player_pos_onready():
+	player.position = Vector3(0,30,0)
+	
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+
+	
 	if Input.is_action_just_pressed("move_backward"):
 		pressedS = true
 		var modify = original_text.replace("S - backwards", "[color=red]S - backwards[/color]")
@@ -66,6 +80,7 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("move_forward"):
 		pressedW = true
+		print(player.position)
 		var modify = original_text.replace("W - forwards", "[color=red]W - forwards[/color]")
 		label3.bbcode_text = modify
 		print("W")
@@ -85,19 +100,6 @@ func _process(delta):
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
 		text_pop.visible = true
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		spawn_weapon()
 		
 

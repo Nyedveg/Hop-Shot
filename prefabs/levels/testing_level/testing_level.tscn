@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_4dse7"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="5_n2r0x"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_mx6eb"]
-[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/finish_zone.tscn" id="7_vjeah"]
+[ext_resource type="PackedScene" path="res://prefabs/game objects/finish_zone.tscn" id="7_vjeah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("5_n2r0x")

@@ -1,67 +1,295 @@
-[gd_scene load_steps=6 format=3 uid="uid://djviime4g1lhc"]
+[gd_scene load_steps=9 format=3 uid="uid://djviime4g1lhc"]
 
 [ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="1_s5i4o"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6nl5"]
-albedo_color = Color(0.054902, 0.313726, 0.101961, 1)
-
-[sub_resource type="Animation" id="Animation_yaepp"]
-resource_name = "ammo_box_spin"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBox3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CSGBox3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1, 0), Vector3(0, 1.5, 0), Vector3(0, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqfmq"]
-_data = {
-"ammo_box_spin": SubResource("Animation_yaepp")
-}
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_k3iwr"]
 height = 1.72512
 radius = 1.08302
 
-[node name="AmmoCreate" type="Node3D"]
-script = ExtResource("1_s5i4o")
-ammoValue = 2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpwdg"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 1.0
+metallic_specular = 0.31
+roughness = 0.55
+clearcoat_enabled = true
+clearcoat = 0.8
+clearcoat_roughness = 0.41
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material = SubResource("StandardMaterial3D_s6nl5")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_iqfmq")
+[sub_resource type="Curve3D" id="Curve3D_0rktn"]
+_data = {
+"points": PackedVector3Array(0, -0.5, 0, 0, 0.5, 0, 0.898147, -0.735949, -0.270391, 0.553252, 0.00210571, -0.047691, -0.553252, -0.00210571, 0.047691, 0.0154069, 0.120688, -0.0214925, 0, 0.5, 0, 0, -0.5, 0, -0.876133, -0.762083, 0.20883, -0.493854, -0.0186038, 0.0405556, 0.493854, 0.0186038, -0.0405556, -0.010497, -1.59619, 0.0144611, 0, -0.5, 0, 0, 0.5, 0, 0.894945, -0.743949, -0.272095),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-autoplay = "ammo_box_spin"
-speed_scale = 0.75
+point_count = 5
+
+[sub_resource type="Animation" id="Animation_j3ulf"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2211, 0.4527, 0.7159, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3mp88"]
+resource_name = "big_float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1.1487, 1.1487, 1.1487, 1.1487, 1.1487),
+"update": 0,
+"values": [0.0, 0.2211, 0.4527, 0.7159, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7u7us"]
+resource_name = "new_animation_2"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8),
+"transitions": PackedFloat32Array(0.554785, 0.554785, 0.554785),
+"update": 0,
+"values": [Vector3(0, 0.865389, 0), Vector3(0, 1.3777, 0), Vector3(0, 0.865389, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jdk82"]
+_data = {
+"big_float": SubResource("Animation_3mp88"),
+"new_animation": SubResource("Animation_j3ulf"),
+"new_animation_2": SubResource("Animation_7u7us")
+}
+
+[node name="AmmoCreate" type="Node3D"]
+transform = Transform3D(0.69, 0, 0, 0, 0.69, 0, 0, 0, 0.69, 0, 0, 0)
+script = ExtResource("1_s5i4o")
+ammoValue = 3
 
 [node name="Area3D" type="Area3D" parent="."]
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.812054, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259578, 1.35598, 0.000870705)
 shape = SubResource("CylinderShape3D_k3iwr")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2284, 0)
+material = SubResource("StandardMaterial3D_bpwdg")
+
+[node name="Path3D2" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.355596, -2.01844e-08, 0.93464, 2.21164e-16, 1, 2.15959e-08, -0.93464, 7.67942e-09, -0.355596, -4.90443e-05, 0.758075, -0.000420893)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D2"]
+transform = Transform3D(-0.0244552, 0.939137, -0.342209, -0.180888, -0.340821, -0.922382, -0.983046, 0.0393508, 0.178238, 0.843939, -1.03439, -0.243898)
+progress = 5.32153
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D2/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D2/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 1.4
+
+[node name="Path3D3" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(0.5398, -1.81793e-08, 0.841794, 9.36421e-16, 1, 2.15959e-08, -0.841793, -1.16575e-08, 0.5398, -4.90443e-05, 0.758075, -0.000420893)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D3"]
+transform = Transform3D(-0.483475, -0.712819, -0.507765, -0.120531, -0.520341, 0.845214, -0.866844, 0.46992, 0.165678, -0.756449, -1.21311, 0.165766)
+progress = 3.31289
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D3/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D3/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 0.7
+
+[node name="Path3D4" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.8181, -1.24193e-08, 0.575077, 2.78342e-15, 1, 2.15959e-08, -0.575077, 1.76676e-08, -0.8181, -4.90443e-05, 0.758075, -0.000420893)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D4"]
+transform = Transform3D(-0.506605, -0.792885, -0.338179, -0.0723209, -0.351784, 0.933105, -0.858958, 0.497255, 0.120891, -0.823516, -1.07182, 0.188839)
+progress = 3.1546
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D4/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D4/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 1.1
+
+[node name="Path3D5" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.888841, 9.89556e-09, -0.458215, 2.78342e-15, 1, 2.15959e-08, 0.458215, 1.91953e-08, -0.888841, -4.90443e-05, 0.758075, -0.000420893)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D1" type="PathFollow3D" parent="CSGSphere3D/Path3D5"]
+transform = Transform3D(-0.0441879, 0.893639, 0.446249, 0.206278, 0.445226, -0.871145, -0.977342, 0.053566, -0.20404, 0.802056, -0.309775, -0.220962)
+progress = 0.443386
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D5/PathFollow3D1"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.8
+
+[node name="AnimationPlayer5" type="AnimationPlayer" parent="CSGSphere3D/Path3D5/PathFollow3D1/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+
+[node name="Path3D6" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.999696, 5.32532e-10, -0.024659, 2.78342e-15, 1, 2.15959e-08, 0.0246589, 2.15893e-08, -0.999696, 0.0420509, 0.738106, 0.0672128)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D6"]
+transform = Transform3D(-0.0206412, 0.947135, -0.319672, -0.170199, -0.318405, -0.932369, -0.985039, 0.0351685, 0.167797, 0.850587, -1.01588, -0.247446)
+progress = 5.34152
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D6/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D6/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 0.95
+
+[node name="Path3D7" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(0.0768382, -1.50258e-08, 0.69577, -1.65596e-16, 0.7, 1.51171e-08, -0.69577, -1.65939e-09, 0.0768382, 0.102364, 0.534657, 0.0490696)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D7"]
+transform = Transform3D(-0.494047, -0.724615, 0.480142, 0.0827569, 0.510565, 0.855654, -0.86531, 0.462547, -0.192302, -0.761974, -0.300622, 0.157243)
+progress = 2.35614
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D7/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D7/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 1.2
+
+[node name="Path3D8" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.695786, -1.65624e-09, 0.0766925, -1.52552e-16, 0.7, 1.51171e-08, -0.0766925, 1.50261e-08, -0.695786, 0.0574908, 0.491183, -0.0940018)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D8"]
+transform = Transform3D(-0.519629, -0.851737, -0.0649754, -0.01243, -0.0685065, 0.997406, -0.854125, 0.519174, 0.0250144, -0.873997, -0.824153, 0.208067)
+progress = 2.90086
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D8/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D8/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 1.4
+
+[node name="Path3D9" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.587043, 8.23426e-09, -0.381288, -2.38039e-16, 0.7, 1.51171e-08, 0.381288, 1.26777e-08, -0.587043, -0.0213193, 0.49096, -0.0752945)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D9"]
+transform = Transform3D(-0.0320914, 0.929726, 0.36642, 0.179722, 0.366005, -0.912911, -0.983036, 0.0365632, -0.178863, 0.832628, -0.377058, -0.235587)
+progress = 0.36846
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D9/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D9/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 0.8
+
+[node name="Path3D10" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(0.493643, 1.07181e-08, -0.496303, -4.15567e-16, 0.7, 1.51171e-08, 0.496303, -1.06607e-08, 0.493643, 0.0796469, 0.506792, -0.0632811)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D10"]
+transform = Transform3D(-0.113802, 0.370182, 0.921783, 0.28729, 0.900438, -0.326134, -0.950901, 0.227741, -0.20885, 0.368308, 0.0647528, -0.0762905)
+progress = 1.04846
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D10/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D10/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 0.5
+
+[node name="Path3D11" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.408082, 1.22825e-08, -0.568744, -1.61425e-15, 0.7, 1.51171e-08, 0.568744, 8.81289e-09, -0.408082, -0.0267601, 0.53197, -0.0262947)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D11"]
+transform = Transform3D(-0.0800194, 0.0412748, -0.995771, -0.312643, -0.949597, -0.0142373, -0.946333, 0.310231, 0.0889033, -0.0327444, -1.59666, 0.0170646)
+progress = 4.18391
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D11/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D11/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 0.4
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CSGSphere3D"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation_2"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
