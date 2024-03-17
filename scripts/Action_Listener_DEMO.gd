@@ -11,15 +11,16 @@ var all_pressed = false
 @onready var spawn_in = $"../spawn_weapon"
 @onready var player = $"../Player"
 @onready var camera = $"../Player/Head/Camera"
-@onready var cameraAnimation = $"../Player/Head/Camera_Controller/AnimationPlayer"
+@onready var cameraAnimation = $"../Player/Head/AnimationPlayer"
 @onready var timer = $"../Random/Timer"
 @onready var animationNode = $"../Floating_animation"
+@onready var animationNode2 = $"../Floating_animation/AnimationPlayer"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
 var offset = Vector3(0,0.8,-5)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
 @onready var crate = $"../Random/AmmoCreate"
-@onready var cylinder = $"../tube/CSGCylinder3D"
+@onready var cylinder = $"../Tube"
 
 var temp = 0
 
@@ -65,7 +66,7 @@ func _on_player_change_ammo(value):
 	label3.text = "Ammo Value: " + str(value)
 
 func set_camera_on_ready():
-	camera.rotation_degrees = Vector3(-90,0,0)
+	pass
 
 func set_player_pos_onready():
 	player.position = Vector3(0,30,0)
@@ -107,6 +108,9 @@ func _process(delta):
 		all_pressed = true
 		text_pop.visible = true
 		spawn_weapon()
+		animationNode2.play("float_weapon")
+		animationNode.play("float")
+
 		
 
 

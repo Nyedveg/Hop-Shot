@@ -115,7 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259578, 1.35598, 0.000870
 shape = SubResource("CylinderShape3D_k3iwr")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51366, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2284, 0)
 radius = 0.4
 material = SubResource("StandardMaterial3D_bpwdg")
 
@@ -162,8 +162,8 @@ transform = Transform3D(-0.8181, -1.24193e-08, 0.575077, 2.78342e-15, 1, 2.15959
 curve = SubResource("Curve3D_0rktn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D4"]
-transform = Transform3D(-0.506605, -0.792882, -0.338186, -0.0723224, -0.351791, 0.933102, -0.858958, 0.497254, 0.120894, -0.823513, -1.07183, 0.188839)
-progress = 3.1546
+transform = Transform3D(-0.102588, 0.17585, 0.978886, 0.284725, 0.948092, -0.140477, -0.95294, 0.264346, -0.147354, 0.183317, 0.10944, -0.0415817)
+progress = 1.24226
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D4/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
