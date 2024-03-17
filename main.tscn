@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dovr0w2tdknkm"]
+[gd_scene load_steps=10 format=3 uid="uid://c11xx74a6nshp"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_e5oxr"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_83fl6"]
@@ -122,9 +122,6 @@ label_settings = SubResource("LabelSettings_a4i52")
 [node name="AmmoCreate" parent="." instance=ExtResource("6_hhs8r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931564, 0.0574996, -12.4489)
 
-[connection signal="change_ammo" from="." to="Player" method="_on_node_3d_change_ammo"]
 [connection signal="set_ammo" from="." to="Player" method="_on_node_3d_set_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
-[connection signal="player_update_ammo" from="Player" to="." method="_on_player_player_update_ammo"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
-[connection signal="change_ammo" from="AmmoCreate" to="." method="_on_ammo_create_change_ammo"]
