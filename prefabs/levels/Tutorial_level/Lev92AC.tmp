@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://0uh8rnfu5jo3"]
+
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
+[ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_cvrlx"]
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_bwhtu"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/death_zone.tscn" id="5_geqjx"]
+[ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
+albedo_texture = ExtResource("2_cvrlx")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_aqurh"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvu24"]
+font_size = 64
+
+[node name="Level_template" type="Node3D"]
+script = ExtResource("1_3sc4y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 8.72539, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." groups=["shootable"]]
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(136.504, 0.115, 55)
+material = SubResource("StandardMaterial3D_xhfb4")
+
+[node name="Player" parent="." instance=ExtResource("3_bwhtu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Death_Zone" parent="." instance=ExtResource("5_geqjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Speed
+"
+label_settings = SubResource("LabelSettings_aqurh")
+
+[node name="SpeedLabel" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 89.0
+offset_right = 41.0
+offset_bottom = 112.0
+label_settings = SubResource("LabelSettings_pvu24")
+
+[node name="ActionListener" type="Node3D" parent="."]
+script = ExtResource("6_cr65g")
+
+[node name="spawn_weapon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.619466, -3.30816)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 0.1, 2.099, 2.5, -8.514)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="TextPop" type="Label3D" parent="."]
+transform = Transform3D(0.9984, 0, 0.0565534, 0, 1, 0, -0.0565534, 0, 0.9984, 0, 1.43668, -5.00806)
+text = "PPPPPPP"
+font_size = 150
+
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
+[connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

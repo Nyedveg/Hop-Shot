@@ -7,11 +7,13 @@ var all_pressed = false
 @onready var text_pop = $"../TextPop"
 @onready var spawn_in = $"../spawn_weapon"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
+var offset = Vector3(0,0.8,-5)
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
-	weapon.position = spawn_in.position
+	weapon.position = offset
 	spawn_in.add_child(weapon)
+	spawn_in.add_child(text_pop)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,5 +37,5 @@ func _process(delta):
 		
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
+		text_pop.visible = true
 		spawn_weapon()
-		

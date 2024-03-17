@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxlhpwp5e5gig"]
+[gd_scene load_steps=7 format=3 uid="uid://bxlhpwp5e5gig"]
 
 [ext_resource type="Script" path="res://prefabs/game objects/interactable/weapon/Area3D.gd" id="1_yc23j"]
 [ext_resource type="PackedScene" uid="uid://b7nunh4n2ktoy" path="res://models/Hopper/Hopper_Gun._Painted.glb" id="2_djwoq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_roaat"]
+
 size = Vector3(2.60657, 2.1731, 0.77478)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4vt8"]
