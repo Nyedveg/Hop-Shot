@@ -16,6 +16,7 @@ var all_pressed = false
 @onready var animationNode = $"../Floating_animation"
 @onready var ammoLabel = $"../UI/AmmoLabel"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
+<<<<<<< Updated upstream
 var offset = Vector3(0,0.8,-5)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
@@ -25,10 +26,17 @@ var ammoCount
 
 
 var ammoCratePosition = Vector3(0,0,20)
+=======
+var offset = Vector3(0,0.5,-5)
+>>>>>>> Stashed changes
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
 	weapon.position = offset
+<<<<<<< Updated upstream
+=======
+	print(spawn_in.position)
+>>>>>>> Stashed changes
 	spawn_in.add_child(weapon)
 	
 func _on_weapon_picked_up():

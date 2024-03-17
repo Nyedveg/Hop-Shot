@@ -73,6 +73,7 @@ font_size = 64
 
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_3sc4y")
+startAmmo = 5000000
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 8.72539, 0)
@@ -98,15 +99,30 @@ script = ExtResource("6_cr65g")
 [node name="spawn_weapon" type="Node3D" parent="."]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." groups=["shootable"]]
+<<<<<<< Updated upstream
 transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 1.89055, -10.794)
+=======
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 0.1, 0, 1.5, -8.514)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(-6.55671e-07, 0, 0.1, 0, 10, 0, -15, 0, -4.37114e-09, -5, 5, -1.1)
+>>>>>>> Stashed changes
 use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(1, 1, 46.6079)
 material = ExtResource("2_82xxh")
 
+<<<<<<< Updated upstream
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 7.32707, -15.3457)
+=======
+[node name="CSGBox3D4" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(-6.55671e-07, 0, 0.1, 0, 10, 0, -15, 0, -4.37114e-09, 5, 5, -1.1)
+>>>>>>> Stashed changes
 use_collision = true
 collision_layer = 6
 collision_mask = 6
