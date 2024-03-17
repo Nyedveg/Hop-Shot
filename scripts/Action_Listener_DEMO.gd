@@ -14,18 +14,17 @@ var all_pressed = false
 @onready var cameraAnimation = $"../Player/Head/Camera_Controller/AnimationPlayer"
 @onready var timer = $"../Random/Timer"
 @onready var animationNode = $"../Floating_animation"
+@onready var ammoLabel = $"../UI/AmmoLabel"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
 var offset = Vector3(0,0.8,-5)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
 @onready var crate = $"../Random/AmmoCreate"
-@onready var cylinder = $"../tube/CSGCylinder3D"
-
-var temp = 0
+var ammoCount
 
 
 
-var ammoCratePosition = Vector3(0,0.8,10)
+var ammoCratePosition = Vector3(0,0,20)
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
@@ -38,13 +37,12 @@ func _on_weapon_picked_up():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	crate.visible = false
 	text_pop.visible = false
 	label3.visible = false
-	crate.position = ammoCratePosition
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
-	
+	ammoCount = crate.ammoValue
 	original_text = label3.text
 	set_player_pos_onready()
 	set_camera_on_ready()
@@ -62,9 +60,11 @@ func set_camera_on_ready():
 	camera.rotation_degrees = Vector3(-90,0,0)
 
 func set_player_pos_onready():
-	player.position = Vector3(0,30,0)
+	player.position = Vector3(0,30,10)
 	
-
+func ammo_crate_body_entered():
+	crate._on_area_3d_body_entered(player)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -101,6 +101,16 @@ func _process(delta):
 		all_pressed = true
 		text_pop.visible = true
 		spawn_weapon()
+		
+		crate.position = ammoCratePosition
+		crate.visible = true
+		#ammo_crate_body_entered()
+		var ammoCount = crate.ammoValue
+		
+		
+		
+		
+		
 		
 
 
