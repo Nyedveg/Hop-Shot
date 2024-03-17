@@ -22,7 +22,9 @@ var original_text
 @onready var crate = $"../Random/AmmoCreate"
 @onready var cylinder = $"../Tube"
 @onready var highlight_animation = $"../highlight_object"
+
 var mouse_input = preload("res://prefabs/player/Player.gd")
+
 
 var temp = 0
 
@@ -36,11 +38,20 @@ func spawn_weapon():
 	var weapon = weapons.instantiate()
 	weapon.position = offset
 
-
 	print(spawn_in.position)
-
 	spawn_in.add_child(weapon)
+	text_pop.visible = true
+	spawn_in.add_child(text_pop)
 	
+func spawn_orb():
+	crate.position = Vector3(0,0,5)
+	crate.visible = true
+	text_pop.text = "Take the ORB!"
+
+	crate.add_child(text_pop)
+	text_pop.translate(ammoCratePosition)
+	crate.visible = true
+
 func _on_weapon_picked_up():
 	text_pop.visible = false
 
@@ -49,10 +60,11 @@ func _on_player_change_ammo(ammo_value):
 	print("Ammo value changed:", ammo_value)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	mouse_input
 	text_pop.visible = false
 	label3.visible = false
-	
+	crate.visible = false
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
 	text_pop.text = "Pick me up!"
@@ -74,7 +86,6 @@ func _ready():
 
 func set_camera_on_ready():
 	camera.global_rotation_degrees = Vector3(-90,0,0)
-	
 func set_player_pos_onready():
 	player.position = Vector3(0,30,20)
 	
@@ -114,13 +125,26 @@ func _process(delta):
 		
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
-		text_pop.visible = true
+		
 		
 		spawn_weapon()
-		crate.position = ammoCratePosition
+
 		animationNode2.play("float_weapon")
 		animationNode.play("text_type_3d")
+		await animationNode.animation_finished
 		animationNode.play("float")
+		
+		
+		
+		await player.equip_gun
+		spawn_in.remove_child(text_pop)
+		text_pop.visible = false
+		spawn_orb()
+		
+
+		
+		
+		
 		
 		
 		

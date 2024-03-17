@@ -1,28 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://djviime4g1lhc"]
+[gd_scene load_steps=15 format=3 uid="uid://djviime4g1lhc"]
 
 [ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="1_s5i4o"]
-[ext_resource type="Texture2D" uid="uid://437io14860" path="res://textures/test_static.jpg" id="2_68y77"]
+[ext_resource type="Material" uid="uid://dop506a6ccddd" path="res://material/ammo_create.tres" id="2_uwgra"]
+[ext_resource type="Material" uid="uid://cqt5tppag2oip" path="res://material/ammo_create_pink.tres" id="3_yijfj"]
+[ext_resource type="Material" uid="uid://wh3xh6c1ucia" path="res://material/ammo_create_yel.tres" id="4_hstm5"]
+[ext_resource type="Material" uid="uid://bajwfa3m2cupt" path="res://material/ammo_create_green.tres" id="5_21rt4"]
+[ext_resource type="Material" uid="uid://gm8mgknogrys" path="res://material/ammo_create_blue.tres" id="6_vjr4p"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_k3iwr"]
 height = 1.72512
 radius = 1.08302
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpwdg"]
-albedo_color = Color(1, 0, 0, 1)
-metallic = 1.0
-metallic_specular = 0.31
-roughness = 0.55
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 4.45
-emission_on_uv2 = true
-emission_texture = ExtResource("2_68y77")
-normal_enabled = true
-normal_scale = 0.35
-normal_texture = ExtResource("2_68y77")
-clearcoat_enabled = true
-clearcoat = 0.8
-clearcoat_roughness = 0.41
 
 [sub_resource type="Curve3D" id="Curve3D_0rktn"]
 _data = {
@@ -112,7 +99,7 @@ _data = {
 }
 
 [node name="AmmoCreate" type="Node3D"]
-transform = Transform3D(0.69, 0, 0, 0, 0.69, 0, 0, 0, 0.69, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_s5i4o")
 ammoValue = 3
 
@@ -126,7 +113,7 @@ shape = SubResource("CylinderShape3D_k3iwr")
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2284, 0)
 radius = 0.4
-material = SubResource("StandardMaterial3D_bpwdg")
+material = ExtResource("2_uwgra")
 
 [node name="Path3D2" type="Path3D" parent="CSGSphere3D"]
 transform = Transform3D(-0.355596, -2.01844e-08, 0.93464, 2.21164e-16, 1, 2.15959e-08, -0.93464, 7.67942e-09, -0.355596, -4.90443e-05, 0.758075, -0.000420893)
@@ -139,6 +126,7 @@ progress = 5.32153
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D2/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.8
+material = ExtResource("3_yijfj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D2/PathFollow3D/CSGSphere3D"]
 libraries = {
@@ -158,6 +146,7 @@ progress = 3.31289
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D3/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.8
+material = ExtResource("2_uwgra")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D3/PathFollow3D/CSGSphere3D"]
 libraries = {
@@ -177,6 +166,7 @@ progress = 1.24226
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D4/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.8
+material = ExtResource("3_yijfj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D4/PathFollow3D/CSGSphere3D"]
 libraries = {
@@ -196,6 +186,7 @@ progress = 0.443386
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D5/PathFollow3D1"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.8
+material = ExtResource("4_hstm5")
 
 [node name="AnimationPlayer5" type="AnimationPlayer" parent="CSGSphere3D/Path3D5/PathFollow3D1/CSGSphere3D"]
 libraries = {
@@ -214,6 +205,7 @@ progress = 5.34152
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D6/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.8
+material = ExtResource("5_21rt4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D6/PathFollow3D/CSGSphere3D"]
 libraries = {
@@ -233,6 +225,7 @@ progress = 2.35614
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D7/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.4
+material = ExtResource("4_hstm5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D7/PathFollow3D/CSGSphere3D"]
 libraries = {
@@ -252,6 +245,7 @@ progress = 2.90086
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D8/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.4
+material = ExtResource("5_21rt4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D8/PathFollow3D/CSGSphere3D"]
 libraries = {
@@ -271,6 +265,7 @@ progress = 0.36846
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D9/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.4
+material = ExtResource("6_vjr4p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D9/PathFollow3D/CSGSphere3D"]
 libraries = {
@@ -290,6 +285,7 @@ progress = 1.04846
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D10/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.4
+material = ExtResource("6_vjr4p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D10/PathFollow3D/CSGSphere3D"]
 libraries = {
@@ -309,6 +305,7 @@ progress = 4.18391
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D11/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
 radius = 0.4
+material = ExtResource("4_hstm5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D11/PathFollow3D/CSGSphere3D"]
 libraries = {

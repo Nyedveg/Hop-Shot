@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=28 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
 [ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="2_82xxh"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
 [ext_resource type="Texture2D" uid="uid://4uns88e16jxc" path="res://textures/360_F_370539127_zcUHQTNUaGbyEMeaexk5UiuPT0NLgjeW.jpg" id="6_l7o7p"]
 [ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="7_88d2d"]
+[ext_resource type="AudioStream" uid="uid://br7y536uv5o3r" path="res://sounds/pop-39222.mp3" id="8_5eo4l"]
 [ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="8_n14p2"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="8_o1ut4"]
 
@@ -51,7 +52,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("TextPop:position")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.8),
@@ -69,11 +70,11 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.8, 10, 0.4, 1, 0, 1.18993, 10, 0.8
 
 [sub_resource type="Animation" id="Animation_s3la1"]
 resource_name = "float_weapon"
-loop_mode = 1
+loop_mode = 2
 
 [sub_resource type="Animation" id="Animation_clh6e"]
 resource_name = "text_type_3d"
-length = 0.3
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,11 +82,26 @@ tracks/0/path = NodePath("TextPop:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.05, 0.05, 0.05), Vector3(1, 1, 1)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextPop/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.64,
+"start_offset": 0.18,
+"stream": ExtResource("8_5eo4l")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2dle"]
 _data = {
@@ -178,6 +194,7 @@ script = ExtResource("6_cr65g")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 4.2, 0, 0, 0, 0.12, 0, 1.89055, -10.794)
+visible = false
 material_override = ExtResource("2_82xxh")
 material_overlay = SubResource("StandardMaterial3D_eytlb")
 transparency = 0.039545
@@ -230,17 +247,22 @@ material = ExtResource("2_82xxh")
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
 transform = Transform3D(15, 0, 0, 0, 10.44, 0, 0, 0, 0.1, 0.048, 4.958, 24.745)
 use_collision = true
-collision_layer = 0
-collision_mask = 0
+collision_layer = 6
+collision_mask = 6
 material = ExtResource("2_82xxh")
 
 [node name="TextPop" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49283, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 10)
 billboard = 1
 outline_modulate = Color(1, 0, 0, 1)
 text = "PICK ME UP"
 font = ExtResource("6_e77r4")
 font_size = 70
+uppercase = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextPop"]
+volume_db = -15.0
+pitch_scale = 2.24
 
 [node name="Floating_animation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -328,12 +350,12 @@ theme_override_fonts/normal_font = ExtResource("6_e77r4")
 theme_override_font_sizes/normal_font_size = 35
 scroll_active = false
 visible_characters = 0
-visible_ratio = 0.8
+visible_ratio = 0.266667
 
 [node name="Random" type="Node3D" parent="."]
 
 [node name="AmmoCreate" parent="Random" instance=ExtResource("8_o1ut4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.623)
 ammoValue = 1500
 
 [node name="Timer" type="Timer" parent="Random"]
