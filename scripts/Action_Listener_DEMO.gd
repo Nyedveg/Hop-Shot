@@ -66,7 +66,7 @@ func _on_player_change_ammo(ammo_value):
 	print("Ammo value changed:", ammo_value)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	highlight_animation.queue("new_animation")
 	text_pop.visible = false
 	label3.visible = false
 	crate.visible = false
@@ -84,7 +84,7 @@ func _ready():
 	animationNode.play("Text_type")
 	label3.visible = true
 	cameraAnimation.play("new_animation")
-	highlight_animation.play("new_animation")
+	
 
 #func _on_player_change_ammo(value):
 	#label3.text = "Ammo Value: " + str(value)
@@ -145,6 +145,7 @@ func _process(delta):
 		spawn_in.remove_child(text_pop)
 		text_pop.visible = false
 		spawn_orb()
+		highlight_animation.play("new_animation")
 		
 
 		

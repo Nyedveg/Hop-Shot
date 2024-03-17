@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=28 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
 [ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="2_82xxh"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
-[ext_resource type="Texture2D" uid="uid://4uns88e16jxc" path="res://textures/360_F_370539127_zcUHQTNUaGbyEMeaexk5UiuPT0NLgjeW.jpg" id="6_l7o7p"]
 [ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="7_88d2d"]
 [ext_resource type="AudioStream" uid="uid://br7y536uv5o3r" path="res://sounds/pop-39222.mp3" id="8_5eo4l"]
 [ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="8_n14p2"]
@@ -21,7 +20,6 @@ metallic_specular = 0.0
 emission_enabled = true
 emission = Color(0.94902, 0, 0, 1)
 emission_energy_multiplier = 13.93
-emission_texture = ExtResource("6_l7o7p")
 normal_scale = 0.66
 backlight = Color(1, 0, 0, 1)
 
@@ -212,7 +210,7 @@ script = ExtResource("6_cr65g")
 transform = Transform3D(10, 0, 0, 0, 4.2, 0, 0, 0, 0.12, 0, 1.89055, -10.794)
 material_override = ExtResource("2_82xxh")
 material_overlay = SubResource("StandardMaterial3D_eytlb")
-transparency = 0.039545
+transparency = 0.001
 collision_layer = 0
 collision_mask = 0
 size = Vector3(1, 1, 46.6079)
