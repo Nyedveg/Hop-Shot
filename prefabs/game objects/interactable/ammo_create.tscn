@@ -101,7 +101,7 @@ _data = {
 [node name="AmmoCreate" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_s5i4o")
-ammoValue = 3
+ammoValue = 5
 
 [node name="Area3D" type="Area3D" parent="."]
 input_ray_pickable = false
@@ -111,7 +111,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259578, 1.35598, 0.000870
 shape = SubResource("CylinderShape3D_k3iwr")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2284, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30671, 0)
 radius = 0.4
 material = ExtResource("2_uwgra")
 

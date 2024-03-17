@@ -4,6 +4,7 @@ var pressedA = false
 var pressedS = false
 var pressedD = false
 var all_pressed = false
+signal reverse_text()
 
 
 
@@ -40,6 +41,7 @@ func spawn_weapon():
 
 	print(spawn_in.position)
 	spawn_in.add_child(weapon)
+	text_pop.text = "Pick me up!"
 	text_pop.visible = true
 	spawn_in.add_child(text_pop)
 	
@@ -52,6 +54,10 @@ func spawn_orb():
 	text_pop.translate(ammoCratePosition)
 	crate.visible = true
 
+func clear_txt():
+	await reverse_text
+	animationNode.play("text_type_reverse")
+
 func _on_weapon_picked_up():
 	text_pop.visible = false
 
@@ -61,13 +67,12 @@ func _on_player_change_ammo(ammo_value):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	mouse_input
 	text_pop.visible = false
 	label3.visible = false
 	crate.visible = false
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
-	text_pop.text = "Pick me up!"
+	
 	
 	original_text = label3.text
 	set_player_pos_onready()
@@ -89,8 +94,6 @@ func set_camera_on_ready():
 func set_player_pos_onready():
 	player.position = Vector3(0,30,20)
 	
-func body_entered_crate_signal():
-	print("signal received")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -125,6 +128,8 @@ func _process(delta):
 		
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
+		emit_signal("reverse_text")
+		
 		
 		
 		spawn_weapon()
@@ -134,7 +139,7 @@ func _process(delta):
 		await animationNode.animation_finished
 		animationNode.play("float")
 		
-		
+		clear_txt()
 		
 		await player.equip_gun
 		spawn_in.remove_child(text_pop)
