@@ -15,7 +15,6 @@ var all_pressed = false
 @onready var timer = $"../Random/Timer"
 @onready var animationNode = $"../Floating_animation"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
-<<<<<<< Updated upstream
 var offset = Vector3(0,0.8,-5)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
@@ -26,22 +25,17 @@ var temp = 0
 
 
 
-<<<<<<< HEAD
+
 var ammoCratePosition = Vector3(0,0,20)
-=======
-var offset = Vector3(0,0.5,-5)
->>>>>>> Stashed changes
-=======
-var ammoCratePosition = Vector3(0,0.8,10)
->>>>>>> parent of 493378f (Map building, learning and tweaking stuff)
+
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
 	weapon.position = offset
-<<<<<<< Updated upstream
-=======
+
+
 	print(spawn_in.position)
->>>>>>> Stashed changes
+
 	spawn_in.add_child(weapon)
 	
 func _on_weapon_picked_up():
