@@ -1,11 +1,9 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cl8potcpjl2vh"]
 
 [resource]
-metallic = 1.0
+metallic = 0.93
 metallic_specular = 0.66
-normal_enabled = true
-normal_scale = 0.7
+roughness = 0.41
+clearcoat_enabled = true
 clearcoat = 0.75
 clearcoat_roughness = 0.55
-uv1_triplanar_sharpness = 0.757858
-grow_amount = -0.703
