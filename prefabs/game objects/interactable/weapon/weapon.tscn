@@ -1,18 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxlhpwp5e5gig"]
+[gd_scene load_steps=5 format=3 uid="uid://bxlhpwp5e5gig"]
 
 [ext_resource type="Script" path="res://prefabs/game objects/interactable/weapon/Area3D.gd" id="1_yc23j"]
+[ext_resource type="PackedScene" uid="uid://b7nunh4n2ktoy" path="res://models/Hopper/Hopper_Gun._Painted.glb" id="2_djwoq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_roaat"]
-size = Vector3(0.5, 0.5, 0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_cljmk"]
-size = Vector3(0.46, 0.33, 0.96)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u0xj"]
-albedo_color = Color(0.0470588, 0.980392, 1, 1)
+size = Vector3(2.60657, 2.1731, 0.77478)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4vt8"]
-size = Vector3(0.26, 0.19, 0.56)
+size = Vector3(1.06012, 0.721755, 0.56)
 
 [node name="weapon" type="Area3D"]
 collision_layer = 2
@@ -20,20 +15,18 @@ collision_mask = 2
 script = ExtResource("1_yc23j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131836, -0.11438, 0.013855)
 shape = SubResource("BoxShape3D_roaat")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 3
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0, 0)
-layers = 2
-mesh = SubResource("BoxMesh_cljmk")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_2u0xj")
+[node name="Hopper_Gun__Painted" parent="RigidBody3D" instance=ExtResource("2_djwoq")]
+transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, 0, 0, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105274, -0.110023, 0)
 shape = SubResource("BoxShape3D_w4vt8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

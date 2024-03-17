@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cd12xpp01vyq4"]
 
-[ext_resource type="PackedScene" uid="uid://b2wkcex561w81" path="res://models/levels/starting_level_terrain_finalized.glb" id="1_pi5sd"]
+[ext_resource type="PackedScene" uid="uid://b2wkcex561w81" path="res://models/levels/starting_level/1/starting_level_terrain_finalized.glb" id="1_6hbxw"]
 
 [node name="starting_level_base" type="Node3D"]
 
-[node name="starting_level_terrain_finalized" parent="." instance=ExtResource("1_pi5sd")]
+[node name="starting_level_terrain_finalized2" parent="." instance=ExtResource("1_6hbxw")]
