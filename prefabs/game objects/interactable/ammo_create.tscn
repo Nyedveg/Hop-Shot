@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://djviime4g1lhc"]
+[gd_scene load_steps=12 format=3 uid="uid://djviime4g1lhc"]
 
 [ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="1_s5i4o"]
+[ext_resource type="Texture2D" uid="uid://437io14860" path="res://textures/test_static.jpg" id="2_68y77"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_k3iwr"]
 height = 1.72512
@@ -11,6 +12,14 @@ albedo_color = Color(1, 0, 0, 1)
 metallic = 1.0
 metallic_specular = 0.31
 roughness = 0.55
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 4.45
+emission_on_uv2 = true
+emission_texture = ExtResource("2_68y77")
+normal_enabled = true
+normal_scale = 0.35
+normal_texture = ExtResource("2_68y77")
 clearcoat_enabled = true
 clearcoat = 0.8
 clearcoat_roughness = 0.41
@@ -162,7 +171,7 @@ transform = Transform3D(-0.8181, -1.24193e-08, 0.575077, 2.78342e-15, 1, 2.15959
 curve = SubResource("Curve3D_0rktn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D4"]
-transform = Transform3D(-0.102588, 0.17585, 0.978886, 0.284725, 0.948092, -0.140477, -0.95294, 0.264346, -0.147354, 0.183317, 0.10944, -0.0415817)
+transform = Transform3D(-0.102588, 0.175851, 0.978886, 0.284725, 0.948092, -0.140478, -0.95294, 0.264346, -0.147354, 0.183318, 0.10944, -0.0415819)
 progress = 1.24226
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D4/PathFollow3D"]

@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var camera = $"../Camera"
 @onready var player = $"../.."
-#@onready var animation = $AnimationPlayer
+@onready var animation = $"../AnimationPlayer"
 
 @export var default_fov: float
 

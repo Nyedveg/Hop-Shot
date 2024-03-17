@@ -16,18 +16,20 @@ var all_pressed = false
 @onready var animationNode = $"../Floating_animation"
 @onready var animationNode2 = $"../Floating_animation/AnimationPlayer"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
-var offset = Vector3(0,0.8,-5)
+var offset = Vector3(0,0.8,10)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
 @onready var crate = $"../Random/AmmoCreate"
 @onready var cylinder = $"../Tube"
+@onready var highlight_animation = $"../highlight_object"
+var mouse_input = preload("res://prefabs/player/Player.gd")
 
 var temp = 0
 
 
 
 
-var ammoCratePosition = Vector3(0,0,20)
+var ammoCratePosition = Vector3(0,0,5)
 
 
 func spawn_weapon():
@@ -42,41 +44,47 @@ func spawn_weapon():
 func _on_weapon_picked_up():
 	text_pop.visible = false
 
-
+func _on_player_change_ammo(ammo_value):
+# Handle the signal here
+	print("Ammo value changed:", ammo_value)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	mouse_input
 	text_pop.visible = false
 	label3.visible = false
-	crate.position = ammoCratePosition
+	
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
+	text_pop.text = "Pick me up!"
 	
 	original_text = label3.text
 	set_player_pos_onready()
 	set_camera_on_ready()
+	set_player_pos_onready()
 	
 	timer.start()
 	await timer.timeout
 	animationNode.play("Text_type")
 	label3.visible = true
 	cameraAnimation.play("new_animation")
+	highlight_animation.play("new_animation")
 
-func _on_player_change_ammo(value):
-	label3.text = "Ammo Value: " + str(value)
+#func _on_player_change_ammo(value):
+	#label3.text = "Ammo Value: " + str(value)
 
 func set_camera_on_ready():
-	pass
-
-func set_player_pos_onready():
-	player.position = Vector3(0,30,0)
+	camera.global_rotation_degrees = Vector3(-90,0,0)
 	
-
+func set_player_pos_onready():
+	player.position = Vector3(0,30,20)
+	
+func body_entered_crate_signal():
+	print("signal received")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-
+	
 	
 	if Input.is_action_just_pressed("move_backward"):
 		pressedS = true
@@ -107,9 +115,15 @@ func _process(delta):
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
 		text_pop.visible = true
+		
 		spawn_weapon()
+		crate.position = ammoCratePosition
 		animationNode2.play("float_weapon")
+		animationNode.play("text_type_3d")
 		animationNode.play("float")
+		
+		
+		
 
 		
 

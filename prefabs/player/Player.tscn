@@ -80,7 +80,7 @@ script = ExtResource("1_8knlq")
 shape = SubResource("CapsuleShape3D_kjnyq")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="Camera_Controller" type="Node3D" parent="Head"]
 script = ExtResource("2_fsb5k")
