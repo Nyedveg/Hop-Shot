@@ -2,35 +2,36 @@ extends CharacterBody3D
 
 # MOVEMENT SPEEDS.
 var speed
-# NORMAL SPEED.
-var normal_speed = 10.0
-# SPRINT/RUNING SPEED.
-var sprint_speed = 20.0
-# accel_in_air STANDS FOR ACCELERATION IN HANPPENING IN AIR. 
-# accel_normal STANDS FOR ACCELERATION IN NOT HANPPENING IN AIR BUT INSTEAD ON GROUND.
-const accel_normal = 10.0
-const accel_in_air = 1.0
-#THESE CONSTANTS DEFINE TWO ACCELERATION VALUES:
-#THESE VALUES CONTROL HOW QUICKLY THE PLAYER SPEEDS UP AND SLOWS DOWN IN DIFFERENT CONTEXTS.
-# ACCEL_NORMAL FOR WHEN THE PLAYER IS ON THE GROUND, AND ACCEL_IN_AIR FOR WHEN THE PLAYER IS IN THE AIR. 
+@export var normal_speed = 8.0
+@export var sprint_speed = 15.0
+
+const accel_normal = 10.0 #STANDS FOR ACCELERATION ON GROUND.
+const accel_in_air = 0.8 # STANDS FOR ACCELERATION IN HANPPENING IN AIR. 
+
 # ACCEL IS ABOUT THE CURRENT ACCELERATION.
 @onready var accel = accel_normal
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+
 #GETS THE GRAVITY AND JUMPING VARIABLES.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 var jump_velocity #NO NEED TO SET JUMP VALUE BECAUSE THE CROUCH FUNCTIONS DOES IT'S VALUE Changing.
 # LOWEST HEIGHT AND MAXIMUM.
-var normal_height = 2.0
-var crouch_height = 1.0
+var normal_height = 3.0
+var crouch_height = 1.5
 # LOWEST HEIGHT AND MAXIMUM TRANSITION SPEED OF CROUCHING.
 var crouch_speed = 10.0
 # CROUCH MOVEMENT SPEED
 var crouch_move_speed = 5.0
 # MOUSE SENSITIVITY.
-var mouse_sense = 0.15
+@export var mouse_sense = 0.15
 #IMPROTANT VARIABLES FOR PLAYER MOVEMENT.
 var is_forward_moving = false
 var direction = Vector3()
+
+#BOB Variables
+const bob_freq = 2.0
+const bob_amp = 0.08
+var t_bob = 0.0
 
 signal player_shot_fired(pos : Vector3)
 signal equip_gun()
@@ -74,15 +75,20 @@ func _input(event):
 # CALLED EVERY FRAME. 'DELTA' IS THE ELAPSED TIME SINCE THE PREVIOUS FRAME.
 # ALSO THIS WILL HANDLE ALL THE PLAYERS MOVEMENT AND PHYSICS.
 func _physics_process(delta):
+	
 	# ADDS CROUCHING TO THE PLAYER MEANING IT CALLS THE CROUCH FUNCTION WHICH WE MADE.
 	crouch(delta)
-		
+	
+	#HEAD BOB
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	head.transform.origin = headbob(t_bob)
+	
 	# IF ESCAPE IS PRESSED IT WILL SHOW THE MOUSE CURSOR.
 	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().quit()
+		
 	#GET KEYBOARD INPUT.
 	direction = Vector3.ZERO
-	# GETS KEYBOARD INPUT.
 	# GET THE INPUT DIRECTION AND HANDLE THE MOVEMENT/DECELERATION.
 	# AS GOOD PRACTICE, YOU SHOULD REPLACE UI ACTIONS WITH CUSTOM GAMEPLAY ACTIONS.
 	var input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -91,11 +97,13 @@ func _physics_process(delta):
 	else:
 		is_forward_moving = false
 	direction = (transform.basis * Vector3(input_direction.x, 0.0, input_direction.y)).normalized()
+	
 	#SWITCHING BETWEEN SPEEDS 
 	if Input.is_action_pressed("sprint") and is_forward_moving:
 		speed = sprint_speed
 	elif Input.is_action_pressed("crouch") and Input.is_action_pressed("sprint"):
 		speed = normal_speed
+		
 	# ADDS JUMPING AND GRAVITY.
 	elif Input.is_action_pressed("crouch"):
 		speed = crouch_move_speed
@@ -108,6 +116,7 @@ func _physics_process(delta):
 	else:
 		accel = accel_normal
 		velocity.y -= jump_velocity
+		
 	# HANDLES JUMP.
 	#if Input.is_action_just_pressed("jump") and is_on_floor():
 	# IF THE PLAYER PRESSES THE "jump" AND WHEN THE CHARACTER IS ON THE FLOOR,
@@ -131,11 +140,18 @@ func crouch(delta):
 		player_capsule.shape.height -= crouch_speed * delta
 	elif not colliding:
 		# IT WILL INCREASE THE SIZE OF THE CAPSULE BY THE CROUCHING SPEED AND RESETS THE JUMP VALUE.
-		sprint_speed = 20.0
+		sprint_speed = 15.0
 		jump_velocity = 4.5
 		player_capsule.shape.height += crouch_speed * delta
 	player_capsule.shape.height = clamp(player_capsule.shape.height, crouch_height,normal_height)
 
+# BOB FUNCTION
+func headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = sin(time * bob_freq) * bob_amp
+	pos.x = cos(time * bob_freq / 2) * bob_amp
+	return pos
+	
 # SHOT SPAWNING PASSTHROUGH FORM WEAPON HANDLER
 func _on_weapon_handler_shot_fired(pos):
 	emit_signal("player_shot_fired", pos)
@@ -147,3 +163,4 @@ func _on_weapon_handler_update_ammo(currentAmmo):
 # MAIN SCENE PASSTHROUGH FOR SETTING BULLET COUNT
 func _on_level_template_set_ammo(setAmmo):
 	emit_signal("player_set_ammo", setAmmo)
+		
