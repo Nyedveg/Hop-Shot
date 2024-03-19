@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var camera = $"../Camera"
 @onready var player = $"../.."
+@onready var animation = $"../AnimationPlayer"
 
 @export var default_fov: float
 
@@ -19,6 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player.is_forward_moving:
+
 		camera.fov = default_fov + player.velocity.length() / 3
 	else:
 		camera.fov = lerp(camera.fov, default_fov, shakeFade * delta)
