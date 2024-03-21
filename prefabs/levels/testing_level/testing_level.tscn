@@ -24,7 +24,7 @@ uv1_triplanar = true
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3t6vb")
-startAmmo = 100
+startAmmo = 5
 
 [node name="UI" parent="." instance=ExtResource("2_86wyy")]
 
@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="weapon" parent="Environment" instance=ExtResource("4_4dse7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19779, 0.0575008, 5.6292)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19779, 1.65795, 5.6292)
 
 [node name="Floor" type="CSGBox3D" parent="Environment" groups=["shootable"]]
 use_collision = true
@@ -197,7 +197,6 @@ collision_mask = 7
 size = Vector3(5, 0.5, 4.999)
 
 [connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
-[connection signal="UI_update_ammo" from="Player" to="." method="_on_player_ui_update_ammo"]
 [connection signal="UI_update_ammo" from="Player" to="UI" method="_on_player_ui_update_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]

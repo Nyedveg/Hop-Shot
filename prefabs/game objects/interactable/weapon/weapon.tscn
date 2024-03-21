@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxlhpwp5e5gig"]
+[gd_scene load_steps=6 format=3 uid="uid://bxlhpwp5e5gig"]
 
 [ext_resource type="Script" path="res://prefabs/game objects/interactable/weapon/Area3D.gd" id="1_yc23j"]
-[ext_resource type="PackedScene" uid="uid://b7nunh4n2ktoy" path="res://models/Hopper/Hopper_Gun._Painted.glb" id="2_djwoq"]
+[ext_resource type="PackedScene" uid="uid://cy7afwyxw1uqp" path="res://models/Hopper/Hopper_Gun._Painted_finished_screen.glb" id="2_2ulty"]
+[ext_resource type="PackedScene" uid="uid://b7gjtjtlppmge" path="res://models/Hopper/Hopper_Gun._Painted_finished.glb" id="3_e2rhc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_roaat"]
-
 size = Vector3(2.60657, 2.1731, 0.77478)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4vt8"]
@@ -23,11 +23,14 @@ shape = SubResource("BoxShape3D_roaat")
 collision_layer = 3
 collision_mask = 3
 
-[node name="Hopper_Gun__Painted" parent="RigidBody3D" instance=ExtResource("2_djwoq")]
-transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, 0, 0, 0)
-
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105274, -0.110023, 0)
 shape = SubResource("BoxShape3D_w4vt8")
+
+[node name="Hopper_Gun__Painted_finished_screen" parent="RigidBody3D" instance=ExtResource("2_2ulty")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.264156, 0.0383137, -0.186543)
+
+[node name="Hopper_Gun__Painted_finished" parent="RigidBody3D" instance=ExtResource("3_e2rhc")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,8 @@
+res://prefabs/levels/testing_level/testing_level.tscn
+res://ui/themes/debug.tres
+res://prefabs/player/Player.tscn
+res://prefabs/player/Weapon_handler_script.gd
+res://prefabs/game objects/interactable/weapon/weapon_hr.tscn
+res://prefabs/game objects/interactable/weapon/weapon_hr_script.gd
+res://scripts/Main_level_script.gd
+res://prefabs/player/Player.gd
