@@ -44,6 +44,7 @@ signal UI_update_ammo(currentAmmo : int)
 @onready var player_capsule := $CollisionShape3D
 @onready var head_check := $Head_check
 @onready var hand = $Head/Camera/Hand
+var enabled_mouse_input = true
 
 # Dictionary of weapon scenes
 var weapons = {
@@ -71,6 +72,8 @@ func _input(event):
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90.0), deg_to_rad(90.0))
 
+func set_mouse_input_enabled(enabled: bool):
+	enabled_mouse_input = enabled
 # CALLED EVERY FRAME. 'DELTA' IS THE ELAPSED TIME SINCE THE PREVIOUS FRAME.
 # ALSO THIS WILL HANDLE ALL THE PLAYERS MOVEMENT AND PHYSICS.
 func _physics_process(delta):
@@ -154,4 +157,4 @@ func _on_weapon_handler_update_ammo(currentAmmo):
 # MAIN SCENE PASSTHROUGH FOR SETTING BULLET COUNT
 func _on_level_template_set_ammo(setAmmo):
 	emit_signal("player_set_ammo", setAmmo)
-		
+	
