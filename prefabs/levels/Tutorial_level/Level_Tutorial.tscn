@@ -1,16 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=17 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
-[ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="2_cvrlx"]
+[ext_resource type="Material" uid="uid://cshx54lltmdel" path="res://textures/Level_Tutorial_object_material.tres" id="2_2hdb4"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_bwhtu"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
-albedo_texture = ExtResource("2_cvrlx")
-uv1_scale = Vector3(0.2, 0.2, 0.2)
-uv1_triplanar = true
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="7_go80x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aqurh"]
 font_size = 64
@@ -46,8 +42,24 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_pukly"]
 font_size = 64
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u11wg"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+ground_bottom_color = Color(1, 1, 1, 1)
+ground_horizon_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_tdv8h"]
+sky_material = SubResource("ProceduralSkyMaterial_u11wg")
+
+[sub_resource type="Environment" id="Environment_7e5nb"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_tdv8h")
+ambient_light_source = 3
+
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_3sc4y")
+startAmmo = 50
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 8.72539, 0)
@@ -58,7 +70,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(136.504, 0.115, 55)
-material = SubResource("StandardMaterial3D_xhfb4")
+material = ExtResource("2_2hdb4")
 
 [node name="Player" parent="." instance=ExtResource("3_bwhtu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -90,18 +102,21 @@ transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 0.1, 0, 1.5, -8.514)
 use_collision = true
 collision_layer = 6
 collision_mask = 6
+material = ExtResource("2_2hdb4")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(-6.55671e-07, 0, 0.1, 0, 10, 0, -15, 0, -4.37114e-09, -5, 5, -1.1)
 use_collision = true
 collision_layer = 6
 collision_mask = 6
+material = ExtResource("2_2hdb4")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(-6.55671e-07, 0, 0.1, 0, 10, 0, -15, 0, -4.37114e-09, 5, 5, -1.1)
 use_collision = true
 collision_layer = 6
 collision_mask = 6
+material = ExtResource("2_2hdb4")
 
 [node name="TextPop" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -5)
@@ -151,5 +166,14 @@ text = "Speed
 "
 label_settings = SubResource("LabelSettings_3q4n1")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7e5nb")
+
+[node name="UI" parent="." instance=ExtResource("7_go80x")]
+
+[node name="Controllers" type="Node3D" parent="."]
+
+[connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
+[connection signal="UI_update_ammo" from="Player" to="UI" method="_on_player_ui_update_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

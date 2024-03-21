@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ce4q27lx37hx1"
-path="res://.godot/imported/HP_Tree2.glb-cba3defb338b8641cc1cb883fa625a4d.scn"
+path="res://godot/imported/HP_Tree2.glb-cba3defb338b8641cc1cb883fa625a4d.scn"
 
 [deps]
 
 source_file="res://models/trees/green_tree/HP_Tree2.glb"
-dest_files=["res://.godot/imported/HP_Tree2.glb-cba3defb338b8641cc1cb883fa625a4d.scn"]
+dest_files=["res://godot/imported/HP_Tree2.glb-cba3defb338b8641cc1cb883fa625a4d.scn"]
 
 [params]
 
@@ -33,11 +33,11 @@ _subresources={
 "materials": {
 "HP_tree_branch": {
 "use_external/enabled": true,
-"use_external/path": "res://models/Trees/Tree1/HP_tree_branch.tres"
+"use_external/path": "res://models/trees/green_tree/HP_tree_branch.tres"
 },
 "Material.001": {
 "use_external/enabled": true,
-"use_external/path": "res://models/Trees/Tree1/Material.001.tres"
+"use_external/path": "res://models/trees/green_tree/HP_tree_bark.tres"
 }
 },
 "nodes": {

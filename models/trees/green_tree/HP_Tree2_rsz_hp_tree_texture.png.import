@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dobv2o0be4a5m"
-path.s3tc="res://.godot/imported/HP_Tree2_rsz_hp_tree_texture.png-7f6554f28cf1ee017bd4dd122fef4481.s3tc.ctex"
+uid="uid://c7xi4nu8iprgb"
+path.s3tc="res://godot/imported/HP_Tree2_rsz_hp_tree_texture.png-7f6554f28cf1ee017bd4dd122fef4481.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://models/trees/green_tree/HP_Tree2_rsz_hp_tree_texture.png"
-dest_files=["res://.godot/imported/HP_Tree2_rsz_hp_tree_texture.png-7f6554f28cf1ee017bd4dd122fef4481.s3tc.ctex"]
+dest_files=["res://godot/imported/HP_Tree2_rsz_hp_tree_texture.png-7f6554f28cf1ee017bd4dd122fef4481.s3tc.ctex"]
 
 [params]
 

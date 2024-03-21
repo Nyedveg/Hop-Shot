@@ -20,6 +20,8 @@ func _ready():
 func _process(delta):
 	if player.is_forward_moving:
 		camera.fov = default_fov + player.velocity.length() / 3
+	elif not player.is_on_floor():
+		camera.fov = default_fov + player.velocity.length() / 3
 	else:
 		camera.fov = lerp(camera.fov, default_fov, shakeFade * delta)
 	
@@ -36,5 +38,6 @@ func apply_shake():
 	shake_strength = randomStrength
 
 func _on_weapon_handler_shake_camera(strength):
+	camera.fov += 2
 	randomStrength = strength
 	apply_shake()

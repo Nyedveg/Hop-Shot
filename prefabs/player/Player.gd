@@ -41,7 +41,6 @@ signal UI_update_ammo(currentAmmo : int)
 
 # PLAYER.
 @onready var head := $Head
-@onready var camera3d := $Head/Camera
 @onready var player_capsule := $CollisionShape3D
 @onready var head_check := $Head_check
 @onready var hand = $Head/Camera/Hand
@@ -115,13 +114,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta * 2
 	else:
 		accel = accel_normal
-		velocity.y -= jump_velocity
 		
-	# HANDLES JUMP.
-	#if Input.is_action_just_pressed("jump") and is_on_floor():
-	# IF THE PLAYER PRESSES THE "jump" AND WHEN THE CHARACTER IS ON THE FLOOR,
-	# SET THE Y VELOCITY TO THE JUMP VELOCITY.
-	#	velocity.y = jump_velocity
 	#MAKES IT MOVE.
 	velocity = velocity.lerp(direction * speed, accel * delta)
 	#MOVES THE BODY BASED ON VELOCITY.
@@ -136,12 +129,10 @@ func crouch(delta):
 		# IT WILL LOWER THE SIZE OF THE CAPSULE BY THE CROUCHING SPEED AND DECREASES THE JUMP VALUE AND ,
 		# SETS SPEED TO NORMAL SPEED. 
 		sprint_speed = 5.0
-		jump_velocity = 0.0
 		player_capsule.shape.height -= crouch_speed * delta
 	elif not colliding:
 		# IT WILL INCREASE THE SIZE OF THE CAPSULE BY THE CROUCHING SPEED AND RESETS THE JUMP VALUE.
 		sprint_speed = 15.0
-		jump_velocity = 4.5
 		player_capsule.shape.height += crouch_speed * delta
 	player_capsule.shape.height = clamp(player_capsule.shape.height, crouch_height,normal_height)
 

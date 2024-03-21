@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hs7o0ckfr5rl"
-path.s3tc="res://.godot/imported/starting_level_terrain2_water_tex2.png-ca15b12998b2f4b4c7264fc2133b9550.s3tc.ctex"
+path.s3tc="res://godot/imported/starting_level_terrain2_water_tex2.png-ca15b12998b2f4b4c7264fc2133b9550.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://models/levels/starting_level/3/starting_level_terrain2_water_tex2.png"
-dest_files=["res://.godot/imported/starting_level_terrain2_water_tex2.png-ca15b12998b2f4b4c7264fc2133b9550.s3tc.ctex"]
+dest_files=["res://godot/imported/starting_level_terrain2_water_tex2.png-ca15b12998b2f4b4c7264fc2133b9550.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hsgum1ilv3po"
-path.s3tc="res://.godot/imported/starting_level_terrain1_rsz_fern_sprite1.png-0f6b42e9f212e97d83f36716cf86bccf.s3tc.ctex"
+path.s3tc="res://godot/imported/starting_level_terrain1_rsz_fern_sprite1.png-0f6b42e9f212e97d83f36716cf86bccf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://models/levels/starting_level/2/starting_level_terrain1_rsz_fern_sprite1.png"
-dest_files=["res://.godot/imported/starting_level_terrain1_rsz_fern_sprite1.png-0f6b42e9f212e97d83f36716cf86bccf.s3tc.ctex"]
+dest_files=["res://godot/imported/starting_level_terrain1_rsz_fern_sprite1.png-0f6b42e9f212e97d83f36716cf86bccf.s3tc.ctex"]
 
 [params]
 
