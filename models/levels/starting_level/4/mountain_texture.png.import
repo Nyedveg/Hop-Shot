@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx87ouwcmcf78"
-path.s3tc="res://.godot/imported/mountain_texture.png-cf6550928a43afe7687cc86d65fdaa15.s3tc.ctex"
+path.s3tc="res://godot/imported/mountain_texture.png-cf6550928a43afe7687cc86d65fdaa15.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://models/levels/starting_level/4/mountain_texture.png"
-dest_files=["res://.godot/imported/mountain_texture.png-cf6550928a43afe7687cc86d65fdaa15.s3tc.ctex"]
+dest_files=["res://godot/imported/mountain_texture.png-cf6550928a43afe7687cc86d65fdaa15.s3tc.ctex"]
 
 [params]
 

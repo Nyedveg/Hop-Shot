@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://brqrjcp8j8y7g"
-path="res://.godot/imported/starting_level_terrain2.glb-6b6fd66e19caf0a7fafbc418891cc7ab.scn"
+path="res://godot/imported/starting_level_terrain2.glb-6b6fd66e19caf0a7fafbc418891cc7ab.scn"
 
 [deps]
 
 source_file="res://models/levels/starting_level/3/starting_level_terrain2.glb"
-dest_files=["res://.godot/imported/starting_level_terrain2.glb-6b6fd66e19caf0a7fafbc418891cc7ab.scn"]
+dest_files=["res://godot/imported/starting_level_terrain2.glb-6b6fd66e19caf0a7fafbc418891cc7ab.scn"]
 
 [params]
 

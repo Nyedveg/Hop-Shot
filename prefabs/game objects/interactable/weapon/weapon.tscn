@@ -245,4 +245,10 @@ transform = Transform3D(3.78006, 0, 0, 0, 0, -3.78006, 0, 3.78006, 0, 5.70114, 3
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, -0.0285168, 0.0618262)
 shape = SubResource("BoxShape3D_82pd2")
 
+[node name="Hopper_Gun__Painted_finished_screen" parent="RigidBody3D" instance=ExtResource("2_2ulty")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.264156, 0.0383137, -0.186543)
+
+[node name="Hopper_Gun__Painted_finished" parent="RigidBody3D" instance=ExtResource("3_e2rhc")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

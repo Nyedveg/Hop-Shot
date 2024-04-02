@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cshx54lltmdel"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pv1sq"]
+cull_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.005
+
+[resource]
+next_pass = SubResource("StandardMaterial3D_pv1sq")
+uv1_scale = Vector3(0.2, 0.2, 0.2)

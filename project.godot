@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Hop-Shot"
+config/name="Hop Shot"
 run/main_scene="res://prefabs/levels/testing_level/testing_level.tscn"
+config/use_hidden_project_data_directory=false
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/low_processor_mode=true
 config/icon="res://icon.svg"
 
 [display]
@@ -80,5 +82,7 @@ debug={
 
 [rendering]
 
-anti_aliasing/quality/use_taa=true
+occlusion_culling/bvh_build_quality=0
+textures/canvas_textures/default_texture_filter=0
+occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=3

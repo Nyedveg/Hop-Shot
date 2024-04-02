@@ -2,8 +2,10 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5lpu081rfj44"
-path="res://.godot/imported/starting_level_terrain3_mountain_tex.png-7e7e5c99a6c90c960680cfbb6358b68f.ctex"
+
+uid="uid://rpp81u0hp70j"
+path="res://godot/imported/starting_level_terrain3_mountain_tex.png-7e7e5c99a6c90c960680cfbb6358b68f.ctex"
+
 metadata={
 "vram_texture": false
 }
@@ -12,7 +14,8 @@ generator_parameters={}
 [deps]
 
 source_file="res://models/levels/starting_level/4/starting_level_terrain3_mountain_tex.png"
-dest_files=["res://.godot/imported/starting_level_terrain3_mountain_tex.png-7e7e5c99a6c90c960680cfbb6358b68f.ctex"]
+
+dest_files=["res://godot/imported/starting_level_terrain3_mountain_tex.png-7e7e5c99a6c90c960680cfbb6358b68f.ctex"]
 
 [params]
 
