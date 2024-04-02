@@ -4,7 +4,8 @@ var pressedA = false
 var pressedS = false
 var pressedD = false
 var all_pressed = false
-signal reverse_text()
+signal reverse_text
+signal orb_spawned
 
 
 
@@ -13,16 +14,18 @@ signal reverse_text()
 @onready var player = $"../Player"
 @onready var camera = $"../Player/Head/Camera"
 @onready var cameraAnimation = $"../Player/Head/AnimationPlayer"
-@onready var timer = $"../Random/Timer"
+@onready var timer = $"../Level_objects/Timer"
 @onready var animationNode = $"../Floating_animation"
 @onready var animationNode2 = $"../Floating_animation/AnimationPlayer"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
-var offset = Vector3(0,0.8,10)
+var offset = Vector3(0,0.8,0)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
-@onready var crate = $"../Random/AmmoCreate"
+@onready var crate = $"../Level_objects/AmmoCreate"
 @onready var cylinder = $"../Tube"
 @onready var highlight_animation = $"../highlight_object"
+@onready var finish_line = $"../Level_objects/Finish_Zone"
+@onready var UI = $"../UI"
 
 var mouse_input = preload("res://prefabs/player/Player.gd")
 
@@ -30,29 +33,20 @@ var mouse_input = preload("res://prefabs/player/Player.gd")
 var temp = 0
 
 
-
-
-var ammoCratePosition = Vector3(0,0,5)
-
-
 func spawn_weapon():
 	var weapon = weapons.instantiate()
-	weapon.position = offset
-
+	spawn_in.position = offset
+	
 	print(spawn_in.position)
 	spawn_in.add_child(weapon)
 	text_pop.text = "Pick me up!"
-	text_pop.visible = true
 	spawn_in.add_child(text_pop)
 	
 func spawn_orb():
 	crate.position = Vector3(0,0,5)
 	crate.visible = true
-	text_pop.text = "Take the ORB!"
-
-	crate.add_child(text_pop)
-	text_pop.translate(ammoCratePosition)
-	crate.visible = true
+	text_pop.text = "Pick this up!"
+	crate.emit_signal("orb_spawned")
 
 func clear_txt():
 	await reverse_text
@@ -67,8 +61,8 @@ func _on_player_change_ammo(ammo_value):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	highlight_animation.queue("new_animation")
-	text_pop.visible = false
 	label3.visible = false
+	
 	crate.visible = false
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
@@ -89,12 +83,18 @@ func _ready():
 #func _on_player_change_ammo(value):
 	#label3.text = "Ammo Value: " + str(value)
 
+func text_pop_change_position(x,y,z):
+	text_pop.position = Vector3(x,y,z)
+
 func set_camera_on_ready():
 	camera.global_rotation_degrees = Vector3(-90,0,0)
 func set_player_pos_onready():
 	player.position = Vector3(0,30,20)
 	
-
+func finish_line_scene(String):
+	finish_line.change_level(String)
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -129,23 +129,31 @@ func _process(delta):
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
 		emit_signal("reverse_text")
-		
-		
+		clear_txt()
 		
 		spawn_weapon()
+		
 
 		animationNode2.play("float_weapon")
 		animationNode.play("text_type_3d")
 		await animationNode.animation_finished
 		animationNode.play("float")
 		
-		clear_txt()
+		
 		
 		await player.equip_gun
-		spawn_in.remove_child(text_pop)
-		text_pop.visible = false
+		#text_pop.visible = false
+		
 		spawn_orb()
-		highlight_animation.play("new_animation")
+		
+		await crate.has_signal("orb_spawn")
+		print("")
+		animationNode.stop()
+		text_pop_change_position(0,0,5)
+		
+		
+		#highlight_animation.play("new_animation")
+		#finish_line_scene("res://prefabs/levels/testing_level/testing_level.tscn")
 		
 
 		
