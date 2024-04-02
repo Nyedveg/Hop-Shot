@@ -21,7 +21,7 @@ var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tsc
 var offset = Vector3(0,0.8,0)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
-@onready var crate = $"../Level_objects/AmmoCreate"
+var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var cylinder = $"../Tube"
 @onready var highlight_animation = $"../highlight_object"
 @onready var finish_line = $"../Level_objects/Finish_Zone"
@@ -40,11 +40,10 @@ func spawn_weapon():
 	print(spawn_in.position)
 	spawn_in.add_child(weapon)
 	text_pop.text = "Pick me up!"
-	spawn_in.add_child(text_pop)
 	
 func spawn_orb():
-	crate.position = Vector3(0,0,5)
-	crate.visible = true
+	var instance = crate.instanciate()
+	instance.position = Vector3(0,0,5)
 	text_pop.text = "Pick this up!"
 	crate.emit_signal("orb_spawned")
 
@@ -62,8 +61,6 @@ func _on_player_change_ammo(ammo_value):
 func _ready():
 	highlight_animation.queue("new_animation")
 	label3.visible = false
-	
-	crate.visible = false
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
 	
@@ -134,7 +131,6 @@ func _process(delta):
 		spawn_weapon()
 		
 
-		animationNode2.play("float_weapon")
 		animationNode.play("text_type_3d")
 		await animationNode.animation_finished
 		animationNode.play("float")

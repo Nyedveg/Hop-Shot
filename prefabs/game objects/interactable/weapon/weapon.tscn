@@ -204,7 +204,6 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_yc23j")
 
-
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
 collision_layer = 2
 collision_mask = 2
