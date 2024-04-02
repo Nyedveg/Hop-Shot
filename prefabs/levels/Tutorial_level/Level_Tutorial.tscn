@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://0uh8rnfu5jo3"]
+
+[gd_scene load_steps=17 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
-[ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="2_82xxh"]
+[ext_resource type="Material" uid="uid://cshx54lltmdel" path="res://textures/Level_Tutorial_object_material.tres" id="2_2hdb4"]
+
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_bwhtu"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
@@ -11,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/static/finish_zone.tscn" id="11_13465"]
 [ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="12_b5s2e"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eytlb"]
-albedo_color = Color(1, 0, 0, 1)
+
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="7_go80x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2ar7"]
 albedo_color = Color(1, 0, 0, 1)
@@ -132,6 +134,19 @@ _data = {
 "new_animation": SubResource("Animation_nhchj")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_llije"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_hotmt"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_4gkhy"]
+font_size = 64
+
+
+[sub_resource type="LabelSettings" id="LabelSettings_bmqx5"]
+font_size = 64
+
 [sub_resource type="Animation" id="Animation_fa2dx"]
 resource_name = "new_animation"
 length = 1.2
@@ -153,6 +168,7 @@ _data = {
 "new_animation": SubResource("Animation_fa2dx")
 }
 
+
 [sub_resource type="Animation" id="Animation_owdsl"]
 resource_name = "new_animation"
 
@@ -165,6 +181,7 @@ _data = {
 
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_3sc4y")
+startAmmo = 50
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 8.72539, 0)
@@ -176,7 +193,9 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(136.504, 0.115, 55)
+
 material = ExtResource("2_82xxh")
+
 
 [node name="Player" parent="." instance=ExtResource("3_bwhtu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -216,14 +235,17 @@ transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 7.32707, -15.3457)
 use_collision = true
 collision_layer = 6
 collision_mask = 6
+
 size = Vector3(1, 3.71826, 46.6079)
 material = ExtResource("2_82xxh")
+
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.26687e-06, 0, 0.1, 0, 19.545, 0, -51.86, 0, -4.37114e-09, -5, 9.635, -1.1)
 use_collision = true
 collision_layer = 6
 collision_mask = 6
+
 material = ExtResource("2_82xxh")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
@@ -231,6 +253,7 @@ transform = Transform3D(-2.26687e-06, 0, 0.1, 0, 19.545, 0, -51.86, 0, -4.37114e
 use_collision = true
 collision_layer = 6
 collision_mask = 6
+
 material = ExtResource("2_82xxh")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
@@ -247,6 +270,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 material = ExtResource("2_82xxh")
+
 
 [node name="TextPop" type="Label3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.3, 10)
@@ -331,5 +355,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.723)
 transform = Transform3D(2.355, 0, 0, 0, 2.355, 0, 0, 0, 2.355, 0, 0, -0.796244)
 shape = SubResource("BoxShape3D_jio20")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7e5nb")
+
+[node name="UI" parent="." instance=ExtResource("7_go80x")]
+
+[node name="Controllers" type="Node3D" parent="."]
+
+[connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
+[connection signal="UI_update_ammo" from="Player" to="UI" method="_on_player_ui_update_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

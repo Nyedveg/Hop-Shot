@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cafqhx7cjag4f"
-path.s3tc="res://.godot/imported/starting_level_terrain2_rsz_1grass2_sprite_final.png-a1797b957b3ea02d5da76046cd188b9d.s3tc.ctex"
+path.s3tc="res://godot/imported/starting_level_terrain2_rsz_1grass2_sprite_final.png-a1797b957b3ea02d5da76046cd188b9d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://models/levels/starting_level/3/starting_level_terrain2_rsz_1grass2_sprite_final.png"
-dest_files=["res://.godot/imported/starting_level_terrain2_rsz_1grass2_sprite_final.png-a1797b957b3ea02d5da76046cd188b9d.s3tc.ctex"]
+dest_files=["res://godot/imported/starting_level_terrain2_rsz_1grass2_sprite_final.png-a1797b957b3ea02d5da76046cd188b9d.s3tc.ctex"]
 
 [params]
 

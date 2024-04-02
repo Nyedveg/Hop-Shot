@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyiffrnc8do63"
-path.s3tc="res://.godot/imported/starting_level_terrain_finalized_Terrain_texture.png-dd96d81d7fd6f5a9bdb783fb878cf0e8.s3tc.ctex"
+path.s3tc="res://godot/imported/starting_level_terrain_finalized_Terrain_texture.png-dd96d81d7fd6f5a9bdb783fb878cf0e8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://models/levels/starting_level/1/starting_level_terrain_finalized_Terrain_texture.png"
-dest_files=["res://.godot/imported/starting_level_terrain_finalized_Terrain_texture.png-dd96d81d7fd6f5a9bdb783fb878cf0e8.s3tc.ctex"]
+dest_files=["res://godot/imported/starting_level_terrain_finalized_Terrain_texture.png-dd96d81d7fd6f5a9bdb783fb878cf0e8.s3tc.ctex"]
 
 [params]
 

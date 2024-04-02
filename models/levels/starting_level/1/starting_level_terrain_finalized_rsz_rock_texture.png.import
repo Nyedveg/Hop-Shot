@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2qmycuqqwy5"
-path.s3tc="res://.godot/imported/starting_level_terrain_finalized_rsz_rock_texture.png-55102c961babe0071c468a015ea69d77.s3tc.ctex"
+path.s3tc="res://godot/imported/starting_level_terrain_finalized_rsz_rock_texture.png-55102c961babe0071c468a015ea69d77.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://models/levels/starting_level/1/starting_level_terrain_finalized_rsz_rock_texture.png"
-dest_files=["res://.godot/imported/starting_level_terrain_finalized_rsz_rock_texture.png-55102c961babe0071c468a015ea69d77.s3tc.ctex"]
+dest_files=["res://godot/imported/starting_level_terrain_finalized_rsz_rock_texture.png-55102c961babe0071c468a015ea69d77.s3tc.ctex"]
 
 [params]
 
