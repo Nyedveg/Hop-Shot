@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
-[ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="7_88d2d"]
 [ext_resource type="AudioStream" uid="uid://br7y536uv5o3r" path="res://sounds/pop-39222.mp3" id="8_5eo4l"]
-[ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="8_n14p2"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="8_o1ut4"]
+[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/finish_zone.tscn" id="11_13465"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="12_b5s2e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eytlb"]
 albedo_color = Color(1, 0, 0, 1)
@@ -22,6 +22,9 @@ emission = Color(0.94902, 0, 0, 1)
 emission_energy_multiplier = 13.93
 normal_scale = 0.66
 backlight = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_pgkyd"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_lny85"]
 resource_name = "Text_type"
@@ -57,13 +60,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 1.3, 10), Vector3(0, 1.6, 10), Vector3(0, 1.3, 10)]
 }
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("spawn_weapon")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.8, 10, 0.4, 1, 0, 1.18993, 10, 0.8, 1, 0, 0.8, 10)
 
 [sub_resource type="Animation" id="Animation_s3la1"]
 resource_name = "float_weapon"
@@ -118,6 +114,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2dle"]
 _data = {
+"RESET": SubResource("Animation_pgkyd"),
 "Text_type": SubResource("Animation_lny85"),
 "camera_transition_90deg": SubResource("Animation_2lfkb"),
 "float": SubResource("Animation_jlcpy"),
@@ -129,35 +126,11 @@ _data = {
 [sub_resource type="Animation" id="Animation_nhchj"]
 resource_name = "new_animation"
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("spawn_weapon:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.32449, 0), Vector3(0, 0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v03lv"]
 _data = {
 "new_animation": SubResource("Animation_nhchj")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_llije"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_hotmt"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_4gkhy"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_bmqx5"]
-font_size = 64
 
 [sub_resource type="Animation" id="Animation_fa2dx"]
 resource_name = "new_animation"
@@ -179,6 +152,16 @@ tracks/0/keys = {
 _data = {
 "new_animation": SubResource("Animation_fa2dx")
 }
+
+[sub_resource type="Animation" id="Animation_owdsl"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_brebm"]
+_data = {
+"new_animation": SubResource("Animation_owdsl")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jio20"]
 
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_3sc4y")
@@ -205,6 +188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 script = ExtResource("6_cr65g")
 
 [node name="spawn_weapon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.046119, 0)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 4.2, 0, 0, 0, 0.12, 0, 1.89055, -10.794)
@@ -289,67 +273,32 @@ libraries = {
 }
 autoplay = "new_animation"
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme = ExtResource("7_88d2d")
-script = ExtResource("8_n14p2")
+[node name="Level_objects" type="Node3D" parent="."]
 
-[node name="Label" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -2.0
-offset_right = 193.0
-offset_bottom = 86.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Speed
-"
-label_settings = SubResource("LabelSettings_llije")
+[node name="AmmoCreate" parent="Level_objects" instance=ExtResource("8_o1ut4")]
+transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 0, 0, 0)
+ammoValue = 1500
 
-[node name="SpeedLabel" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 89.0
-offset_right = 41.0
-offset_bottom = 177.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-label_settings = SubResource("LabelSettings_hotmt")
+[node name="Timer" type="Timer" parent="Level_objects"]
+wait_time = 2.0
 
-[node name="Label2" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1662.0
-offset_top = 854.0
-offset_right = 1874.0
-offset_bottom = 942.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Bullets"
-label_settings = SubResource("LabelSettings_4gkhy")
+[node name="Finish_Zone" parent="Level_objects" instance=ExtResource("11_13465")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.679873, 0.669742, -5.99941)
 
-[node name="AmmoLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1840.0
-offset_top = 952.0
-offset_right = 1880.0
-offset_bottom = 1040.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
-label_settings = SubResource("LabelSettings_bmqx5")
+[node name="Tube" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.842169, 24.338, 20)
+flip_faces = true
+radius = 3.0
+height = 30.0
+material = ExtResource("2_82xxh")
+
+[node name="highlight_object" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tu8hw")
+}
+autoplay = "new_animation"
+
+[node name="UI" parent="." instance=ExtResource("12_b5s2e")]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI"]
 layout_mode = 0
@@ -365,27 +314,22 @@ scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Random" type="Node3D" parent="."]
+[node name="Floating_text" type="Node3D" parent="."]
 
-[node name="AmmoCreate" parent="Random" instance=ExtResource("8_o1ut4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.623)
-ammoValue = 1500
+[node name="Label3D" type="Label3D" parent="Floating_text"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866647, 0)
 
-[node name="Timer" type="Timer" parent="Random"]
-wait_time = 2.0
-
-[node name="Tube" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.842169, 24.338, 20)
-flip_faces = true
-radius = 3.0
-height = 30.0
-material = ExtResource("2_82xxh")
-
-[node name="highlight_object" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Floating_text"]
 libraries = {
-"": SubResource("AnimationLibrary_tu8hw")
+"": SubResource("AnimationLibrary_brebm")
 }
-autoplay = "new_animation"
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.723)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2.355, 0, 0, 0, 2.355, 0, 0, 0, 2.355, 0, 0, -0.796244)
+shape = SubResource("BoxShape3D_jio20")
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
