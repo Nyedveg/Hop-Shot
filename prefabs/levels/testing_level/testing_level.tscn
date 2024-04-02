@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_4dse7"]
 [ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="5_n2r0x"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_mx6eb"]
-[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/finish_zone.tscn" id="7_vjeah"]
+[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/static/finish_zone.tscn" id="7_vjeah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
 albedo_texture = ExtResource("5_n2r0x")
@@ -175,6 +175,14 @@ font_size = 128
 
 [node name="Finish_Zone" parent="Environment" instance=ExtResource("7_vjeah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4032, 0.669742, 0)
+
+[node name="Label3D" type="Label3D" parent="Environment/Finish_Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.30266, 0)
+pixel_size = 0.01
+billboard = 1
+no_depth_test = true
+text = "🏁"
+font_size = 128
 
 [node name="Areas" type="Node3D" parent="."]
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1gu6f8hnmb1a"]
+
+[ext_resource type="Script" path="res://scripts/finish_zone.gd" id="1_y2vkc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1lgb"]
+size = Vector3(3.70893, 2.84564, 3.64624)
+
+[node name="Finish_Zone" type="Area3D"]
+script = ExtResource("1_y2vkc")
+scene = "res://prefabs/levels/level_template.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15622, 0)
+shape = SubResource("BoxShape3D_m1lgb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

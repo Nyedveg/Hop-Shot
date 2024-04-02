@@ -1,13 +1,37 @@
-[gd_scene load_steps=9 format=3 uid="uid://djfgl770c3pnm"]
+[gd_scene load_steps=19 format=3 uid="uid://djfgl770c3pnm"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_k07er"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_pqolb"]
+[ext_resource type="VoxelGIData" uid="uid://2s7nui7y5l7a" path="res://data/lightmaps/starting_level.VoxelGI_data.res" id="3_n3hdd"]
 [ext_resource type="PackedScene" uid="uid://blcgyfj31qa1" path="res://prefabs/game objects/static/trees/tree_1.tscn" id="4_r3k7q"]
 [ext_resource type="PackedScene" uid="uid://06weksxavykt" path="res://prefabs/game objects/static/trees/tree_3.tscn" id="5_piahr"]
 [ext_resource type="PackedScene" uid="uid://b7dgcbofxdgep" path="res://prefabs/game objects/static/trees/tree_4.tscn" id="6_6jmcy"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="6_ugoj2"]
 [ext_resource type="PackedScene" uid="uid://cjnpcdc2whkje" path="res://prefabs/game objects/static/trees/tree_2.tscn" id="7_32rsn"]
+[ext_resource type="PackedScene" uid="uid://dkbdjrvfa3n8v" path="res://prefabs/levels/starting_level/starting_level_base_1.tscn" id="7_mgm2a"]
 [ext_resource type="PackedScene" uid="uid://cd12xpp01vyq4" path="res://prefabs/levels/starting_level/starting_level_base.tscn" id="8_ptdgw"]
+[ext_resource type="PackedScene" uid="uid://bg56883gtv2ev" path="res://prefabs/levels/starting_level/starting_level_base_2.tscn" id="9_s4jo7"]
+[ext_resource type="PackedScene" uid="uid://p78pprkhjdr7" path="res://prefabs/levels/starting_level/starting_level_base_4.tscn" id="10_5yhsy"]
+[ext_resource type="Script" path="res://prefabs/levels/starting_level/IntroTransititon_script.gd" id="12_accaa"]
+[ext_resource type="PackedScene" uid="uid://bxlhpwp5e5gig" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="12_jsqy2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_778pf"]
+sky_top_color = Color(0.376471, 0.439216, 0.631373, 1)
+sky_horizon_color = Color(0.737255, 0.631373, 0.564706, 1)
+sky_curve = 0.47075
+ground_bottom_color = Color(0.137255, 0.101961, 0.129412, 1)
+ground_horizon_color = Color(0.8, 0.611765, 0.443137, 1)
+
+[sub_resource type="Sky" id="Sky_w480w"]
+sky_material = SubResource("ProceduralSkyMaterial_778pf")
+
+[sub_resource type="Environment" id="Environment_20una"]
+background_mode = 2
+sky = SubResource("Sky_w480w")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ihdpu"]
+size = Vector3(2.53613, 1, 2.1582)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_k07er")
@@ -20,48 +44,153 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Environment" type="Node3D" parent="."]
 
+[node name="VoxelGI" type="VoxelGI" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37711, 28.656, 27.0287)
+subdiv = 0
+size = Vector3(146.708, 77.312, 156.705)
+data = ExtResource("3_n3hdd")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 8.72539, 0)
+transform = Transform3D(-0.21675, -0.379545, -0.899425, -0.845319, -0.387887, 0.367394, -0.488318, 0.839934, -0.236762, 0, 53.1601, 0)
+light_color = Color(1, 0.831373, 0.690196, 1)
+light_bake_mode = 1
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_20una")
+
+[node name="Scenery" type="Node3D" parent="Environment"]
+
+[node name="Tree22" parent="Environment/Scenery" instance=ExtResource("4_r3k7q")]
+transform = Transform3D(1.29071, -0.096757, -0.166557, 0.0959613, 1.30141, -0.0123832, 0.167017, 0, 1.29427, 20.847, 1.64497, -20.952)
+
+[node name="Tree15" parent="Environment/Scenery" instance=ExtResource("4_r3k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6002, -2.29227, -3.98221)
+
+[node name="Tree16" parent="Environment/Scenery" instance=ExtResource("4_r3k7q")]
+transform = Transform3D(0.304537, 0, 0.624725, 0.0542855, 0.692371, -0.0264627, -0.622362, 0.060392, 0.303385, -4.64654, -2.92872, -17.0837)
+
+[node name="Tree17" parent="Environment/Scenery" instance=ExtResource("5_piahr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70493, -1.91895, -21.1201)
+
+[node name="Tree18" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(0.584731, 0, -0.545976, 0, 0.8, 0, 0.545976, 0, 0.584731, 3.25202, -2.87232, -13.2875)
+
+[node name="Tree19" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79462, -3.26612, 17.0178)
+
+[node name="Tree20" parent="Environment/Scenery" instance=ExtResource("7_32rsn")]
+transform = Transform3D(0.9956, -0.0937087, 0, 0.093593, 0.994371, 0.0496691, -0.00465442, -0.0494505, 0.998766, -10.925, -3.30101, 5.24293)
+
+[node name="Tree23" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(0.91072, 0.173498, 0.374817, -0.0567874, 0.951474, -0.302446, -0.409102, 0.254159, 0.876378, -39.755, 3.34688, -12.9984)
+
+[node name="Tree21" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(0.995573, 0.0939867, 0, -0.0939867, 0.995573, 0, 0, 0, 1, -19.7889, -2.81824, -13.8031)
+
+[node name="Tree1" parent="Environment/Scenery" instance=ExtResource("4_r3k7q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3535, -0.469432, 47.6585)
+
+[node name="Tree11" parent="Environment/Scenery" instance=ExtResource("4_r3k7q")]
+transform = Transform3D(-0.393943, -0.0767105, 0.479764, 0.0123461, 0.615874, 0.108611, -0.485702, 0.0778736, -0.386367, 49.2749, 21.7364, 34.7737)
+
+[node name="Tree2" parent="Environment/Scenery" instance=ExtResource("4_r3k7q")]
+transform = Transform3D(0.304537, 0, 0.624725, 0.0542855, 0.692371, -0.0264627, -0.622362, 0.060392, 0.303385, -11.8509, -1.10588, 34.0369)
+
+[node name="Tree26" parent="Environment/Scenery" instance=ExtResource("5_piahr")]
+transform = Transform3D(-0.500987, 0.206185, 0.791547, 0.155302, 0.631076, -0.310633, -0.849396, 0.0257973, -0.51683, -42.9956, 4.8147, 9.05824)
+
+[node name="Tree12" parent="Environment/Scenery" instance=ExtResource("5_piahr")]
+transform = Transform3D(0.497735, -0.1597, 0.844683, 0.0999632, 0.795173, 0.169643, -0.861549, 0, 0.507674, 18.6434, 2.09849, 30.5371)
+
+[node name="Tree3" parent="Environment/Scenery" instance=ExtResource("5_piahr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4582, -0.0961106, 19.8688)
+
+[node name="Tree13" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(0.584731, 0, -0.545976, 0, 0.8, 0, 0.545976, 0, 0.584731, 4.00525, -1.04948, 38.3533)
+
+[node name="Tree4" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.54786, -1.44328, 68.6585)
+
+[node name="Tree27" parent="Environment/Scenery" instance=ExtResource("7_32rsn")]
+transform = Transform3D(0.982449, -0.186477, -0.00465442, 0.186016, 0.977547, 0.0989972, -0.0139108, -0.0981255, 0.995077, -26.9317, -0.730508, 60.329)
+
+[node name="Tree5" parent="Environment/Scenery" instance=ExtResource("7_32rsn")]
+transform = Transform3D(0.9956, -0.0937087, 0, 0.093593, 0.994371, 0.0496691, -0.00465442, -0.0494505, 0.998766, -4.43246, -1.47817, 55.497)
+
+[node name="Tree25" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(0.999378, 0.0268621, -0.0228792, -0.0234246, 0.989997, 0.139136, 0.0263878, -0.138514, 0.990009, -22.4589, -1.50973, 24.5698)
+
+[node name="Tree6" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(0.995573, 0.0939867, 0, -0.0939867, 0.995573, 0, 0, 0, 1, -6.68802, -2.11464, 16.6585)
+
+[node name="Tree24" parent="Environment/Scenery" instance=ExtResource("5_piahr")]
+transform = Transform3D(0.892834, 0.0965829, 0.439908, -0.107548, 0.9942, 0, -0.437356, -0.0473113, 0.898043, -46.4624, 9.41561, 36.9131)
+
+[node name="Tree7" parent="Environment/Scenery" instance=ExtResource("5_piahr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1665, 4.20666, 15.6325)
+
+[node name="Tree8" parent="Environment/Scenery" instance=ExtResource("7_32rsn")]
+transform = Transform3D(0.9663, -0.257419, 0, 0.257419, 0.9663, 0, 0, 0, 1, 43.1875, 16.0634, 13.9764)
+
+[node name="Tree9" parent="Environment/Scenery" instance=ExtResource("6_6jmcy")]
+transform = Transform3D(0.939436, -0.342725, 0, 0.342725, 0.939436, 0, 0, 0, 1, 43.9604, 15.914, 69.8944)
+
+[node name="Tree14" parent="Environment/Scenery" instance=ExtResource("4_r3k7q")]
+transform = Transform3D(0.793815, 0.0992831, 0, -0.0992831, 0.793815, 0, 0, 0, 0.8, 27.2714, 7.91571, 51.1744)
+
+[node name="Tree10" parent="Environment/Scenery" instance=ExtResource("4_r3k7q")]
+transform = Transform3D(0.975064, -0.221923, 0, 0.221923, 0.975064, 0, 0, 0, 1, 26.3535, 7.4461, 61.7769)
+
+[node name="starting_level_base1" parent="Environment/Scenery" instance=ExtResource("7_mgm2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1075, -3.30659, -16.2715)
+
+[node name="starting_level_base" parent="Environment/Scenery" instance=ExtResource("8_ptdgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3535, 1.35341, 40.6585)
+
+[node name="starting_level_base2" parent="Environment/Scenery" instance=ExtResource("9_s4jo7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -35.6465, -1.92459, 6.64054)
+
+[node name="starting_level_base5" parent="Environment/Scenery" instance=ExtResource("10_5yhsy")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -12.9029, -10.2043, -24.2843)
+
+[node name="starting_level_base4" parent="Environment/Scenery" instance=ExtResource("10_5yhsy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.53818, -3.61597, 70.0058)
 
 [node name="Areas" type="Node3D" parent="."]
 
 [node name="Death_Zone" parent="Areas" instance=ExtResource("6_ugoj2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 
-[node name="Tree1" parent="." instance=ExtResource("4_r3k7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.10097, -0.373224, 8.01909)
+[node name="IntroTransititon" type="Area3D" parent="Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.8577, 9.67316, 58.3987)
+script = ExtResource("12_accaa")
 
-[node name="Tree2" parent="." instance=ExtResource("4_r3k7q")]
-transform = Transform3D(0.491439, 0, 0.491439, 0, 0.695, 0, -0.491439, 0, 0.491439, -4, -1.72833, -10)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/IntroTransititon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0507813, 0, 0)
+shape = SubResource("BoxShape3D_ihdpu")
 
-[node name="Tree3" parent="." instance=ExtResource("5_piahr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -3.73843, -42)
+[node name="weapon" parent="." instance=ExtResource("12_jsqy2")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 40.8738, 9.84647, 58.5524)
 
-[node name="Tree4" parent="." instance=ExtResource("6_6jmcy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -1.73438, 28)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Tree5" parent="." instance=ExtResource("7_32rsn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, -4.09017, 6)
-
-[node name="Tree6" parent="." instance=ExtResource("6_6jmcy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -5.93863, -24)
-
-[node name="Tree7" parent="." instance=ExtResource("5_piahr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -36)
-
-[node name="Tree8" parent="." instance=ExtResource("7_32rsn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -15)
-
-[node name="Tree9" parent="." instance=ExtResource("6_6jmcy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 13)
-
-[node name="Tree10" parent="." instance=ExtResource("4_r3k7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 41)
-
-[node name="starting_level_base" parent="." instance=ExtResource("8_ptdgw")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 97.91, 24.1762, 163.577)
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="Areas/IntroTransititon" to="Areas/IntroTransititon" method="_on_body_entered"]
