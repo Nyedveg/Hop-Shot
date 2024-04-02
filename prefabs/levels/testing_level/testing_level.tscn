@@ -24,7 +24,7 @@ uv1_triplanar = true
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_3t6vb")
-startAmmo = 5
+startAmmo = 50
 
 [node name="UI" parent="." instance=ExtResource("2_86wyy")]
 

@@ -94,7 +94,7 @@ target_position = Vector3(0, 0, -50)
 collision_mask = 4
 
 [node name="Hand" type="Node3D" parent="Head/Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.596, -0.245, -0.84)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646, -0.29, -0.725)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera/Hand"]
 libraries = {
