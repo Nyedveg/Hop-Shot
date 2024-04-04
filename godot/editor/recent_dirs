@@ -1,3 +1,6 @@
-res://textures/logo
+res://scripts
+res://prefabs/game objects/interactable
+res://prefabs/game objects/interactable/weapon
 res://models/Hopper
+res://textures/logo
 res://material
