@@ -15,7 +15,12 @@ run/main_scene="res://prefabs/levels/testing_level/testing_level.tscn"
 config/use_hidden_project_data_directory=false
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/low_processor_mode=true
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.572549, 0.701961, 0.741176, 1)
+boot_splash/image="res://textures/logo/Logo_large.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://textures/logo/Logo_mini.png"
+boot_splash/minimum_display_time=600
 
 [display]
 

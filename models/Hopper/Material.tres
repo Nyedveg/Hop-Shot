@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c7osuev603bn5"]
+
+[ext_resource type="Texture2D" uid="uid://cymn8dqiejyge" path="res://models/Hopper/Hopper_Gun_Hopper_Gun_UV.png" id="1_ae1u2"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_ae1u2")
+texture_filter = 2

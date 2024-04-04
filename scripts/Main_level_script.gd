@@ -2,11 +2,7 @@ extends Node3D
 
 var collider_obj = preload( "res://prefabs/collider.tscn")
 
-
-@onready var speed_label = $UI/SpeedLabel
 @onready var player = $Player
-@onready var ammo_label = $UI/AmmoLabel
-
 
 @export var startAmmo: int
 signal set_ammo(setAmmo)
@@ -20,8 +16,9 @@ func _process(_delta):
 	pass
 
 # A SIGNAL EMITTED BY THE PLAYER WHEN THE WEAPON GETS SHOT
-func _on_player_player_shot_fired(pos):
+func _on_player_player_shot_fired(pos, time):
 	var collider = collider_obj.instantiate()
+	collider.hold_timer = time
 	add_child(collider)
 	collider.position = pos
 
