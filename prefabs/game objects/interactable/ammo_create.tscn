@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://djviime4g1lhc"]
+[gd_scene load_steps=16 format=3 uid="uid://djviime4g1lhc"]
 
 [ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="1_s5i4o"]
 
@@ -35,16 +35,113 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iqfmq"]
 _data = {
-"ammo_box_spin": SubResource("Animation_yaepp")
+"big_float": SubResource("Animation_3mp88"),
+"new_animation": SubResource("Animation_j3ulf"),
+"new_animation_2": SubResource("Animation_7u7us")
 }
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_k3iwr"]
-height = 1.72512
-radius = 1.08302
+[sub_resource type="Animation" id="Animation_3gsqw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a3h2f"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(0.812253, 0.812253, 0.812253),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.05, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.965936, 0.965936),
+"update": 0,
+"values": [Vector3(0, 1.46612, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28ddc"]
+_data = {
+"RESET": SubResource("Animation_3gsqw"),
+"new_animation": SubResource("Animation_a3h2f")
+}
 
 [node name="AmmoCreate" type="Node3D"]
+transform = Transform3D(0.5, 0, 2.23319e-06, 0, 0.5, 0, -2.23319e-06, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_s5i4o")
-ammoValue = 2
+ammoValue = 5
+
+[node name="Area3D" type="Area3D" parent="."]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00259578, 1.35598, 0.000870705)
+shape = SubResource("CylinderShape3D_k3iwr")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54603, 0)
+radius = 0.4
+material = ExtResource("2_uwgra")
+
+[node name="Path3D2" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.355596, -2.01844e-08, 0.93464, 2.21164e-16, 1, 2.15959e-08, -0.93464, 7.67942e-09, -0.355596, -4.90443e-05, 0.758075, -0.000420893)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D2"]
+transform = Transform3D(-0.0244556, 0.939138, -0.342207, -0.180887, -0.34082, -0.922383, -0.983046, 0.0393498, 0.178238, 0.84394, -1.03439, -0.243898)
+progress = 5.32153
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D2/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.8
+material = ExtResource("3_yijfj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D2/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 1.4
+
+[node name="Path3D3" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(0.5398, -1.81793e-08, 0.841794, 9.36421e-16, 1, 2.15959e-08, -0.841793, -1.16575e-08, 0.5398, -4.90443e-05, 0.758075, -0.000420893)
+curve = SubResource("Curve3D_0rktn")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -57,8 +154,41 @@ libraries = {
 autoplay = "ammo_box_spin"
 speed_scale = 0.75
 
-[node name="Area3D" type="Area3D" parent="."]
-input_ray_pickable = false
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D10"]
+transform = Transform3D(-0.113802, 0.370181, 0.921783, 0.28729, 0.900438, -0.326133, -0.950901, 0.227741, -0.20885, 0.368307, 0.0647528, -0.0762903)
+progress = 1.04846
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D10/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.4
+material = ExtResource("6_vjr4p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D10/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 0.5
+
+[node name="Path3D11" type="Path3D" parent="CSGSphere3D"]
+transform = Transform3D(-0.408082, 1.22825e-08, -0.568744, -1.61425e-15, 0.7, 1.51171e-08, 0.568744, 8.81289e-09, -0.408082, -0.0267601, 0.53197, -0.0262947)
+curve = SubResource("Curve3D_0rktn")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D11"]
+transform = Transform3D(-0.0800194, 0.0412749, -0.995771, -0.312643, -0.949597, -0.0142373, -0.946333, 0.310231, 0.0889034, -0.0327445, -1.59666, 0.0170646)
+progress = 4.18391
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D11/PathFollow3D"]
+transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
+radius = 0.4
+material = ExtResource("4_hstm5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGSphere3D/Path3D11/PathFollow3D/CSGSphere3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jdk82")
+}
+autoplay = "new_animation"
+speed_scale = 0.4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.812054, 0)
