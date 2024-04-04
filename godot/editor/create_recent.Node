@@ -1,2 +1,14 @@
+ColorRect
+CollisionShape3D
+RigidBody3D
+Area3D
+CSGCylinder3D
+CSGBox3D
+Node3D
+Control
+Camera3D
 TextureRect
-AnimatedSprite2D
+AnimationPlayer
+Button
+Container
+Node
