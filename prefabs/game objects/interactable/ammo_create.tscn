@@ -160,7 +160,7 @@ transform = Transform3D(-0.355596, -2.01844e-08, 0.93464, 2.21164e-16, 1, 2.1595
 curve = SubResource("Curve3D_0rktn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D2"]
-transform = Transform3D(-4.37048e-08, 0.999843, -4.37041e-08, 0, -4.37045e-08, -0.999832, -0.999849, -4.37045e-08, 1.91037e-15, 0.898147, -0.735949, -0.270391)
+transform = Transform3D(-4.37048e-08, 0.999843, -4.3704e-08, 0, -4.37045e-08, -0.999832, -0.999849, -4.37045e-08, 1.91036e-15, 0.898147, -0.735949, -0.270391)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D2/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
@@ -338,7 +338,7 @@ transform = Transform3D(-0.408082, 1.22825e-08, -0.568744, -1.61425e-15, 0.7, 1.
 curve = SubResource("Curve3D_0rktn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D11"]
-transform = Transform3D(-0.0800195, 0.0412749, -0.995771, -0.312643, -0.949597, -0.0142373, -0.946333, 0.310231, 0.0889034, -0.0327445, -1.59666, 0.0170646)
+transform = Transform3D(-0.0800194, 0.0412749, -0.995771, -0.312643, -0.949597, -0.0142373, -0.946333, 0.310231, 0.0889034, -0.0327445, -1.59666, 0.0170646)
 progress = 4.18391
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D11/PathFollow3D"]

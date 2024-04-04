@@ -1,18 +1,11 @@
-res://prefabs/game objects/interactable/ammo_create.tscn
+res://prefabs/levels/menu_levels/main_menu.tscn
 res://models/Hopper/Hopper_Screen_Material002.tres
 res://models/Hopper/Hopper_Base_Material001.tres
 res://models/Hopper/Material.tres
 res://material/ammo_create_blue.tres
 res://ui/themes/debug.tres
-res://prefabs/levels/menu_levels/main_menu.tscn
-res://prefabs/game objects/interactable/weapon/weapon.tscn
-res://prefabs/game objects/interactable/weapon/weapon_hr.tscn
-res://prefabs/levels/testing_level/testing_level.tscn
 res://prefabs/player/Player.tscn
-res://prefabs/game objects/interactable/weapon/Area3D.gd
-res://prefabs/levels/level_template.tscn
-res://scripts/ammo_box_script.gd
-res://prefabs/levels/Tutorial_level/Level_Tutorial.tscn
-res://scripts/ExitButton_script.gd
-res://scripts/SelectButton_script.gd
+res://prefabs/game objects/interactable/weapon/weapon_hr.tscn
+res://prefabs/game objects/interactable/ammo_create.tscn
+res://prefabs/levels/testing_level/testing_level.tscn
 res://prefabs/game objects/static/finish_zone.tscn
