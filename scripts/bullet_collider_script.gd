@@ -1,10 +1,7 @@
 extends CSGSphere3D
 
-@export var x_speed = 6
-@export var z_speed = 6
-@export var y_speed = 12
-
 @onready var timer = $Timer
+@export var hold_timer: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +15,7 @@ func _process(_delta):
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("movable"):
 		var projectile_direction = (body.position - position).normalized()
-		var projectile_knockback = 26
+		var projectile_knockback = 10 + (26 * hold_timer)
 		
 		var add_velocity = projectile_direction * projectile_knockback
 		body.velocity += add_velocity

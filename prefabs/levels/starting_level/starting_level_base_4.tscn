@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://p78pprkhjdr7"]
-
-[ext_resource type="PackedScene" uid="uid://d4eejoy5j1lor" path="res://models/levels/starting_level/4/starting_level_terrain3.glb" id="1_4nrxf"]
-
-[node name="starting_level_base4" type="Node3D"]
-
-[node name="starting_level_terrain3" parent="." instance=ExtResource("1_4nrxf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3149, 0, 65.2429)

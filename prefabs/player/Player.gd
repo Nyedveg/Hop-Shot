@@ -144,8 +144,8 @@ func headbob(time) -> Vector3:
 	return pos
 	
 # SHOT SPAWNING PASSTHROUGH FORM WEAPON HANDLER
-func _on_weapon_handler_shot_fired(pos):
-	emit_signal("player_shot_fired", pos)
+func _on_weapon_handler_shot_fired(pos, time):
+	emit_signal("player_shot_fired", pos, time)
 
 # UI UPDATER PASSTHROUGH FOR UPDATING AMMO COUNT
 func _on_weapon_handler_update_ammo(currentAmmo):

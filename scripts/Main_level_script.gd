@@ -16,8 +16,9 @@ func _process(_delta):
 	pass
 
 # A SIGNAL EMITTED BY THE PLAYER WHEN THE WEAPON GETS SHOT
-func _on_player_player_shot_fired(pos):
+func _on_player_player_shot_fired(pos, time):
 	var collider = collider_obj.instantiate()
+	collider.hold_timer = time
 	add_child(collider)
 	collider.position = pos
 
