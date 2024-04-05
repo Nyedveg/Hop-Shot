@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://lgpnj8y2yewl"]
+[gd_scene load_steps=11 format=3 uid="uid://lgpnj8y2yewl"]
 
 [ext_resource type="Texture2D" uid="uid://bagra2vy2n2tl" path="res://textures/logo/Logo_large.png" id="1_da6fw"]
 [ext_resource type="Script" path="res://scripts/ExitButton_script.gd" id="1_q1k37"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="2_r4107"]
 [ext_resource type="Script" path="res://scripts/SelectButton_script.gd" id="2_vrpr8"]
+[ext_resource type="AudioStream" uid="uid://pjhkbrp3qyjb" path="res://sounds/music/HopShotMenuTheme_cut.mp3" id="5_3cfxs"]
 
 [sub_resource type="Animation" id="Animation_jvgmb"]
 resource_name = "hover_logo"
@@ -136,13 +137,19 @@ color = Color(0, 0, 0, 0)
 [node name="Visual" type="Node3D" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Visual"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 2.04444, 0)
+light_color = Color(0.364706, 0.788235, 1, 1)
+light_bake_mode = 1
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Visual"]
 environment = SubResource("Environment_rvga6")
 
 [node name="AmmoCreate" parent="." instance=ExtResource("2_r4107")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3cfxs")
+autoplay = true
 
 [connection signal="pressed" from="UIMainMenu/ExitButton" to="UIMainMenu/ExitButton" method="_on_pressed"]
 [connection signal="pressed" from="UIMainMenu/SelectButton" to="UIMainMenu/SelectButton" method="_on_pressed"]
