@@ -40,7 +40,10 @@ func spawn_weapon():
 	print(spawn_in.position)
 	spawn_in.add_child(weapon)
 	text_pop.text = "Pick me up!"
+
+func camera_opacity():
 	
+
 func spawn_orb():
 	var instance = crate.instanciate()
 	instance.position = Vector3(0,0,5)
