@@ -11,20 +11,21 @@ signal orb_spawned
 
 @onready var text_pop = $"../TextPop"
 @onready var spawn_in = $"../spawn_weapon"
+@onready var spawn_Finish = $"../Random/Finish_Line"
 @onready var player = $"../Player"
 @onready var camera = $"../Player/Head/Camera"
 @onready var cameraAnimation = $"../Player/Head/AnimationPlayer"
-@onready var timer = $"../Level_objects/Timer"
+@onready var timer = $"../Random/Timer"
 @onready var animationNode = $"../Floating_animation"
 @onready var animationNode2 = $"../Floating_animation/AnimationPlayer"
-var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
+var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon_hr.tscn")
 var offset = Vector3(0,0.8,0)
 @onready var label3 = $"../UI/RichTextLabel"
 var original_text
 var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var cylinder = $"../Tube"
 @onready var highlight_animation = $"../highlight_object"
-@onready var finish_line = $"../Level_objects/Finish_Zone"
+var finish_line = preload("res://prefabs/game objects/static/finish_zone.tscn")
 @onready var UI = $"../UI"
 
 var mouse_input = preload("res://prefabs/player/Player.gd")
@@ -40,9 +41,13 @@ func spawn_weapon():
 	print(spawn_in.position)
 	spawn_in.add_child(weapon)
 	text_pop.text = "Pick me up!"
+	
+func spawn_finish():
+	var finish = finish_line.instantiate()
+	spawn_Finish.add_child(finish)
 
 func camera_opacity():
-	
+	pass
 
 func spawn_orb():
 	var instance = crate.instanciate()
@@ -62,22 +67,23 @@ func _on_player_change_ammo(ammo_value):
 	print("Ammo value changed:", ammo_value)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	highlight_animation.queue("new_animation")
+	
 	label3.visible = false
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
 	
 	
 	original_text = label3.text
-	set_player_pos_onready()
-	set_camera_on_ready()
-	set_player_pos_onready()
+	set_player_pos_onready(0,100,20)
+	set_camera_on_ready(-90,0,0)
 	
 	timer.start()
 	await timer.timeout
 	animationNode.play("Text_type")
 	label3.visible = true
 	cameraAnimation.play("new_animation")
+	set_camera_on_ready(0,0,0)
+	
 	
 
 #func _on_player_change_ammo(value):
@@ -86,10 +92,10 @@ func _ready():
 func text_pop_change_position(x,y,z):
 	text_pop.position = Vector3(x,y,z)
 
-func set_camera_on_ready():
-	camera.global_rotation_degrees = Vector3(-90,0,0)
-func set_player_pos_onready():
-	player.position = Vector3(0,30,20)
+func set_camera_on_ready(x,y,z):
+	camera.global_rotation_degrees = Vector3(x,y,z)
+func set_player_pos_onready(x,y,z):
+	player.position = Vector3(x,y,z)
 	
 func finish_line_scene(String):
 	finish_line.change_level(String)
@@ -150,9 +156,6 @@ func _process(delta):
 		animationNode.stop()
 		text_pop_change_position(0,0,5)
 		
-		
-		#highlight_animation.play("new_animation")
-		#finish_line_scene("res://prefabs/levels/testing_level/testing_level.tscn")
 		
 
 		

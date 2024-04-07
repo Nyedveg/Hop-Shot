@@ -18,3 +18,7 @@ func _process(_delta):
 		ammo_label.set_modulate(Color(0.886, 0.024, 0.0, 1.0))
 	else:
 		ammo_label.set_modulate(Color(0.667, 0.906, 0.773, 1.0))
+
+
+func _on_area_3d_body_entered(body):
+	pass # Replace with function body.

@@ -1,4 +1,11 @@
-res://prefabs/levels/testing_level/testing_level.tscn
-res://ui/themes/debug.tres
 res://prefabs/player/Player.tscn
+res://ui/themes/debug.tres
+res://material/ammo_create_pink.tres
+res://material/ammo_create_yel.tres
+res://material/ammo_create_blue.tres
 res://prefabs/game objects/interactable/weapon/weapon_hr.tscn
+res://prefabs/levels/Tutorial_level/Level_Tutorial.tscn
+res://scripts/Action_Listener_DEMO.gd
+res://material/metalic_shiny.tres
+res://prefabs/game objects/interactable/weapon/weapon_hr_script.gd
+res://prefabs/game objects/interactable/ammo_create.tscn
