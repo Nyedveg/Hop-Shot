@@ -50,10 +50,10 @@ func camera_opacity():
 	pass
 
 func spawn_orb():
-	var instance = crate.instanciate()
+	var instance = crate.instantiate()
 	instance.position = Vector3(0,0,5)
 	text_pop.text = "Pick this up!"
-	crate.emit_signal("orb_spawned")
+	
 
 func clear_txt():
 	await reverse_text
@@ -71,6 +71,7 @@ func _ready():
 	label3.visible = false
 	label3.bbcode_enabled = true
 	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
+	
 	
 	
 	original_text = label3.text
@@ -138,7 +139,7 @@ func _process(delta):
 		clear_txt()
 		
 		spawn_weapon()
-		
+		spawn_orb()
 
 		animationNode.play("text_type_3d")
 		await animationNode.animation_finished
@@ -149,13 +150,12 @@ func _process(delta):
 		await player.equip_gun
 		#text_pop.visible = false
 		
-		spawn_orb()
 		
-		await crate.has_signal("orb_spawn")
+		
+		
 		print("")
-		animationNode.stop()
 		text_pop_change_position(0,0,5)
-		
+		spawn_finish()
 		
 
 		
