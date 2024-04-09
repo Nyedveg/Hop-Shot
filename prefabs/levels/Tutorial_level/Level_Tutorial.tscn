@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=19 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
 [ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="2_82xxh"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
+[ext_resource type="Script" path="res://prefabs/player/Weapon_handler_script.gd" id="6_lffix"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="8_o1ut4"]
 [ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="8_q22th"]
+[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/static/finish_zone.tscn" id="9_qetya"]
 
 [sub_resource type="Animation" id="Animation_lny85"]
 resource_name = "Text_type"
@@ -107,6 +109,7 @@ script = ExtResource("6_cr65g")
 
 [node name="spawn_weapon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.520859, 0)
+script = ExtResource("6_lffix")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." groups=["shootable"]]
 transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 1.89055, -10.794)
@@ -233,11 +236,12 @@ transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 0, 0, 0)
 ammoValue = 1500
 
 [node name="Timer" type="Timer" parent="Random"]
-wait_time = 2.0
-
-[node name="Finish_Line" type="Node3D" parent="Random"]
+wait_time = 4.0
 
 [node name="orb" type="Node3D" parent="Random"]
+
+[node name="Finish_Zone" parent="Random" instance=ExtResource("9_qetya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11619, 5.14031, -33.7273)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(7, 0, 0, 0, 50, 0, 0, 0, 7, 0, 56.723, 20.34)

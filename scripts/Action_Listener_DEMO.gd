@@ -4,9 +4,9 @@ var pressedA = false
 var pressedS = false
 var pressedD = false
 var all_pressed = false
+
 signal reverse_text
 signal orb_spawned
-
 
 
 @onready var text_pop = $"../TextPop"
@@ -32,8 +32,6 @@ var finish_line = preload("res://prefabs/game objects/static/finish_zone.tscn")
 @onready var animation_Player_Node = $"../AnimationPlayerNode"
 @onready var collisionArea = $"../Area3D"
 
-var mouse_input = preload("res://prefabs/player/Player.gd")
-
 
 var temp = 0
 
@@ -44,6 +42,7 @@ func spawn_weapon():
 	
 	print(spawn_in.position)
 	spawn_in.add_child(weapon)
+	player._on_level_template_set_ammo(0)
 	text_pop.text = "Pick me up!"
 	
 func spawn_finish():
@@ -66,16 +65,29 @@ func clear_txt():
 
 func _on_weapon_picked_up():
 	text_pop.visible = false
+	
+	
+func _on_player_colided_with_collision_area(collision_area):
+	var playerDetected = false
+	if collisionArea.get_overlapping_bodies().size() > 0:
+		for body in collisionArea.get_overlapping_bodies():
+			if body.name == "Player":
+				playerDetected = true
+				break
+	return playerDetected
+		
+	
 
-func _on_player_change_ammo(ammo_value):
-# Handle the signal here
-	print("Ammo value changed:", ammo_value)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player.set_mouse_input_enabled(false)
+	set_player_pos_onready(0,100,20)
+	cameraAnimation.play("new_animation")
+	cameraAnimation.seek(0)
+	cameraAnimation.pause()
 	
 	collisionArea.position = Vector3(1,1,1)
 	animation_Player_Node.play("opacity")
-
 	
 	label3.visible = false
 	label3.bbcode_enabled = true
@@ -84,33 +96,26 @@ func _ready():
 	
 	
 	original_text = label3.text
-	set_player_pos_onready(0,100,20)
-	set_camera_on_ready(-90,0,0)
+	
 	
 	timer.start()
 	await timer.timeout
+	cameraAnimation.play()
 	animationNode.play("Text_type")
 	label3.visible = true
-	cameraAnimation.play("new_animation")
-	set_camera_on_ready(0,0,0)
 	
-	if collisionArea.overlaps_body(player):
-		var wall = $"../CSGBox3D10"
-		wall.position = Vector3(0, 7, 10)
-		print("pppp")
-		
 	
 	
 	
 
-#func _on_player_change_ammo(value):
-	#label3.text = "Ammo Value: " + str(value)
+
 
 func text_pop_change_position(x,y,z):
 	text_pop.position = Vector3(x,y,z)
 
 func set_camera_on_ready(x,y,z):
 	camera.global_rotation_degrees = Vector3(x,y,z)
+	
 func set_player_pos_onready(x,y,z):
 	player.position = Vector3(x,y,z)
 	
@@ -122,10 +127,14 @@ func finish_line_scene(String):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	
+	var playerDetected = false
+	playerDetected = _on_player_colided_with_collision_area(collisionArea)
+	if playerDetected:
+		pass
+	else:
+		pass
 	
 
-	
 	if Input.is_action_just_pressed("move_backward"):
 		pressedS = true
 		var modify = original_text.replace("S - backwards", "[color=red]S - backwards[/color]")
@@ -157,6 +166,7 @@ func _process(delta):
 		clear_txt()
 		
 		spawn_weapon()
+		
 		spawn_orb()
 		
 		animationNode.play("text_type_3d")
