@@ -104,3 +104,12 @@ layout_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_7s4bo")
 }
+
+[node name="Timer_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1390.0
+offset_right = 1917.0
+offset_bottom = 89.0
+
+[node name="Timer" type="Timer" parent="Timer_label"]
+autostart = true

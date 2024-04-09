@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=17 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3sc4y"]
 [ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="2_82xxh"]
@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_geqjx"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="6_cr65g"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="6_e77r4"]
-[ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="7_88d2d"]
-[ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="8_n14p2"]
 [ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="8_o1ut4"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="8_q22th"]
 
 [sub_resource type="Animation" id="Animation_lny85"]
 resource_name = "Text_type"
@@ -16,7 +15,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UI/RichTextLabel:visible_ratio")
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,19 +52,34 @@ _data = {
 "float": SubResource("Animation_jlcpy")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_llije"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_hotmt"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_4gkhy"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_bmqx5"]
-font_size = 64
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_6rqoy"]
+lightmap_size_hint = Vector2i(17, 19)
+material = ExtResource("2_82xxh")
+cap_bottom = false
+
+[sub_resource type="Animation" id="Animation_nalky"]
+resource_name = "opacity"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 3, 4.9),
+"transitions": PackedFloat32Array(1, 2.07053, 2.07053),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgmle"]
+_data = {
+"opacity": SubResource("Animation_nalky")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fk260"]
+size = Vector3(7.81587, 3.51473, 0.0397644)
 
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_3sc4y")
@@ -102,7 +116,7 @@ collision_mask = 6
 size = Vector3(1, 1, 46.6079)
 material = ExtResource("2_82xxh")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+[node name="CSGBox3D4" type="CSGBox3D" parent="." groups=["shootable"]]
 transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 4.16911, -15.3457)
 use_collision = true
 collision_layer = 6
@@ -110,12 +124,20 @@ collision_mask = 6
 size = Vector3(1, 2.13928, 46.6079)
 material = ExtResource("2_82xxh")
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 4.16911, -32.1566)
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 6.14091, -29.473)
 use_collision = true
 collision_layer = 6
 collision_mask = 6
-size = Vector3(1, 2.13928, 102.93)
+size = Vector3(1, 3.12518, 46.6079)
+material = ExtResource("2_82xxh")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 0.989371, -22.0499)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(1, 1.33575, 102.93)
 material = ExtResource("2_82xxh")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
@@ -129,13 +151,6 @@ material = ExtResource("2_82xxh")
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 9.105, 0.184484, 12.0089, 12.0318)
 use_collision = true
-collision_layer = 6
-collision_mask = 6
-size = Vector3(0.190613, 0.75708, 1)
-material = ExtResource("2_82xxh")
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="."]
-transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 9.105, 0.184, 12.009, 21.167)
 collision_layer = 6
 collision_mask = 6
 size = Vector3(0.190613, 0.75708, 1)
@@ -157,6 +172,22 @@ collision_mask = 6
 size = Vector3(0.206635, 0.987793, 1)
 material = ExtResource("2_82xxh")
 
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 0.1, 0.129, 12.6057, -37.089)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(0.206635, 1.30396, 1)
+material = ExtResource("2_82xxh")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 0.1, -10.5973, 7, 10)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(0.191601, 0.738525, 1)
+material = ExtResource("2_82xxh")
+
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479411, 9.93796, 8.46122)
 use_collision = true
@@ -166,11 +197,11 @@ size = Vector3(2.27588, 1, 1)
 material = ExtResource("2_82xxh")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
-transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479411, 25.1616, 8.46122)
+transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479409, 25.1616, -15.1279)
 use_collision = true
 collision_layer = 0
 collision_mask = 0
-size = Vector3(2.27588, 1, 1)
+size = Vector3(2.95465, 1, 1)
 material = ExtResource("2_82xxh")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
@@ -195,75 +226,6 @@ libraries = {
 }
 autoplay = "Text_type"
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme = ExtResource("7_88d2d")
-script = ExtResource("8_n14p2")
-
-[node name="Label" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -2.0
-offset_right = 193.0
-offset_bottom = 86.0
-text = "Speed
-"
-label_settings = SubResource("LabelSettings_llije")
-
-[node name="SpeedLabel" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 89.0
-offset_right = 41.0
-offset_bottom = 177.0
-label_settings = SubResource("LabelSettings_hotmt")
-
-[node name="Label2" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1662.0
-offset_top = 854.0
-offset_right = 1874.0
-offset_bottom = 942.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Bullets"
-label_settings = SubResource("LabelSettings_4gkhy")
-
-[node name="AmmoLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1840.0
-offset_top = 952.0
-offset_right = 1880.0
-offset_bottom = 1040.0
-grow_horizontal = 0
-grow_vertical = 0
-label_settings = SubResource("LabelSettings_bmqx5")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 714.0
-offset_right = 418.0
-offset_bottom = 1075.0
-theme_override_fonts/normal_font = ExtResource("6_e77r4")
-theme_override_font_sizes/normal_font_size = 35
-scroll_active = false
-visible_characters = 0
-visible_ratio = 0.733333
-
 [node name="Random" type="Node3D" parent="."]
 
 [node name="AmmoCreate" parent="Random" instance=ExtResource("8_o1ut4")]
@@ -275,13 +237,52 @@ wait_time = 2.0
 
 [node name="Finish_Line" type="Node3D" parent="Random"]
 
+[node name="orb" type="Node3D" parent="Random"]
+
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(7, 0, 0, 0, 50, 0, 0, 0, 7, 0, 54.8527, 20)
+transform = Transform3D(7, 0, 0, 0, 50, 0, 0, 0, 7, 0, 56.723, 20.34)
+material_override = ExtResource("2_82xxh")
+cast_shadow = 0
 collision_layer = 6
 collision_mask = 6
 flip_faces = true
 mesh = SubResource("CylinderMesh_6rqoy")
 material = ExtResource("2_82xxh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 6.0
+offset_top = 714.0
+offset_right = 418.0
+offset_bottom = 1075.0
+theme_override_fonts/normal_font = ExtResource("6_e77r4")
+theme_override_font_sizes/normal_font_size = 35
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.733333
+
+[node name="UI" parent="." instance=ExtResource("8_q22th")]
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayerNode" type="AnimationPlayer" parent="."]
+root_node = NodePath("../UI")
+libraries = {
+"": SubResource("AnimationLibrary_tgmle")
+}
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.80767, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2882, 1.10073, 6.10767)
+shape = SubResource("BoxShape3D_fk260")
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

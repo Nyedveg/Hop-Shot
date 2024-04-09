@@ -1,5 +1,14 @@
-CollisionShape3D
 Area3D
+CollisionShape3D
 CSGMesh3D
-CSGBox3D
+Timer
+Label
+AnimationPlayer
+ColorRect
+TextureRect
+GraphElement
+CanvasLayer
+Control
+Node2D
 Node3D
+CSGBox3D

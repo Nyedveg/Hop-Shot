@@ -11,6 +11,7 @@ signal orb_spawned
 
 @onready var text_pop = $"../TextPop"
 @onready var spawn_in = $"../spawn_weapon"
+@onready var spawn_in_orb = $"../Random/orb"
 @onready var spawn_Finish = $"../Random/Finish_Line"
 @onready var player = $"../Player"
 @onready var camera = $"../Player/Head/Camera"
@@ -18,15 +19,18 @@ signal orb_spawned
 @onready var timer = $"../Random/Timer"
 @onready var animationNode = $"../Floating_animation"
 @onready var animationNode2 = $"../Floating_animation/AnimationPlayer"
-var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon_hr.tscn")
+var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
 var offset = Vector3(0,0.8,0)
-@onready var label3 = $"../UI/RichTextLabel"
+@onready var label3 = $"../RichTextLabel"
 var original_text
 var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var cylinder = $"../Tube"
 @onready var highlight_animation = $"../highlight_object"
 var finish_line = preload("res://prefabs/game objects/static/finish_zone.tscn")
-@onready var UI = $"../UI"
+@onready var colorRect = $"../UI/ColorRect"
+#Good node
+@onready var animation_Player_Node = $"../AnimationPlayerNode"
+@onready var collisionArea = $"../Area3D"
 
 var mouse_input = preload("res://prefabs/player/Player.gd")
 
@@ -51,7 +55,8 @@ func camera_opacity():
 
 func spawn_orb():
 	var instance = crate.instantiate()
-	instance.position = Vector3(0,0,5)
+	spawn_in_orb.position = Vector3(0,0,5)
+	spawn_in_orb.add_child(instance)
 	text_pop.text = "Pick this up!"
 	
 
@@ -67,6 +72,10 @@ func _on_player_change_ammo(ammo_value):
 	print("Ammo value changed:", ammo_value)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	collisionArea.position = Vector3(1,1,1)
+	animation_Player_Node.play("opacity")
+
 	
 	label3.visible = false
 	label3.bbcode_enabled = true
@@ -85,6 +94,13 @@ func _ready():
 	cameraAnimation.play("new_animation")
 	set_camera_on_ready(0,0,0)
 	
+	if collisionArea.overlaps_body(player):
+		var wall = $"../CSGBox3D10"
+		wall.position = Vector3(0, 7, 10)
+		print("pppp")
+		
+	
+	
 	
 
 #func _on_player_change_ammo(value):
@@ -101,18 +117,20 @@ func set_player_pos_onready(x,y,z):
 func finish_line_scene(String):
 	finish_line.change_level(String)
 	
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	
 	
+
+	
 	if Input.is_action_just_pressed("move_backward"):
 		pressedS = true
 		var modify = original_text.replace("S - backwards", "[color=red]S - backwards[/color]")
 		label3.bbcode_text = modify
 		print("S")
-		
 		
 	if Input.is_action_just_pressed("move_forward"):
 		pressedW = true
@@ -140,7 +158,7 @@ func _process(delta):
 		
 		spawn_weapon()
 		spawn_orb()
-
+		
 		animationNode.play("text_type_3d")
 		await animationNode.animation_finished
 		animationNode.play("float")
@@ -148,6 +166,8 @@ func _process(delta):
 		
 		
 		await player.equip_gun
+		collisionArea.position = Vector3(1,1,-35)
+		
 		#text_pop.visible = false
 		
 		
@@ -156,6 +176,7 @@ func _process(delta):
 		print("")
 		text_pop_change_position(0,0,5)
 		spawn_finish()
+		
 		
 
 		

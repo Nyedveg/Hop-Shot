@@ -4,10 +4,16 @@ extends Control
 @onready var speed_label = $SpeedLabel
 @onready var level = $".."
 @onready var player = $"../Player"
+@onready var timer_label = $Timer_label
+@onready var timer = $Timer_label/Timer
+
+var timer_running = false
+var elapsed_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ammo_label.text = var_to_str(level.startAmmo)
+	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -15,3 +21,12 @@ func _process(_delta):
 
 func _on_player_ui_update_ammo(currentAmmo):
 	ammo_label.text = var_to_str(currentAmmo)
+	
+func _on_Timer_timeout():
+	elapsed_time += 1
+	update_timer_text()
+	
+func update_timer_text():
+	var minutes = int(elapsed_time / 60)
+	var seconds = int(elapsed_time % 60)
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
