@@ -3,11 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://c18u8p2cdggo2" path="res://textures/pexels-kroetlaender-•-pictures-8791850.jpg" id="1_rp67n"]
 
 [resource]
-albedo_texture = ExtResource("1_rp67n")
 metallic_specular = 0.0
 roughness = 0.41
+emission_enabled = true
 emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.67
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("1_rp67n")
 clearcoat_enabled = true
 clearcoat = 0.75
 clearcoat_roughness = 0.55

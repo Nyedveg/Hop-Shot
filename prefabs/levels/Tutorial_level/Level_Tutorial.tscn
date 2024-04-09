@@ -65,7 +65,7 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/path = NodePath("../Random/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -243,6 +243,14 @@ wait_time = 4.0
 [node name="Finish_Zone" parent="Random" instance=ExtResource("9_qetya")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11619, 5.14031, -33.7273)
 
+[node name="ColorRect" type="ColorRect" parent="Random"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(7, 0, 0, 0, 50, 0, 0, 0, 7, 0, 56.723, 20.34)
 material_override = ExtResource("2_82xxh")
@@ -265,15 +273,6 @@ visible_characters = 0
 visible_ratio = 0.733333
 
 [node name="UI" parent="." instance=ExtResource("8_q22th")]
-
-[node name="ColorRect" type="ColorRect" parent="UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayerNode" type="AnimationPlayer" parent="."]
 root_node = NodePath("../UI")

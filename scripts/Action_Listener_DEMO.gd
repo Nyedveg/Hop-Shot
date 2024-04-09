@@ -27,10 +27,11 @@ var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var cylinder = $"../Tube"
 @onready var highlight_animation = $"../highlight_object"
 var finish_line = preload("res://prefabs/game objects/static/finish_zone.tscn")
-@onready var colorRect = $"../UI/ColorRect"
+@onready var colorRect = $"../Random/ColorRect"
 #Good node
 @onready var animation_Player_Node = $"../AnimationPlayerNode"
 @onready var collisionArea = $"../Area3D"
+@onready var HUD = $"../UI"
 
 
 var temp = 0
@@ -81,6 +82,7 @@ func _on_player_colided_with_collision_area(collision_area):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.set_mouse_input_enabled(false)
+	HUD.visible = false
 	set_player_pos_onready(0,100,20)
 	cameraAnimation.play("new_animation")
 	cameraAnimation.seek(0)
@@ -101,9 +103,10 @@ func _ready():
 	timer.start()
 	await timer.timeout
 	cameraAnimation.play()
+	HUD.visible = true
+	player.set_mouse_input_enabled(true)
 	animationNode.play("Text_type")
 	label3.visible = true
-	
 	
 	
 	
@@ -133,7 +136,7 @@ func _process(delta):
 		pass
 	else:
 		pass
-	
+
 
 	if Input.is_action_just_pressed("move_backward"):
 		pressedS = true
