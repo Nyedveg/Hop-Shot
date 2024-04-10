@@ -2,13 +2,11 @@ res://prefabs/game objects/interactable/weapon/weapon_hr.tscn
 res://material/ammo_create_pink.tres
 res://material/ammo_create_yel.tres
 res://material/ammo_create_blue.tres
-res://material/metalic_shiny.tres
 res://ui/themes/debug.tres
+res://material/metalic_shiny.tres
 res://prefabs/game objects/interactable/ammo_create.tscn
-res://prefabs/levels/Tutorial_level/Level_Tutorial.tscn
 res://prefabs/game objects/UI/ui.tscn
 res://prefabs/game objects/interactable/weapon/weapon.tscn
-res://scripts/Action_Listener_DEMO.gd
-res://prefabs/player/Player.gd
 res://prefabs/player/Player.tscn
 res://prefabs/game objects/static/finish_zone.tscn
+res://prefabs/levels/Tutorial_level/Level_Tutorial.tscn
