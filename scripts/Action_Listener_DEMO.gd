@@ -169,7 +169,6 @@ func _process(delta):
 		clear_txt()
 		
 		spawn_weapon()
-		
 		spawn_orb()
 		
 		animationNode.play("text_type_3d")
@@ -179,14 +178,14 @@ func _process(delta):
 		
 		
 		await player.equip_gun
-		collisionArea.position = Vector3(1,1,-35)
+		
 		
 		#text_pop.visible = false
 		
 		
 		
 		
-		print("")
+		
 		text_pop_change_position(0,0,5)
 		spawn_finish()
 		
