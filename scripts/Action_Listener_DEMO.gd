@@ -96,9 +96,16 @@ func _ready():
 	animationNode.play("Text_type")
 	label3.visible = true
 	
-	
-func enter_pointer_text(String):
-	text_pop.text = String
+func create_timer(wait_time: float, is_started: bool):
+	var timer = Timer.new()
+	timer.wait_time = wait_time
+	timer.one_shot = true #timer triggers only once
+	add_child(timer)
+	if is_started:
+		timer.start()
+
+func enter_pointer_text(text: String):
+	text_pop.text = text
 
 
 func text_pop_change_position(x,y,z):
@@ -111,7 +118,9 @@ func set_player_pos_onready(x,y,z):
 func finish_line_scene(String):
 	Finish.scene
 	
-
+func _on_animation_timer_timeout():
+	# Animate the position of the text_pop node
+	text_pop.position.y = (text_pop.position.y + 0.05) % 2
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -121,8 +130,8 @@ func _process(delta):
 	if playerDetected:
 		door.position.y = 7
 		SFX.play()
-		
 		change_collision_area_pos(Vector3(0,0,-100))
+	playerDetected = false
 
 
 	if Input.is_action_just_pressed("move_backward"):
@@ -156,7 +165,7 @@ func _process(delta):
 		
 		#Weapon spawns
 		player.set_mouse_input_enabled(false)
-		timer.wait_time = 3
+		timer.wait_time = 2
 		timer.start()
 		cameraAnimation.play("shake")
 		
@@ -168,12 +177,11 @@ func _process(delta):
 		await AHSH.finished
 		
 		player.set_mouse_input_enabled(true)
-		
-
+		text_pop_change_position(spawn_in.position.x, 1.2,spawn_in.position.z)
 		#Orb spawns
 		spawn_orb()
 		enter_pointer_text("Pick me up!")
-		
+		#animation_Player_Node.play("Rattlesanek")
 		
 		await player.equip_gun
 		
@@ -181,7 +189,7 @@ func _process(delta):
 		
 		
 		
-		text_pop_change_position(0,0,5)
+		text_pop_change_position(spawn_in_orb.position.x, 1.2, spawn_in_orb.position.z)
 
 		
 		

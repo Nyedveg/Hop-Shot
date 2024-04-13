@@ -13,3 +13,7 @@ res://prefabs/levels/Tutorial_level/Level_Tutorial-2.tscn
 res://prefabs/game objects/interactable/ammo_create.tscn
 res://prefabs/player/Player.tscn
 res://scripts/Action_Listener_DEMO.gd
+res://prefabs/levels/starting_level/starting_level_base.tscn
+res://prefabs/levels/starting_level/starting_level_base_1.tscn
+res://prefabs/levels/starting_level/starting_level_base_2.tscn
+res://prefabs/levels/starting_level/starting_level_base_4.tscn

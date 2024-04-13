@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://oh70s64d6ot7" path="res://textures/temp_crosshair.png" id="2_b0r1b"]
 [ext_resource type="Script" path="res://scripts/player_camera_controller.gd" id="2_fsb5k"]
 [ext_resource type="Script" path="res://prefabs/player/Weapon_handler_script.gd" id="2_rsuso"]
-[ext_resource type="AudioStream" uid="uid://mxjepai05bgg" path="res://sounds/shake_noise.mp3" id="5_4f3ma"]
+[ext_resource type="AudioStream" uid="uid://mxjepai05bgg" path="res://sounds/shake_noise.mp3" id="5_bqpwj"]
 [ext_resource type="AudioStream" uid="uid://boycimaqxryp2" path="res://sounds/laserShoot.wav" id="5_wrmmr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kjnyq"]
@@ -81,7 +81,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 1.0609,
-"stream": ExtResource("5_4f3ma")
+"stream": ExtResource("5_bqpwj")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -120,7 +120,7 @@ script = ExtResource("1_8knlq")
 shape = SubResource("CapsuleShape3D_kjnyq")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(0.990395, -0.0886466, -0.106107, 0.0798202, 0.993201, -0.0847299, 0.112897, 0.0754465, 0.990738, 0, 0.934248, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.934248, 0)
 
 [node name="Camera_Controller" type="Node3D" parent="Head"]
 script = ExtResource("2_fsb5k")
@@ -172,6 +172,7 @@ libraries = {
 autoplay = "shake"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head"]
+stream = ExtResource("5_bqpwj")
 
 [node name="Head_check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

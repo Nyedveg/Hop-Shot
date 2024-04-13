@@ -1,8 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=33 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_d264d"]
-[ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="2_qybyy"]
+[ext_resource type="Texture2D" uid="uid://nstc8tl22bbb" path="res://textures/metal_plate_diff_4k.jpg" id="2_2g87c"]
+[ext_resource type="Texture2D" uid="uid://daigckk7dfl65" path="res://textures/metal_plate_disp_4k.png" id="3_isyow"]
 [ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_xhqov"]
+[ext_resource type="Texture2D" uid="uid://b3s20m4oduyry" path="res://textures/metal_plate_rough_4k.jpg" id="4_4dl3b"]
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="4_lffyr"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="5_jhi62"]
 [ext_resource type="Script" path="res://prefabs/player/Weapon_handler_script.gd" id="6_uys5p"]
@@ -12,6 +14,35 @@
 [ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="8_y3yil"]
 [ext_resource type="Script" path="res://scripts/finish_zone.gd" id="9_cb7bk"]
 [ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="10_2kcq2"]
+[ext_resource type="Texture2D" uid="uid://dpnp0gc4ftj6f" path="res://textures/door/rollershutter_window_02_diff_2k.jpg" id="10_nwq6l"]
+[ext_resource type="Texture2D" uid="uid://bsbti3qbeo1hx" path="res://textures/door/rollershutter_window_02_metal_2k.exr" id="11_nc5ro"]
+[ext_resource type="Texture2D" uid="uid://bolssv0itd632" path="res://textures/door/rollershutter_window_02_rough_2k.exr" id="12_pooo1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smbh0"]
+albedo_texture = ExtResource("2_2g87c")
+roughness_texture = ExtResource("4_4dl3b")
+normal_enabled = true
+normal_texture = ExtResource("3_isyow")
+uv1_scale = Vector3(-69.185, -69.185, -69.185)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xumor"]
+load_path = "res://godot/imported/pexels-kroetlaender-•-pictures-8791850.jpg-704aeb334422518620e7e5fc16fe93d0.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjcd7"]
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+emission_texture = SubResource("CompressedTexture2D_xumor")
+clearcoat = 0.75
+clearcoat_roughness = 0.55
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suqvg"]
+albedo_texture = ExtResource("10_nwq6l")
+metallic = 1.0
+metallic_texture = ExtResource("11_nc5ro")
+roughness_texture = ExtResource("12_pooo1")
+normal_enabled = true
+uv1_scale = Vector3(0.755, 0.755, 0.755)
+uv1_offset = Vector3(-0.145, 0.23, 0)
 
 [sub_resource type="Animation" id="Animation_lny85"]
 resource_name = "Text_type"
@@ -65,7 +96,7 @@ size = Vector3(3.79395, 2.32959, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6rqoy"]
 lightmap_size_hint = Vector2i(17, 19)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 cap_bottom = false
 
 [sub_resource type="Animation" id="Animation_nalky"]
@@ -84,8 +115,38 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_8q4t0"]
+resource_name = "Rattlesanek"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../spawn_weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector3(0, 0.8, -5), Vector3(0, 1, -5), Vector3(0, 0.8, -5), Vector3(0, 1, -5), Vector3(0, 0.8, -5), Vector3(0, 1, -5), Vector3(0, 0.8, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../spawn_weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(-3.14159, 1.5708, 1.5708), Vector3(-1.5708, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tgmle"]
 _data = {
+"Rattlesanek": SubResource("Animation_8q4t0"),
 "opacity": SubResource("Animation_nalky")
 }
 
@@ -101,7 +162,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(136.504, 0.115, 73.5054)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_smbh0")
 
 [node name="Player" parent="." instance=ExtResource("3_xhqov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -113,7 +174,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 script = ExtResource("5_jhi62")
 
 [node name="spawn_weapon" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -5)
+transform = Transform3D(8.74228e-08, 4.37114e-08, -1, -1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, 4.37114e-08, 0, 0.8, -5)
 script = ExtResource("6_uys5p")
 ammo = 10
 
@@ -129,7 +190,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(1, 1, 46.6079)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." groups=["shootable"]]
 transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 4.16911, -15.3457)
@@ -137,7 +198,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(1, 2.13928, 46.6079)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 6.14091, -29.473)
@@ -145,7 +206,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(1, 3.12518, 46.6079)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="." groups=["shootable"]]
 transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 0.989371, -22.0499)
@@ -153,7 +214,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(1, 1.33575, 102.93)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.26687e-06, 0, 0.1, 0, 19.545, 0, -51.86, 0, -4.37114e-09, -5, 15.0855, -6.21035)
@@ -161,7 +222,6 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(1.19708, 1.55774, 1)
-material = ExtResource("2_qybyy")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 9.105, 0.0179071, 12.0089, 12.1479)
@@ -169,7 +229,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(0.184189, 0.75708, 1.02551)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="."]
 transform = Transform3D(51.225, 0, 0, 0, 19.545, 0, 0, 0, -0.005, -0.450098, 11.65, 7.477)
@@ -177,7 +237,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(0.204735, 0.75708, 1.02551)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_suqvg")
 
 [node name="SFX" type="AudioStreamPlayer3D" parent="CSGBox3D15"]
 transform = Transform3D(0.0195217, 0, 0, 0, 0.051164, 0, 0, 0, -200, -0.003592, -0.59606, -273.911)
@@ -186,7 +246,7 @@ volume_db = -18.621
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.26687e-06, 0, 0.1, 0, 19.545, 0, -51.86, 0, -4.37114e-09, 5, 15.2322, -6.18661)
-material_override = ExtResource("2_qybyy")
+material_override = SubResource("StandardMaterial3D_yjcd7")
 use_collision = true
 collision_layer = 6
 collision_mask = 6
@@ -198,7 +258,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(0.206635, 0.987793, 1)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="."]
 transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 0.1, 0.129, 12.6057, -37.089)
@@ -206,7 +266,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(0.206635, 1.30396, 1)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 0.1, -10.5973, 7, 10)
@@ -214,7 +274,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 size = Vector3(0.191601, 0.738525, 1)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479411, 9.93796, 8.46122)
@@ -222,7 +282,7 @@ use_collision = true
 collision_layer = 0
 collision_mask = 0
 size = Vector3(2.27588, 1, 1)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
 transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479409, 25.1616, -15.1279)
@@ -230,7 +290,7 @@ use_collision = true
 collision_layer = 0
 collision_mask = 0
 size = Vector3(2.95465, 1, 1)
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -1, -4.56347e-07, 1.91069e-16, 0.0480002, 17.452, -8.646)
@@ -238,7 +298,6 @@ use_collision = true
 collision_layer = 0
 collision_mask = 0
 size = Vector3(0.09375, 1, 151.203)
-material = ExtResource("2_qybyy")
 
 [node name="TextPop" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3323, -5)
@@ -262,6 +321,7 @@ autoplay = "Text_type"
 wait_time = 4.0
 
 [node name="ColorRect" type="ColorRect" parent="Random"]
+modulate = Color(1, 1, 1, 0.92211)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -284,13 +344,13 @@ shape = SubResource("BoxShape3D_onbqf")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(7, 0, 0, 0, 50, 0, 0, 0, 7, 0, 56.723, 20.34)
-material_override = ExtResource("2_qybyy")
+material_override = SubResource("StandardMaterial3D_yjcd7")
 cast_shadow = 0
 collision_layer = 6
 collision_mask = 6
 flip_faces = true
 mesh = SubResource("CylinderMesh_6rqoy")
-material = ExtResource("2_qybyy")
+material = SubResource("StandardMaterial3D_yjcd7")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 6.0
@@ -308,6 +368,7 @@ root_node = NodePath("../UI")
 libraries = {
 "": SubResource("AnimationLibrary_tgmle")
 }
+autoplay = "Rattlesanek"
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.80767, 1)
@@ -315,6 +376,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.80767, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2882, 1.10073, 5.43633)
 shape = SubResource("BoxShape3D_fk260")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0686596, 0.99764, 0, -0.99764, 0.0686596, 0, 3.91754, 0)
+light_energy = 16.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1997, 23.6524, 0)
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
