@@ -12,44 +12,36 @@ signal orb_spawned
 @onready var text_pop = $"../TextPop"
 @onready var spawn_in = $"../spawn_weapon"
 @onready var spawn_in_orb = $"../Random/orb"
-@onready var spawn_Finish = $"../Random/Finish_Line"
 @onready var player = $"../Player"
-@onready var camera = $"../Player/Head/Camera"
+@onready var camera = $"../Player/Head"
 @onready var cameraAnimation = $"../Player/Head/AnimationPlayer"
 @onready var timer = $"../Random/Timer"
 @onready var animationNode = $"../Floating_animation"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
-var offset = Vector3(0,0.8,0)
 @onready var label3 = $"../RichTextLabel"
 var original_text
 var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
-@onready var highlight_animation = $"../highlight_object"
-var finish_line = preload("res://prefabs/game objects/static/finish_zone.tscn")
+@onready var door = $"../CSGBox3D15"
+
+
+#SFX
+@onready var SFX = $"../CSGBox3D15/SFX"
+@onready var AHSH = $"../spawn_weapon/Ah_shit"
+
 @onready var colorRect = $"../Random/ColorRect"
 #Good node
 @onready var animation_Player_Node = $"../AnimationPlayerNode"
 @onready var collisionArea = $"../Area3D"
 @onready var HUD = $"../UI"
-
-
-var temp = 0
+var Finish = preload("res://prefabs/game objects/static/finish_zone.tscn")
 
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
-	spawn_in.position = offset
-	
-	print(spawn_in.position)
 	spawn_in.add_child(weapon)
-	player._on_level_template_set_ammo(0)
+	player._on_level_template_set_ammo(10)
 	text_pop.text = "Pick me up!"
 	
-func spawn_finish():
-	var finish = finish_line.instantiate()
-	spawn_Finish.add_child(finish)
-
-func camera_opacity():
-	pass
 
 func spawn_orb():
 	var instance = crate.instantiate()
@@ -57,15 +49,12 @@ func spawn_orb():
 	spawn_in_orb.add_child(instance)
 	text_pop.text = "Pick this up!"
 	
-
-func clear_txt():
-	await reverse_text
-	animationNode.play("text_type_reverse")
-
-func _on_weapon_picked_up():
-	text_pop.visible = false
+func spawn_finish():
+	var instance = Finish.instantiate()
+	add_child(instance)
 	
 	
+
 func _on_player_colided_with_collision_area(collision_area):
 	var playerDetected = false
 	if collisionArea.get_overlapping_bodies().size() > 0:
@@ -75,7 +64,9 @@ func _on_player_colided_with_collision_area(collision_area):
 				break
 	return playerDetected
 	
-
+	
+func change_collision_area_pos(new_pos: Vector3):
+	collisionArea.position = new_pos
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.set_mouse_input_enabled(false)
@@ -113,14 +104,12 @@ func enter_pointer_text(String):
 func text_pop_change_position(x,y,z):
 	text_pop.position = Vector3(x,y,z)
 
-func set_camera_on_ready(x,y,z):
-	camera.global_rotation_degrees = Vector3(x,y,z)
 	
 func set_player_pos_onready(x,y,z):
 	player.position = Vector3(x,y,z)
 	
 func finish_line_scene(String):
-	finish_line.change_level(String)
+	Finish.scene
 	
 
 	
@@ -130,9 +119,10 @@ func _process(delta):
 	var playerDetected = false
 	playerDetected = _on_player_colided_with_collision_area(collisionArea)
 	if playerDetected:
-		pass
-	else:
-		pass
+		door.position.y = 7
+		SFX.play()
+		
+		change_collision_area_pos(Vector3(0,0,-100))
 
 
 	if Input.is_action_just_pressed("move_backward"):
@@ -162,24 +152,39 @@ func _process(delta):
 		
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
+
 		
+		#Weapon spawns
+		player.set_mouse_input_enabled(false)
+		timer.wait_time = 3
+		timer.start()
+		cameraAnimation.play("shake")
+		
+		await timer.timeout
 		spawn_weapon()
-		spawn_orb()
-		enter_pointer_text("tekstText")
+		camera.look_at_from_position(camera.global_transform.origin,spawn_in.global_position)
+		cameraAnimation.play("zoom")
+		AHSH.play()
+		await AHSH.finished
 		
+		player.set_mouse_input_enabled(true)
+		
+
+		#Orb spawns
+		spawn_orb()
+		enter_pointer_text("Pick me up!")
 		
 		
 		await player.equip_gun
-		
-		
-		#text_pop.visible = false
 		
 		
 		
 		
 		
 		text_pop_change_position(0,0,5)
-		spawn_finish()
+
+		
+		
 		
 		
 

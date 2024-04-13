@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://rudcv078smhw"
-path="res://godot/imported/pick_up_orb.wav-5a1106f89e638795a2d64d27f1b0c508.sample"
+uid="uid://boycimaqxryp2"
+path="res://godot/imported/laserShoot.wav-4b5bfc1d2aa840e6d926b6aba3cd6fa6.sample"
 
 [deps]
 
-source_file="res://sounds/pick_up_orb.wav"
-dest_files=["res://godot/imported/pick_up_orb.wav-5a1106f89e638795a2d64d27f1b0c508.sample"]
+source_file="res://sounds/laserShoot.wav"
+dest_files=["res://godot/imported/laserShoot.wav-4b5bfc1d2aa840e6d926b6aba3cd6fa6.sample"]
 
 [params]
 

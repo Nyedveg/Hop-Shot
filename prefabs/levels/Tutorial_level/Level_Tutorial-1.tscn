@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=23 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_d264d"]
 [ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="2_qybyy"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="4_lffyr"]
 [ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="5_jhi62"]
 [ext_resource type="Script" path="res://prefabs/player/Weapon_handler_script.gd" id="6_uys5p"]
+[ext_resource type="AudioStream" uid="uid://d1hnjcw11ducw" path="res://sounds/gta-san-andreas-ah-shit-here-we-go-again.mp3" id="7_e6olm"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="7_k1wy3"]
-[ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="8_bohdv"]
-[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/static/finish_zone.tscn" id="9_ego87"]
+[ext_resource type="AudioStream" uid="uid://bpmcwf3kixdoe" path="res://sounds/door_close.wav" id="7_xflst"]
+[ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="8_y3yil"]
+[ext_resource type="Script" path="res://scripts/finish_zone.gd" id="9_cb7bk"]
 [ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="10_2kcq2"]
-[ext_resource type="AudioStream" uid="uid://br7y536uv5o3r" path="res://sounds/pop-39222.mp3" id="11_biytn"]
 
 [sub_resource type="Animation" id="Animation_lny85"]
 resource_name = "Text_type"
@@ -48,12 +49,19 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.3, -5), Vector3(0, 1.6, -5), Vector3(0, 1.3, -5)]
 }
 
+[sub_resource type="Animation" id="Animation_kys40"]
+resource_name = "zoom"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2dle"]
 _data = {
 "Text_type": SubResource("Animation_lny85"),
 "camera_transition_90deg": SubResource("Animation_2lfkb"),
-"float": SubResource("Animation_jlcpy")
+"float": SubResource("Animation_jlcpy"),
+"zoom": SubResource("Animation_kys40")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onbqf"]
+size = Vector3(3.79395, 2.32959, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6rqoy"]
 lightmap_size_hint = Vector2i(17, 19)
@@ -87,10 +95,6 @@ size = Vector3(7.81587, 3.51473, 0.0397644)
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_d264d")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 8.72539, 0)
-shadow_enabled = true
-
 [node name="CSGBox3D" type="CSGBox3D" parent="." groups=["shootable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0115672, -9.25269)
 use_collision = true
@@ -109,8 +113,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 script = ExtResource("5_jhi62")
 
 [node name="spawn_weapon" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.520859, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -5)
 script = ExtResource("6_uys5p")
+ammo = 10
+
+[node name="Ah_shit" type="AudioStreamPlayer3D" parent="spawn_weapon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, 0.0331626, -0.001724)
+stream = ExtResource("7_e6olm")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="spawn_weapon"]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." groups=["shootable"]]
 transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 1.89055, -10.794)
@@ -153,12 +164,25 @@ size = Vector3(1.19708, 1.55774, 1)
 material = ExtResource("2_qybyy")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 9.105, 0.184484, 12.0089, 12.1479)
+transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 9.105, 0.0179071, 12.0089, 12.1479)
 use_collision = true
 collision_layer = 6
 collision_mask = 6
-size = Vector3(0.190613, 0.75708, 1.02551)
+size = Vector3(0.184189, 0.75708, 1.02551)
 material = ExtResource("2_qybyy")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(51.225, 0, 0, 0, 19.545, 0, 0, 0, -0.005, -0.450098, 11.65, 7.477)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(0.204735, 0.75708, 1.02551)
+material = ExtResource("2_qybyy")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="CSGBox3D15"]
+transform = Transform3D(0.0195217, 0, 0, 0, 0.051164, 0, 0, 0, -200, -0.003592, -0.59606, -273.911)
+stream = ExtResource("7_xflst")
+volume_db = -18.621
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.26687e-06, 0, 0.1, 0, 19.545, 0, -51.86, 0, -4.37114e-09, 5, 15.2322, -6.18661)
@@ -234,26 +258,29 @@ autoplay = "Text_type"
 
 [node name="Random" type="Node3D" parent="."]
 
-[node name="AmmoCreate" parent="Random" instance=ExtResource("8_bohdv")]
-transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 0, 0, 0)
-ammoValue = 1500
-
 [node name="Timer" type="Timer" parent="Random"]
 wait_time = 4.0
 
-[node name="orb" type="Node3D" parent="Random"]
-
-[node name="Finish_Zone" parent="Random" instance=ExtResource("9_ego87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11619, 5.14031, -33.7273)
-
 [node name="ColorRect" type="ColorRect" parent="Random"]
-modulate = Color(1, 1, 1, 0.757674)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="orb" type="Node3D" parent="Random"]
+script = ExtResource("8_y3yil")
+ammoValue = 10
+
+[node name="finish_line" type="Area3D" parent="Random"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27901, 4.78708)
+script = ExtResource("9_cb7bk")
+scene = "res://prefabs/levels/Tutorial_level/Level_Tutorial-2.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Random/finish_line"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.604727, -0.488561, 0.183884)
+shape = SubResource("BoxShape3D_onbqf")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(7, 0, 0, 0, 50, 0, 0, 0, 7, 0, 56.723, 20.34)
@@ -273,8 +300,6 @@ offset_bottom = 1075.0
 theme_override_fonts/normal_font = ExtResource("7_k1wy3")
 theme_override_font_sizes/normal_font_size = 35
 scroll_active = false
-visible_characters = 0
-visible_ratio = 0.0
 
 [node name="UI" parent="." instance=ExtResource("10_2kcq2")]
 
@@ -288,11 +313,8 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.80767, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2882, 1.10073, 6.10767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2882, 1.10073, 5.43633)
 shape = SubResource("BoxShape3D_fk260")
-
-[node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_biytn")
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

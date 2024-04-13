@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://djviime4g1lhc"]
+[gd_scene load_steps=17 format=3 uid="uid://djviime4g1lhc"]
 
 [ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="1_s5i4o"]
 [ext_resource type="Material" uid="uid://dop506a6ccddd" path="res://material/ammo_create.tres" id="2_uwgra"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://wh3xh6c1ucia" path="res://material/ammo_create_yel.tres" id="4_hstm5"]
 [ext_resource type="Material" uid="uid://bajwfa3m2cupt" path="res://material/ammo_create_green.tres" id="5_21rt4"]
 [ext_resource type="Material" uid="uid://gm8mgknogrys" path="res://material/ammo_create_blue.tres" id="6_vjr4p"]
+[ext_resource type="AudioStream" uid="uid://6vt74jo2ob2a" path="res://sounds/pickupCoin.wav" id="7_dtniv"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_k3iwr"]
 height = 1.72512
@@ -141,7 +142,6 @@ _data = {
 [node name="AmmoCreate" type="Node3D"]
 transform = Transform3D(0.5, 0, 2.23319e-06, 0, 0.5, 0, -2.23319e-06, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_s5i4o")
-ammoValue = 5
 
 [node name="Area3D" type="Area3D" parent="."]
 input_ray_pickable = false
@@ -160,8 +160,8 @@ transform = Transform3D(-0.355596, -2.01844e-08, 0.93464, 2.21164e-16, 1, 2.1595
 curve = SubResource("Curve3D_0rktn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D2"]
-transform = Transform3D(-0.0244556, 0.939138, -0.342207, -0.180887, -0.34082, -0.922383, -0.983046, 0.0393498, 0.178238, 0.84394, -1.03439, -0.243898)
-progress = 5.32153
+transform = Transform3D(-0.124238, 0.512842, -0.849251, -0.322112, -0.830376, -0.454313, -0.93835, 0.217146, 0.268396, 0.448399, -1.47561, -0.0793926)
+progress = 4.69355
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D2/PathFollow3D"]
 transform = Transform3D(-0.0158916, -0.0358956, 0.0919726, 0.0569199, -0.0794472, -0.0211722, 0.0806696, 0.0489862, 0.0330572, -0.0287135, -0.0398695, -0.0508237)
@@ -359,5 +359,14 @@ libraries = {
 "": SubResource("AnimationLibrary_28ddc")
 }
 autoplay = "new_animation"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGSphere3D"]
+light_energy = 5.543
+omni_range = 0.210936
+omni_attenuation = 0.535887
+
+[node name="Pick_up_SFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.47928, 0)
+stream = ExtResource("7_dtniv")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

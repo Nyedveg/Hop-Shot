@@ -7,6 +7,7 @@ signal update_ammo(currentAmmo)
 @onready var player = $"../.."
 @onready var hand_anim = $"../Hand/AnimationPlayer"
 @onready var aimcast = $"../AimCast"
+@onready var shotSFX = $"../../../Shot_SFX"
 
 var equipped: bool
 @export var ammo: int
@@ -19,6 +20,7 @@ func _ready():
 func _physics_process(_delta):
 	#WEAPON SHOOTING
 	if Input.is_action_just_pressed("fire") && equipped && ammo > 0:
+		shotSFX.play()
 		if !hand_anim.is_playing():
 			ammo -= 1
 			hand_anim.play("firing_animation")

@@ -7,7 +7,6 @@ size = Vector3(3.70893, 2.84564, 3.64624)
 
 [node name="Finish_Zone" type="Area3D"]
 script = ExtResource("1_y2vkc")
-scene = "res://prefabs/levels/level_template.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15622, 0)
