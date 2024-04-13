@@ -11,3 +11,4 @@ res://prefabs/player/Player.tscn
 res://prefabs/game objects/static/finish_zone.tscn
 res://prefabs/levels/Tutorial_level/Level_Tutorial.tscn
 res://scripts/Action_Listener_DEMO.gd
+res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn

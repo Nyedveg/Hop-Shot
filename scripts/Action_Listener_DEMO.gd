@@ -18,13 +18,11 @@ signal orb_spawned
 @onready var cameraAnimation = $"../Player/Head/AnimationPlayer"
 @onready var timer = $"../Random/Timer"
 @onready var animationNode = $"../Floating_animation"
-@onready var animationNode2 = $"../Floating_animation/AnimationPlayer"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
 var offset = Vector3(0,0.8,0)
 @onready var label3 = $"../RichTextLabel"
 var original_text
 var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
-@onready var cylinder = $"../Tube"
 @onready var highlight_animation = $"../highlight_object"
 var finish_line = preload("res://prefabs/game objects/static/finish_zone.tscn")
 @onready var colorRect = $"../Random/ColorRect"
@@ -76,7 +74,6 @@ func _on_player_colided_with_collision_area(collision_area):
 				playerDetected = true
 				break
 	return playerDetected
-		
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -109,8 +106,8 @@ func _ready():
 	label3.visible = true
 	
 	
-	
-
+func enter_pointer_text(String):
+	text_pop.text = String
 
 
 func text_pop_change_position(x,y,z):
@@ -165,15 +162,10 @@ func _process(delta):
 		
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
-		emit_signal("reverse_text")
-		clear_txt()
 		
 		spawn_weapon()
 		spawn_orb()
-		
-		animationNode.play("text_type_3d")
-		await animationNode.animation_finished
-		animationNode.play("float")
+		enter_pointer_text("tekstText")
 		
 		
 		
