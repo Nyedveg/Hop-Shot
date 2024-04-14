@@ -1,14 +1,14 @@
+CollisionShape3D
+Area3D
+AudioStreamPlayer
 Label
 OmniLight3D
 MeshInstance3D
 LightmapProbe
 ReflectionProbe
 SpotLight3D
-CollisionShape3D
 StaticBody3D
 DirectionalLight3D
 RigidBody3D
 Node3D
-Area3D
 AudioStreamPlayer3D
-CSGMesh3D

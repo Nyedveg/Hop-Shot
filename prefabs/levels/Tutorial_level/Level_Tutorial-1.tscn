@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://0uh8rnfu5jo3"]
+[gd_scene load_steps=27 format=3 uid="uid://0uh8rnfu5jo3"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_d264d"]
 [ext_resource type="Material" uid="uid://bnddakkn2m2u7" path="res://material/tiles.tres" id="2_pahhd"]
@@ -120,7 +120,10 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk260"]
-size = Vector3(7.81587, 3.51473, 0.0397644)
+size = Vector3(8.79226, 8.12687, 0.0397644)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvg8f"]
+size = Vector3(9.58405, 7.35367, 0.312988)
 
 [node name="Level_template" type="Node3D"]
 script = ExtResource("1_d264d")
@@ -252,7 +255,7 @@ size = Vector3(0.09375, 1, 229.592)
 material = ExtResource("2_pahhd")
 
 [node name="TextPop" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207865, 5.06059, -20.3753)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5818, -20.535)
 billboard = 1
 double_sided = false
 outline_modulate = Color(1, 0, 0, 1)
@@ -302,13 +305,6 @@ libraries = {
 "": SubResource("AnimationLibrary_tgmle")
 }
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.80767, 1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2882, 1.10073, 5.43633)
-shape = SubResource("BoxShape3D_fk260")
-
 [node name="SFX" type="AudioStreamPlayer3D" parent="."]
 volume_db = -14.403
 
@@ -329,9 +325,27 @@ theme_override_fonts/font = ExtResource("7_k1wy3")
 theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Label"]
 
 [node name="rollershutter_window_02_2k" parent="." instance=ExtResource("15_ydhuo")]
 transform = Transform3D(28.55, 0, 0, 0, 300, 0, 0, 0, 28.55, -43.088, -147.222, 4.145)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.80767, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.078968, 0.791978, 5)
+shape = SubResource("BoxShape3D_fk260")
+
+[node name="Area3D2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0918511, 8.33176, -21.2755)
+
+[node name="CollisionShape3D1" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0474876, -0.0403633, -0.437553)
+shape = SubResource("BoxShape3D_kvg8f")
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

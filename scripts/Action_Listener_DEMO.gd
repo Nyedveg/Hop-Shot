@@ -32,6 +32,7 @@ var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 #Good node
 @onready var animation_Player_Node = $"../AnimationPlayerNode"
 @onready var collisionArea = $"../Area3D"
+@onready var collisionArea1 = $"../Area3D2"
 @onready var HUD = $"../UI"
 @onready var spotLight = $"../SpotLight3D"
 
@@ -58,18 +59,20 @@ func spawn_finish():
 	
 	
 
-func _on_player_colided_with_collision_area(collision_area):
-	var playerDetected = false
-	if collisionArea.get_overlapping_bodies().size() > 0:
-		for body in collisionArea.get_overlapping_bodies():
-			if body.name == "Player":
-				playerDetected = true
+func _on_player_colided_with_collision_area(collision_area: Area3D):
+	var player_detected = false
+	print(collision_area.position)
+	if collision_area.get_overlapping_bodies().size() > 0:
+		for body in collision_area.get_overlapping_bodies():
+			if  body.is_in_group("movable"):
+				player_detected = true
 				break
-	return playerDetected
+	return player_detected
 	
 	
-func change_collision_area_pos(new_pos: Vector3):
-	collisionArea.position = new_pos
+func change_collision_area_pos(x,y,z, collision_area: Object):
+	collision_area.position = Vector3(x,y,z)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	text_pop.visible = false
@@ -80,7 +83,7 @@ func _ready():
 	cameraAnimation.seek(0)
 	cameraAnimation.pause()
 	
-	collisionArea.position = Vector3(1,1,1)
+	
 	animation_Player_Node.play("opacity")
 	
 	label3.visible = false
@@ -109,17 +112,16 @@ func set_player_pos_onready(x,y,z):
 func finish_line_scene(String):
 	Finish.scene
 	
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	var playerDetected = false
-	playerDetected = _on_player_colided_with_collision_area(collisionArea)
+	var playerDetected = _on_player_colided_with_collision_area(collisionArea)
 	if playerDetected:
+		HUD.update_objective(str(playerDetected), false)
 		animation_Player_Node.play("close")
 		SFX.play()
-		change_collision_area_pos(Vector3(0,0,-100))
-		playerDetected = false
+		change_collision_area_pos(-100,100,0,collisionArea)
+		pass
 
 	
 	if Input.is_action_just_pressed("move_backward") and !pressedS:
@@ -170,6 +172,7 @@ func _process(delta):
 		HUD.update_objective("pick up the 'thing'?", false)
 		
 		await player.equip_gun
+		#spawn_in.queue_free()
 		enter_pointer_text("")
 		HUD.update_objective("pick up the 'thing'?", true)
 		
@@ -190,8 +193,24 @@ func _process(delta):
 		await timer.timeout
 		HUD.update_objective("Do what it says...", false)
 		
-		await player.coll
-		HUD.update_objective("Get to the spot. NOW!", false)
+		await player.UI_update_ammo
+		enter_pointer_text("")
+		timer.wait_time = 1
+		timer.start()
+		await timer.timeout
+		
+
+		text_pop_change_position(0,5.5,-20)
+		enter_pointer_text("Get up here!")
+		HUD.update_objective("Get up there... NOW!", false)
+		
+		
+		var playerDetected1 = _on_player_colided_with_collision_area(collisionArea1)
+		if playerDetected1:
+			HUD.update_objective(str(playerDetected1), false)
+		text_pop_change_position(0,6.5,-25)
+		enter_pointer_text("Get up here!")
+		
 		
 
 		

@@ -120,7 +120,7 @@ script = ExtResource("1_8knlq")
 shape = SubResource("CapsuleShape3D_kjnyq")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.934248, 0)
+transform = Transform3D(0.997653, -0.0428214, -0.0534326, 0.0406454, 0.998325, -0.0411683, 0.055106, 0.0388999, 0.997722, 0, 0.934248, 0)
 
 [node name="Camera_Controller" type="Node3D" parent="Head"]
 script = ExtResource("2_fsb5k")
@@ -171,7 +171,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head"]
-stream = ExtResource("5_bqpwj")
 
 [node name="Head_check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
