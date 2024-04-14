@@ -169,7 +169,6 @@ texture = ExtResource("2_b0r1b")
 libraries = {
 "": SubResource("AnimationLibrary_6fj3q")
 }
-autoplay = "shake"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head"]
 stream = ExtResource("5_bqpwj")
@@ -181,6 +180,7 @@ collision_mask = 2
 
 [node name="Shot_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wrmmr")
+volume_db = -9.955
 
 [connection signal="equip_gun" from="." to="Head/Camera/Weapon_handler" method="_on_player_equip_gun"]
 [connection signal="player_change_ammo" from="." to="Head/Camera/Weapon_handler" method="_on_player_player_change_ammo"]

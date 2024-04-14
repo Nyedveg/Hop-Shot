@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="11_0y0gb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xumor"]
-load_path = "res://godot/imported/pexels-kroetlaender-•-pictures-8791850.jpg-704aeb334422518620e7e5fc16fe93d0.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjcd7"]
 emission = Color(1, 1, 1, 1)

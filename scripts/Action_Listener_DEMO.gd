@@ -18,35 +18,38 @@ signal orb_spawned
 @onready var timer = $"../Random/Timer"
 @onready var animationNode = $"../Floating_animation"
 var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tscn")
-@onready var label3 = $"../RichTextLabel"
-var original_text
+@onready var label3 = $"../Label"
 var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
-@onready var door = $"../CSGBox3D15"
+@onready var door = $"../Doors"
 
 
 #SFX
-@onready var SFX = $"../CSGBox3D15/SFX"
+@onready var SFX = $"../SFX"
 @onready var AHSH = $"../spawn_weapon/Ah_shit"
+@onready var lightON = $"../spawn_weapon/light_on"
 
 @onready var colorRect = $"../Random/ColorRect"
 #Good node
 @onready var animation_Player_Node = $"../AnimationPlayerNode"
 @onready var collisionArea = $"../Area3D"
 @onready var HUD = $"../UI"
+@onready var spotLight = $"../SpotLight3D"
+
 var Finish = preload("res://prefabs/game objects/static/finish_zone.tscn")
 
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
 	spawn_in.add_child(weapon)
-	player._on_level_template_set_ammo(10)
+	player._on_level_template_set_ammo(100)
 	text_pop.text = "Pick me up!"
 	
 
 func spawn_orb():
 	var instance = crate.instantiate()
-	spawn_in_orb.position = Vector3(0,0,5)
+	spawn_in_orb.position = Vector3(0,0,-16)
 	spawn_in_orb.add_child(instance)
+	spawn_in_orb.ammoValue = 10
 	text_pop.text = "Pick this up!"
 	
 func spawn_finish():
@@ -80,13 +83,8 @@ func _ready():
 	animation_Player_Node.play("opacity")
 	
 	label3.visible = false
-	label3.bbcode_enabled = true
-	label3.text = "Use to move:\nW - forwards\nA - left\nD - right\nS - backwards"
-	
-	
-	
-	original_text = label3.text
-	
+	animationNode.play("Text_type")
+	label3.text = "Press W to move forwards"
 	
 	timer.start()
 	await timer.timeout
@@ -95,14 +93,6 @@ func _ready():
 	player.set_mouse_input_enabled(true)
 	animationNode.play("Text_type")
 	label3.visible = true
-	
-func create_timer(wait_time: float, is_started: bool):
-	var timer = Timer.new()
-	timer.wait_time = wait_time
-	timer.one_shot = true #timer triggers only once
-	add_child(timer)
-	if is_started:
-		timer.start()
 
 func enter_pointer_text(text: String):
 	text_pop.text = text
@@ -118,45 +108,33 @@ func set_player_pos_onready(x,y,z):
 func finish_line_scene(String):
 	Finish.scene
 	
-func _on_animation_timer_timeout():
-	# Animate the position of the text_pop node
-	text_pop.position.y = (text_pop.position.y + 0.05) % 2
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	var playerDetected = false
 	playerDetected = _on_player_colided_with_collision_area(collisionArea)
 	if playerDetected:
-		door.position.y = 7
+		animation_Player_Node.play("close")
 		SFX.play()
 		change_collision_area_pos(Vector3(0,0,-100))
-	playerDetected = false
+		playerDetected = false
 
-
-	if Input.is_action_just_pressed("move_backward"):
+	
+	if Input.is_action_just_pressed("move_backward") and !pressedS:
 		pressedS = true
-		var modify = original_text.replace("S - backwards", "[color=red]S - backwards[/color]")
-		label3.bbcode_text = modify
-		print("S")
+		label3.text = "Press D to move right"
 		
-	if Input.is_action_just_pressed("move_forward"):
+	if Input.is_action_just_pressed("move_forward") and !pressedW:
 		pressedW = true
-		print(player.position)
-		var modify = original_text.replace("W - forwards", "[color=red]W - forwards[/color]")
-		label3.bbcode_text = modify
-		print("W")
-	if Input.is_action_just_pressed("move_right"):
-		pressedD = true
-		var modify = original_text.replace("D - right", "[color=red]D - right[/color]")
-		label3.bbcode_text = modify
-		print("D")
-	if Input.is_action_just_pressed("move_left"):
-		pressedA = true
-		var modify = original_text.replace("A - left", "[color=red]A - left[/color]")
-		label3.bbcode_text = modify
-		print("A")
+		label3.text = "Press S to move backwards"
 		
+	if Input.is_action_just_pressed("move_right") and !pressedD:
+		pressedD = true
+		label3.text = "Press A to move left"
+		
+	if Input.is_action_just_pressed("move_left") and !pressedA:
+		pressedA = true
+		label3.text =""
 		
 		
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
@@ -170,24 +148,36 @@ func _process(delta):
 		cameraAnimation.play("shake")
 		
 		await timer.timeout
+		lightON.play()
+		spotLight.visible = true
 		spawn_weapon()
 		camera.look_at_from_position(camera.global_transform.origin,spawn_in.global_position)
 		cameraAnimation.play("zoom")
+		timer.wait_time = 0.5
+		timer.start()
+		await timer.timeout
+		
 		AHSH.play()
 		await AHSH.finished
 		
 		player.set_mouse_input_enabled(true)
-		text_pop_change_position(spawn_in.position.x, 1.2,spawn_in.position.z)
-		#Orb spawns
-		spawn_orb()
 		enter_pointer_text("Pick me up!")
-		#animation_Player_Node.play("Rattlesanek")
+		animation_Player_Node.play("Rattlesanek")
+		text_pop_change_position(spawn_in.position.x, 1.2,spawn_in.position.z)
 		
 		await player.equip_gun
+		enter_pointer_text("")
 		
+		spotLight.visible = false
+		timer.wait_time = 1.5
+		timer.start()
+		await timer.timeout
 		
-		
-		
+		#Orb spawns
+		spotLight.visible = true
+		lightON.play()
+		spotLight.position = Vector3(spawn_in_orb.position.x, spotLight.position.y, spawn_in_orb.position.z)
+		spawn_orb()
 		
 		text_pop_change_position(spawn_in_orb.position.x, 1.2, spawn_in_orb.position.z)
 
