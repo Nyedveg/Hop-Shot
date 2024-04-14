@@ -1,18 +1,19 @@
-res://prefabs/game objects/UI/ui.tscn
 res://material/ammo_create_pink.tres
 res://material/ammo_create_yel.tres
 res://material/ammo_create_blue.tres
 res://ui/themes/debug.tres
 res://material/tiles.tres
-res://scripts/Action_Listener_DEMO.gd
+res://models/industrial_lamp/industrial_lamp.tscn
+res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn
+res://prefabs/game objects/UI/ui.tscn
 res://prefabs/game objects/interactable/weapon/weapon.tscn
 res://prefabs/game objects/static/finish_zone.tscn
-res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn
 res://prefabs/levels/testing_level/testing_level.tscn
 res://prefabs/levels/Tutorial_level/Level_Tutorial-2.tscn
 res://prefabs/game objects/interactable/ammo_create.tscn
 res://prefabs/player/Player.tscn
 res://models/door/doors.tscn
-res://models/door/rollershutter_window_02_2k.tscn
+res://material/lamp.tres
+res://scripts/Action_Listener_DEMO.gd
+res://scripts/UI_main_script.gd
 res://scripts/ammo_box_script.gd
-res://models/tube/tube.tscn

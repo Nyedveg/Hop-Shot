@@ -7,8 +7,10 @@ func _ready():
 	pass
 
 func _on_area_3d_body_entered(body):
-	body.emit_signal("player_change_ammo", ammoValue)
-	pick_up_SFX.play()
-	await pick_up_SFX.finished
-	queue_free()
+	if body.name == "Player":
+		body.emit_signal("player_change_ammo", ammoValue)
+		#pick_up_SFX.play()
+		#await pick_up_SFX.finished
+		queue_free()
+
 	

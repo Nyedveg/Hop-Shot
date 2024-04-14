@@ -6,6 +6,8 @@ extends Control
 @onready var player = $"../Player"
 @onready var timer_label = $Timer_label
 @onready var timer = $Timer_label/Timer
+@onready var objective = $objective
+@onready var animation = $AnimationPlayer
 
 var timer_running = false
 var elapsed_time = 0
@@ -30,3 +32,11 @@ func update_timer_text():
 	var minutes = int(elapsed_time / 60)
 	var seconds = int(elapsed_time % 60)
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
+
+func update_objective(enter_objective: String, clear: bool):
+	if clear:
+		objective.text = ""
+	else:
+		objective.text = "Objective: \n" + enter_objective
+		animation.play("Text_type")
+	

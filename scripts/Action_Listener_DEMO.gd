@@ -42,7 +42,7 @@ func spawn_weapon():
 	var weapon = weapons.instantiate()
 	spawn_in.add_child(weapon)
 	player._on_level_template_set_ammo(100)
-	text_pop.text = "Pick me up!"
+	
 	
 
 func spawn_orb():
@@ -50,7 +50,7 @@ func spawn_orb():
 	spawn_in_orb.position = Vector3(0,0,-16)
 	spawn_in_orb.add_child(instance)
 	spawn_in_orb.ammoValue = 10
-	text_pop.text = "Pick this up!"
+	
 	
 func spawn_finish():
 	var instance = Finish.instantiate()
@@ -72,6 +72,7 @@ func change_collision_area_pos(new_pos: Vector3):
 	collisionArea.position = new_pos
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	text_pop.visible = false
 	player.set_mouse_input_enabled(false)
 	HUD.visible = false
 	set_player_pos_onready(0,100,20)
@@ -107,6 +108,7 @@ func set_player_pos_onready(x,y,z):
 	
 func finish_line_scene(String):
 	Finish.scene
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -150,6 +152,7 @@ func _process(delta):
 		await timer.timeout
 		lightON.play()
 		spotLight.visible = true
+		text_pop.visible = true
 		spawn_weapon()
 		camera.look_at_from_position(camera.global_transform.origin,spawn_in.global_position)
 		cameraAnimation.play("zoom")
@@ -164,9 +167,11 @@ func _process(delta):
 		enter_pointer_text("Pick me up!")
 		animation_Player_Node.play("Rattlesanek")
 		text_pop_change_position(spawn_in.position.x, 1.2,spawn_in.position.z)
+		HUD.update_objective("pick up the 'thing'?", false)
 		
 		await player.equip_gun
 		enter_pointer_text("")
+		HUD.update_objective("pick up the 'thing'?", true)
 		
 		spotLight.visible = false
 		timer.wait_time = 1.5
@@ -178,8 +183,16 @@ func _process(delta):
 		lightON.play()
 		spotLight.position = Vector3(spawn_in_orb.position.x, spotLight.position.y, spawn_in_orb.position.z)
 		spawn_orb()
-		
+		enter_pointer_text("Pick this up!")
 		text_pop_change_position(spawn_in_orb.position.x, 1.2, spawn_in_orb.position.z)
+		timer.wait_time = 0.5
+		timer.start()
+		await timer.timeout
+		HUD.update_objective("Do what it says...", false)
+		
+		await player.coll
+		HUD.update_objective("Get to the spot. NOW!", false)
+		
 
 		
 		
