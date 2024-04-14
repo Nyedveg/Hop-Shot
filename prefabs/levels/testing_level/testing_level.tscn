@@ -162,10 +162,12 @@ text = "Single jump (0.5m)"
 font_size = 128
 
 [node name="AmmoCreate" parent="Environment" instance=ExtResource("6_mx6eb")]
+transform = Transform3D(0.5, 0, 2.23319e-06, 0, 0.5, 0, -2.23319e-06, 0, 0.5, 4.84849, 0, -6.24012)
 
 [node name="AmmoCreate2" parent="Environment" instance=ExtResource("6_mx6eb")]
 
 [node name="AmmoCreate3" parent="Environment" instance=ExtResource("6_mx6eb")]
+transform = Transform3D(0.5, 0, 2.23319e-06, 0, 0.5, 0, -2.23319e-06, 0, 0.5, 0, 0, -6.9467)
 
 [node name="Areas" type="Node3D" parent="."]
 
