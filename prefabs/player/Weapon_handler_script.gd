@@ -10,6 +10,7 @@ signal update_ammo(currentAmmo)
 @onready var animated_crosshair = $"../Crosshair/AnimatedSprite2D"
 @onready var collider_indicator = $"../Crosshair/Collider_indicator"
 @onready var range_cast = $"../RangeCast"
+@onready var shotSFX = $"../../../Shot_SFX"
 
 var equipped: bool
 var fire_timer : float = 0.0
@@ -24,6 +25,7 @@ func _ready():
 func _physics_process(delta):
 	#WEAPON SHOOTING
 	if Input.is_action_pressed("fire") && equipped:
+		shotSFX.play()
 		fire_timer += delta
 		fire_timer = clamp(fire_timer, 0, 2.0)
 		hand_anim.queue("charging_animation")

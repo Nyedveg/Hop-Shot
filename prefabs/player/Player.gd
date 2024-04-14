@@ -66,6 +66,8 @@ func _ready():
 #CHECKS THE MOUSE MOVEMENT INPUT.
 func _input(event):
 	#GET MOUSE INPUT FOR CAMERA ROTATION AND CLAMP THE UP AND DOWN ROTATIONS.
+	if not enabled_mouse_input:
+		return
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sense))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))

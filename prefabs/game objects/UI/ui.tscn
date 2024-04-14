@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpxeqw342awpb"]
+[gd_scene load_steps=11 format=3 uid="uid://bpxeqw342awpb"]
 
 [ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="1_iihfm"]
 [ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="2_i44ir"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="3_os0xr"]
+[ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="4_gvrlu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bdh8x"]
 font_size = 64
@@ -18,6 +19,19 @@ font_size = 64
 
 [sub_resource type="Animation" id="Animation_mo4ie"]
 resource_name = "Text_type"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("objective:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.840896, 0.840896),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7s4bo"]
 _data = {
@@ -104,3 +118,21 @@ layout_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_7s4bo")
 }
+
+[node name="Timer_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1390.0
+offset_right = 1917.0
+offset_bottom = 89.0
+
+[node name="Timer" type="Timer" parent="Timer_label"]
+autostart = true
+
+[node name="objective" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 915.0
+offset_right = 861.0
+offset_bottom = 1074.0
+theme_override_fonts/font = ExtResource("4_gvrlu")
+theme_override_font_sizes/font_size = 35

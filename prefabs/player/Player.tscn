@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://d1w3acst8h1yr" path="res://textures/crosshair/Crosshair15.png" id="16_j6krs"]
 [ext_resource type="Texture2D" uid="uid://bwxoeyfof7uh7" path="res://textures/crosshair/Crosshair16.png" id="17_ues7o"]
 [ext_resource type="Texture2D" uid="uid://c5fsktypa763d" path="res://textures/crosshair/Crosshair_sides.png" id="18_4gdl5"]
+[ext_resource type="AudioStream" uid="uid://mxjepai05bgg" path="res://sounds/shake_noise.mp3" id="5_bqpwj"]
+[ext_resource type="AudioStream" uid="uid://boycimaqxryp2" path="res://sounds/laserShoot.wav" id="5_wrmmr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kjnyq"]
 
@@ -211,10 +213,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_4gdl5")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head"]
+
 [node name="Head_check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 1, 0)
 collision_mask = 2
+
+[node name="Shot_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wrmmr")
+volume_db = -9.955
 
 [connection signal="equip_gun" from="." to="Head/Camera/Weapon_handler" method="_on_player_equip_gun"]
 [connection signal="player_change_ammo" from="." to="Head/Camera/Weapon_handler" method="_on_player_player_change_ammo"]
