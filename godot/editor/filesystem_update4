@@ -15,3 +15,4 @@ res://prefabs/player/Player.tscn
 res://models/door/doors.tscn
 res://models/door/rollershutter_window_02_2k.tscn
 res://scripts/ammo_box_script.gd
+res://models/tube/tube.tscn

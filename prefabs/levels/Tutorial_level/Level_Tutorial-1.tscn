@@ -322,7 +322,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="rollershutter_window_02_2k" parent="." instance=ExtResource("15_ydhuo")]
-transform = Transform3D(28.55, 0, 0, 0, 70.931, 0, 0, 0, 28.55, -43.088, -31.18, 4.145)
+transform = Transform3D(28.55, 0, 0, 0, 300, 0, 0, 0, 28.55, -43.088, -147.222, 4.145)
+physics_material_override = null
 
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

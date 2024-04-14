@@ -1,8 +1,8 @@
+CollisionShape3D
 StaticBody3D
 Label
 SpotLight3D
 DirectionalLight3D
-CollisionShape3D
 RigidBody3D
 Node3D
 Area3D
