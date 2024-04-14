@@ -14,10 +14,6 @@ generator_parameters={}
 source_file="res://models/Hopper/Hopper_Gun_Hopper_Gun_UV.png"
 dest_files=["res://godot/imported/Hopper_Gun_Hopper_Gun_UV.png-1aae97f60f03206b1e2ece0ff1b515c6.ctex"]
 
-[params]
-
-compress/mode=3
-compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=0
 compress/normal_map=0

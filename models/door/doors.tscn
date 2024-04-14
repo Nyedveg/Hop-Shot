@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://lpvj0olet1xk"]
+
+[ext_resource type="PackedScene" uid="uid://dx3u318i28pi1" path="res://models/door/rollershutter_window_02_2k.tscn" id="1_23jol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrhgm"]
+
+[node name="Doors" type="StaticBody3D"]
+
+[node name="rollershutter_window_02_2k" parent="." instance=ExtResource("1_23jol")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lrhgm")

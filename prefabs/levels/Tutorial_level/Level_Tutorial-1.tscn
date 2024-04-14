@@ -1,0 +1,351 @@
+[gd_scene load_steps=27 format=3 uid="uid://0uh8rnfu5jo3"]
+
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_d264d"]
+[ext_resource type="Material" uid="uid://bnddakkn2m2u7" path="res://material/tiles.tres" id="2_pahhd"]
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_xhqov"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="4_lffyr"]
+[ext_resource type="Script" path="res://scripts/Action_Listener_DEMO.gd" id="5_jhi62"]
+[ext_resource type="Script" path="res://prefabs/player/Weapon_handler_script.gd" id="6_uys5p"]
+[ext_resource type="AudioStream" uid="uid://d1hnjcw11ducw" path="res://sounds/gta-san-andreas-ah-shit-here-we-go-again.mp3" id="7_e6olm"]
+[ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="7_k1wy3"]
+[ext_resource type="AudioStream" uid="uid://cisalb8r33suh" path="res://sounds/bang-smoke-cloud-1-184061.mp3" id="7_rcbw6"]
+[ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="8_y3yil"]
+[ext_resource type="Script" path="res://scripts/finish_zone.gd" id="9_cb7bk"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="10_2kcq2"]
+[ext_resource type="PackedScene" uid="uid://lpvj0olet1xk" path="res://models/door/doors.tscn" id="13_5w53i"]
+[ext_resource type="AudioStream" uid="uid://c4ck7pmt35pq" path="res://sounds/metallic-door-shut-98740.mp3" id="13_x2vof"]
+[ext_resource type="PackedScene" uid="uid://d21djkh441vns" path="res://models/tube/rollershutter_window_02_2k.glb" id="15_ydhuo"]
+
+[sub_resource type="Animation" id="Animation_lny85"]
+resource_name = "Text_type"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_2lfkb"]
+resource_name = "camera_transition_90deg"
+
+[sub_resource type="Animation" id="Animation_jlcpy"]
+resource_name = "float"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextPop:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.3, -5), Vector3(0, 1.6, -5), Vector3(0, 1.3, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_kys40"]
+resource_name = "zoom"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2dle"]
+_data = {
+"Text_type": SubResource("Animation_lny85"),
+"camera_transition_90deg": SubResource("Animation_2lfkb"),
+"float": SubResource("Animation_jlcpy"),
+"zoom": SubResource("Animation_kys40")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onbqf"]
+size = Vector3(3.79395, 2.32959, 1)
+
+[sub_resource type="Animation" id="Animation_3aoea"]
+resource_name = "close"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Doors:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.00694444, 0.0138889, 0.0208333, 0.0277778, 0.0347222, 0.0416667, 0.0486111, 0.0555556, 0.0625, 0.0694444, 0.0763889, 0.0833333, 0.0902778, 0.0972222, 0.104167, 0.111111, 0.118056, 0.125, 0.131944, 0.138889, 0.145833, 0.152778, 0.159722, 0.166667, 0.173611, 0.180556, 0.1875, 0.194444, 0.201389, 0.208333, 0.215278, 0.222222, 0.229167, 0.236111, 0.243056, 0.25, 0.256944, 0.263889, 0.270833, 0.277778, 0.284722, 0.291667, 0.298611, 0.305556, 0.3125, 0.319444, 0.326389, 0.333333, 0.340278, 0.347222, 0.354167, 0.361111, 0.368056, 0.375, 0.381944, 0.388889, 0.395833, 0.402778, 0.409722, 0.416667, 0.423611, 0.430556, 0.4375, 0.444444, 0.451389, 0.458333, 0.465278, 0.472222, 0.479167, 0.486111, 0.493056, 0.5, 0.506944, 0.513889, 0.520833, 0.527778, 0.534722, 0.541667, 0.548611, 0.555556, 0.5625, 0.569444, 0.576389, 0.583333, 0.590278, 0.597222, 0.604167, 0.611111, 0.618056, 0.625, 0.631944, 0.638889, 0.645833, 0.652778, 0.659722, 0.666667, 0.673611, 0.680556, 0.6875, 0.694444, 0.701389, 0.708333, 0.715278, 0.722222, 0.729167, 0.736111, 0.743056, 0.75, 0.756944, 0.763889, 0.770833, 0.777778, 0.784722, 0.791667, 0.798611, 0.805556, 0.8125, 0.819444, 0.826389, 0.833333, 0.840278, 0.847222, 0.854167, 0.861111, 0.868056, 0.875, 0.881944, 0.888889, 0.895833, 0.902778, 0.909722, 0.916667, 0.923611, 0.930556, 0.9375, 0.944444, 0.951389, 0.958333, 0.965278, 0.972222, 0.979167, 0.986111, 0.993056, 1, 1.00694, 1.01389, 1.02083, 1.02778, 1.03472, 1.04167, 1.04861, 1.05556, 1.0625, 1.06944, 1.07639, 1.08333, 1.09028, 1.09722, 1.10417, 1.11111, 1.11806, 1.125, 1.13194, 1.13889, 1.14583, 1.15278, 1.15972, 1.16667, 1.17361, 1.18056, 1.1875, 1.19444, 1.20139, 1.20833, 1.21528, 1.22222, 1.22917, 1.23611, 1.24306, 1.25, 1.25694, 1.26389, 1.27083, 1.27778, 1.28472, 1.29167, 1.29861),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.369, 7.398), Vector3(-12.201, 14.3689, 7.398), Vector3(-12.201, 14.3689, 7.398), Vector3(-12.201, 14.3689, 7.398), Vector3(-12.201, 14.3688, 7.398), Vector3(-12.201, 14.3687, 7.398), Vector3(-12.201, 14.3686, 7.398), Vector3(-12.201, 14.3685, 7.398), Vector3(-12.201, 14.3684, 7.398), Vector3(-12.201, 14.3682, 7.398), Vector3(-12.201, 14.3679, 7.398), Vector3(-12.201, 14.3676, 7.398), Vector3(-12.201, 14.3673, 7.398), Vector3(-12.201, 14.3669, 7.398), Vector3(-12.201, 14.3664, 7.398), Vector3(-12.201, 14.3658, 7.398), Vector3(-12.201, 14.365, 7.398), Vector3(-12.201, 14.3642, 7.398), Vector3(-12.201, 14.3632, 7.398), Vector3(-12.201, 14.3621, 7.398), Vector3(-12.201, 14.3608, 7.398), Vector3(-12.201, 14.3593, 7.398), Vector3(-12.201, 14.3575, 7.398), Vector3(-12.201, 14.3556, 7.398), Vector3(-12.201, 14.3533, 7.398), Vector3(-12.201, 14.3507, 7.398), Vector3(-12.201, 14.3479, 7.398), Vector3(-12.201, 14.3446, 7.398), Vector3(-12.201, 14.3409, 7.398), Vector3(-12.201, 14.3368, 7.398), Vector3(-12.201, 14.3323, 7.398), Vector3(-12.201, 14.3272, 7.398), Vector3(-12.201, 14.3215, 7.398), Vector3(-12.201, 14.3152, 7.398), Vector3(-12.201, 14.3082, 7.398), Vector3(-12.201, 14.3006, 7.398), Vector3(-12.201, 14.2921, 7.398), Vector3(-12.201, 14.2828, 7.398), Vector3(-12.201, 14.2726, 7.398), Vector3(-12.201, 14.2614, 7.398), Vector3(-12.201, 14.2491, 7.398), Vector3(-12.201, 14.2357, 7.398), Vector3(-12.201, 14.2212, 7.398), Vector3(-12.201, 14.2053, 7.398), Vector3(-12.201, 14.1881, 7.398), Vector3(-12.201, 14.1693, 7.398), Vector3(-12.201, 14.1491, 7.398), Vector3(-12.201, 14.1271, 7.398), Vector3(-12.201, 14.1034, 7.398), Vector3(-12.201, 14.0778, 7.398), Vector3(-12.201, 14.0503, 7.398), Vector3(-12.201, 14.0206, 7.398), Vector3(-12.201, 13.9886, 7.398), Vector3(-12.201, 13.9543, 7.398), Vector3(-12.201, 13.9175, 7.398), Vector3(-12.201, 13.878, 7.398), Vector3(-12.201, 13.8358, 7.398), Vector3(-12.201, 13.7905, 7.398), Vector3(-12.201, 13.7422, 7.398), Vector3(-12.201, 13.6906, 7.398), Vector3(-12.201, 13.6356, 7.398), Vector3(-12.201, 13.5769, 7.398), Vector3(-12.201, 13.5144, 7.398), Vector3(-12.201, 13.4479, 7.398), Vector3(-12.201, 13.3772, 7.398), Vector3(-12.201, 13.3021, 7.398), Vector3(-12.201, 13.2224, 7.398), Vector3(-12.201, 13.1378, 7.398), Vector3(-12.201, 13.0482, 7.398), Vector3(-12.201, 12.9532, 7.398), Vector3(-12.201, 12.8528, 7.398), Vector3(-12.201, 12.7465, 7.398), Vector3(-12.201, 12.6341, 7.398), Vector3(-12.201, 12.5155, 7.398), Vector3(-12.201, 12.3902, 7.398), Vector3(-12.201, 12.2581, 7.398), Vector3(-12.201, 12.1187, 7.398), Vector3(-12.201, 11.9719, 7.398), Vector3(-12.201, 11.8173, 7.398), Vector3(-12.201, 11.6545, 7.398), Vector3(-12.201, 11.4833, 7.398), Vector3(-12.201, 11.3034, 7.398), Vector3(-12.201, 11.1143, 7.398), Vector3(-12.201, 10.9156, 7.398), Vector3(-12.201, 10.7071, 7.398), Vector3(-12.201, 10.4884, 7.398), Vector3(-12.201, 10.259, 7.398), Vector3(-12.201, 10.0186, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398), Vector3(-12.201, 9.818, 7.398)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../SFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.42,
+"start_offset": 0.24,
+"stream": ExtResource("13_x2vof")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_nalky"]
+resource_name = "opacity"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Random/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 3, 4.9),
+"transitions": PackedFloat32Array(1, 2.07053, 2.07053),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgmle"]
+_data = {
+"close": SubResource("Animation_3aoea"),
+"opacity": SubResource("Animation_nalky")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fk260"]
+size = Vector3(8.79226, 8.12687, 0.0397644)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvg8f"]
+size = Vector3(9.58405, 7.35367, 0.312988)
+
+[node name="Level_template" type="Node3D"]
+script = ExtResource("1_d264d")
+
+[node name="Player" parent="." instance=ExtResource("3_xhqov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+
+[node name="Death_Zone" parent="." instance=ExtResource("4_lffyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
+
+[node name="ActionListener" type="Node3D" parent="."]
+script = ExtResource("5_jhi62")
+
+[node name="spawn_weapon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 0.8, -5)
+script = ExtResource("6_uys5p")
+ammo = 10
+
+[node name="Ah_shit" type="AudioStreamPlayer3D" parent="spawn_weapon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49012e-08, 0.0331626, -0.001724)
+stream = ExtResource("7_e6olm")
+
+[node name="light_on" type="AudioStreamPlayer3D" parent="spawn_weapon"]
+stream = ExtResource("7_rcbw6")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 2.26616, -23.1501)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(1, 1.1878, 46.6079)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 0.1, 0, 3.63775, -30.2945)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(1, 2.65994, 102.93)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.26687e-06, 0, 0.1, 0, 19.545, 0, -51.86, 0, -4.37114e-09, -4.88604, 15.1386, -6.21035)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(1.19708, 1.56317, 1)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(51.86, 0, 0, 0, -2.02362e-06, -0.1, 0, 46.295, -4.37114e-09, -5, 0, -6.21)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(1.19708, 1.55774, 1)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.26687e-06, 0, 0.1, 0, 19.545, 0, -51.86, 0, -4.37114e-09, 5, 15.2322, -6.18661)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(1.19617, 1.57275, 1)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(51.86, 0, 0, 0, 19.545, 0, 0, 0, 0.1, 0.129, 12.6057, -37.089)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(0.206635, 1.30396, 1)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479414, 5.43445, 16.3461)
+use_collision = true
+collision_layer = 0
+collision_mask = 0
+size = Vector3(1.18037, 1, 1)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.048, 5.86641, -0.278591)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(1.11765, 1, 1)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.55671e-07, -10.44, 0, 15, -4.56347e-07, 0, 0, 0, 0.1, 0.0479411, 9.93796, 24.7725)
+use_collision = true
+collision_layer = 0
+collision_mask = 2
+size = Vector3(2.27588, 1, 1)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479409, 24.4153, -15.1279)
+use_collision = true
+collision_layer = 0
+collision_mask = 0
+size = Vector3(2.95465, 1, 1)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -1, -4.56347e-07, 1.91069e-16, 0.0480001, 15.4503, -8.646)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(0.09375, 1, 191.237)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, -10.44, 2.90654e-16, 0.884549, -4.03661e-07, -0.0466449, 0.466448, -2.12862e-07, 0.0884549, 0.048, 10.7244, -17.9502)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(0.09375, 1, 210.084)
+material = ExtResource("2_pahhd")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, -10.44, 0, 1, -4.56347e-07, 0, 0, 0, 0.1, 0.048, 13.9638, -30.1463)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(0.09375, 1, 229.592)
+material = ExtResource("2_pahhd")
+
+[node name="TextPop" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5818, -20.535)
+billboard = 1
+double_sided = false
+outline_modulate = Color(1, 0, 0, 1)
+font = ExtResource("7_k1wy3")
+font_size = 70
+uppercase = true
+
+[node name="Floating_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i2dle")
+}
+autoplay = "Text_type"
+
+[node name="Random" type="Node3D" parent="."]
+
+[node name="Timer" type="Timer" parent="Random"]
+wait_time = 4.0
+
+[node name="ColorRect" type="ColorRect" parent="Random"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="orb" type="Node3D" parent="Random"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.3085)
+script = ExtResource("8_y3yil")
+ammoValue = 10
+
+[node name="finish_line" type="Area3D" parent="Random"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0255814, 2.387, 4.74382)
+script = ExtResource("9_cb7bk")
+scene = "res://prefabs/levels/Tutorial_level/Level_Tutorial-2.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Random/finish_line"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.604727, -0.488561, 0.183884)
+shape = SubResource("BoxShape3D_onbqf")
+
+[node name="UI" parent="." instance=ExtResource("10_2kcq2")]
+
+[node name="AnimationPlayerNode" type="AnimationPlayer" parent="."]
+root_node = NodePath("../UI")
+libraries = {
+"": SubResource("AnimationLibrary_tgmle")
+}
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="."]
+volume_db = -14.403
+
+[node name="Doors" parent="." instance=ExtResource("13_5w53i")]
+transform = Transform3D(6.12, -9.41459e-07, 6.66646e-07, -9.24094e-07, -6.235, -6.77626e-21, 9.24094e-07, -1.42156e-13, -4.415, -12.201, 14.369, 7.398)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.48276, -5.16699)
+visible = false
+light_energy = 4.556
+
+[node name="Label" type="Label" parent="."]
+offset_left = 234.0
+offset_top = 438.0
+offset_right = 1693.0
+offset_bottom = 630.0
+theme_override_fonts/font = ExtResource("7_k1wy3")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Label"]
+
+[node name="rollershutter_window_02_2k" parent="." instance=ExtResource("15_ydhuo")]
+transform = Transform3D(28.55, 0, 0, 0, 300, 0, 0, 0, 28.55, -43.088, -147.222, 4.145)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.80767, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.078968, 0.791978, 5)
+shape = SubResource("BoxShape3D_fk260")
+
+[node name="Area3D2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0918511, 8.33176, -21.2755)
+
+[node name="CollisionShape3D1" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0474876, -0.0403633, -0.437553)
+shape = SubResource("BoxShape3D_kvg8f")
+
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
+[connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]

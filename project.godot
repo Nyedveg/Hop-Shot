@@ -30,6 +30,14 @@ window/size/mode=3
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
+[file_customization]
+
+folder_colors={
+"res://models/door/": "red",
+"res://prefabs/levels/Tutorial_level/": "red",
+"res://textures/door/": "red"
+}
+
 [input]
 
 move_left={

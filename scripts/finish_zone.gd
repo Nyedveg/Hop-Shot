@@ -8,8 +8,11 @@ func _on_body_entered(_body):
 	entered = true
 	call_deferred("change_level")
 
+
 func _on_body_exited(_body):
 	entered = false
 
 func change_level():
-	get_tree().change_scene_to_file(scene)
+	if entered:
+		get_tree().change_scene_to_file(scene)
+	
