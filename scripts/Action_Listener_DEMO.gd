@@ -21,7 +21,6 @@ var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tsc
 @onready var label3 = $"../Label"
 var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var door = $"../Doors"
-var menu = preload("res://prefabs/levels/menu_levels/main_menu.tscn")
 
 #SFX
 @onready var AHSH = $"../spawn_weapon/Ah_shit"
@@ -113,14 +112,10 @@ func _process(delta):
 	var playerDetected = _on_player_colided_with_collision_area(collisionArea)
 	if playerDetected and not executed:
 		animation_Player_Node.play("close")
-<<<<<<< Updated upstream
-		SFX.play()
 		change_collision_area_pos(-100,100,0,collisionArea)
 		pass
 
-=======
 	executed = true
->>>>>>> Stashed changes
 	
 	if Input.is_action_just_pressed("move_backward") and !pressedS:
 		pressedS = true
@@ -211,7 +206,7 @@ func _process(delta):
 		HUD.update_objective("Shoot the 'thing' at the\nfloor and hold W", false)
 		
 		
-		text_pop_change_position(0,6.5,-20)
+		text_pop_change_position(0,5.5,-23)
 		enter_pointer_text("Get up here!")
 		spotLight.position = Vector3(text_pop.position.x, 6,-20.5)
 		spotLight.visible = true

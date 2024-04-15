@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://batn7im76cis5"
-path.s3tc="res://.godot/imported/Hopper_Gun_Dithered_Gun_UV.png-9b397c225d1bad7edce0a9428852c3a5.s3tc.ctex"
+path.s3tc="res://godot/imported/Hopper_Gun_Dithered_Gun_UV.png-9b397c225d1bad7edce0a9428852c3a5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://models/Hopper/Hopper_Gun_Dithered_Gun_UV.png"
-dest_files=["res://.godot/imported/Hopper_Gun_Dithered_Gun_UV.png-9b397c225d1bad7edce0a9428852c3a5.s3tc.ctex"]
+dest_files=["res://godot/imported/Hopper_Gun_Dithered_Gun_UV.png-9b397c225d1bad7edce0a9428852c3a5.s3tc.ctex"]
 
 [params]
 
