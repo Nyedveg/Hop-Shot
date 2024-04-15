@@ -1,4 +1,16 @@
+<<<<<<< Updated upstream
 CollisionShape3D
+=======
+AudioStreamPlayer3D
+ColorRect
+DirectionalLight3D
+StaticBody3D
+CollisionShape3D
+AnimationPlayer
+AnimationTree
+AudioStreamPlayer
+RigidBody3D
+>>>>>>> Stashed changes
 Area3D
 AudioStreamPlayer
 Label
@@ -11,4 +23,8 @@ StaticBody3D
 DirectionalLight3D
 RigidBody3D
 Node3D
+<<<<<<< Updated upstream
 AudioStreamPlayer3D
+=======
+Control
+>>>>>>> Stashed changes

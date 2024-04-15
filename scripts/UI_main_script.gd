@@ -34,9 +34,18 @@ func update_timer_text():
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func update_objective(enter_objective: String, clear: bool):
+	var temp = Timer.new()
 	if clear:
-		objective.text = ""
+		animation.play("text_clear")
+		await animation.animation_finished
+		change_objective_color(false)
 	else:
 		objective.text = "Objective: \n" + enter_objective
 		animation.play("Text_type")
+		
+func change_objective_color(reset: bool):
+	if reset:
+		objective.modulate = Color(0,1,0)
+	else:
+		objective.modulate = Color(1,1,1)
 	

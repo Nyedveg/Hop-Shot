@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://wh3xh6c1ucia" path="res://material/ammo_create_yel.tres" id="4_hstm5"]
 [ext_resource type="Material" uid="uid://bajwfa3m2cupt" path="res://material/ammo_create_green.tres" id="5_21rt4"]
 [ext_resource type="Material" uid="uid://gm8mgknogrys" path="res://material/ammo_create_blue.tres" id="6_vjr4p"]
-[ext_resource type="AudioStream" uid="uid://ceeuw2rd7aq1v" path="res://sounds/magic-game-key-picked-up-epic-stock-media-1-00-03.mp3" id="7_x61y6"]
+[ext_resource type="AudioStream" uid="uid://bsbn4bux3c2p4" path="res://sounds/powerUp_orb.wav" id="7_x75sh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_k3iwr"]
 height = 1.72512
@@ -339,7 +339,7 @@ transform = Transform3D(-0.408082, 1.22825e-08, -0.568744, -1.61425e-15, 0.7, 1.
 curve = SubResource("Curve3D_0rktn")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CSGSphere3D/Path3D11"]
-transform = Transform3D(-0.0800194, 0.0412749, -0.995771, -0.312643, -0.949597, -0.0142373, -0.946333, 0.310231, 0.0889034, -0.0327445, -1.59666, 0.0170646)
+transform = Transform3D(-0.0800195, 0.0412749, -0.995771, -0.312643, -0.949597, -0.0142373, -0.946333, 0.310231, 0.0889034, -0.0327445, -1.59666, 0.0170646)
 progress = 4.18391
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D/Path3D11/PathFollow3D"]
@@ -367,7 +367,7 @@ omni_attenuation = 0.535887
 
 [node name="Pick_up_SFX" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.47928, 0)
-stream = ExtResource("7_x61y6")
+stream = ExtResource("7_x75sh")
 volume_db = -18.461
 max_db = -7.769
 

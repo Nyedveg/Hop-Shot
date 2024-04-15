@@ -1,11 +1,36 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=17 format=3 uid="uid://c2h5wi5d0wwxc"]
+=======
+[gd_scene load_steps=33 format=3 uid="uid://c2h5wi5d0wwxc"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://prefabs/player/Player.gd" id="1_8knlq"]
 [ext_resource type="Texture2D" uid="uid://oh70s64d6ot7" path="res://textures/temp_crosshair.png" id="2_b0r1b"]
 [ext_resource type="Script" path="res://scripts/player_camera_controller.gd" id="2_fsb5k"]
 [ext_resource type="Script" path="res://prefabs/player/Weapon_handler_script.gd" id="2_rsuso"]
+<<<<<<< Updated upstream
 [ext_resource type="AudioStream" uid="uid://mxjepai05bgg" path="res://sounds/shake_noise.mp3" id="5_bqpwj"]
 [ext_resource type="AudioStream" uid="uid://boycimaqxryp2" path="res://sounds/laserShoot.wav" id="5_wrmmr"]
+=======
+[ext_resource type="Texture2D" uid="uid://bq5o8tww8fdm7" path="res://textures/crosshair/Crosshair_dot.png" id="4_wop2e"]
+[ext_resource type="Texture2D" uid="uid://qaraa16s5bbe" path="res://textures/crosshair/Crosshair4.png" id="5_g2fej"]
+[ext_resource type="AudioStream" uid="uid://boycimaqxryp2" path="res://sounds/laserShoot.wav" id="5_wrmmr"]
+[ext_resource type="Texture2D" uid="uid://ckq5l6ylowjid" path="res://textures/crosshair/Crosshair5.png" id="6_fmptt"]
+[ext_resource type="Texture2D" uid="uid://covklwc0quiot" path="res://textures/crosshair/Crosshair6.png" id="7_g104o"]
+[ext_resource type="Texture2D" uid="uid://jbo85mbesllr" path="res://textures/crosshair/Crosshair7.png" id="8_m5wcn"]
+[ext_resource type="Texture2D" uid="uid://dgjj5wyppuh5w" path="res://textures/crosshair/Crosshair8.png" id="9_eks35"]
+[ext_resource type="Texture2D" uid="uid://d2ipim5ypbxkh" path="res://textures/crosshair/Crosshair9.png" id="10_jdvev"]
+[ext_resource type="Texture2D" uid="uid://dq8eatyjtlbkw" path="res://textures/crosshair/Crosshair10.png" id="11_rxal8"]
+[ext_resource type="Texture2D" uid="uid://b3oc4kvcr8l3e" path="res://textures/crosshair/Crosshair11.png" id="12_lthra"]
+[ext_resource type="Texture2D" uid="uid://d38orjqmt0whb" path="res://textures/crosshair/Crosshair12.png" id="13_ukycm"]
+[ext_resource type="Texture2D" uid="uid://ce87gvt5h7cfc" path="res://textures/crosshair/Crosshair13.png" id="14_17rct"]
+[ext_resource type="Texture2D" uid="uid://cv2xmwlsyvply" path="res://textures/crosshair/Crosshair14.png" id="15_eeode"]
+[ext_resource type="Texture2D" uid="uid://d1w3acst8h1yr" path="res://textures/crosshair/Crosshair15.png" id="16_j6krs"]
+[ext_resource type="Texture2D" uid="uid://bwxoeyfof7uh7" path="res://textures/crosshair/Crosshair16.png" id="17_ues7o"]
+[ext_resource type="Texture2D" uid="uid://c5fsktypa763d" path="res://textures/crosshair/Crosshair_sides.png" id="18_4gdl5"]
+[ext_resource type="AudioStream" uid="uid://drld0tchqof21" path="res://sounds/shake (mp3cut.net).mp3" id="19_uwhgf"]
+[ext_resource type="AudioStream" uid="uid://b3ba01og0sahd" path="res://sounds/music/charge.wav" id="20_3jsu6"]
+>>>>>>> Stashed changes
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kjnyq"]
 
@@ -110,6 +135,60 @@ _data = {
 "zoom": SubResource("Animation_qe5ms")
 }
 
+[sub_resource type="Animation" id="Animation_33lq6"]
+resource_name = "shake"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(-2.82843, -2.82843, -2.82843, -2.82843, -2.82843),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0296706, 0.0349066, 0), Vector3(0.0523599, 0.0174533, 0), Vector3(-0.0174533, 0, -0.0349066), Vector3(0, 0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.7459,
+"stream": ExtResource("19_uwhgf")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_y2prx"]
+resource_name = "zoom"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 4.2, 4.5),
+"transitions": PackedFloat32Array(2, 2, 2, 2),
+"update": 0,
+"values": [75.0, 22.0, 22.0, 75.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kmdj3"]
+_data = {
+"shake": SubResource("Animation_33lq6"),
+"zoom": SubResource("Animation_y2prx")
+}
+
 [node name="Player" type="CharacterBody3D" groups=["movable"]]
 collision_layer = 3
 collision_mask = 3
@@ -144,7 +223,11 @@ target_position = Vector3(0, 0, -50)
 collision_mask = 4
 
 [node name="Hand" type="Node3D" parent="Head/Camera"]
+<<<<<<< Updated upstream
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646, -0.29, -0.725)
+=======
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.476, -0.18, -0.475)
+>>>>>>> Stashed changes
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera/Hand"]
 libraries = {
@@ -170,7 +253,14 @@ libraries = {
 "": SubResource("AnimationLibrary_6fj3q")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head"]
+libraries = {
+"": SubResource("AnimationLibrary_kmdj3")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head/AnimationPlayer"]
+stream = ExtResource("19_uwhgf")
+volume_db = -15.391
 
 [node name="Head_check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -180,6 +270,10 @@ collision_mask = 2
 [node name="Shot_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wrmmr")
 volume_db = -9.955
+
+[node name="SFX_CHARGE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_3jsu6")
+volume_db = -24.762
 
 [connection signal="equip_gun" from="." to="Head/Camera/Weapon_handler" method="_on_player_equip_gun"]
 [connection signal="player_change_ammo" from="." to="Head/Camera/Weapon_handler" method="_on_player_player_change_ammo"]

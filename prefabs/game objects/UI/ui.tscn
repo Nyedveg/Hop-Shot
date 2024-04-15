@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpxeqw342awpb"]
+[gd_scene load_steps=12 format=3 uid="uid://bpxeqw342awpb"]
 
 [ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="1_iihfm"]
 [ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="2_i44ir"]
@@ -19,7 +19,7 @@ font_size = 64
 
 [sub_resource type="Animation" id="Animation_mo4ie"]
 resource_name = "Text_type"
-length = 0.65
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,15 +27,32 @@ tracks/0/path = NodePath("objective:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.840896, 0.840896),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 2),
 "update": 0,
 "values": [0.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_xw6dv"]
+resource_name = "text_clear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("objective:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7s4bo"]
 _data = {
-"Text_type": SubResource("Animation_mo4ie")
+"Text_type": SubResource("Animation_mo4ie"),
+"text_clear": SubResource("Animation_xw6dv")
 }
 
 [node name="UI" type="Control"]
@@ -136,3 +153,5 @@ offset_right = 861.0
 offset_bottom = 1074.0
 theme_override_fonts/font = ExtResource("4_gvrlu")
 theme_override_font_sizes/font_size = 35
+visible_characters = 0
+visible_ratio = 0.0

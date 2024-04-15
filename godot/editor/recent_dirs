@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 res://material
 res://textures
 res://FONT
@@ -6,3 +7,13 @@ res://models/door
 res://textures/door
 res://scripts
 res://
+=======
+res://sounds
+res://material
+res://scripts
+res://prefabs/levels/menu_levels
+res://prefabs/game objects/interactable
+res://prefabs/game objects/interactable/weapon
+res://models/Hopper
+res://textures/logo
+>>>>>>> Stashed changes
