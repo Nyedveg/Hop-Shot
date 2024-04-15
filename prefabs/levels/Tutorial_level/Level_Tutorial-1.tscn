@@ -322,7 +322,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Finish_Zone" parent="Random" instance=ExtResource("9_y1hql")]
-transform = Transform3D(2.625, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0.0608976, 6.45645, -35.4829)
+transform = Transform3D(2.625, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 0.0605946, 6.47224, -35.4809)
 scene = "res://prefabs/levels/testing_level/testing_level.tscn"
 
 [node name="UI" parent="." instance=ExtResource("10_2kcq2")]

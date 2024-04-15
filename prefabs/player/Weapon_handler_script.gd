@@ -58,12 +58,12 @@ func _on_player_equip_gun():
 	equipped = true
 
 # INCRAMENTS AMMO + UPDATES UI
-func _on_player_player_change_ammo(ammoCount):
+func _on_player_change_ammo(ammoCount):
 	ammo += ammoCount
 	emit_signal("update_ammo", ammo)
 
 # SETS AMMO + UPDATES UI
-func _on_player_player_set_ammo(ammoCount):
+func _on_player_set_ammo(ammoCount):
 	ammo = ammoCount
 	emit_signal("update_ammo", ammo)
 

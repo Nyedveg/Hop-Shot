@@ -1,26 +1,14 @@
-res://scripts/Action_Listener_DEMO2.gd
-res://scripts/Action_Listener_DEMO.gd
-res://scripts/ammo_box_script.gd
-res://prefabs/game objects/interactable/weapon/Area3D.gd
-res://scripts/bullet_collider_script.gd
-res://scripts/finish_zone.gd
-res://scripts/Main_level_script.gd
-res://prefabs/player/Player.gd
-res://scripts/player_camera_controller.gd
-res://scripts/UI_main_script.gd
-res://prefabs/player/Weapon_handler_script.gd
-res://prefabs/game objects/interactable/weapon/weapon_hr_script.gd
-res://prefabs/game objects/interactable/weapon/weapon.tscn
-res://material/ammo_create_pink.tres
-res://material/ammo_create_yel.tres
-res://material/ammo_create_blue.tres
+res://prefabs/game objects/static/finish_zone.tscn
 res://ui/themes/debug.tres
 res://material/block.tres
-res://prefabs/game objects/static/finish_zone.tscn
 res://prefabs/game objects/interactable/ammo_create.tscn
 res://prefabs/game objects/UI/ui.tscn
 res://prefabs/levels/Tutorial_level/Level_Tutorial-2.tscn
 res://models/door/doors.tscn
-res://prefabs/player/Player.tscn
 res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn
 res://prefabs/levels/testing_level/testing_level.tscn
+res://prefabs/game objects/interactable/weapon/weapon.tscn
+res://prefabs/player/Player.tscn
+res://prefabs/game objects/collision_shape_3d.tscn
+res://prefabs/player/Weapon_handler_script.gd
+res://scripts/Main_level_script.gd
