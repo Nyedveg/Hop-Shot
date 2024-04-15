@@ -11,7 +11,7 @@ signal update_ammo(currentAmmo)
 @onready var collider_indicator = $"../Crosshair/Collider_indicator"
 @onready var range_cast = $"../RangeCast"
 @onready var shotSFX = $"../../../Shot_SFX"
-@onready var chargeSFX = $"../../../SFX_CHARGE"
+@onready var chargeSFX = $"../../../Charge_SFX"
 
 var equipped: bool
 var fire_timer : float = 0.0
@@ -28,15 +28,17 @@ var charging = true
 func _physics_process(delta):
 	#WEAPON SHOOTING
 	if Input.is_action_pressed("fire") && equipped:
-		shotSFX.play()
+		chargeSFX.play()
 		fire_timer += delta
 		fire_timer = clamp(fire_timer, 0, 2.0)
 		hand_anim.queue("charging_animation")
-		#if fire_timer == 2.0:
-		#	animated_crosshair.play("charged")
-		#else:
-			#animated_crosshair.play("charging")
+		if fire_timer == 2.0:
+			animated_crosshair.play("charged")
+			
+		else:
+			animated_crosshair.play("charging")
 	if Input.is_action_just_released("fire") && equipped && ammo > 0:
+		shotSFX.play()
 		if fire_cooldown == 0:
 			ammo -= 1
 			hand_anim.play("firing_animation")

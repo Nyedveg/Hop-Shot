@@ -22,6 +22,10 @@ var weapons = preload("res://prefabs/game objects/interactable/weapon/weapon.tsc
 var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var door = $"../Doors"
 
+#Markers
+@onready var point4 = $"../point4"
+@onready var point3 = $"../point3"
+
 #SFX
 @onready var AHSH = $"../spawn_weapon/Ah_shit"
 @onready var lightON = $"../SpotLight3D/light_on"
@@ -132,11 +136,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("move_left") and !pressedA:
 		pressedA = true
 		label3.text =""
-		
+	
 		
 	if pressedS&&pressedW&&pressedD&&pressedA&&!all_pressed:
 		all_pressed = true
-
+		label3.text=""
 		
 		#Weapon spawns
 		player.enabled_mouse_input = false
@@ -203,19 +207,40 @@ func _process(delta):
 		timer.wait_time = 2
 		timer.start()
 		await timer.timeout
-		HUD.update_objective("Shoot the 'thing' at the\nfloor and hold W", false)
+		HUD.update_objective("Shoot the 'thing' at the to jump...", false)
 		
 		
-		text_pop_change_position(0,5.5,-23)
+		text_pop_change_position(point3.position.x,point3.position.y+2,point3.position.z)
 		enter_pointer_text("Get up here!")
 		spotLight.position = Vector3(text_pop.position.x, 6,-20.5)
 		spotLight.visible = true
 		lightON.play()
-		var playerDetected1 = _on_player_colided_with_collision_area(collisionArea1)
-		if playerDetected1:
-			HUD.update_objective(str(playerDetected1))
-
 		
+		#var playerDetected1 = _on_player_colided_with_collision_area(collisionArea1)
+		#if playerDetected1:
+			#HUD.update_objective(str(playerDetected1))
+	
+		#TEMPORARY COLLISION NOT WORKING
+		timer.wait_time = 1.5
+		timer.start()
+		await timer.timeout
+		HUD.change_objective_color(true)
+		timer.wait_time = 1
+		timer.start()
+		await timer.timeout
+		spotLight.visible = false
+		enter_pointer_text("")
+		lightON.play()
+		HUD.update_objective("Do what it says...", true)
+		
+		timer.wait_time = 2
+		await timer.timeout
+		lightON.play()
+		enter_pointer_text("Get over here!")
+		HUD.update_objective("While holding W press SHIFT to sprint.\nOtherwise you're not getting up there...", false)
+		text_pop_change_position(point4.position.x,point4.position.y+2,point4.position.z)
+		spotLight.position = Vector3(point4.position.x,point4.position.y+5,point4.position.z+3)
+		spotLight.visible = true
 		
 
 		

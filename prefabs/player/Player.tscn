@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2h5wi5d0wwxc"]
+[gd_scene load_steps=20 format=3 uid="uid://c2h5wi5d0wwxc"]
 
 [ext_resource type="Script" path="res://prefabs/player/Player.gd" id="1_8knlq"]
-[ext_resource type="Texture2D" uid="uid://oh70s64d6ot7" path="res://textures/temp_crosshair.png" id="2_b0r1b"]
 [ext_resource type="Script" path="res://scripts/player_camera_controller.gd" id="2_fsb5k"]
 [ext_resource type="Script" path="res://prefabs/player/Weapon_handler_script.gd" id="2_rsuso"]
-[ext_resource type="AudioStream" uid="uid://cval53rbxvbki" path="res://sounds/shake_noise.mp3" id="5_bqpwj"]
+[ext_resource type="AudioStream" uid="uid://drld0tchqof21" path="res://sounds/shake (mp3cut.net).mp3" id="4_phy7b"]
+[ext_resource type="Texture2D" uid="uid://ddx2m7g7644q5" path="res://textures/crosshair/Crosshair_dot.png" id="4_wop2e"]
 [ext_resource type="AudioStream" uid="uid://boycimaqxryp2" path="res://sounds/laserShoot.wav" id="5_wrmmr"]
+[ext_resource type="AudioStream" uid="uid://b3ba01og0sahd" path="res://sounds/music/charge.wav" id="6_4dgtv"]
+[ext_resource type="Texture2D" uid="uid://cwbb5x6cljskk" path="res://textures/crosshair/Crosshair_sides.png" id="18_4gdl5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kjnyq"]
 
@@ -19,6 +21,23 @@ background_mode = 2
 sky = SubResource("Sky_xnenq")
 ssr_enabled = true
 
+[sub_resource type="Animation" id="Animation_nrqy6"]
+resource_name = "charging_animation"
+length = 0.500005
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.3001, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1.4237e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1, 1e-05, 1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector3(0.476, -0.18, -0.475), Vector3(0.426, -0.195, -0.465), Vector3(0.486, -0.175, -0.45), Vector3(0.443, -0.175, -0.481), Vector3(0.48, -0.176, -0.483), Vector3(0.455, -0.176, -0.494), Vector3(0.476, -0.18, -0.475), Vector3(0.483, -0.176, -0.482), Vector3(0.483, -0.148, -0.446), Vector3(0.486, -0.17, -0.482), Vector3(0.471, -0.185, -0.469), Vector3(0.482, -0.189, -0.484)]
+}
+
 [sub_resource type="Animation" id="Animation_o8d01"]
 resource_name = "firing_animation"
 length = 0.2
@@ -30,84 +49,132 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 0.594603, 1),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.296706, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_goww4"]
 _data = {
+"charging_animation": SubResource("Animation_nrqy6"),
 "firing_animation": SubResource("Animation_o8d01")
 }
 
-[sub_resource type="Animation" id="Animation_6703f"]
-resource_name = "new_animation"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(4.75682, 4.75682),
-"update": 0,
-"values": [Vector3(-1.5708, 0, 0), Vector3(0, 0, 0)]
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_njvgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"charged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"charging",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
-[sub_resource type="Animation" id="Animation_y4lfd"]
+[sub_resource type="Animation" id="Animation_n38j4"]
 resource_name = "shake"
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("..:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(3.73213, 3.73213, 3.73213, 3.73213, 3.73213, 3.73213, 3.73213, 3.73213, 3.73213, 3.73213, 3.73213),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(-2.73207, -2.73207),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.0848569, -0.106724, 0.0802182), Vector3(0.0424285, -0.0533622, 0.0401091), Vector3(-0.0404185, -0.0627343, 0.0787264), Vector3(0.0848569, -0.106724, 0.0802182), Vector3(0.0424285, -0.0533622, 0.0401091), Vector3(-0.0404185, -0.0627343, 0.0787264), Vector3(0.0848569, -0.106724, 0.0802182), Vector3(0.0424285, -0.0533622, 0.0401091), Vector3(-0.0404185, -0.0627343, 0.0787264), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.0174533, 0.0349066, 0.0174533)]
 }
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/path = NodePath("../AnimationPlayer/AudioStreamPlayer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
-"start_offset": 1.0609,
-"stream": ExtResource("5_bqpwj")
+"start_offset": 1.755,
+"stream": ExtResource("4_phy7b")
 }],
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
 
-[sub_resource type="Animation" id="Animation_qe5ms"]
+[sub_resource type="Animation" id="Animation_dviy8"]
 resource_name = "zoom"
-length = 3.5
+length = 4.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera:fov")
+tracks/0/path = NodePath(".:fov")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 3.2, 3.5),
-"transitions": PackedFloat32Array(1.7411, 1.7411, 1.7411, 1.7411),
+"times": PackedFloat32Array(0, 0.3, 3.8, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [75.0, 28.4, 28.4, 75.0]
+"values": [75.0, 28.0, 28.0, 75.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6fj3q"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5nwww"]
 _data = {
-"new_animation": SubResource("Animation_6703f"),
-"shake": SubResource("Animation_y4lfd"),
-"zoom": SubResource("Animation_qe5ms")
+"shake": SubResource("Animation_n38j4"),
+"zoom": SubResource("Animation_dviy8")
 }
 
 [node name="Player" type="CharacterBody3D" groups=["movable"]]
@@ -120,16 +187,14 @@ script = ExtResource("1_8knlq")
 shape = SubResource("CapsuleShape3D_kjnyq")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.934248, 0)
+transform = Transform3D(1, -6.97306e-05, 0.000139442, 6.97209e-05, 1, 6.97209e-05, -0.000139447, -6.97112e-05, 1, 0, 0.934248, 0)
 
 [node name="Camera_Controller" type="Node3D" parent="Head"]
 script = ExtResource("2_fsb5k")
 default_fov = 75.0
 
 [node name="Camera" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0223418, 0)
 environment = SubResource("Environment_oslwl")
-fov = 28.4
 near = 0.001
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Head/Camera"]
@@ -140,12 +205,16 @@ script = ExtResource("2_rsuso")
 [node name="Directional" type="Node3D" parent="Head/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
+[node name="RangeCast" type="RayCast3D" parent="Head/Camera"]
+target_position = Vector3(0, 0, -3.8)
+collision_mask = 4
+
 [node name="AimCast" type="RayCast3D" parent="Head/Camera"]
 target_position = Vector3(0, 0, -50)
 collision_mask = 4
 
 [node name="Hand" type="Node3D" parent="Head/Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646, -0.29, -0.725)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.476, -0.18, -0.475)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera/Hand"]
 libraries = {
@@ -158,20 +227,42 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_b0r1b")
+texture = ExtResource("4_wop2e")
+expand_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Head/Camera/Crosshair"]
+position = Vector2(40, 40)
+scale = Vector2(1.5, 1.51563)
+sprite_frames = SubResource("SpriteFrames_njvgs")
+animation = &"idle"
+
+[node name="Collider_indicator" type="TextureRect" parent="Head/Camera/Crosshair"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_4gdl5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head"]
+root_node = NodePath("../Camera")
 libraries = {
-"": SubResource("AnimationLibrary_6fj3q")
+"": SubResource("AnimationLibrary_5nwww")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head/AnimationPlayer"]
+volume_db = -25.0
 
 [node name="Head_check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -181,6 +272,10 @@ collision_mask = 2
 [node name="Shot_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wrmmr")
 volume_db = -9.955
+
+[node name="Charge_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4dgtv")
+volume_db = -21.048
 
 [connection signal="equip_gun" from="." to="Head/Camera/Weapon_handler" method="_on_player_equip_gun"]
 [connection signal="player_change_ammo" from="." to="Head/Camera/Weapon_handler" method="_on_player_player_change_ammo"]

@@ -1,30 +1,13 @@
-<<<<<<< Updated upstream
+AudioStreamPlayer
+MeshInstance3D
+CSGSphere3D
+AnimationPlayer
+AnimationTree
 CollisionShape3D
-=======
 AudioStreamPlayer3D
 ColorRect
 DirectionalLight3D
 StaticBody3D
 CollisionShape3D
-AnimationPlayer
-AnimationTree
-AudioStreamPlayer
 RigidBody3D
->>>>>>> Stashed changes
 Area3D
-AudioStreamPlayer
-Label
-OmniLight3D
-MeshInstance3D
-LightmapProbe
-ReflectionProbe
-SpotLight3D
-StaticBody3D
-DirectionalLight3D
-RigidBody3D
-Node3D
-<<<<<<< Updated upstream
-AudioStreamPlayer3D
-=======
-Control
->>>>>>> Stashed changes

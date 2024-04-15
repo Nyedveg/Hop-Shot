@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg63ccfflhpow"]
+[gd_scene load_steps=7 format=3 uid="uid://yf4x8n1t565c"]
 
 [ext_resource type="Script" path="res://prefabs/game objects/interactable/weapon/Area3D.gd" id="1_yc23j"]
 [ext_resource type="PackedScene" uid="uid://cy7afwyxw1uqp" path="res://models/Hopper/Hopper_Gun._Painted_finished_screen.glb" id="2_6dbu0"]

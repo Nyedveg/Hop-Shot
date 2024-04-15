@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1713151899
+::res://::1713153009
 export_presets.cfg::TextFile::-1::1713135901::0::1::::<><>::
 icon.svg::CompressedTexture2D::5735918494503605064::1713135903::1713135903::1::::<><>::
 ::res://addons/::1713135900
@@ -36,8 +36,8 @@ lamp.tres::StandardMaterial3D::6890638748691583648::1713135903::0::1::::<><>::
 rollershutter_window_02_2k.tres::StandardMaterial3D::4188832327462773156::1713135903::0::1::::<><>::uid://dpnp0gc4ftj6f::::res://textures/door/rollershutter_window_02_diff_2k.jpg<>uid://bolssv0itd632::::res://textures/door/rollershutter_window_02_rough_2k.exr
 tiles.tres::StandardMaterial3D::3305251476536791524::1713151426::0::1::::<><>::
 ::res://models/::1713151424
-::res://models/door/::1713151898
-doors.tscn::PackedScene::996698281505947396::1713151898::0::1::::<><>::uid://dlog86fey6mfb::::res://models/door/rollershutter_window_02_2k.glb
+::res://models/door/::1713157337
+doors.tscn::PackedScene::996698281505947396::1713157337::0::1::::<><>::uid://dlog86fey6mfb::::res://models/door/rollershutter_window_02_2k.glb
 rollershutter_window_02_2k.glb::PackedScene::7960665488972879379::1713151426::1713151426::1::::<><>::
 rollershutter_window_02_2k_rollershutter_window_02_diff_2k.jpg::CompressedTexture2D::2669322740930628902::1713135903::1713135903::1::::<><>::
 ::res://models/Hopper/::1713151470
@@ -101,28 +101,28 @@ HP_tree_branch.tres::StandardMaterial3D::7957414331988908895::1713135903::0::1::
 ::res://models/tube/::1713135903
 rollershutter_window_02_2k.glb::PackedScene::9108233411439735200::1713135903::1713135903::1::::<><>::
 tube.tscn::PackedScene::6836320073955243196::1713135903::0::1::::<><>::uid://d21djkh441vns::::res://models/tube/rollershutter_window_02_2k.glb
-::res://prefabs/::1713151916
+::res://prefabs/::1713157517
 collider.tscn::PackedScene::4725279617574734874::1713151424::0::1::::<><>::res://scripts/bullet_collider_script.gd
-Player.tscn::PackedScene::-1::1713151916::0::1::::<><>::
+Player.tscn::PackedScene::-1::1713157517::0::1::::<><>::
 ::res://prefabs/game objects/::1713135903
 collision_shape_3d.tscn::PackedScene::990477119935481691::1713135903::0::1::::<><>::
-::res://prefabs/game objects/interactable/::1713151898
-ammo_create.tscn::PackedScene::7834814236736320364::1713151898::0::1::::<><>::res://scripts/ammo_box_script.gd<>uid://dop506a6ccddd::::res://material/ammo_create.tres<>uid://cqt5tppag2oip::::res://material/ammo_create_pink.tres<>uid://wh3xh6c1ucia::::res://material/ammo_create_yel.tres<>uid://bajwfa3m2cupt::::res://material/ammo_create_green.tres<>uid://gm8mgknogrys::::res://material/ammo_create_blue.tres<>uid://bsbn4bux3c2p4::::res://sounds/powerUp_orb.wav
-::res://prefabs/game objects/interactable/weapon/::1713151898
+::res://prefabs/game objects/interactable/::1713157337
+ammo_create.tscn::PackedScene::7834814236736320364::1713157337::0::1::::<><>::res://scripts/ammo_box_script.gd<>uid://dop506a6ccddd::::res://material/ammo_create.tres<>uid://cqt5tppag2oip::::res://material/ammo_create_pink.tres<>uid://wh3xh6c1ucia::::res://material/ammo_create_yel.tres<>uid://bajwfa3m2cupt::::res://material/ammo_create_green.tres<>uid://gm8mgknogrys::::res://material/ammo_create_blue.tres<>uid://bsbn4bux3c2p4::::res://sounds/powerUp_orb.wav
+::res://prefabs/game objects/interactable/weapon/::1713157337
 Area3D.gd::GDScript::-1::1713151714::0::1::::<>Area3D<>::
-weapon.tscn::PackedScene::5259673899988412406::1713151898::0::1::::<><>::res://prefabs/game objects/interactable/weapon/Area3D.gd<>uid://cy7afwyxw1uqp::::res://models/Hopper/Hopper_Gun._Painted_finished_screen.glb<>uid://b7gjtjtlppmge::::res://models/Hopper/Hopper_Gun._Painted_finished.glb<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf
-weapon_hr.tscn::PackedScene::9109359235383923924::1713135903::0::1::::<><>::res://prefabs/game objects/interactable/weapon/weapon_hr_script.gd<>uid://cy7afwyxw1uqp::::res://models/Hopper/Hopper_Gun._Painted_finished_screen.glb<>uid://b7gjtjtlppmge::::res://models/Hopper/Hopper_Gun._Painted_finished.glb<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf
+weapon.tscn::PackedScene::1696657756694055706::1713157337::0::1::::<><>::res://prefabs/game objects/interactable/weapon/Area3D.gd<>uid://cy7afwyxw1uqp::::res://models/Hopper/Hopper_Gun._Painted_finished_screen.glb<>uid://b7gjtjtlppmge::::res://models/Hopper/Hopper_Gun._Painted_finished.glb<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf
+weapon_hr.tscn::PackedScene::-1::1713154569::0::1::::<><>::
 weapon_hr_script.gd::GDScript::-1::1713151715::0::1::::<>Node3D<>::
-::res://prefabs/game objects/static/::1713151898
+::res://prefabs/game objects/static/::1713157337
 death_zone.tscn::PackedScene::1061468775924785547::1713135903::0::1::::<><>::
-finish_zone.tscn::PackedScene::4224986898203873224::1713151898::0::1::::<><>::res://scripts/finish_zone.gd
+finish_zone.tscn::PackedScene::4224986898203873224::1713157337::0::1::::<><>::res://scripts/finish_zone.gd
 ::res://prefabs/game objects/static/trees/::1713135903
 tree_1.tscn::PackedScene::93030416413454410::1713135903::0::1::::<><>::uid://bcwq10cs6ps58::::res://models/trees/green_tree/HP_Tree1.glb
 tree_2.tscn::PackedScene::5432292359326679510::1713135903::0::1::::<><>::uid://ce4q27lx37hx1::::res://models/trees/green_tree/HP_Tree2.glb
 tree_3.tscn::PackedScene::1820060272428993615::1713135903::0::1::::<><>::uid://b0l5ex1bb4bcu::::res://models/trees/green_tree/HP_Tree3.glb
 tree_4.tscn::PackedScene::4639024761325375063::1713135903::0::1::::<><>::uid://xr3xo0okx353::::res://models/trees/green_tree/HP_Tree4.glb
-::res://prefabs/game objects/UI/::1713151898
-ui.tscn::PackedScene::3487006667402466983::1713151898::0::1::::<><>::res://scripts/UI_main_script.gd<>uid://dpig1vjy8dnxr::::res://ui/themes/debug.tres<>res://scripts/debug.gd<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf
+::res://prefabs/game objects/UI/::1713157337
+ui.tscn::PackedScene::3487006667402466983::1713157337::0::1::::<><>::res://scripts/UI_main_script.gd<>uid://dpig1vjy8dnxr::::res://ui/themes/debug.tres<>res://scripts/debug.gd<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf
 ::res://prefabs/levels/::1713151424
 level_template.tscn::PackedScene::3814767839676826325::1713151424::0::1::::<><>::res://scripts/Main_level_script.gd<>uid://b6pxv22bf1sx4::::res://textures/512X512.png<>uid://bpxeqw342awpb::::res://prefabs/game objects/UI/ui.tscn<>uid://c2h5wi5d0wwxc::::res://prefabs/player/Player.tscn<>uid://bxlhpwp5e5gig::::res://prefabs/game objects/interactable/weapon/weapon.tscn<>uid://pegiaoi4sodn::::res://prefabs/game objects/static/death_zone.tscn<>uid://djviime4g1lhc::::res://prefabs/game objects/interactable/ammo_create.tscn
 ::res://prefabs/levels/starting_level/::1713151424
@@ -130,23 +130,23 @@ starting_level_base.tscn::PackedScene::5038762964164163013::1713151424::0::1::::
 starting_level_base_1.tscn::PackedScene::7863414013903269227::1713151424::0::1::::<><>::uid://yuleq0tpf2td::::res://models/levels/starting_level/2/starting_level_terrain1.glb
 starting_level_base_2.tscn::PackedScene::2871428012941648673::1713151424::0::1::::<><>::uid://brqrjcp8j8y7g::::res://models/levels/starting_level/3/starting_level_terrain2.glb
 starting_level_base_4.tscn::PackedScene::1120924004946258982::1713151424::0::1::::<><>::uid://d4eejoy5j1lor::::res://models/levels/starting_level/4/starting_level_terrain3.glb
-::res://prefabs/levels/testing_level/::1713151426
-testing_level.tscn::PackedScene::172571309915985649::1713151426::0::1::::<><>::res://scripts/Main_level_script.gd<>uid://c2h5wi5d0wwxc::::res://prefabs/player/Player.tscn<>uid://bpxeqw342awpb::::res://prefabs/game objects/UI/ui.tscn<>uid://pegiaoi4sodn::::res://prefabs/game objects/static/death_zone.tscn<>uid://cg63ccfflhpow::::res://prefabs/game objects/interactable/weapon/weapon.tscn<>uid://b6pxv22bf1sx4::::res://textures/512X512.png<>uid://djviime4g1lhc::::res://prefabs/game objects/interactable/ammo_create.tscn<>uid://b1gu6f8hnmb1a::::res://prefabs/game objects/static/finish_zone.tscn
-::res://prefabs/levels/Tutorial_level/::1713151898
-Level_Tutorial-1.tscn::PackedScene::1796493509414735660::1713151426::0::1::::<><>::res://scripts/Main_level_script.gd<>uid://c2h5wi5d0wwxc::::res://prefabs/player/Player.tscn<>uid://pegiaoi4sodn::::res://prefabs/game objects/static/death_zone.tscn<>res://scripts/Action_Listener_DEMO.gd<>res://prefabs/player/Weapon_handler_script.gd<>uid://d1hnjcw11ducw::::res://sounds/gta-san-andreas-ah-shit-here-we-go-again.mp3<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf<>uid://cisalb8r33suh::::res://sounds/bang-smoke-cloud-1-184061.mp3<>res://scripts/ammo_box_script.gd<>res://scripts/finish_zone.gd<>uid://bpxeqw342awpb::::res://prefabs/game objects/UI/ui.tscn<>uid://og2qfgopghls::::res://models/door/doors.tscn<>uid://4al5dwnod8mf::::res://sounds/light_on.wav<>uid://bpmcwf3kixdoe::::res://sounds/door_close.wav<>uid://d21djkh441vns::::res://models/tube/rollershutter_window_02_2k.glb
-Level_Tutorial-2.tscn::PackedScene::680342325676199985::1713151898::0::1::::<><>::uid://ci2piird7e3t6::::res://material/block.tres<>uid://pegiaoi4sodn::::res://prefabs/game objects/static/death_zone.tscn<>res://scripts/Action_Listener_DEMO.gd<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf<>uid://cisalb8r33suh::::res://sounds/bang-smoke-cloud-1-184061.mp3<>uid://bpxeqw342awpb::::res://prefabs/game objects/UI/ui.tscn<>uid://bpmcwf3kixdoe::::res://sounds/door_close.wav
-::res://prefabs/player/::1713151905
+::res://prefabs/levels/testing_level/::1713157337
+testing_level.tscn::PackedScene::172571309915985649::1713157337::0::1::::<><>::res://scripts/Main_level_script.gd<>uid://c2h5wi5d0wwxc::::res://prefabs/player/Player.tscn<>uid://bpxeqw342awpb::::res://prefabs/game objects/UI/ui.tscn<>uid://pegiaoi4sodn::::res://prefabs/game objects/static/death_zone.tscn<>uid://yf4x8n1t565c::::res://prefabs/game objects/interactable/weapon/weapon.tscn<>uid://b6pxv22bf1sx4::::res://textures/512X512.png<>uid://djviime4g1lhc::::res://prefabs/game objects/interactable/ammo_create.tscn<>uid://b1gu6f8hnmb1a::::res://prefabs/game objects/static/finish_zone.tscn
+::res://prefabs/levels/Tutorial_level/::1713157337
+Level_Tutorial-1.tscn::PackedScene::1796493509414735660::1713157337::0::1::::<><>::res://scripts/Main_level_script.gd<>uid://c2h5wi5d0wwxc::::res://prefabs/player/Player.tscn<>uid://pegiaoi4sodn::::res://prefabs/game objects/static/death_zone.tscn<>res://scripts/Action_Listener_DEMO.gd<>res://prefabs/player/Weapon_handler_script.gd<>uid://d1hnjcw11ducw::::res://sounds/gta-san-andreas-ah-shit-here-we-go-again.mp3<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf<>uid://cisalb8r33suh::::res://sounds/bang-smoke-cloud-1-184061.mp3<>res://scripts/ammo_box_script.gd<>res://scripts/finish_zone.gd<>uid://b1gu6f8hnmb1a::::res://prefabs/game objects/static/finish_zone.tscn<>uid://bpxeqw342awpb::::res://prefabs/game objects/UI/ui.tscn<>uid://og2qfgopghls::::res://models/door/doors.tscn<>uid://4al5dwnod8mf::::res://sounds/light_on.wav<>uid://bpmcwf3kixdoe::::res://sounds/door_close.wav<>uid://d21djkh441vns::::res://models/tube/rollershutter_window_02_2k.glb
+Level_Tutorial-2.tscn::PackedScene::680342325676199985::1713157337::0::1::::<><>::uid://ci2piird7e3t6::::res://material/block.tres<>uid://pegiaoi4sodn::::res://prefabs/game objects/static/death_zone.tscn<>res://scripts/Action_Listener_DEMO.gd<>uid://beoncmyfjl5g4::::res://FONT/Retro Gaming.ttf<>uid://cisalb8r33suh::::res://sounds/bang-smoke-cloud-1-184061.mp3<>uid://bpxeqw342awpb::::res://prefabs/game objects/UI/ui.tscn<>uid://bpmcwf3kixdoe::::res://sounds/door_close.wav
+::res://prefabs/player/::1713157515
 Player.gd::GDScript::-1::1713151715::0::1::::<>CharacterBody3D<>::
-Weapon_handler_script.gd::GDScript::-1::1713151715::0::1::::<>Node3D<>::
-::res://scripts/::1713151715
+Weapon_handler_script.gd::GDScript::-1::1713157179::0::1::::<>Node3D<>::
+::res://scripts/::1713156927
 Action_Listener_DEMO2.gd::GDScript::-1::1713151714::0::1::::<>Node<>::
-Action_Listener_DEMO.gd::GDScript::-1::1713151714::0::1::::<>Node<>::
+Action_Listener_DEMO.gd::GDScript::-1::1713156927::0::1::::<>Node<>::
 ammo_box_script.gd::GDScript::-1::1713151714::0::1::::<>Node3D<>::
 bullet_collider_script.gd::GDScript::-1::1713151714::0::1::::<>CSGSphere3D<>::
 debug.gd::GDScript::-1::1713135903::0::1::::<>PanelContainer<>::
 finish_zone.gd::GDScript::-1::1713151714::0::1::::<>Area3D<>::
 IntroTransititon_script.gd::GDScript::-1::1713135903::0::1::::<>Area3D<>::
-Main_level_script.gd::GDScript::-1::1713151714::0::1::::<>Node3D<>::
+Main_level_script.gd::GDScript::-1::1713153745::0::1::::<>Node3D<>::
 player_camera_controller.gd::GDScript::-1::1713151715::0::1::::<>Node3D<>::
 UI_main_script.gd::GDScript::-1::1713151715::0::1::::<>Control<>::
 ::res://sounds/::1713151427
@@ -161,7 +161,7 @@ shake_noise.mp3::AudioStreamMP3::6247530041514937304::1713135903::1713151427::1:
 synth.wav::AudioStreamWAV::2195856997225202692::1713135903::1713135903::1::::<><>::
 ::res://sounds/music/::1713151426
 charge.wav::AudioStreamWAV::4353818715700784209::1713151426::1713151426::1::::<><>::
-::res://textures/::1713151427
+::res://textures/::1713153127
 360_F_370539127_zcUHQTNUaGbyEMeaexk5UiuPT0NLgjeW.jpg::CompressedTexture2D::2077587270247203340::1713135903::1713151427::1::::<><>::
 512X512.png::CompressedTexture2D::4594675955181966835::1713135903::1713135903::1::::<><>::
 Level_Tutorial_object_material.tres::StandardMaterial3D::6052142802495637071::1713135903::0::1::::<><>::
@@ -169,6 +169,22 @@ painted_plaster_wall_diff_4k.jpg::CompressedTexture2D::8702772297280125530::1713
 painted_plaster_wall_disp_4k.png::CompressedTexture2D::4636918662977354953::1713135903::1713135903::1::::<><>::
 temp_crosshair.png::CompressedTexture2D::999083038459132134::1713135903::1713135903::1::::<><>::
 test_static.jpg::CompressedTexture2D::1812488797224195::1713135903::1713135903::1::::<><>::
+::res://textures/crosshair/::1713157226
+Crosshair4.png::CompressedTexture2D::1272546984401328569::1713153171::1713157226::1::::<><>::
+Crosshair5.png::CompressedTexture2D::418981259431912728::1713153175::1713157226::1::::<><>::
+Crosshair6.png::CompressedTexture2D::1121667233352104615::1713153179::1713157226::1::::<><>::
+Crosshair7.png::CompressedTexture2D::1526410493872055963::1713153182::1713157226::1::::<><>::
+Crosshair8.png::CompressedTexture2D::3929890554517726410::1713153185::1713157226::1::::<><>::
+Crosshair9.png::CompressedTexture2D::3155265701705380458::1713153188::1713157226::1::::<><>::
+Crosshair10.png::CompressedTexture2D::654044662780670001::1713153079::1713153200::1::::<><>::
+Crosshair11.png::CompressedTexture2D::6889379640760156638::1713153147::1713157226::1::::<><>::
+Crosshair12.png::CompressedTexture2D::5217678579647538897::1713153152::1713157226::1::::<><>::
+Crosshair13.png::CompressedTexture2D::888833396855450714::1713153156::1713157226::1::::<><>::
+Crosshair14.png::CompressedTexture2D::6518262743582008356::1713153161::1713157226::1::::<><>::
+Crosshair15.png::CompressedTexture2D::639733550701562037::1713153164::1713157226::1::::<><>::
+Crosshair16.png::CompressedTexture2D::123852862664113096::1713153168::1713157226::1::::<><>::
+Crosshair_dot.png::CompressedTexture2D::7418971750180893450::1713153192::1713157226::1::::<><>::
+Crosshair_sides.png::CompressedTexture2D::6319175852018823326::1713153196::1713157226::1::::<><>::
 ::res://textures/door/::1713135903
 rollershutter_window_02_diff_2k.jpg::CompressedTexture2D::8239887335746462287::1713135903::1713135903::1::::<><>::
 rollershutter_window_02_graffiti_diff_2k.png::CompressedTexture2D::358271629192060816::1713135903::1713135903::1::::<><>::
