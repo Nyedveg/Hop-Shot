@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://pegiaoi4sodn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_84dwb"]
+size = Vector3(500, 50, 500)
+
+[node name="Death_Zone" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_84dwb")

@@ -1,0 +1,201 @@
+[gd_scene load_steps=12 format=3 uid="uid://cpuhvimqytsb"]
+
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_3t6vb"]
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_8jvgf"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="2_86wyy"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="3_aijol"]
+[ext_resource type="PackedScene" uid="uid://cg63ccfflhpow" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_4dse7"]
+[ext_resource type="Texture2D" uid="uid://b6pxv22bf1sx4" path="res://textures/512X512.png" id="5_n2r0x"]
+[ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_mx6eb"]
+[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/static/finish_zone.tscn" id="7_vjeah"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhfb4"]
+albedo_texture = ExtResource("5_n2r0x")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5n2sv"]
+albedo_texture = ExtResource("5_n2r0x")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4rnl"]
+albedo_texture = ExtResource("5_n2r0x")
+uv1_triplanar = true
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_3t6vb")
+startAmmo = 50
+
+[node name="UI" parent="." instance=ExtResource("2_86wyy")]
+
+[node name="Player" parent="." instance=ExtResource("2_8jvgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10.6439)
+
+[node name="Controllers" type="Node3D" parent="."]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(136.504, 0.115, 55)
+material = SubResource("StandardMaterial3D_xhfb4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 8.72539, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 28.5599, 0.0927627, 20.2025)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(8.99951, 4.78345, 13.3174)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 59.2749, 0.123527, 20.3992)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(8.99951, 4.78345, 13.3174)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5777, 2.0516, 20.4464)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(8, 4.78345, 13.3174)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7543, 2.0258, 20.2232)
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+size = Vector3(9, 4.78345, 13.3174)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.9001, 10, -20.0774)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(10, 20, 10)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.0766, 10, -26.215)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(38.1479, 20, 2.415)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5186, 7.51517, -22.5024)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(5, 15, 5)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.47421, 1.81443, -22.5143)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(5, 3.5, 5)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51044, 0.308808, -22.4825)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(5, 0.5, 4.999)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(-4.37114e-08, 0.173648, -0.984807, 0, 0.984807, 0.173648, 1, 7.5904e-09, -4.30473e-08, 5.57032, 2.37274, 78.1627)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(101.013, 56.4216, 1)
+material = SubResource("StandardMaterial3D_5n2sv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment" groups=["shootable"]]
+transform = Transform3D(-4.37114e-08, -0.173648, -0.984807, 0, 0.984807, -0.173648, 1, -7.5904e-09, -4.30473e-08, -5.08988, 4.0725, 78.4883)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(100.938, 56.4216, 1)
+material = SubResource("StandardMaterial3D_h4rnl")
+
+[node name="Triple Jump" type="Label3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4927, 2.20066, -17.5058)
+billboard = 2
+text = "Triple jump (≈15m)"
+font_size = 128
+
+[node name="Double jump" type="Label3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.53802, 4.72034, -22.5662)
+billboard = 2
+text = "Double  jump (3.5m)"
+font_size = 128
+
+[node name="Walljump" type="Label3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.478, 2.63571, -20.1778)
+billboard = 2
+text = "Walljump"
+font_size = 128
+
+[node name="Sprint DJ" type="Label3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6823, 6.55899, 20.2498)
+billboard = 2
+text = "Sprint Double Jump"
+font_size = 128
+
+[node name="Jump King" type="Label3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558324, 3.2795, 14.1837)
+billboard = 2
+text = "Jump King"
+font_size = 128
+
+[node name="Basic Jump" type="Label3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83832, 1.63975, -22.7051)
+billboard = 2
+text = "Single jump (0.5m)"
+font_size = 128
+
+[node name="AmmoCreate" parent="Environment" instance=ExtResource("6_mx6eb")]
+transform = Transform3D(0.5, 0, 2.23319e-06, 0, 0.5, 0, -2.23319e-06, 0, 0.5, 4.84849, 0, -6.24012)
+
+[node name="AmmoCreate2" parent="Environment" instance=ExtResource("6_mx6eb")]
+
+[node name="AmmoCreate3" parent="Environment" instance=ExtResource("6_mx6eb")]
+transform = Transform3D(0.5, 0, 2.23319e-06, 0, 0.5, 0, -2.23319e-06, 0, 0.5, 0, 0, -6.9467)
+
+[node name="Areas" type="Node3D" parent="."]
+
+[node name="Death_Zone" parent="Areas" instance=ExtResource("3_aijol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
+
+[node name="Finish_Zone" parent="Areas" instance=ExtResource("7_vjeah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4032, 0.669742, 0)
+
+[node name="Label3D" type="Label3D" parent="Areas/Finish_Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.30266, 0)
+pixel_size = 0.01
+billboard = 1
+no_depth_test = true
+text = "🏁"
+font_size = 128
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="." groups=["shootable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1086, 2.52091, -22.4825)
+use_collision = true
+collision_layer = 7
+collision_mask = 7
+size = Vector3(5, 0.5, 4.999)
+
+[node name="weapon" parent="." instance=ExtResource("4_4dse7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.376617, 1.76594, 10.7116)
+
+[connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
+[connection signal="UI_update_ammo" from="Player" to="UI" method="_on_player_ui_update_ammo"]
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
+[connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]

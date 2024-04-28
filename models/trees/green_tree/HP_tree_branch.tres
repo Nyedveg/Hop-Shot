@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dlmvpl48wxjrb"]
+
+[ext_resource type="Texture2D" uid="uid://c2ti07mcpv3em" path="res://models/trees/green_tree/HP_Tree1_rsz_hp_tree_branch.png" id="1_8ej4i"]
+
+[resource]
+resource_name = "HP_tree_branch"
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_8ej4i")
+texture_filter = 2
+texture_repeat = false
