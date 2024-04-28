@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c2h5wi5d0wwxc"]
+[gd_scene load_steps=20 format=3 uid="uid://b4r7p88gydltd"]
 
 [ext_resource type="Script" path="res://prefabs/player/Player.gd" id="1_8knlq"]
 [ext_resource type="Script" path="res://scripts/player_camera_controller.gd" id="2_fsb5k"]
@@ -148,7 +148,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
-"start_offset": 1.755,
+"start_offset": 1.915,
 "stream": ExtResource("4_phy7b")
 }],
 "times": PackedFloat32Array(0)
@@ -187,7 +187,7 @@ script = ExtResource("1_8knlq")
 shape = SubResource("CapsuleShape3D_kjnyq")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, -6.97306e-05, 0.000139442, 6.97209e-05, 1, 6.97209e-05, -0.000139447, -6.97112e-05, 1, 0, 0.934248, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.934248, 0)
 
 [node name="Camera_Controller" type="Node3D" parent="Head"]
 script = ExtResource("2_fsb5k")
@@ -262,7 +262,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Head/AnimationPlayer"]
-volume_db = -25.0
+volume_db = -42.516
 
 [node name="Head_check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

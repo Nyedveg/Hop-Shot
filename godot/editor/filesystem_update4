@@ -1,14 +1,7 @@
-res://prefabs/game objects/static/finish_zone.tscn
-res://ui/themes/debug.tres
-res://material/block.tres
-res://prefabs/game objects/interactable/ammo_create.tscn
-res://prefabs/game objects/UI/ui.tscn
 res://prefabs/levels/Tutorial_level/Level_Tutorial-2.tscn
-res://models/door/doors.tscn
+res://material/block.tres
+res://ui/themes/debug.tres
 res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn
-res://prefabs/levels/testing_level/testing_level.tscn
-res://prefabs/game objects/interactable/weapon/weapon.tscn
 res://prefabs/player/Player.tscn
-res://prefabs/game objects/collision_shape_3d.tscn
-res://prefabs/player/Weapon_handler_script.gd
-res://scripts/Main_level_script.gd
+res://prefabs/levels/testing_level/testing_level.tscn
+res://prefabs/game objects/UI/ui.tscn

@@ -1,10 +1,10 @@
+AudioStreamPlayer3D
 AudioStreamPlayer
 MeshInstance3D
 CSGSphere3D
 AnimationPlayer
 AnimationTree
 CollisionShape3D
-AudioStreamPlayer3D
 ColorRect
 DirectionalLight3D
 StaticBody3D

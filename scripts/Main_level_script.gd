@@ -29,4 +29,7 @@ func _on_player_shot_fired(pos):
 func _on_death_zone_body_entered(body):
 	print_debug("Player died. Respawning at 0,5,0")
 	body.position = Vector3.ZERO + Vector3(0,5,0)
-	
+
+
+func _on_player_equip_gun():
+	pass # Replace with function body.

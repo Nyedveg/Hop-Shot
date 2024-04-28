@@ -153,5 +153,3 @@ offset_right = 861.0
 offset_bottom = 1074.0
 theme_override_fonts/font = ExtResource("4_gvrlu")
 theme_override_font_sizes/font_size = 35
-visible_characters = 0
-visible_ratio = 0.0

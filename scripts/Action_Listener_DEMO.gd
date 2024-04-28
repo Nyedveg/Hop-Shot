@@ -30,6 +30,7 @@ var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var AHSH = $"../spawn_weapon/Ah_shit"
 @onready var lightON = $"../SpotLight3D/light_on"
 @onready var lightOFF = $"../SpotLight3D/light_off"
+@onready var Pop = $"../TextPop/Pop"
 
 #opacity
 @onready var colorRect = $"../Random/ColorRect"
@@ -147,24 +148,30 @@ func _process(delta):
 		timer.wait_time = 2
 		timer.start()
 		cameraAnimation.play("shake")
-		
 		await timer.timeout
+		cameraAnimation.stop()
 		lightON.play()
 		spotLight.visible = true
 		text_pop.visible = true
 		spawn_weapon()
 		camera.look_at_from_position(camera.global_transform.origin,spawn_in.global_position)
 		cameraAnimation.play("zoom")
-		timer.wait_time = 0.9
+		timer.wait_time = 0.2
 		timer.start()
 		await timer.timeout
 		AHSH.play()
 		await AHSH.finished
-		
+		timer.wait_time = 1
+		timer.start()
+		await timer.timeout
 		player.enabled_mouse_input = true
+		Pop.play()
 		enter_pointer_text("Pick me up!")
 		animation_Player_Node.play("Rattlesanek")
 		text_pop_change_position(spawn_in.position.x, 1.2,spawn_in.position.z)
+		timer.wait_time = 0.5
+		timer.start()
+		await timer.timeout
 		HUD.update_objective("pick up the 'thing'?", false)
 		
 		await player.equip_gun

@@ -44,6 +44,8 @@ signal UI_update_ammo(currentAmmo : int)
 @onready var player_capsule := $CollisionShape3D
 @onready var head_check := $Head_check
 @onready var hand = $Head/Camera/Hand
+
+#Mouse input
 var enabled_mouse_input = true
 
 # Dictionary of weapon scenes

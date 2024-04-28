@@ -28,27 +28,27 @@ var charging = true
 func _physics_process(delta):
 	#WEAPON SHOOTING
 	if Input.is_action_pressed("fire") && equipped:
-		chargeSFX.play()
+		#chargeSFX.play()
 		fire_timer += delta
 		fire_timer = clamp(fire_timer, 0, 2.0)
-		hand_anim.queue("charging_animation")
-		if fire_timer == 2.0:
-			animated_crosshair.play("charged")
-			
-		else:
-			animated_crosshair.play("charging")
+		#hand_anim.queue("charging_animation")
+		#if fire_timer == 2.0:
+			##animated_crosshair.play("charged")
+			#
+		#else:
+			#animated_crosshair.play("charging")
 	if Input.is_action_just_released("fire") && equipped && ammo > 0:
-		shotSFX.play()
+		#shotSFX.play()
 		if fire_cooldown == 0:
 			ammo -= 1
-			hand_anim.play("firing_animation")
+			#hand_anim.play("firing_animation")
 			fire_cooldown = 1/20
-			animated_crosshair.play("idle")
+			#animated_crosshair.play("idle")
 			emit_signal("update_ammo", ammo)
 			emit_signal("shake_camera", 0.05)
-			if aimcast.is_colliding() && aimcast.get_collider().is_in_group("shootable"):
-				emit_signal("shot_fired", aimcast.get_collision_point(), fire_timer)
-		fire_timer = 0.0
+			#if aimcast.is_colliding() && aimcast.get_collider().is_in_group("shootable"):
+				#emit_signal("shot_fired", aimcast.get_collision_point(), fire_timer)
+		#fire_timer = 0.0
 		
 	fire_cooldown -= delta
 	fire_cooldown = clamp(fire_cooldown, 0, 1/20)
@@ -66,4 +66,3 @@ func _on_player_change_ammo(ammoCount):
 func _on_player_set_ammo(ammoCount):
 	ammo = ammoCount
 	emit_signal("update_ammo", ammo)
-
