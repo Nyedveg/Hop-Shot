@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjnpcdc2whkje"]
-
-[ext_resource type="PackedScene" uid="uid://ce4q27lx37hx1" path="res://models/trees/green_tree/HP_Tree2.glb" id="1_v8xjy"]
-
-[node name="Tree2" type="Node3D"]
-
-[node name="HP_Tree2" parent="." instance=ExtResource("1_v8xjy")]
