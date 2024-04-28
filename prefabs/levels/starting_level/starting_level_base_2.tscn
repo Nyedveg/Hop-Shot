@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg56883gtv2ev"]
-
-[ext_resource type="PackedScene" uid="uid://brqrjcp8j8y7g" path="res://models/levels/starting_level/3/starting_level_terrain2.glb" id="1_0mj7g"]
-
-[node name="startinglevelbase2" type="Node3D"]
-
-[node name="starting_level_terrain2" parent="." instance=ExtResource("1_0mj7g")]
