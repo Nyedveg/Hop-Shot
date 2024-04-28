@@ -1,7 +1,0 @@
-res://prefabs/levels/Tutorial_level/Level_Tutorial-2.tscn
-res://material/block.tres
-res://ui/themes/debug.tres
-res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn
-res://prefabs/player/Player.tscn
-res://prefabs/levels/testing_level/testing_level.tscn
-res://prefabs/game objects/UI/ui.tscn
