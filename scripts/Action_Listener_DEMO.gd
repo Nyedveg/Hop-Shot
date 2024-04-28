@@ -42,6 +42,8 @@ var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var HUD = $"../UI"
 @onready var spotLight = $"../SpotLight3D"
 
+@onready var weaponHandler = $Head/Camera/Weapon_handler
+
 func spawn_weapon():
 	var weapon = weapons.instantiate()
 	spawn_in.add_child(weapon)
@@ -113,6 +115,7 @@ func set_player_pos_onready(x,y,z):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var executed = false
+	
 	
 	var playerDetected = _on_player_colided_with_collision_area(collisionArea)
 	if playerDetected and not executed:

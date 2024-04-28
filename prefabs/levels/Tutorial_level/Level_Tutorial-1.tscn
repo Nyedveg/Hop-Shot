@@ -7,15 +7,15 @@
 [ext_resource type="AudioStream" uid="uid://d1hnjcw11ducw" path="res://sounds/gta-san-andreas-ah-shit-here-we-go-again.mp3" id="7_e6olm"]
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="7_k1wy3"]
 [ext_resource type="AudioStream" uid="uid://cisalb8r33suh" path="res://sounds/bang-smoke-cloud-1-184061.mp3" id="7_rcbw6"]
-[ext_resource type="AudioStream" path="res://sounds/pop.mp3" id="8_qjeig"]
+[ext_resource type="AudioStream" uid="uid://dbwv372pqbquv" path="res://sounds/pop.mp3" id="8_qjeig"]
 [ext_resource type="Script" path="res://scripts/ammo_box_script.gd" id="8_y3yil"]
 [ext_resource type="Script" path="res://scripts/finish_zone.gd" id="9_cb7bk"]
 [ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/static/finish_zone.tscn" id="9_y1hql"]
 [ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="10_2kcq2"]
-[ext_resource type="PackedScene" path="res://models/door/doors.tscn" id="13_5w53i"]
-[ext_resource type="AudioStream" path="res://sounds/light_on.wav" id="13_g6kfg"]
+[ext_resource type="PackedScene" uid="uid://og2qfgopghls" path="res://models/door/doors.tscn" id="13_5w53i"]
+[ext_resource type="AudioStream" uid="uid://4al5dwnod8mf" path="res://sounds/light_on.wav" id="13_g6kfg"]
 [ext_resource type="AudioStream" uid="uid://bpmcwf3kixdoe" path="res://sounds/door_close.wav" id="14_35spy"]
-[ext_resource type="PackedScene" uid="uid://dlog86fey6mfb" path="res://models/door/rollershutter_window_02_2k.glb" id="15_ydhuo"]
+[ext_resource type="Material" uid="uid://cl8potcpjl2vh" path="res://material/metalic_shiny.tres" id="16_s665o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d3c6t"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -256,11 +256,11 @@ size = Vector3(2.27588, 1, 1)
 material = SubResource("StandardMaterial3D_tiwlg")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
-transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479409, 24.4153, -15.1279)
+transform = Transform3D(-6.55671e-07, 10.44, -4.37114e-09, 0, -4.56347e-07, -0.1, -15, -4.56347e-07, 1.91069e-16, 0.0479413, 24.4153, -5.1031)
 use_collision = true
 collision_layer = 0
 collision_mask = 0
-size = Vector3(2.95465, 1, 1)
+size = Vector3(4.29129, 1, 1)
 material = SubResource("StandardMaterial3D_tiwlg")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
@@ -355,7 +355,6 @@ libraries = {
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.46906, -5.16699)
-visible = false
 light_energy = 6.111
 spot_range = 7.46
 spot_attenuation = 1.03527
@@ -381,9 +380,6 @@ visible_ratio = 0.0
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Label"]
-
-[node name="rollershutter_window_02_2k" parent="." instance=ExtResource("15_ydhuo")]
-transform = Transform3D(28.55, 0, 0, 0, 300, 0, 0, 0, 28.55, -43.088, -147.222, 4.145)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.80767, 1)
@@ -411,6 +407,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4963, -35.5817)
 
 [node name="point3" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40644, -21.8539)
+
+[node name="Tube" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.9614, -22.468)
+radius = 3.0
+height = 15.0
+material = ExtResource("16_s665o")
 
 [connection signal="UI_update_ammo" from="Player" to="UI" method="_on_player_ui_update_ammo"]
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]

@@ -1,4 +1,3 @@
-res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn
 res://prefabs/game objects/interactable/weapon/weapon_hr.tscn
 res://models/Hopper/Hopper_Screen_Material002.tres
 res://models/Hopper/Hopper_Base_Material001.tres
@@ -9,6 +8,7 @@ res://prefabs/levels/menu_levels/main_menu.tscn
 res://prefabs/game objects/interactable/ammo_create.tscn
 res://prefabs/levels/testing_level/testing_level.tscn
 res://prefabs/game objects/static/finish_zone.tscn
-res://prefabs/game objects/UI/ui.tscn
-res://scripts/UI_main_script.gd
+res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn
 res://scripts/Action_Listener_DEMO.gd
+res://prefabs/player/Player.tscn
+res://prefabs/levels/Tutorial_level/Level_Tutorial.tscn

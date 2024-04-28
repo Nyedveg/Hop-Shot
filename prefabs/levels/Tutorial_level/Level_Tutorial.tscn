@@ -226,11 +226,5 @@ ammoValue = 1500
 [node name="Timer" type="Timer" parent="Random"]
 wait_time = 2.0
 
-[node name="Tube" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.0077, 0)
-radius = 3.0
-height = 15.0
-material = ExtResource("2_82xxh")
-
 [connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
 [connection signal="body_entered" from="Death_Zone" to="." method="_on_death_zone_body_entered"]
