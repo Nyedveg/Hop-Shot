@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfg4gb5x4bjtt"]
+
+[ext_resource type="PackedScene" uid="uid://dlklkll8317hn" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Wooden_Dock_01.glb" id="1_84wco"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_vv8m8"]
+
+[node name="Props_Wooden_Dock_01" instance=ExtResource("1_84wco")]
+
+[node name="Props_Wooden_Dock_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_vv8m8")

@@ -1,0 +1,2 @@
+Theme
+StandardMaterial3D

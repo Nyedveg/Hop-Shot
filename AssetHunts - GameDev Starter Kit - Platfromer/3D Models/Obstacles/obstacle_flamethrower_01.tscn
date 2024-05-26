@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg33dk8ccexav"]
+
+[ext_resource type="PackedScene" uid="uid://c1edj0eds48cu" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Obstacle_Flamethrower_01.glb" id="1_nbmh2"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_kbo83"]
+
+[node name="Obstacle_Flamethrower_01" instance=ExtResource("1_nbmh2")]
+
+[node name="Obstacle_Flamethrower_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_kbo83")

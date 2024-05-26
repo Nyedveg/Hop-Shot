@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqowisqie7vk"]
+
+[ext_resource type="PackedScene" uid="uid://l3onglc1gseq" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Collectable_Diamond_01.glb" id="1_gn1wf"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_rio6d"]
+
+[node name="Collectable_Diamond_01" instance=ExtResource("1_gn1wf")]
+
+[node name="Collectable_Diamond_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_rio6d")

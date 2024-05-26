@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ukcf5bkdtwi"]
+
+[ext_resource type="PackedScene" uid="uid://c8mlgrsbqy7uc" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Crate_07.glb" id="1_ne1s5"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_ln0cw"]
+
+[node name="Props_Crate_07" instance=ExtResource("1_ne1s5")]
+
+[node name="Props_Crate_07" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ln0cw")

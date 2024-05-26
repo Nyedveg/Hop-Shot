@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfnnlr15323re"]
+
+[ext_resource type="PackedScene" uid="uid://cth2ssj2g381k" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Source Files/Obstacle_Round_Blade_01.glb" id="1_qgg44"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_v0fn7"]
+
+[node name="Obstacle_Round_Blade_01" instance=ExtResource("1_qgg44")]
+
+[node name="Obstacle_Round_Blade_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_v0fn7")

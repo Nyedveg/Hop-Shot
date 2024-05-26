@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpkwyqqufqej"]
+
+[ext_resource type="PackedScene" uid="uid://bt1ykusbr6l3w" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Broken_Rope_Bridge_01.glb" id="1_ktepv"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_r14x6"]
+
+[node name="Props_Broken_Rope_Bridge_01" instance=ExtResource("1_ktepv")]
+
+[node name="Props_Broken_Rope_Bridge_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_r14x6")

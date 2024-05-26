@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b24mcuna23vg2"]
+
+[ext_resource type="PackedScene" uid="uid://cxipsmykkrycq" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Obstacle_Wooden_Spike_01.glb" id="1_wv2ta"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_xdo6u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ut2ul"]
+size = Vector3(1.8, 0.6, 1.6)
+
+[node name="Obstacle_Wooden_Spike_012" instance=ExtResource("1_wv2ta")]
+
+[node name="Obstacle_Wooden_Spike_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_xdo6u")
+
+[node name="CollisionShape3D" parent="Obstacle_Wooden_Spike_01/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_ut2ul")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b56167f7l6b3i"]
+
+[ext_resource type="PackedScene" uid="uid://c6elsrrc086js" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Treasure_Cheast_01.glb" id="1_7khul"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_o3tth"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m11od"]
+size = Vector3(1.2, 1, 1)
+
+[node name="Props_Treasure_Cheast_01" instance=ExtResource("1_7khul")]
+
+[node name="Skeleton3D" parent="Armature | Props_Treasure_Cheast_01" index="0"]
+bones/4/rotation = Quaternion(-1.25972e-08, 0.914376, -0.404866, 4.08219e-08)
+
+[node name="Props_Treasure_Cheast_01" parent="Armature | Props_Treasure_Cheast_01/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_o3tth")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_m11od")

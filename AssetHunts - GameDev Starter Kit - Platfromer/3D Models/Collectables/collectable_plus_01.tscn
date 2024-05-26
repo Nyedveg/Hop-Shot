@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://t2yojogliffp"]
+
+[ext_resource type="PackedScene" uid="uid://dhbhb1okfv7qu" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Collectable_Plus_01.glb" id="1_bhdql"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_4xp4f"]
+
+[node name="Collectable_Plus_01" instance=ExtResource("1_bhdql")]
+
+[node name="Collectable_Plus_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4xp4f")

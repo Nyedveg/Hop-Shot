@@ -1,0 +1,37 @@
+res://material/ammo_create.tres::32d909615d7ddc32f64232a2a48ad103::1712069385::res://godot/exported/133200997/export-1d37b12197f418fe0488883ae8ab40af-ammo_create.res
+res://material/ammo_create_blue.tres::5d01d33343e6b5216b2b62336172ec4b::1713132022::res://godot/exported/133200997/export-65a6fe6d11e02f8a8caa79744199aedc-ammo_create_blue.res
+res://material/ammo_create_green.tres::a2de67f366e2e31c837fa6e5e65d5e93::1712069385::res://godot/exported/133200997/export-b7732f846f5115a70a671a55121e1a42-ammo_create_green.res
+res://material/ammo_create_pink.tres::95643de2ee1fc0a0bbae990b120be5bb::1713132022::res://godot/exported/133200997/export-8a25f5b32acaa7074576c66e44f2fad4-ammo_create_pink.res
+res://material/ammo_create_yel.tres::61ffafd3d171f956c69680500e55338a::1713132022::res://godot/exported/133200997/export-1056b952e709db449713e80e02c2d43a-ammo_create_yel.res
+res://material/lamp.tres::024f6b176d04dacf44f4397af09d4fa7::1713132036::res://godot/exported/133200997/export-c8141d93fb046efe8dbc1343bd208e5d-lamp.res
+res://material/rollershutter_window_02_2k.tres::205b67d01a9933d12c6e8e6b1bd6b7d3::1713132036::res://godot/exported/133200997/export-14bf570138c010cb655c6dacf2ddb5bc-rollershutter_window_02_2k.res
+res://material/tiles.tres::ae747a23cbafeeeab8f19ee5eb002c1b::1713135468::res://godot/exported/133200997/export-0294d97b49c649bfc6a0e7bdcdbba1e3-tiles.res
+res://models/door/doors.tscn::3e8045f9f38449e796276489806dbfbb::1713132036::res://godot/exported/133200997/export-ead67bc76a110eae6620908194709e8a-doors.scn
+res://models/door/rollershutter_window_02_2k.tscn::384ac07e50d3015935e082d7e812af50::1713132036::res://godot/exported/133200997/export-c12ecb1e19ec3888d0233fd4b6bf3516-rollershutter_window_02_2k.scn
+res://models/Hopper/Hopper_Base_Material001.tres::63889fa7ed26ad24855e96a78c9f1e1f::1713135468::res://godot/exported/133200997/export-c79ac211ba8ea7946a85ff08ad0ee407-Hopper_Base_Material001.res
+res://models/Hopper/hopper_gun__painted.tscn::0ea130686af02cf188604a539961c212::1712242320::res://godot/exported/133200997/export-1f5701a2361c93f085b0ebc024330789-hopper_gun__painted.scn
+res://models/Hopper/Hopper_Screen_Material002.tres::6840aae5b7663d5c8acdd08a8e131a34::1713135468::res://godot/exported/133200997/export-bb1a6d2afb6f2b5253359ff1a9f2e286-Hopper_Screen_Material002.res
+res://models/Hopper/Material.tres::caba062ea3d525a9e7d274753b6d2a98::1713135468::res://godot/exported/133200997/export-c1a4acabc66b22559f5de62b6d85d62f-Material.res
+res://models/trees/green_tree/HP_tree_bark.tres::e0f19746a1348d3d4f3f0327c4f46e62::1710466365::res://godot/exported/133200997/export-30216239e954d1239ca14c664d689c75-HP_tree_bark.res
+res://models/trees/green_tree/HP_tree_branch.tres::e1cfd254fc398280d4620c11f55d5b92::1710931829::res://godot/exported/133200997/export-9c79d663678958818b964d3c4c72f761-HP_tree_branch.res
+res://models/tube/tube.tscn::df4017c5ed635bb155c769b823935b49::1713132036::res://godot/exported/133200997/export-26c67ab955d1e3c49bfa8fae6fd206ad-tube.scn
+res://prefabs/game objects/interactable/weapon/weapon.tscn::fce92f19c4e64c8024cb97a2e2e02344::1712248865::res://godot/exported/133200997/export-5711ee81f813ca7fbde8758673af76d1-weapon.scn
+res://prefabs/game objects/interactable/weapon/weapon_hr.tscn::a54f06ac57a0fd4bb1c6a801e3decc89::1713135468::res://godot/exported/133200997/export-7285dac38708e5095345fbe1f80c4c5d-weapon_hr.scn
+res://prefabs/game objects/interactable/ammo_create.tscn::554d1c245daa75b497e82a57f59075cf::1713135468::res://godot/exported/133200997/export-cfe9078867c14bd8c7efa2325cf51d7b-ammo_create.scn
+res://prefabs/game objects/static/trees/tree_1.tscn::556c54739274af14a756bafde5abf775::1710466365::res://godot/exported/133200997/export-87f84b2a2c6484b86f958afa42d88bca-tree_1.scn
+res://prefabs/game objects/static/trees/tree_2.tscn::34261f009517277ca27626d33c7c2965::1710466413::res://godot/exported/133200997/export-dc7f0a883d7b970a992a6f013ead2ebf-tree_2.scn
+res://prefabs/game objects/static/trees/tree_3.tscn::63dce19cd690b3c90f4d0e0e6325d2cc::1710466440::res://godot/exported/133200997/export-2df4128cf7300ca060c8a49dbc24470c-tree_3.scn
+res://prefabs/game objects/static/trees/tree_4.tscn::0436d86c023398378a2178a9363a199b::1710466470::res://godot/exported/133200997/export-1c6e51719be2e26e275798f2d0d3a9f6-tree_4.scn
+res://prefabs/game objects/static/death_zone.tscn::fbfd448d45864eef120dd6ce8d8cd40e::1710637079::res://godot/exported/133200997/export-167332ae4ae4868cbf37b805f52a1a35-death_zone.scn
+res://prefabs/game objects/static/finish_zone.tscn::de39989187b8cff62a93d4cefec5e5c1::1713135468::res://godot/exported/133200997/export-45673cbf70cb384cda1a78d918409070-finish_zone.scn
+res://prefabs/game objects/UI/ui.tscn::32c18227938631bdb9fbfb1a03e5e14c::1713132036::res://godot/exported/133200997/export-533b555051ab16921e6bcbd645433c89-ui.scn
+res://prefabs/game objects/collision_shape_3d.tscn::81d5bba9b829d760ad1ed1d298b706bd::1712097241::res://godot/exported/133200997/export-b1786c6616685da8f55a7f8810f4811b-collision_shape_3d.scn
+res://prefabs/levels/menu_levels/main_menu.tscn::6b3b255045166287df79b9450afc309d::1713135468::res://godot/exported/133200997/export-e160141d4391d2d247d3011fb7dad2f2-main_menu.scn
+res://prefabs/levels/testing_level/testing_level.tscn::473206fb74c5920c13bbc0d1ba77441c::1713135468::res://godot/exported/133200997/export-302a8191b24876fb7c83d1e8d0a7205a-testing_level.scn
+res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn::5edb9760a56193053ba9b0c887f4cef8::1713135468::res://godot/exported/133200997/export-85e361006e96c1765f51bea2a55880c1-Level_Tutorial-1.scn
+res://prefabs/levels/Tutorial_level/Level_Tutorial-2.tscn::c649c66a351e1fbc7e83c16243058970::1713135468::res://godot/exported/133200997/export-23d300467ac8e34b361a885c15596181-Level_Tutorial-2.scn
+res://prefabs/levels/level_template.tscn::769887b043b0c6370453dda809e16c65::1713132022::res://godot/exported/133200997/export-57662b3546066078cb5945affdc35f91-level_template.scn
+res://prefabs/player/Player.tscn::156a399e51d989e015d27f35ded898e1::1713135468::res://godot/exported/133200997/export-d266d0d172edb855fb65bd6cebc5517a-Player.scn
+res://prefabs/collider.tscn::0828d0d584f939104c2c8969785ffa56::1713132022::res://godot/exported/133200997/export-910cf41d625430001edb8fb1ec05e706-collider.scn
+res://textures/Level_Tutorial_object_material.tres::f6c7e3a5b5719b9eca7e4065cce84db4::1711057462::res://godot/exported/133200997/export-1f8bbb34bb3dce0d1b92703e16072929-Level_Tutorial_object_material.res
+res://ui/themes/debug.tres::26fe4e79497f9e2f7b6dc32d95c73ae9::1713135468::res://godot/exported/133200997/export-1514babe4c05d56f20b44fc5a1ffc9a1-debug.res

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drld0tchqof21"
+path="res://godot/imported/shake (mp3cut.net).mp3-97ed796eda5f021d4aefdf736e3bfc6e.mp3str"
+
+[deps]
+
+source_file="res://sounds/shake (mp3cut.net).mp3"
+dest_files=["res://godot/imported/shake (mp3cut.net).mp3-97ed796eda5f021d4aefdf736e3bfc6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

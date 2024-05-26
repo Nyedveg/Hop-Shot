@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://0wlks5djicqv"]
+
+[ext_resource type="PackedScene" uid="uid://c0nc17eg8jxpg" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/3D_Tile_Ground_04A.glb" id="1_h8fdn"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_d83uw"]
+
+[node name="3D_Tile_Ground_04A" instance=ExtResource("1_h8fdn")]
+
+[node name="3D_Tile_Ground_04A" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_d83uw")

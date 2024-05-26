@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://sh5rt4328iwy"]
+
+[ext_resource type="PackedScene" uid="uid://ca74gtsk17gab" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Collectable_Heart_01.glb" id="1_41b78"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_4bnw5"]
+
+[node name="Collectable_Heart_01" instance=ExtResource("1_41b78")]
+
+[node name="Collectable_Heart_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4bnw5")

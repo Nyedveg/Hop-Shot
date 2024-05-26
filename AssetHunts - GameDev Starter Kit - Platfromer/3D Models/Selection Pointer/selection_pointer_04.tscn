@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw6duwk30ofpv"]
+
+[ext_resource type="PackedScene" uid="uid://ckd5rxqy4nfwm" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Selection_Pointer_04.glb" id="1_b5whk"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_0g0h6"]
+
+[node name="Selection_Pointer_04" instance=ExtResource("1_b5whk")]
+
+[node name="Selection_Pointer_04" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_0g0h6")

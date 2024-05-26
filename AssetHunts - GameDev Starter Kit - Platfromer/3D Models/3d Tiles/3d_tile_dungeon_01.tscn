@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ee4tefhytps"]
+
+[ext_resource type="PackedScene" uid="uid://bvit4s3fwjxs6" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Source Files/3D_Tile_Dungeon_01.glb" id="1_81rgn"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_atlnd"]
+
+[node name="3D_Tile_Dungeon_01" instance=ExtResource("1_81rgn")]
+
+[node name="3D_Tile_Dungeon_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_atlnd")
+
+[node name="StaticBody3D" parent="3D_Tile_Dungeon_01" index="0"]
+collision_layer = 7
+collision_mask = 7

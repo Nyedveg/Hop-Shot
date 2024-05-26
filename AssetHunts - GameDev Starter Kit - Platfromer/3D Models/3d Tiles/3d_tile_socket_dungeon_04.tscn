@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ka22urs7uys"]
+
+[ext_resource type="PackedScene" uid="uid://bdnmksdcqkyv1" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/3D_Tile_Socket_Dungeon_04.glb" id="1_nugcf"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_sxe00"]
+
+[node name="3D_Tile_Socket_Dungeon_04" instance=ExtResource("1_nugcf")]
+
+[node name="3D_Tile_Socket_Dungeon_04" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_sxe00")

@@ -1,0 +1,42 @@
+<<<<<<< HEAD
+res://prefabs/levels/menu_levels/main_menu.tscn
+res://scripts/menu_selecter_script.gd
+res://ui/themes/main.tres
+res://models/Hopper/Hopper_Screen_Material002.tres
+res://models/Hopper/Hopper_Base_Material001.tres
+res://models/Hopper/Material.tres
+res://ui/themes/debug.tres
+res://material/ammo_create_blue.tres
+res://prefabs/player/Player.tscn
+res://prefabs/levels/testing_level/testing_level.tscn
+res://prefabs/collider.tscn
+res://prefabs/game objects/interactable/weapon/weapon_hr.tscn
+res://prefabs/levels/stage_one/level_template.tscn
+res://AssetHunts - GameDev Starter Kit - Platfromer/Demo Scenes/Demo_Scene_03.tscn
+res://prefabs/levels/stage_one/level1.tscn
+res://scripts/UI_main_script.gd
+res://prefabs/game objects/UI/ui.tscn
+res://scripts/Main_level_script.gd
+=======
+res://AssetHunts - GameDev Starter Kit - Platfromer/Demo Scenes/Scene_Menu.tscn
+res://models/Hopper/Hopper_Screen_Material002.tres
+res://models/Hopper/Hopper_Base_Material001.tres
+res://models/Hopper/Material.tres
+res://material/ammo_create_blue.tres
+res://ui/themes/debug.tres
+res://prefabs/levels/menu_levels/main_menu.tscn
+res://prefabs/game objects/interactable/weapon/weapon_hr.tscn
+res://prefabs/game objects/interactable/ammo_create.tscn
+res://prefabs/levels/testing_level/testing_level.tscn
+res://prefabs/game objects/static/finish_zone.tscn
+res://prefabs/player/Player.tscn
+res://prefabs/levels/level_template.tscn
+res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_09.tscn
+res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_01.tscn
+res://scripts/menu_selecter_script.gd
+res://scripts/SelectButton_script.gd
+res://scripts/ExitButton_script.gd
+res://prefabs/game objects/interactable/weapon/weapon_hr_script.gd
+res://ui/themes/main.tres
+res://godot/imported/pop.mp3-b1aab965fb879cd10b931121337218ec.mp3str
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142

@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+res://ui/themes
+res://FONT
+res://textures
+res://sounds
+=======
+res://sounds
+res://ui/themes
+res://FONT
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+res://scripts
+res://material
+res://models/door
+D:/Finished GD Builds/Sprint 3
+res://prefabs/levels/menu_levels
+res://prefabs/game objects/interactable
+res://prefabs/game objects/interactable/weapon
+res://models/Hopper
+res://textures/logo

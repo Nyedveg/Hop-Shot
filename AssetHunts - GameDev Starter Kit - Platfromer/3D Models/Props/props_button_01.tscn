@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://1qqgplafc7v5"]
+
+[ext_resource type="PackedScene" uid="uid://40jm5xcxjpdh" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Button_01.glb" id="1_2hn7v"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_sju06"]
+
+[node name="Props_Button_01" instance=ExtResource("1_2hn7v")]
+
+[node name="Props_Button_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_sju06")
+
+[node name="Props_Button_01_Button" parent="Props_Button_01" index="0"]
+surface_material_override/0 = ExtResource("2_sju06")

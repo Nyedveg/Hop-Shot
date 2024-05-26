@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbubci8egdcp8"]
+
+[ext_resource type="PackedScene" uid="uid://d1lrw0k4s73jo" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Collectable_Apple_01.glb" id="1_2d24e"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_marso"]
+
+[node name="Collectable_Apple_01" instance=ExtResource("1_2d24e")]
+
+[node name="Collectable_Apple_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_marso")

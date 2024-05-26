@@ -1,0 +1,72 @@
+<<<<<<< HEAD
+[gd_scene load_steps=7 format=3 uid="uid://c3dl7xvhyr5wr"]
+
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_f7caa"]
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="2_dumr5"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="3_j7fxr"]
+[ext_resource type="PackedScene" uid="uid://dxi2f4efqc1c0" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Demo Scenes/Demo_Scene_03.tscn" id="4_sb0ga"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_t4exn"]
+[ext_resource type="PackedScene" uid="uid://cg63ccfflhpow" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="7_kgewt"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_f7caa")
+startAmmo = 100
+
+[node name="Player" parent="." instance=ExtResource("2_dumr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87072, -3.09052, 8.28224)
+
+[node name="UI" parent="." instance=ExtResource("3_j7fxr")]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://bul5w0lnjf230"]
+
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_tc0dm"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="3_avu1e"]
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_nsvj8"]
+[ext_resource type="PackedScene" uid="uid://cg63ccfflhpow" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_gq7sd"]
+[ext_resource type="PackedScene" uid="uid://dxi2f4efqc1c0" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Demo Scenes/Demo_Scene_03.tscn" id="4_xix60"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_h46ue"]
+[ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_yk5x3"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_tc0dm")
+startAmmo = 100
+
+[node name="Player" parent="." instance=ExtResource("3_nsvj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9752, 4.99417, -26.9368)
+
+[node name="UI" parent="." instance=ExtResource("3_avu1e")]
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+
+[node name="Controllers" type="Node3D" parent="."]
+
+[node name="Environment" type="Node3D" parent="."]
+
+<<<<<<< HEAD
+[node name="Level Design 01" parent="Environment" instance=ExtResource("4_sb0ga")]
+=======
+[node name="Level Design 01" parent="Environment" instance=ExtResource("4_xix60")]
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66292, -8.76056, -18.6777)
+
+[node name="Areas" type="Node3D" parent="."]
+
+<<<<<<< HEAD
+[node name="Death_Zone" parent="Areas" instance=ExtResource("5_t4exn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
+
+[node name="weapon" parent="." instance=ExtResource("7_kgewt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55097, -3.82902, 4.09943)
+=======
+[node name="Death_Zone" parent="Areas" instance=ExtResource("5_h46ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
+
+[node name="AmmoCreate" parent="." instance=ExtResource("6_yk5x3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.68098, 2, -0.671129)
+
+[node name="weapon" parent="." instance=ExtResource("4_gq7sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.3835, 1.23638, -26.5501)
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+
+[connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
+[connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]

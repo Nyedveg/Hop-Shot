@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2hn1ky3fubjv"]
+
+[ext_resource type="PackedScene" uid="uid://ecv6mxwphuro" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Source Files/Obstacle_Crasher_01.glb" id="1_i70do"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_ud5rf"]
+
+[node name="Obstacle_Crasher_01" instance=ExtResource("1_i70do")]
+
+[node name="Obstacle_Crasher_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ud5rf")

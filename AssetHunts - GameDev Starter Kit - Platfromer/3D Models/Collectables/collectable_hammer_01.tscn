@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://sd66ry02656q"]
+
+[ext_resource type="PackedScene" uid="uid://ch8t6tm118t84" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Collectable_Hammer_01.glb" id="1_hlau2"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_gi1vr"]
+
+[node name="Collectable_Hammer_01" instance=ExtResource("1_hlau2")]
+
+[node name="Collectable_Hammer_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_gi1vr")

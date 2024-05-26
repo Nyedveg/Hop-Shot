@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bark3sgmu3d5q"]
+
+[ext_resource type="PackedScene" uid="uid://bhcdxrmtgorxc" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Pottery_Vessel_01.glb" id="1_h6xyx"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_v7nmj"]
+
+[node name="Props_Pottery_Vessel_01" instance=ExtResource("1_h6xyx")]
+
+[node name="Props_Pottery_Vessel_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_v7nmj")

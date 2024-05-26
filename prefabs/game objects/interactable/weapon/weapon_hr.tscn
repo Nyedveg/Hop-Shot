@@ -1,0 +1,55 @@
+<<<<<<< HEAD
+[gd_scene load_steps=7 format=3 uid="uid://d21v2y71j42my"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://d21v2y71j42my"]
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+
+[ext_resource type="Script" path="res://prefabs/game objects/interactable/weapon/weapon_hr_script.gd" id="1_0c7r0"]
+[ext_resource type="PackedScene" uid="uid://cy7afwyxw1uqp" path="res://models/Hopper/Hopper_Gun._Painted_finished_screen.glb" id="1_1evw6"]
+[ext_resource type="PackedScene" uid="uid://b7gjtjtlppmge" path="res://models/Hopper/Hopper_Gun._Painted_finished.glb" id="2_t2210"]
+[ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="4_otxll"]
+
+<<<<<<< HEAD
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qhk8"]
+transparency = 1
+albedo_color = Color(1, 1, 0.176471, 0.145098)
+
+[sub_resource type="TorusMesh" id="TorusMesh_451tv"]
+material = SubResource("StandardMaterial3D_4qhk8")
+
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+[node name="weapon" type="Node3D"]
+script = ExtResource("1_0c7r0")
+
+[node name="Hopper_Gun__Painted_finished_screen" parent="." instance=ExtResource("1_1evw6")]
+transform = Transform3D(-8.74228e-09, 0.068404, 0.187938, 0, 0.187938, -0.068404, -0.2, -2.99003e-09, -8.21505e-09, -0.132691, 0.0383137, -0.186543)
+
+[node name="Hopper_Gun__Painted_finished" parent="." instance=ExtResource("2_t2210")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="AmmoLabel" type="Label3D" parent="."]
+transform = Transform3D(0.939692, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, -0.242316, 0.0859802, -0.163863)
+pixel_size = 0.001
+shaded = true
+double_sided = false
+modulate = Color(0.667, 0.906, 0.773, 1)
+font = ExtResource("4_otxll")
+font_size = 64
+<<<<<<< HEAD
+
+[node name="ShotNode" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShotNode"]
+transform = Transform3D(0.285, 0, 0, 0, -1.24577e-08, -0.285, 0, 0.285, -1.24577e-08, 0.000287056, -0.00211495, -0.482705)
+mesh = SubResource("TorusMesh_451tv")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ShotNode"]
+transform = Transform3D(0.43, 0, 0, 0, -1.87959e-08, -0.43, 0, 0.43, -1.87959e-08, 0, 0, -0.696496)
+mesh = SubResource("TorusMesh_451tv")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShotNode"]
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142

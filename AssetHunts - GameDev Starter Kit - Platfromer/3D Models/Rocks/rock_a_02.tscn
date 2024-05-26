@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://k2grccjcoau"]
+
+[ext_resource type="PackedScene" uid="uid://cbqmcwkeylcdi" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Rock_A_02.glb" id="1_xrys4"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_ctemc"]
+
+[node name="Rock_A_02" instance=ExtResource("1_xrys4")]
+
+[node name="Rock_A_02" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ctemc")

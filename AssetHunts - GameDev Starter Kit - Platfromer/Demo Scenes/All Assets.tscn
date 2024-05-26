@@ -1,0 +1,610 @@
+[gd_scene load_steps=148 format=3 uid="uid://cohsveqwcxugv"]
+
+[ext_resource type="PackedScene" uid="uid://b6ee4tefhytps" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_01.tscn" id="1_nifcp"]
+[ext_resource type="PackedScene" uid="uid://tqiwm5mq5f73" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_01a.tscn" id="2_mgddw"]
+[ext_resource type="PackedScene" uid="uid://83tkogesqsn6" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_02.tscn" id="3_w0r7f"]
+[ext_resource type="PackedScene" uid="uid://bpa5tugo0kgfl" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_03.tscn" id="4_qud16"]
+[ext_resource type="PackedScene" uid="uid://rr0yljou8nmd" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_04.tscn" id="5_rtlms"]
+[ext_resource type="PackedScene" uid="uid://b2v5nd66t1cu5" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_05.tscn" id="6_g0apc"]
+[ext_resource type="PackedScene" uid="uid://bwqa5m3fwx5oi" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_stair_01.tscn" id="7_2dv40"]
+[ext_resource type="PackedScene" uid="uid://8takwabx6ymr" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_slope_01.tscn" id="7_j8u3j"]
+[ext_resource type="PackedScene" uid="uid://djcqns1sucuv" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_slope_01a.tscn" id="8_awjao"]
+[ext_resource type="PackedScene" uid="uid://bkjcie60rn0r8" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_01.tscn" id="8_my428"]
+[ext_resource type="PackedScene" uid="uid://5mfvcw1r2wbp" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_01a.tscn" id="9_j6vip"]
+[ext_resource type="PackedScene" uid="uid://bnmjvvshist07" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_dungeon_slope_01b.tscn" id="9_u8g8i"]
+[ext_resource type="PackedScene" uid="uid://cxx3upu1mlirc" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_02.tscn" id="10_7d6b1"]
+[ext_resource type="PackedScene" uid="uid://c1rugf1cu03or" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_02a.tscn" id="11_ph285"]
+[ext_resource type="PackedScene" uid="uid://bqj4f7wwjv0ab" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_03.tscn" id="12_rjxwm"]
+[ext_resource type="PackedScene" uid="uid://cb58k1tl5tr2k" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_03a.tscn" id="13_ltxck"]
+[ext_resource type="PackedScene" uid="uid://dayp4hetkki5w" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_04.tscn" id="14_nerty"]
+[ext_resource type="PackedScene" uid="uid://0wlks5djicqv" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_04a.tscn" id="15_2oxal"]
+[ext_resource type="PackedScene" uid="uid://dto0ocf831b4o" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_01.tscn" id="16_wct6y"]
+[ext_resource type="PackedScene" uid="uid://dk1wpddso455j" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_02.tscn" id="17_6bpha"]
+[ext_resource type="PackedScene" uid="uid://iyllwxpgrr0v" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_02a.tscn" id="18_iv6f5"]
+[ext_resource type="PackedScene" uid="uid://lwiq2o7kq4o" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_02b.tscn" id="19_gni6s"]
+[ext_resource type="PackedScene" uid="uid://vvouqch1lqs5" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_03.tscn" id="20_d8m15"]
+[ext_resource type="PackedScene" uid="uid://dk74uf2uiy1qw" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_03a.tscn" id="21_yksq3"]
+[ext_resource type="PackedScene" uid="uid://crlt3wd032xj3" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_03b.tscn" id="22_qv477"]
+[ext_resource type="PackedScene" uid="uid://jyy33jpgli2r" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_04.tscn" id="23_0n5qh"]
+[ext_resource type="PackedScene" uid="uid://cmssev3pdxjs4" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_04a.tscn" id="24_3ofs2"]
+[ext_resource type="PackedScene" uid="uid://ddbeh8238h7bj" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ground_slope_04b.tscn" id="25_ovx4i"]
+[ext_resource type="PackedScene" uid="uid://cgcyo6gs1ge2e" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ice_01.tscn" id="26_sbima"]
+[ext_resource type="PackedScene" uid="uid://shsrgdx5owea" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_ice_01a.tscn" id="27_8j48s"]
+[ext_resource type="PackedScene" uid="uid://cdic0jhysyat8" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_lava_01.tscn" id="28_l56lt"]
+[ext_resource type="PackedScene" uid="uid://0a0gpm1k7o75" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_lava_01a.tscn" id="29_g0klt"]
+[ext_resource type="PackedScene" uid="uid://1ka22urs7uys" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_socket_dungeon_04.tscn" id="30_u24dn"]
+[ext_resource type="PackedScene" uid="uid://d0628s3wucn6h" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_socket_ground_01.tscn" id="31_666mh"]
+[ext_resource type="PackedScene" uid="uid://mapiqnx7i4ou" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_socket_ground_02.tscn" id="32_2pv7a"]
+[ext_resource type="PackedScene" uid="uid://bifqicr2xxrkr" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_socket_ground_03.tscn" id="33_jyej3"]
+[ext_resource type="PackedScene" uid="uid://8qg5yqfhi0sj" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_top_01.tscn" id="34_bv1rp"]
+[ext_resource type="PackedScene" uid="uid://dhpdk56xv6h05" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_top_02.tscn" id="35_myj06"]
+[ext_resource type="PackedScene" uid="uid://dt4m1y5bcw41c" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_top_path_01.tscn" id="36_j7cwf"]
+[ext_resource type="PackedScene" uid="uid://btj0iypnslg3v" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_top_path_02.tscn" id="37_k37fv"]
+[ext_resource type="PackedScene" uid="uid://cmnm4rd1yf4n" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_top_path_03.tscn" id="38_nyoe6"]
+[ext_resource type="PackedScene" uid="uid://d187jolj032i8" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_top_path_04.tscn" id="39_c3pu7"]
+[ext_resource type="PackedScene" uid="uid://bpbrpkkggqv16" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_water_01.tscn" id="40_sm00k"]
+[ext_resource type="PackedScene" uid="uid://bvfnf0vexg1tk" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/3d Tiles/3d_tile_water_01a.tscn" id="41_67ant"]
+[ext_resource type="PackedScene" uid="uid://dvnqywsbgr52f" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Characters/character_blob.tscn" id="42_x3aox"]
+[ext_resource type="PackedScene" uid="uid://ddfwx7f8t5k0s" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Characters/character_boo.tscn" id="43_1w6es"]
+[ext_resource type="PackedScene" uid="uid://ciw4bhh6v2lbu" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Characters/character_speedy.tscn" id="44_2lw37"]
+[ext_resource type="PackedScene" uid="uid://vfqqw1d7d831" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Characters/character_dev.tscn" id="45_88ouc"]
+[ext_resource type="PackedScene" uid="uid://dbubci8egdcp8" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_apple_01.tscn" id="46_15v16"]
+[ext_resource type="PackedScene" uid="uid://bldyorgrchspj" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_bomb_01.tscn" id="47_kl2v5"]
+[ext_resource type="PackedScene" uid="uid://bs5vd1y6rf0qf" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_bomb_02.tscn" id="48_rnx56"]
+[ext_resource type="PackedScene" uid="uid://kwt7avm13mvx" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_book_01.tscn" id="49_fkk6e"]
+[ext_resource type="PackedScene" uid="uid://c1ekl1e3xjjbj" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_coin_01.tscn" id="50_rsh0f"]
+[ext_resource type="PackedScene" uid="uid://gth3b1t160lj" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_coin_02.tscn" id="51_gw2c5"]
+[ext_resource type="PackedScene" uid="uid://cepfgd2jrmv2o" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_coin_sack_01.tscn" id="52_ycngv"]
+[ext_resource type="PackedScene" uid="uid://pqowisqie7vk" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_diamond_01.tscn" id="53_vnp7w"]
+[ext_resource type="PackedScene" uid="uid://bif1kaje1755g" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_dynamite_01.tscn" id="54_r6sas"]
+[ext_resource type="PackedScene" uid="uid://chthlpc0e5jif" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_gear_01.tscn" id="55_fpn3q"]
+[ext_resource type="PackedScene" uid="uid://cpobkp1rbev5h" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_gem_02.tscn" id="56_h3l01"]
+[ext_resource type="PackedScene" uid="uid://d4j4fp0avagbt" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_gem_01.tscn" id="57_ywahd"]
+[ext_resource type="PackedScene" uid="uid://b8qo5qdpg4ef7" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_gift_box_01.tscn" id="58_wjue1"]
+[ext_resource type="PackedScene" uid="uid://sd66ry02656q" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_hammer_01.tscn" id="59_81p4v"]
+[ext_resource type="PackedScene" uid="uid://sh5rt4328iwy" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_heart_01.tscn" id="60_b2ugt"]
+[ext_resource type="PackedScene" uid="uid://bktchlrgoks06" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_lightning_01.tscn" id="61_2d8ao"]
+[ext_resource type="PackedScene" uid="uid://8b6fg3l2rkof" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_lightning_02.tscn" id="62_h0ou5"]
+[ext_resource type="PackedScene" uid="uid://xym8anei8iq1" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_lightning_03.tscn" id="63_k6dwd"]
+[ext_resource type="PackedScene" uid="uid://o1qtug6ghwan" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_magnet_01.tscn" id="64_h7na6"]
+[ext_resource type="PackedScene" uid="uid://bcbf7usu6wvli" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_money_01.tscn" id="65_co87b"]
+[ext_resource type="PackedScene" uid="uid://t2yojogliffp" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_plus_01.tscn" id="66_eyltf"]
+[ext_resource type="PackedScene" uid="uid://em8stch2s7am" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_ring_01.tscn" id="67_ddvuq"]
+[ext_resource type="PackedScene" uid="uid://csvbubkb5yqrr" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_scroll_01.tscn" id="68_lmeny"]
+[ext_resource type="PackedScene" uid="uid://fp3v56cqrm0w" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_skull_icon_01.tscn" id="69_a5sew"]
+[ext_resource type="PackedScene" uid="uid://btrelad1nbsjf" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_star_01.tscn" id="70_6y5fa"]
+[ext_resource type="PackedScene" uid="uid://cf0ns1qi082tn" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_star_02.tscn" id="71_wjb3p"]
+[ext_resource type="PackedScene" uid="uid://cq2b1afytsncf" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Collectables/collectable_trophy_01.tscn" id="72_qgnpv"]
+[ext_resource type="PackedScene" uid="uid://kisu5w5mucka" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_barricade_01.tscn" id="73_556al"]
+[ext_resource type="PackedScene" uid="uid://dk2yu12h5ixon" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/Animated Obstacles/obstacle_bear_trap_01.tscn" id="74_56x0q"]
+[ext_resource type="PackedScene" uid="uid://d2hn1ky3fubjv" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_crasher_01.tscn" id="75_i43xi"]
+[ext_resource type="PackedScene" uid="uid://bg33dk8ccexav" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_flamethrower_01.tscn" id="76_cqth5"]
+[ext_resource type="PackedScene" uid="uid://ddaqr0q71e24" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_gound_socket_01.tscn" id="77_8kk80"]
+[ext_resource type="PackedScene" uid="uid://cch8mx450ce4x" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_ground_spike_01.tscn" id="78_1jbre"]
+[ext_resource type="PackedScene" uid="uid://df4w6nmiu2o8k" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_hanging_hammer_socket_01.tscn" id="79_wy2kx"]
+[ext_resource type="PackedScene" uid="uid://k50um1brjuf6" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_pole_01.tscn" id="80_xwbpn"]
+[ext_resource type="PackedScene" uid="uid://p8l3ae0qkhnx" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_pusher_01.tscn" id="81_3c423"]
+[ext_resource type="PackedScene" uid="uid://bfnnlr15323re" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_round_blade_01.tscn" id="82_gph74"]
+[ext_resource type="PackedScene" uid="uid://l8ko51tevqx3" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_spinning_spike_gate_01.tscn" id="83_npg2d"]
+[ext_resource type="PackedScene" uid="uid://b24mcuna23vg2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Obstacles/obstacle_wooden_spike_01.tscn" id="84_nespo"]
+[ext_resource type="PackedScene" uid="uid://vl5fym7cdr3l" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_cactus_01.tscn" id="85_3vvgb"]
+[ext_resource type="PackedScene" uid="uid://bckjwa2vnm4d5" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_pine_01.tscn" id="86_nq2fx"]
+[ext_resource type="PackedScene" uid="uid://b4wdruj1sl5e5" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_pine_01a.tscn" id="87_f5k2r"]
+[ext_resource type="PackedScene" uid="uid://b7f2w4264dipj" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_toon_tree_01.tscn" id="88_mr12w"]
+[ext_resource type="PackedScene" uid="uid://djkfdm2mwtb33" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_pine_ice_01.tscn" id="89_8eo8f"]
+[ext_resource type="PackedScene" uid="uid://11jaiae0y8k6" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_pine_ice_01a.tscn" id="90_73jwv"]
+[ext_resource type="PackedScene" uid="uid://bpkwyqqufqej" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_broken_rope_bridge_01.tscn" id="91_j78yf"]
+[ext_resource type="PackedScene" uid="uid://1qqgplafc7v5" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_button_01.tscn" id="92_glugt"]
+[ext_resource type="PackedScene" uid="uid://jau1fvv245cj" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_cloud_01.tscn" id="95_ebjgu"]
+[ext_resource type="PackedScene" uid="uid://csmnvspesxb8k" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_dead_tree_01.tscn" id="95_fbpwd"]
+[ext_resource type="PackedScene" uid="uid://c2raeqr58iuvt" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_cloud_02.tscn" id="96_n1yra"]
+[ext_resource type="PackedScene" uid="uid://ly7k5qp4qw58" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_cloud_03.tscn" id="97_l617d"]
+[ext_resource type="PackedScene" uid="uid://dh3y651hjxwjm" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_foliage_01.tscn" id="97_u16g0"]
+[ext_resource type="PackedScene" uid="uid://c62nydmogwd78" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_crate_01.tscn" id="98_2h6b1"]
+[ext_resource type="PackedScene" uid="uid://cbdnnef46ir0j" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_foliage_02.tscn" id="98_xs1t1"]
+[ext_resource type="PackedScene" uid="uid://wb5orbk0xv7f" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_crate_02.tscn" id="99_acoq4"]
+[ext_resource type="PackedScene" uid="uid://d0gonffl8tbug" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Plants/plant_coconut_palm_01.tscn" id="99_gvxdt"]
+[ext_resource type="PackedScene" uid="uid://cvk72j5to18na" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_crate_03.tscn" id="100_dsel0"]
+[ext_resource type="PackedScene" uid="uid://ct62ack7tmc6u" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_crate_04.tscn" id="101_88myf"]
+[ext_resource type="PackedScene" uid="uid://dkd8077pghb5s" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_crate_05.tscn" id="102_u6nd4"]
+[ext_resource type="PackedScene" uid="uid://deyf361yvkuls" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_crate_06.tscn" id="103_b68wu"]
+[ext_resource type="PackedScene" uid="uid://b3ukcf5bkdtwi" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_crate_07.tscn" id="104_cdmop"]
+[ext_resource type="PackedScene" uid="uid://84s067mv4h6b" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_fence_a_01.tscn" id="105_dl5ja"]
+[ext_resource type="PackedScene" uid="uid://dwkeg2vbu7icf" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_fence_a_02.tscn" id="106_m3ar6"]
+[ext_resource type="PackedScene" uid="uid://fm4bx877a83b" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_flag_01.tscn" id="107_axbec"]
+[ext_resource type="PackedScene" uid="uid://ds4dja65tn64w" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_flag_02.tscn" id="108_fxqq1"]
+[ext_resource type="PackedScene" uid="uid://hm811uoq0qig" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_flag_03.tscn" id="109_rwbdc"]
+[ext_resource type="PackedScene" uid="uid://b580ynkhocwhc" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_lever_01.tscn" id="110_cfh6p"]
+[ext_resource type="PackedScene" uid="uid://bark3sgmu3d5q" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_pottery_vessel_01.tscn" id="111_h48fe"]
+[ext_resource type="PackedScene" uid="uid://c7m70xg6urueh" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_snowman_01.tscn" id="112_v483v"]
+[ext_resource type="PackedScene" uid="uid://cpr8rtv0mdcuk" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/Animated Props/props_spring_jumper_01.tscn" id="113_ebig1"]
+[ext_resource type="PackedScene" uid="uid://b56167f7l6b3i" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/Animated Props/props_treasure_cheast_01.tscn" id="114_8c12h"]
+[ext_resource type="PackedScene" uid="uid://ccxy7gjyuwhor" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_barrel_01.tscn" id="115_vbvis"]
+[ext_resource type="PackedScene" uid="uid://bf1nwc7w6jbx2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_boat_01.tscn" id="116_uq4u3"]
+[ext_resource type="PackedScene" uid="uid://bpmcayxy1tvl" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_bridge_01.tscn" id="117_5pnxt"]
+[ext_resource type="PackedScene" uid="uid://cfg4gb5x4bjtt" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_dock_01.tscn" id="118_n3gae"]
+[ext_resource type="PackedScene" uid="uid://dxsgt107byv53" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_01.tscn" id="119_3x3vr"]
+[ext_resource type="PackedScene" uid="uid://di1fexh8b4j6q" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_02.tscn" id="120_ipc5q"]
+[ext_resource type="PackedScene" uid="uid://byci8qfk8paxn" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_03.tscn" id="121_06lv2"]
+[ext_resource type="PackedScene" uid="uid://bx4vrd818vcuk" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_04.tscn" id="122_630lf"]
+[ext_resource type="PackedScene" uid="uid://ccvlgq1aqhvc5" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_05.tscn" id="123_y80c1"]
+[ext_resource type="PackedScene" uid="uid://orln63mxqu4v" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_06.tscn" id="124_dech1"]
+[ext_resource type="PackedScene" uid="uid://cxvxvl4nc1432" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_07.tscn" id="125_imtkl"]
+[ext_resource type="PackedScene" uid="uid://cj6pdmes6mx1i" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_08.tscn" id="126_npejv"]
+[ext_resource type="PackedScene" uid="uid://i4ym7j24nomf" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_09.tscn" id="127_fl7by"]
+[ext_resource type="PackedScene" uid="uid://k2ehv37g42pk" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Props/props_wooden_sign_10.tscn" id="128_nift0"]
+[ext_resource type="PackedScene" uid="uid://b4fhjf0ndornb" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Selection Pointer/selection_pointer_01.tscn" id="129_31ymv"]
+[ext_resource type="PackedScene" uid="uid://dtfu5wisyds1n" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Selection Pointer/selection_pointer_02.tscn" id="130_6v7gv"]
+[ext_resource type="PackedScene" uid="uid://q2jei3vne7s" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Selection Pointer/selection_pointer_03.tscn" id="131_gq72e"]
+[ext_resource type="PackedScene" uid="uid://cw6duwk30ofpv" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Selection Pointer/selection_pointer_04.tscn" id="132_8vghj"]
+[ext_resource type="PackedScene" uid="uid://dnh0cvy7vkdim" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Selection Pointer/selection_pointer_05.tscn" id="133_r86sd"]
+[ext_resource type="PackedScene" uid="uid://cx04otna8sb4u" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_a_01.tscn" id="134_knsqn"]
+[ext_resource type="PackedScene" uid="uid://k2grccjcoau" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_a_02.tscn" id="135_52fuk"]
+[ext_resource type="PackedScene" uid="uid://cq5tpd2v5fxph" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_a_03.tscn" id="136_d4yrp"]
+[ext_resource type="PackedScene" uid="uid://ceq1kg8la3e07" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_a_04.tscn" id="137_yvnhv"]
+[ext_resource type="PackedScene" uid="uid://fpjfw7l0omtm" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_a_05.tscn" id="138_2eorp"]
+[ext_resource type="PackedScene" uid="uid://bj27qlf6xjstg" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_a_06.tscn" id="139_8ha4p"]
+[ext_resource type="PackedScene" uid="uid://cuimomw7wlh83" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_b_01.tscn" id="140_bni02"]
+[ext_resource type="PackedScene" uid="uid://ctkmbop58cwrb" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_b_02.tscn" id="141_7woeb"]
+[ext_resource type="PackedScene" uid="uid://db5sgonf3no4i" path="res://AssetHunts - GameDev Starter Kit - Platfromer/3D Models/Rocks/rock_b_03.tscn" id="142_n5qyh"]
+
+[node name="All Assets" type="Node3D"]
+
+[node name="3D Tiles" type="Node3D" parent="."]
+
+[node name="3D_Tile_Dungeon_01" parent="3D Tiles" instance=ExtResource("1_nifcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -20)
+
+[node name="3D_Tile_Dungeon_01A" parent="3D Tiles" instance=ExtResource("2_mgddw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -17)
+
+[node name="3D_Tile_Dungeon_02" parent="3D Tiles" instance=ExtResource("3_w0r7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -23)
+
+[node name="3D_Tile_Dungeon_03" parent="3D Tiles" instance=ExtResource("4_qud16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -26)
+
+[node name="3D_Tile_Dungeon_04" parent="3D Tiles" instance=ExtResource("5_rtlms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -29)
+
+[node name="3D_Tile_Dungeon_05" parent="3D Tiles" instance=ExtResource("6_g0apc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -35)
+
+[node name="3D_Tile_Dungeon_Slope_01" parent="3D Tiles" instance=ExtResource("7_j8u3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -8)
+
+[node name="3D_Tile_Dungeon_Slope_01A" parent="3D Tiles" instance=ExtResource("8_awjao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -11)
+
+[node name="3D_Tile_Dungeon_Slope_01B" parent="3D Tiles" instance=ExtResource("9_u8g8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -5)
+
+[node name="3D_Tile_Dungeon_Stair_01" parent="3D Tiles" instance=ExtResource("7_2dv40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -32)
+
+[node name="3D_Tile_Ground_01" parent="3D Tiles" instance=ExtResource("8_my428")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96, 0, -20)
+
+[node name="3D_Tile_Ground_01A" parent="3D Tiles" instance=ExtResource("9_j6vip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96, 0, -17)
+
+[node name="3D_Tile_Ground_02" parent="3D Tiles" instance=ExtResource("10_7d6b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -20)
+
+[node name="3D_Tile_Ground_02A" parent="3D Tiles" instance=ExtResource("11_ph285")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -17)
+
+[node name="3D_Tile_Ground_03" parent="3D Tiles" instance=ExtResource("12_rjxwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, -20)
+
+[node name="3D_Tile_Ground_03A" parent="3D Tiles" instance=ExtResource("13_ltxck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, -17)
+
+[node name="3D_Tile_Ground_04" parent="3D Tiles" instance=ExtResource("14_nerty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 0, -20)
+
+[node name="3D_Tile_Ground_04A" parent="3D Tiles" instance=ExtResource("15_2oxal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 0, -17)
+
+[node name="3D_Tile_Ground_Slope_01" parent="3D Tiles" instance=ExtResource("16_wct6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96, 0, -14)
+
+[node name="3D_Tile_Ground_Slope_02" parent="3D Tiles" instance=ExtResource("17_6bpha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -8)
+
+[node name="3D_Tile_Ground_Slope_02A" parent="3D Tiles" instance=ExtResource("18_iv6f5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -11)
+
+[node name="3D_Tile_Ground_Slope_02B" parent="3D Tiles" instance=ExtResource("19_gni6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -5)
+
+[node name="3D_Tile_Ground_Slope_03" parent="3D Tiles" instance=ExtResource("20_d8m15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, -8)
+
+[node name="3D_Tile_Ground_Slope_03A" parent="3D Tiles" instance=ExtResource("21_yksq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, -11)
+
+[node name="3D_Tile_Ground_Slope_03B" parent="3D Tiles" instance=ExtResource("22_qv477")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, -5)
+
+[node name="3D_Tile_Ground_Slope_04" parent="3D Tiles" instance=ExtResource("23_0n5qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 0, -8)
+
+[node name="3D_Tile_Ground_Slope_04A" parent="3D Tiles" instance=ExtResource("24_3ofs2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 0, -11)
+
+[node name="3D_Tile_Ground_Slope_04B" parent="3D Tiles" instance=ExtResource("25_ovx4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 0, -5)
+
+[node name="3D_Tile_Ice_01" parent="3D Tiles" instance=ExtResource("26_sbima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, -20)
+
+[node name="3D_Tile_Ice_01A" parent="3D Tiles" instance=ExtResource("27_8j48s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, -17)
+
+[node name="3D_Tile_Lava_01" parent="3D Tiles" instance=ExtResource("28_l56lt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87, 0, -20)
+
+[node name="3D_Tile_Lava_01A" parent="3D Tiles" instance=ExtResource("29_g0klt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87, 0, -17)
+
+[node name="3D_Tile_Socket_Dungeon_04" parent="3D Tiles" instance=ExtResource("30_u24dn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, -14)
+
+[node name="3D_Tile_Socket_Ground_01" parent="3D Tiles" instance=ExtResource("31_666mh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, -14)
+
+[node name="3D_Tile_Socket_Ground_02" parent="3D Tiles" instance=ExtResource("32_2pv7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 0, -14)
+
+[node name="3D_Tile_Socket_Ground_03" parent="3D Tiles" instance=ExtResource("33_jyej3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, 0, -14)
+
+[node name="3D_Tile_Top_01" parent="3D Tiles" instance=ExtResource("34_bv1rp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93, 1, -1)
+
+[node name="3D_Tile_Top_02" parent="3D Tiles" instance=ExtResource("35_myj06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96, 1, -1)
+
+[node name="3D_Tile_Top_Path_01" parent="3D Tiles" instance=ExtResource("36_j7cwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 1, -1)
+
+[node name="3D_Tile_Top_Path_02" parent="3D Tiles" instance=ExtResource("37_k37fv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 1, -1)
+
+[node name="3D_Tile_Top_Path_03" parent="3D Tiles" instance=ExtResource("38_nyoe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87, 1, -1)
+
+[node name="3D_Tile_Top_Path_04" parent="3D Tiles" instance=ExtResource("39_c3pu7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81, 1, -1)
+
+[node name="3D_Tile_Water_01" parent="3D Tiles" instance=ExtResource("40_sm00k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93, 0, -20)
+
+[node name="3D_Tile_Water_01A" parent="3D Tiles" instance=ExtResource("41_67ant")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93, 0, -17)
+
+[node name="Characters" type="Node3D" parent="."]
+
+[node name="Character_Blob" parent="Characters" instance=ExtResource("42_x3aox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69, 0, 0)
+
+[node name="Character_Boo" parent="Characters" instance=ExtResource("43_1w6es")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 0)
+
+[node name="Character_Speedy" parent="Characters" instance=ExtResource("44_2lw37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 0, 0)
+
+[node name="Character_Dev" parent="Characters" instance=ExtResource("45_88ouc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 0, 0)
+
+[node name="Collectables" type="Node3D" parent="."]
+
+[node name="Collectable_Apple_01" parent="Collectables" instance=ExtResource("46_15v16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 0, -1)
+
+[node name="Collectable_Bomb_01" parent="Collectables" instance=ExtResource("47_kl2v5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 0, -1)
+
+[node name="Collectable_Bomb_02" parent="Collectables" instance=ExtResource("48_rnx56")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0, -1)
+
+[node name="Collectable_Book_01" parent="Collectables" instance=ExtResource("49_fkk6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 0, -1)
+
+[node name="Collectable_Coin_01" parent="Collectables" instance=ExtResource("50_rsh0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 0, -1)
+
+[node name="Collectable_Coin_02" parent="Collectables" instance=ExtResource("51_gw2c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, -1)
+
+[node name="Collectable_Coin_Sack_01" parent="Collectables" instance=ExtResource("52_ycngv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, -0.306518, -1)
+
+[node name="Collectable_Diamond_01" parent="Collectables" instance=ExtResource("53_vnp7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -1)
+
+[node name="Collectable_Dynamite_01" parent="Collectables" instance=ExtResource("54_r6sas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 0, -1)
+
+[node name="Collectable_Gear_01" parent="Collectables" instance=ExtResource("55_fpn3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 0, -1)
+
+[node name="Collectable_Gem_02" parent="Collectables" instance=ExtResource("56_h3l01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 0, -4)
+
+[node name="Collectable_Gem_01" parent="Collectables" instance=ExtResource("57_ywahd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 0, -4)
+
+[node name="Collectable_Gift_Box_01" parent="Collectables" instance=ExtResource("58_wjue1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0, -4)
+
+[node name="Collectable_Hammer_01" parent="Collectables" instance=ExtResource("59_81p4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 0, -4)
+
+[node name="Collectable_Heart_01" parent="Collectables" instance=ExtResource("60_b2ugt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51, 0, -4)
+
+[node name="Collectable_Lightning_01" parent="Collectables" instance=ExtResource("61_2d8ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, -4)
+
+[node name="Collectable_Lightning_02" parent="Collectables" instance=ExtResource("62_h0ou5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 0, -4)
+
+[node name="Collectable_Lightning_03" parent="Collectables" instance=ExtResource("63_k6dwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -4)
+
+[node name="Collectable_Magnet_01" parent="Collectables" instance=ExtResource("64_h7na6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 0, -4)
+
+[node name="Collectable_Money_01" parent="Collectables" instance=ExtResource("65_co87b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 0, -4)
+
+[node name="Collectable_Plus_01" parent="Collectables" instance=ExtResource("66_eyltf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -7)
+
+[node name="Collectable_Ring_01" parent="Collectables" instance=ExtResource("67_ddvuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -7)
+
+[node name="Collectable_Scroll_01" parent="Collectables" instance=ExtResource("68_lmeny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, -7)
+
+[node name="Collectable_Skull_Icon_01" parent="Collectables" instance=ExtResource("69_a5sew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -7)
+
+[node name="Collectable_Star_01" parent="Collectables" instance=ExtResource("70_6y5fa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, -7)
+
+[node name="Collectable_Star_02" parent="Collectables" instance=ExtResource("71_wjb3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, -7)
+
+[node name="Collectable_Trophy_01" parent="Collectables" instance=ExtResource("72_qgnpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, -7)
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="Obstacle_Barricade_01" parent="Obstacles" instance=ExtResource("73_556al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, 0)
+
+[node name="Obstacle_Bear_Trap_01" parent="Obstacles" instance=ExtResource("74_56x0q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="Obstacle_Crasher_01" parent="Obstacles" instance=ExtResource("75_i43xi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -6)
+
+[node name="Obstacle_Flamethrower_01" parent="Obstacles" instance=ExtResource("76_cqth5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -6)
+
+[node name="Obstacle_Gound_Socket_01" parent="Obstacles" instance=ExtResource("77_8kk80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
+
+[node name="Obstacle_Ground_Spike_01" parent="Obstacles" instance=ExtResource("78_1jbre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="Obstacle_Hanging_Hammer_Socket_01" parent="Obstacles" instance=ExtResource("79_wy2kx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 5, -6)
+
+[node name="Obstacle_Pole_01" parent="Obstacles" instance=ExtResource("80_xwbpn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 0)
+
+[node name="Obstacle_Pusher_01" parent="Obstacles" instance=ExtResource("81_3c423")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -1)
+
+[node name="Obstacle_Round_Blade_01" parent="Obstacles" instance=ExtResource("82_gph74")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
+
+[node name="Obstacle_Spinning_Spike_Gate_01" parent="Obstacles" instance=ExtResource("83_npg2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -6)
+
+[node name="Obstacle_Wooden_Spike_01" parent="Obstacles" instance=ExtResource("84_nespo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -6)
+
+[node name="Plants" type="Node3D" parent="."]
+
+[node name="Plant_Cactus_01" parent="Plants" instance=ExtResource("85_3vvgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -4)
+
+[node name="Plant_Tree_01" parent="Plants" instance=ExtResource("86_nq2fx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Plant_Tree_01A" parent="Plants" instance=ExtResource("87_f5k2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="Plant_Tree_02" parent="Plants" instance=ExtResource("88_mr12w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -4)
+
+[node name="Plant_Tree_Ice_01" parent="Plants" instance=ExtResource("89_8eo8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="Plant_Tree_Ice_01A" parent="Plants" instance=ExtResource("90_73jwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
+
+[node name="Plant_Dead_Tree_01" parent="." instance=ExtResource("95_fbpwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -4)
+
+[node name="Plant_Foliage_01" parent="." instance=ExtResource("97_u16g0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 3)
+
+[node name="Plant_Foliage_02" parent="." instance=ExtResource("98_xs1t1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 3)
+
+[node name="Plant_Coconut_Plam_01" parent="." instance=ExtResource("99_gvxdt")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 0, -4)
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Props_Broken_Rope_Bridge_01" parent="Props" instance=ExtResource("91_j78yf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 1)
+
+[node name="Props_Button_01" parent="Props" instance=ExtResource("92_glugt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68, 0, 0)
+
+[node name="Props_Cloud_01" parent="Props" instance=ExtResource("95_ebjgu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 0)
+
+[node name="Props_Cloud_02" parent="Props" instance=ExtResource("96_n1yra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81, 0, 0)
+
+[node name="Props_Cloud_03" parent="Props" instance=ExtResource("97_l617d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, 0)
+
+[node name="Props_Crate_01" parent="Props" instance=ExtResource("98_2h6b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, 0)
+
+[node name="Props_Crate_02" parent="Props" instance=ExtResource("99_acoq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 0)
+
+[node name="Props_Crate_03" parent="Props" instance=ExtResource("100_dsel0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, 0, 0)
+
+[node name="Props_Crate_04" parent="Props" instance=ExtResource("101_88myf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 0, 0)
+
+[node name="Props_Crate_05" parent="Props" instance=ExtResource("102_u6nd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, 0)
+
+[node name="Props_Crate_06" parent="Props" instance=ExtResource("103_b68wu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, 0, 0)
+
+[node name="Props_Crate_07" parent="Props" instance=ExtResource("104_cdmop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121, 0, 0)
+
+[node name="Props_Fence_01" parent="Props" instance=ExtResource("105_dl5ja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92, 0, -9)
+
+[node name="Props_Fence_02" parent="Props" instance=ExtResource("106_m3ar6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, -9)
+
+[node name="Props_Flag_01" parent="Props" instance=ExtResource("107_axbec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -8)
+
+[node name="Props_Flag_02" parent="Props" instance=ExtResource("108_fxqq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, -8)
+
+[node name="Props_Flag_03" parent="Props" instance=ExtResource("109_rwbdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, -8)
+
+[node name="Props_Lever_01" parent="Props" instance=ExtResource("110_cfh6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -8)
+
+[node name="Props_Pottery_Vessel_01" parent="Props" instance=ExtResource("111_h48fe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, -8)
+
+[node name="Props_Snowman_01" parent="Props" instance=ExtResource("112_v483v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, -8)
+
+[node name="Props_Wooden_Barrel_01" parent="Props" instance=ExtResource("115_vbvis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, -8)
+
+[node name="Props_Wooden_Boat_01" parent="Props" instance=ExtResource("116_uq4u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 0, -8)
+
+[node name="Props_Wooden_Bridge_01" parent="Props" instance=ExtResource("117_5pnxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112, 0, -8)
+
+[node name="Props_Wooden_Dock_01" parent="Props" instance=ExtResource("118_n3gae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117, 0, -8)
+
+[node name="Props_Wooden_Sign_01" parent="Props" instance=ExtResource("119_3x3vr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, -14)
+
+[node name="Props_Wooden_Sign_02" parent="Props" instance=ExtResource("120_ipc5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -14)
+
+[node name="Props_Wooden_Sign_03" parent="Props" instance=ExtResource("121_06lv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81, 0, -14)
+
+[node name="Props_Wooden_Sign_04" parent="Props" instance=ExtResource("122_630lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, -14)
+
+[node name="Props_Wooden_Sign_05" parent="Props" instance=ExtResource("123_y80c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, -14)
+
+[node name="Props_Wooden_Sign_06" parent="Props" instance=ExtResource("124_dech1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 0, -14)
+
+[node name="Props_Wooden_Sign_07" parent="Props" instance=ExtResource("125_imtkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, -14)
+
+[node name="Props_Wooden_Sign_08" parent="Props" instance=ExtResource("126_npejv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, -14)
+
+[node name="Props_Wooden_Sign_09" parent="Props" instance=ExtResource("127_fl7by")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0, -14)
+
+[node name="Props_Wooden_Sign_10" parent="Props" instance=ExtResource("128_nift0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 0, -14)
+
+[node name="Animated Props" type="Node3D" parent="."]
+
+[node name="Props_Spring_Jumper_01" parent="Animated Props" instance=ExtResource("113_ebig1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137, 0, 0)
+
+[node name="Props_Treasure_Cheast_01" parent="Animated Props" instance=ExtResource("114_8c12h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142, 0, 0)
+
+[node name="Selection Pointer" type="Node3D" parent="."]
+
+[node name="Selection_Pointer_01" parent="Selection Pointer" instance=ExtResource("129_31ymv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151, 0, 0)
+
+[node name="Selection_Pointer_02" parent="Selection Pointer" instance=ExtResource("130_6v7gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156, 0, 0)
+
+[node name="Selection_Pointer_03" parent="Selection Pointer" instance=ExtResource("131_gq72e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 161, 0, 0)
+
+[node name="Selection_Pointer_04" parent="Selection Pointer" instance=ExtResource("132_8vghj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166, 0, 0)
+
+[node name="Selection_Pointer_05" parent="Selection Pointer" instance=ExtResource("133_r86sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171, 0, 0)
+
+[node name="Rocks" type="Node3D" parent="."]
+
+[node name="Rock_A_01" parent="Rocks" instance=ExtResource("134_knsqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
+
+[node name="Rock_A_02" parent="Rocks" instance=ExtResource("135_52fuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 0)
+
+[node name="Rock_A_03" parent="Rocks" instance=ExtResource("136_d4yrp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
+
+[node name="Rock_A_04" parent="Rocks" instance=ExtResource("137_yvnhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="Rock_A_05" parent="Rocks" instance=ExtResource("138_2eorp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0)
+
+[node name="Rock_A_06" parent="Rocks" instance=ExtResource("139_8ha4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0814, 0, -4.49829)
+
+[node name="Rock_B_01" parent="Rocks" instance=ExtResource("140_bni02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.0814, 0, -4.49829)
+
+[node name="Rock_B_02" parent="Rocks" instance=ExtResource("141_7woeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0814, 0, -4.49829)
+
+[node name="Rock_B_03" parent="Rocks" instance=ExtResource("142_n5qyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.0814, 0, -4.49829)

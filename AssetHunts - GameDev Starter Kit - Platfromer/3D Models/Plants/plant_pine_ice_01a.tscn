@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://11jaiae0y8k6"]
+
+[ext_resource type="PackedScene" uid="uid://g5kbdt8a18g5" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Plant_Pine_Ice_01A.glb" id="1_gm4cv"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_gmtbb"]
+
+[node name="Plant_Pine_Ice_01A2" instance=ExtResource("1_gm4cv")]
+
+[node name="Plant_Pine_Ice_01A" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_gmtbb")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnpcv6w2gf4qh"]
+
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_tc0dm"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="3_avu1e"]
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_nsvj8"]
+[ext_resource type="PackedScene" uid="uid://cg63ccfflhpow" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_gq7sd"]
+[ext_resource type="PackedScene" uid="uid://dxi2f4efqc1c0" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Demo Scenes/Demo_Scene_03.tscn" id="4_xix60"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_h46ue"]
+[ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="5_ps5fh"]
+[ext_resource type="PackedScene" uid="uid://b1gu6f8hnmb1a" path="res://prefabs/game objects/static/finish_zone.tscn" id="6_547lk"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_tc0dm")
+startAmmo = 100
+
+[node name="Player" parent="." instance=ExtResource("3_nsvj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 0)
+
+[node name="UI" parent="." instance=ExtResource("3_avu1e")]
+
+[node name="Controllers" type="Node3D" parent="."]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Level Design 01" parent="Environment" instance=ExtResource("4_xix60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.9401)
+
+[node name="Level 1" type="Label3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04791, 4.49009, -3.40531)
+billboard = 2
+text = "Level 1"
+font = ExtResource("5_ps5fh")
+font_size = 128
+
+[node name="Areas" type="Node3D" parent="."]
+
+[node name="Death_Zone" parent="Areas" instance=ExtResource("5_h46ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -45.5966, 0)
+
+[node name="Finish_Zone" parent="Areas" instance=ExtResource("6_547lk")]
+transform = Transform3D(-0.0287417, 0, -0.999587, 0, 1, 0, 0.999587, 0, -0.0287417, 61.162, 0.585076, -29.8537)
+
+[node name="Label3D" type="Label3D" parent="Areas/Finish_Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.30266, 0)
+pixel_size = 0.01
+billboard = 1
+no_depth_test = true
+text = "🏁"
+font_size = 128
+
+[node name="weapon" parent="." instance=ExtResource("4_gq7sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, -2)
+
+[connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
+[connection signal="UI_update_ammo" from="Player" to="UI" method="_on_player_ui_update_ammo"]
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
+[connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]

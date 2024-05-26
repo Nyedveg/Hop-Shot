@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://p8l3ae0qkhnx"]
+
+[ext_resource type="PackedScene" uid="uid://c8gv54pdd7svn" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Obstacle_Pusher_01.glb" id="1_x7o1v"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_bvmec"]
+
+[node name="Obstacle_Pusher_01" instance=ExtResource("1_x7o1v")]
+
+[node name="Obstacle_Pusher_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_bvmec")
+
+[node name="Obstacle_Pusher_01_Head" parent="Obstacle_Pusher_01" index="0"]
+surface_material_override/0 = ExtResource("2_bvmec")

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://wahx2363pja2"]
+
+[ext_resource type="Texture2D" uid="uid://cds4lu0tqv0tf" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/Textures/GameDev_Starter_Kit_Platformer_Color_Palette_01.png" id="1_tqsvp"]
+
+[resource]
+albedo_texture = ExtResource("1_tqsvp")
+roughness = 0.8
+rim_enabled = true
+rim = 0.2
+texture_filter = 0
