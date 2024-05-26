@@ -41,13 +41,16 @@ var crate = preload("res://prefabs/game objects/interactable/ammo_create.tscn")
 @onready var collisionArea1 = $"../Area3D2"
 @onready var HUD = $"../UI"
 @onready var spotLight = $"../SpotLight3D"
+@onready var spotLight1 = $"../SpotLight3D2"
+@onready var spotLight2 = $"../SpotLight3D3"
+@onready var spotLight3 = $"../SpotLight3D4"
 
 @onready var weaponHandler = $Head/Camera/Weapon_handler
 
 func spawn_weapon():
 	var weapon = weapons.instantiate()
 	spawn_in.add_child(weapon)
-	player._on_level_template_set_ammo(100)
+	player._on_level_template_set_ammo(0)
 	
 	
 
@@ -148,16 +151,18 @@ func _process(delta):
 		
 		#Weapon spawns
 		player.enabled_mouse_input = false
-		timer.wait_time = 2
+		timer.wait_time = 0.5
 		timer.start()
 		#cameraAnimation.play("shake")
 		await timer.timeout
 		#cameraAnimation.stop()
 		lightON.play()
 		spotLight.visible = true
+		spotLight2.visible = true
 		text_pop.visible = true
 		spawn_weapon()
 		camera.look_at_from_position(camera.global_transform.origin,spawn_in.global_position)
+		
 		#cameraAnimation.play("zoom")
 		timer.wait_time = 0.2
 		timer.start()
@@ -184,8 +189,8 @@ func _process(delta):
 		timer.start()
 		await timer.timeout
 		lightON.play()
-		
 		spotLight.visible = false
+		spotLight2.visible = false
 		HUD.update_objective("pick up the 'thing'?", true)
 
 		timer.wait_time = 1.5
@@ -193,7 +198,8 @@ func _process(delta):
 		await timer.timeout
 		
 		#Orb spawns
-		spotLight.visible = true
+		spotLight1.visible = true
+		spotLight3.visible = true
 		lightON.play()
 		spotLight.position = Vector3(spawn_in_orb.position.x, spotLight.position.y, spawn_in_orb.position.z)
 		spawn_orb()
@@ -206,10 +212,12 @@ func _process(delta):
 		
 		await player.UI_update_ammo
 		enter_pointer_text("")
+		
 		timer.wait_time = 1
 		timer.start()
 		await timer.timeout
-		spotLight.visible = false
+		spotLight1.visible = false
+		spotLight3.visible = false
 		lightON.play()
 		HUD.update_objective("Do what it says...", true)
 		

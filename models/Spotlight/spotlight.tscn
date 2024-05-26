@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0six5mr5uiui"]
+
+[ext_resource type="PackedScene" uid="uid://ck2p0v1t3slyf" path="res://models/Spotlight/Box_Panel_Spot_Light.fbx" id="1_4bveu"]
+[ext_resource type="Texture2D" uid="uid://cnwmugujo0fnh" path="res://textures/spotlight/Box_Panel_Light_Metal_M_Base_color.png" id="2_qprp3"]
+[ext_resource type="Texture2D" uid="uid://bb3ib6e78frt2" path="res://textures/spotlight/Box_Panel_Light_Bulb_M_Base_color.png" id="3_wv1vl"]
+[ext_resource type="Texture2D" uid="uid://b4x11h1hyf5ex" path="res://textures/spotlight/Box_Panel_Light_Metal_M_Roughness.png" id="4_pgwf6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xeiv"]
+albedo_texture = ExtResource("2_qprp3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmmny"]
+albedo_texture = ExtResource("2_qprp3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tn7e"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.82
+normal_enabled = true
+normal_texture = ExtResource("3_wv1vl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xusda"]
+albedo_texture = ExtResource("2_qprp3")
+albedo_texture_force_srgb = true
+roughness_texture = ExtResource("4_pgwf6")
+normal_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w53bn"]
+albedo_texture = ExtResource("2_qprp3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dx3ma"]
+albedo_texture = ExtResource("2_qprp3")
+
+[node name="Root Scene" instance=ExtResource("1_4bveu")]
+
+[node name="Box_Panel_Light_Holder" parent="RootNode/Box_Panel_Light_Grp" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5xeiv")
+
+[node name="Box_Panel_Light_Back_Design" parent="RootNode/Box_Panel_Light_Grp/Box_Panel_Light_Base_Grp" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qmmny")
+
+[node name="Box_Panel_Light_Bulb" parent="RootNode/Box_Panel_Light_Grp/Box_Panel_Light_Base_Grp" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8tn7e")
+
+[node name="Box_Panel_Light_Base" parent="RootNode/Box_Panel_Light_Grp/Box_Panel_Light_Base_Grp" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xusda")
+
+[node name="Box_Panel_Rotator_1" parent="RootNode/Box_Panel_Light_Grp/Box_Panel_Light_Base_Grp/Box_Panels_Grp/Box_Panels_1" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_w53bn")
+
+[node name="Box_Panel_Reflector_1" parent="RootNode/Box_Panel_Light_Grp/Box_Panel_Light_Base_Grp/Box_Panels_Grp/Box_Panels_1" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_w53bn")
+
+[node name="Box_Panel_Reflector_2" parent="RootNode/Box_Panel_Light_Grp/Box_Panel_Light_Base_Grp/Box_Panels_Grp/Box_Panels_2" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dx3ma")
+
+[node name="Box_Panel_Reflector_3" parent="RootNode/Box_Panel_Light_Grp/Box_Panel_Light_Base_Grp/Box_Panels_Grp/Box_Panels_3" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dx3ma")
+
+[node name="Box_Panel_Reflector_4" parent="RootNode/Box_Panel_Light_Grp/Box_Panel_Light_Base_Grp/Box_Panels_Grp/Box_Panels_4" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dx3ma")
