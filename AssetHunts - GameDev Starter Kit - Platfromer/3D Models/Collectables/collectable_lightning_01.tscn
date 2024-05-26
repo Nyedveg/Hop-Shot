@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bktchlrgoks06"]
+
+[ext_resource type="PackedScene" uid="uid://gyt8unl061at" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Collectable_Lightning_01.glb" id="1_foh0r"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_2k5xk"]
+
+[node name="Collectable_Lightning_01" instance=ExtResource("1_foh0r")]
+
+[node name="Collectable_Lightning_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_2k5xk")

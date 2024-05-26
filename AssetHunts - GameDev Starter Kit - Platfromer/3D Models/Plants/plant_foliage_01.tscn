@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh3y651hjxwjm"]
+
+[ext_resource type="PackedScene" uid="uid://73i1vcsgqd58" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Plant_Foliage_01.glb" id="1_u0ofc"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_7nnl8"]
+
+[node name="Plant_Foliage_01" instance=ExtResource("1_u0ofc")]
+
+[node name="Plant_Foliage_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_7nnl8")

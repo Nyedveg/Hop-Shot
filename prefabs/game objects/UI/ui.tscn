@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpxeqw342awpb"]
+
+[ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="1_iihfm"]
+[ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="2_i44ir"]
+[ext_resource type="Script" path="res://scripts/debug.gd" id="3_os0xr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdh8x"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_652cf"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_idw4x"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_ovsp0"]
+font_size = 64
+
+[sub_resource type="Animation" id="Animation_mo4ie"]
+resource_name = "Text_type"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7s4bo"]
+_data = {
+"Text_type": SubResource("Animation_mo4ie")
+}
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iihfm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 88.0
+text = "Speed
+"
+label_settings = SubResource("LabelSettings_bdh8x")
+
+[node name="SpeedLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 89.0
+offset_right = 41.0
+offset_bottom = 177.0
+label_settings = SubResource("LabelSettings_652cf")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -211.0
+offset_right = -8.0
+offset_bottom = -123.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Bullets"
+label_settings = SubResource("LabelSettings_idw4x")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="AmmoLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -111.0
+offset_right = -19.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_ovsp0")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="DebugPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 200.0
+offset_right = 210.0
+offset_bottom = 240.0
+theme = ExtResource("2_i44ir")
+script = ExtResource("3_os0xr")
+
+[node name="MarginContainer" type="MarginContainer" parent="DebugPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7s4bo")
+}

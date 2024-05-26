@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cepfgd2jrmv2o"]
+
+[ext_resource type="PackedScene" uid="uid://bjcsruc6xdo7x" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Collectable_Coin_Sack_01.glb" id="1_fwxwf"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_6rbgu"]
+
+[node name="Collectable_Coin_Sack_01" instance=ExtResource("1_fwxwf")]
+
+[node name="Collectable_Coin_Sack_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_6rbgu")

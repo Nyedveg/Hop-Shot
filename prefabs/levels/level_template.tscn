@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://bul5w0lnjf230"]
+
+[ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_tc0dm"]
+[ext_resource type="PackedScene" uid="uid://bpxeqw342awpb" path="res://prefabs/game objects/UI/ui.tscn" id="3_avu1e"]
+[ext_resource type="PackedScene" uid="uid://c2h5wi5d0wwxc" path="res://prefabs/player/Player.tscn" id="3_nsvj8"]
+[ext_resource type="PackedScene" uid="uid://cg63ccfflhpow" path="res://prefabs/game objects/interactable/weapon/weapon.tscn" id="4_gq7sd"]
+[ext_resource type="PackedScene" uid="uid://dxi2f4efqc1c0" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Demo Scenes/Demo_Scene_03.tscn" id="4_xix60"]
+[ext_resource type="PackedScene" uid="uid://pegiaoi4sodn" path="res://prefabs/game objects/static/death_zone.tscn" id="5_h46ue"]
+[ext_resource type="PackedScene" uid="uid://djviime4g1lhc" path="res://prefabs/game objects/interactable/ammo_create.tscn" id="6_yk5x3"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_tc0dm")
+startAmmo = 100
+
+[node name="Player" parent="." instance=ExtResource("3_nsvj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9752, 4.99417, -26.9368)
+
+[node name="UI" parent="." instance=ExtResource("3_avu1e")]
+
+[node name="Controllers" type="Node3D" parent="."]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Level Design 01" parent="Environment" instance=ExtResource("4_xix60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66292, -8.76056, -18.6777)
+
+[node name="Areas" type="Node3D" parent="."]
+
+[node name="Death_Zone" parent="Areas" instance=ExtResource("5_h46ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
+
+[node name="AmmoCreate" parent="." instance=ExtResource("6_yk5x3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.68098, 2, -0.671129)
+
+[node name="weapon" parent="." instance=ExtResource("4_gq7sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.3835, 1.23638, -26.5501)
+
+[connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]
+[connection signal="player_shot_fired" from="Player" to="." method="_on_player_player_shot_fired"]
+[connection signal="body_entered" from="Areas/Death_Zone" to="." method="_on_death_zone_body_entered"]

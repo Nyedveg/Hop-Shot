@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://k50um1brjuf6"]
+
+[ext_resource type="PackedScene" uid="uid://x6hxffhq42p2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Source Files/Obstacle_Pole_01.glb" id="1_qdan1"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_r8y5u"]
+
+[node name="Obstacle_Pole_01" instance=ExtResource("1_qdan1")]
+
+[node name="Obstacle_Pole_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_r8y5u")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7m70xg6urueh"]
+
+[ext_resource type="PackedScene" uid="uid://dcjhebtuo7eyu" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Snowman_01.glb" id="1_5o0fo"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_68wc1"]
+
+[node name="Props_Snowman_01" instance=ExtResource("1_5o0fo")]
+
+[node name="Props_Snowman_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_68wc1")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://byci8qfk8paxn"]
+
+[ext_resource type="PackedScene" uid="uid://drjnooaejch3v" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Wooden_Sign_03.glb" id="1_di65h"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_3ke4v"]
+
+[node name="Props_Wooden_Sign_03" instance=ExtResource("1_di65h")]
+
+[node name="Props_Wooden_Sign_03" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_3ke4v")

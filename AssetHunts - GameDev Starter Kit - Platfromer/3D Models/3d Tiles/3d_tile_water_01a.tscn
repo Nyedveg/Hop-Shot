@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvfnf0vexg1tk"]
+
+[ext_resource type="PackedScene" uid="uid://ddyq1yyvtaq32" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/3D_Tile_Water_01A.glb" id="1_p02iw"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_lu87l"]
+
+[node name="3D_Tile_Water_01A" instance=ExtResource("1_p02iw")]
+
+[node name="3D_Tile_Water_01A" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_lu87l")

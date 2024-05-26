@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0gonffl8tbug"]
+
+[ext_resource type="PackedScene" uid="uid://o5qj6aif5s1q" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Plant_Coconut_Palm_01.glb" id="1_phfkh"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_lck72"]
+
+[node name="Plant_Coconut_Plam_01" instance=ExtResource("1_phfkh")]
+
+[node name="Plant_Coconut_Palm_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_lck72")

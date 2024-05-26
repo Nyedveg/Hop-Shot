@@ -1,0 +1,313 @@
+[gd_scene load_steps=23 format=3 uid="uid://lgpnj8y2yewl"]
+
+[ext_resource type="Texture2D" uid="uid://bagra2vy2n2tl" path="res://textures/logo/Logo_large.png" id="1_da6fw"]
+[ext_resource type="Theme" uid="uid://bokc38lqrv7w0" path="res://ui/themes/main.tres" id="1_dbwrj"]
+[ext_resource type="Script" path="res://scripts/ExitButton_script.gd" id="1_q1k37"]
+[ext_resource type="Script" path="res://scripts/SelectButton_script.gd" id="2_vrpr8"]
+[ext_resource type="PackedScene" uid="uid://o6ryvservgpc" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Demo Scenes/Scene_Menu.tscn" id="4_psedp"]
+[ext_resource type="AudioStream" uid="uid://bcge353tvep6g" path="res://sounds/music/HopShotMenuTheme_cut.mp3" id="5_3cfxs"]
+[ext_resource type="AudioStream" uid="uid://dbwv372pqbquv" path="res://sounds/pop.mp3" id="5_5hlck"]
+[ext_resource type="Script" path="res://scripts/menu_selecter_script.gd" id="5_ga4px"]
+[ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="7_qmgeb"]
+
+[sub_resource type="Animation" id="Animation_jx7ky"]
+resource_name = "pan"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 4.1, 5.238, 5.292, 2, 1, 2.97519, 17.9517, -25.6083)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4h86q"]
+_data = {
+"pan": SubResource("Animation_jx7ky")
+}
+
+[sub_resource type="Animation" id="Animation_jvgmb"]
+resource_name = "hover_logo"
+loop_mode = 1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-237, -107), Vector2(-237, -99), Vector2(-237, -107), Vector2(-237, -115), Vector2(-237, -107)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1emf"]
+_data = {
+"hover_logo": SubResource("Animation_jvgmb")
+}
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ywcw8"]
+sky_top_color = Color(7.70092e-07, 0.469565, 0.745453, 1)
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_c7hem"]
+sky_material = SubResource("ProceduralSkyMaterial_ywcw8")
+
+[sub_resource type="Environment" id="Environment_rvga6"]
+background_mode = 2
+sky = SubResource("Sky_c7hem")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xb7tl"]
+size = Vector3(4.125, 1, 4.52515)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ifjd"]
+size = Vector3(3.09213, 1, 3.27161)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_13t7k"]
+size = Vector3(3.31982, 1, 3.14868)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ivpwm"]
+size = Vector3(3.15918, 1, 3.3645)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxosg"]
+size = Vector3(2.96094, 1, 3.1123)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rcc0w"]
+size = Vector3(2.94897, 1, 3.0022)
+
+[node name="MainMenu" type="Node"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, 4.1, 5.238, 5.292)
+fov = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_4h86q")
+}
+
+[node name="UIMainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ExitButton" type="Button" parent="UIMainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 112.0
+offset_right = 356.0
+offset_bottom = 240.0
+grow_vertical = 2
+theme = ExtResource("1_dbwrj")
+text = "Exit"
+script = ExtResource("1_q1k37")
+
+[node name="OptionsButton" type="Button" parent="UIMainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -64.0
+offset_right = 356.0
+offset_bottom = 64.0
+grow_vertical = 2
+theme = ExtResource("1_dbwrj")
+text = "Options"
+
+[node name="SelectButton" type="Button" parent="UIMainMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -240.0
+offset_right = 356.0
+offset_bottom = -112.0
+grow_vertical = 2
+theme = ExtResource("1_dbwrj")
+text = "Select Level"
+script = ExtResource("2_vrpr8")
+
+[node name="LogoControl" type="Control" parent="UIMainMenu"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 350.0
+offset_top = 200.0
+offset_right = 390.0
+offset_bottom = 240.0
+
+[node name="Logo" type="TextureRect" parent="UIMainMenu/LogoControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -127.0
+offset_right = 255.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_da6fw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UIMainMenu/LogoControl/Logo"]
+libraries = {
+"": SubResource("AnimationLibrary_h1emf")
+}
+autoplay = "hover_logo"
+speed_scale = 0.5
+
+[node name="Fade" type="ColorRect" parent="UIMainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MenuSound" type="AudioStreamPlayer" parent="UIMainMenu"]
+stream = ExtResource("5_5hlck")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Visual"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 2.04444, 0)
+light_color = Color(0.87451, 0.858824, 0.356863, 1)
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Visual"]
+environment = SubResource("Environment_rvga6")
+
+[node name="Level Design Menu" parent="Visual" instance=ExtResource("4_psedp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.51961, -21.2275)
+
+[node name="Level Select tut" type="Area3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23835, 1.96883, -30.8202)
+script = ExtResource("5_ga4px")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/Level Select tut"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0210333, 0, 0.10796)
+shape = SubResource("BoxShape3D_xb7tl")
+
+[node name="Label3D" type="Label3D" parent="Visual/Level Select tut"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140601, 0.140084, -0.217083)
+billboard = 1
+text = "Tutorial"
+font = ExtResource("7_qmgeb")
+font_size = 256
+
+[node name="Level Select 5" type="Area3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7961, 2.96297, -46.4106)
+script = ExtResource("5_ga4px")
+
+[node name="Label3D" type="Label3D" parent="Visual/Level Select 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0934887, 0.387489, 0.149323)
+billboard = 1
+text = "5"
+font = ExtResource("7_qmgeb")
+font_size = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/Level Select 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0820465, 0, 0.0878296)
+shape = SubResource("BoxShape3D_0ifjd")
+
+[node name="Level Select 4" type="Area3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67563, 3.0225, -46.4156)
+script = ExtResource("5_ga4px")
+
+[node name="Label3D" type="Label3D" parent="Visual/Level Select 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.340315, 0.295601, 0.0234795)
+billboard = 1
+text = "4"
+font = ExtResource("7_qmgeb")
+font_size = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/Level Select 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414795, -0.217109, 0.259155)
+shape = SubResource("BoxShape3D_13t7k")
+
+[node name="Level Select 3" type="Area3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.935628, 1.02903, -42.4847)
+script = ExtResource("5_ga4px")
+
+[node name="Label3D" type="Label3D" parent="Visual/Level Select 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140601, 0.659468, 0.171806)
+billboard = 1
+text = "3"
+font = ExtResource("7_qmgeb")
+font_size = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/Level Select 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268594, 0.660368, 0.0367775)
+shape = SubResource("BoxShape3D_ivpwm")
+
+[node name="Level Select 2" type="Area3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91271, 0.922647, -38.2868)
+script = ExtResource("5_ga4px")
+
+[node name="Label3D" type="Label3D" parent="Visual/Level Select 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00496459, 0.620972, -0.20747)
+billboard = 1
+text = "2"
+font = ExtResource("7_qmgeb")
+font_size = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/Level Select 2"]
+shape = SubResource("BoxShape3D_vxosg")
+
+[node name="Level Select 1" type="Area3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94205, 1.01156, -33.9593)
+script = ExtResource("5_ga4px")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/Level Select 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140601, -0.200315, -0.217083)
+shape = SubResource("BoxShape3D_rcc0w")
+
+[node name="Label3D" type="Label3D" parent="Visual/Level Select 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0218449, 0.639368, -0.404648)
+billboard = 1
+text = "1"
+font = ExtResource("7_qmgeb")
+font_size = 256
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3cfxs")
+autoplay = true
+
+[connection signal="pressed" from="UIMainMenu/ExitButton" to="UIMainMenu/ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="UIMainMenu/SelectButton" to="UIMainMenu/SelectButton" method="_on_pressed"]
+[connection signal="input_event" from="Visual/Level Select tut" to="Visual/Level Select tut" method="_on_input_event"]
+[connection signal="mouse_entered" from="Visual/Level Select tut" to="Visual/Level Select tut" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Visual/Level Select tut" to="Visual/Level Select tut" method="_on_mouse_exited"]
+[connection signal="input_event" from="Visual/Level Select 5" to="Visual/Level Select 5" method="_on_input_event"]
+[connection signal="mouse_entered" from="Visual/Level Select 5" to="Visual/Level Select 5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Visual/Level Select 5" to="Visual/Level Select 5" method="_on_mouse_exited"]
+[connection signal="input_event" from="Visual/Level Select 4" to="Visual/Level Select 4" method="_on_input_event"]
+[connection signal="mouse_entered" from="Visual/Level Select 4" to="Visual/Level Select 4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Visual/Level Select 4" to="Visual/Level Select 4" method="_on_mouse_exited"]
+[connection signal="input_event" from="Visual/Level Select 3" to="Visual/Level Select 3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Visual/Level Select 3" to="Visual/Level Select 3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Visual/Level Select 3" to="Visual/Level Select 3" method="_on_mouse_exited"]
+[connection signal="input_event" from="Visual/Level Select 2" to="Visual/Level Select 2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Visual/Level Select 2" to="Visual/Level Select 2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Visual/Level Select 2" to="Visual/Level Select 2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Visual/Level Select 1" to="Visual/Level Select 1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Visual/Level Select 1" to="Visual/Level Select 1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Visual/Level Select 1" to="Visual/Level Select 1" method="_on_mouse_exited"]

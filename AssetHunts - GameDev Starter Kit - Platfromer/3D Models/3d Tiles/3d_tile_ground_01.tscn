@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkjcie60rn0r8"]
+
+[ext_resource type="PackedScene" uid="uid://jqw7ruasp016" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Source Files/3D_Tile_Ground_01.glb" id="1_x6cb8"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_63sdv"]
+
+[node name="3D_Tile_Ground_01" groups=["shootable"] instance=ExtResource("1_x6cb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00129306, -0.00493646, 0.00236702)
+
+[node name="3D_Tile_Ground_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_63sdv")
+
+[node name="StaticBody3D" parent="3D_Tile_Ground_01" index="0"]
+collision_layer = 7
+collision_mask = 7

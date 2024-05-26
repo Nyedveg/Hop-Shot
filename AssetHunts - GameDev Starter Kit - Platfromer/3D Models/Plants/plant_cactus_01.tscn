@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://vl5fym7cdr3l"]
+
+[ext_resource type="PackedScene" uid="uid://bb60iuex2x6y8" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Plant_Cactus_01.glb" id="1_bvvhs"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_lowtf"]
+
+[node name="Plant_Cactus_01" instance=ExtResource("1_bvvhs")]
+
+[node name="Plant_Cactus_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_lowtf")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://84s067mv4h6b"]
+
+[ext_resource type="PackedScene" uid="uid://bikmjusu3qy5c" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Fence_A_01.glb" id="1_v5yso"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_l48jl"]
+
+[node name="Props_Fence_A_01" instance=ExtResource("1_v5yso")]
+
+[node name="Props_Fence_A_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_l48jl")

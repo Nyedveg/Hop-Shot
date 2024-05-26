@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdic0jhysyat8"]
+
+[ext_resource type="PackedScene" uid="uid://chfd4qpaubji0" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/3D_Tile_Lava_01.glb" id="1_jowkx"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_mjl14"]
+
+[node name="3D_Tile_Lava_01" instance=ExtResource("1_jowkx")]
+
+[node name="3D_Tile_Lava_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_mjl14")

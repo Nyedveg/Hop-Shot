@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpmcayxy1tvl"]
+
+[ext_resource type="PackedScene" uid="uid://61jmvi5eu8s4" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Wooden_Bridge_01.glb" id="1_ft132"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_cf5ym"]
+
+[node name="Props_Wooden_Bridge_01" instance=ExtResource("1_ft132")]
+
+[node name="Props_Wooden_Bridge_01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cf5ym")
