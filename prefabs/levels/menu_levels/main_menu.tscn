@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=24 format=3 uid="uid://lgpnj8y2yewl"]
+=======
+[gd_scene load_steps=23 format=3 uid="uid://lgpnj8y2yewl"]
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 [gd_scene load_steps=23 format=3 uid="uid://lgpnj8y2yewl"]
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
@@ -13,7 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://dbwv372pqbquv" path="res://sounds/pop.mp3" id="5_5hlck"]
 [ext_resource type="Script" path="res://scripts/menu_selecter_script.gd" id="5_ga4px"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://bb3hu032t2m3e" path="res://textures/uploads_files_3782135_Anime+skyv2.hdr" id="6_lm42b"]
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [ext_resource type="FontFile" uid="uid://beoncmyfjl5g4" path="res://FONT/Retro Gaming.ttf" id="7_qmgeb"]
@@ -57,6 +64,7 @@ _data = {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h5h3n"]
 panorama = ExtResource("6_lm42b")
 
@@ -68,6 +76,8 @@ background_mode = 2
 background_energy_multiplier = 0.5
 sky = SubResource("Sky_c7hem")
 =======
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ywcw8"]
 sky_top_color = Color(7.70092e-07, 0.469565, 0.745453, 1)
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -80,6 +90,9 @@ sky_material = SubResource("ProceduralSkyMaterial_ywcw8")
 background_mode = 2
 sky = SubResource("Sky_c7hem")
 tonemap_mode = 2
+<<<<<<< HEAD
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+=======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 glow_enabled = true
 
@@ -223,7 +236,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.51961, -21.2275)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23835, 1.96883, -30.8202)
 script = ExtResource("5_ga4px")
 <<<<<<< HEAD
+<<<<<<< HEAD
 scene = "res://prefabs/levels/Tutorial_level/Level_Tutorial-1.tscn"
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 
@@ -301,7 +317,10 @@ shape = SubResource("BoxShape3D_vxosg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94205, 1.01156, -33.9593)
 script = ExtResource("5_ga4px")
 <<<<<<< HEAD
+<<<<<<< HEAD
 scene = "res://prefabs/levels/stage_one/level1.tscn"
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 

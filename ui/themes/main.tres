@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://bokc38lqrv7w0"]
+=======
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bokc38lqrv7w0"]
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://bokc38lqrv7w0"]
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
@@ -93,8 +97,11 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ktb3"]
 
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [resource]
@@ -122,6 +129,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_to4w5")
 Button/styles/normal = SubResource("StyleBoxFlat_0m72c")
 Button/styles/pressed = SubResource("StyleBoxFlat_reimx")
 <<<<<<< HEAD
+<<<<<<< HEAD
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(1, 1, 1, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
@@ -133,5 +141,7 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_fgv6x")
 Label/styles/normal = SubResource("StyleBoxEmpty_4ktb3")
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142

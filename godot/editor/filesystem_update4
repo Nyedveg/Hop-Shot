@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 res://prefabs/levels/menu_levels/main_menu.tscn
 res://scripts/menu_selecter_script.gd
 res://ui/themes/main.tres
@@ -18,6 +19,8 @@ res://scripts/UI_main_script.gd
 res://prefabs/game objects/UI/ui.tscn
 res://scripts/Main_level_script.gd
 =======
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 res://AssetHunts - GameDev Starter Kit - Platfromer/Demo Scenes/Scene_Menu.tscn
 res://models/Hopper/Hopper_Screen_Material002.tres
 res://models/Hopper/Hopper_Base_Material001.tres
@@ -39,4 +42,7 @@ res://scripts/ExitButton_script.gd
 res://prefabs/game objects/interactable/weapon/weapon_hr_script.gd
 res://ui/themes/main.tres
 res://godot/imported/pop.mp3-b1aab965fb879cd10b931121337218ec.mp3str
+<<<<<<< HEAD
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+=======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142

@@ -1,8 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 res://ui/themes
 res://FONT
 res://textures
 res://sounds
+=======
+res://sounds
+res://ui/themes
+res://FONT
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 res://sounds
 res://ui/themes

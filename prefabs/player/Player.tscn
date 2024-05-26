@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=25 format=3 uid="uid://c2h5wi5d0wwxc"]
+=======
+[gd_scene load_steps=28 format=3 uid="uid://c2h5wi5d0wwxc"]
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 [gd_scene load_steps=28 format=3 uid="uid://c2h5wi5d0wwxc"]
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
@@ -27,7 +31,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kjnyq"]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m1bpa"]
 
 [sub_resource type="Sky" id="Sky_xnenq"]
@@ -38,6 +45,9 @@ background_mode = 2
 sky = SubResource("Sky_xnenq")
 ssr_enabled = true
 
+<<<<<<< HEAD
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+=======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [sub_resource type="Animation" id="Animation_nrqy6"]
 resource_name = "charging_animation"
@@ -159,6 +169,10 @@ default_fov = 75.0
 
 [node name="Camera" type="Camera3D" parent="Head"]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+environment = SubResource("Environment_oslwl")
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 environment = SubResource("Environment_oslwl")
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142

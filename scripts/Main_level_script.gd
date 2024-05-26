@@ -12,11 +12,17 @@ func _ready():
 	emit_signal("set_ammo", startAmmo)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
+<<<<<<< HEAD
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+=======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 # A SIGNAL EMITTED BY THE PLAYER WHEN THE WEAPON GETS SHOT
 func _on_player_player_shot_fired(pos, time):

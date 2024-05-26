@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=7 format=3 uid="uid://c3dl7xvhyr5wr"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_f7caa"]
@@ -17,6 +18,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87072, -3.09052, 8.28224)
 
 [node name="UI" parent="." instance=ExtResource("3_j7fxr")]
 =======
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [gd_scene load_steps=8 format=3 uid="uid://bul5w0lnjf230"]
 
 [ext_resource type="Script" path="res://scripts/Main_level_script.gd" id="1_tc0dm"]
@@ -35,6 +38,9 @@ startAmmo = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9752, 4.99417, -26.9368)
 
 [node name="UI" parent="." instance=ExtResource("3_avu1e")]
+<<<<<<< HEAD
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+=======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 
 [node name="Controllers" type="Node3D" parent="."]
@@ -42,7 +48,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9752, 4.99417, -26.9368)
 [node name="Environment" type="Node3D" parent="."]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [node name="Level Design 01" parent="Environment" instance=ExtResource("4_sb0ga")]
+=======
+[node name="Level Design 01" parent="Environment" instance=ExtResource("4_xix60")]
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 [node name="Level Design 01" parent="Environment" instance=ExtResource("4_xix60")]
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
@@ -51,12 +61,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66292, -8.76056, -18.6777)
 [node name="Areas" type="Node3D" parent="."]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [node name="Death_Zone" parent="Areas" instance=ExtResource("5_t4exn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 
 [node name="weapon" parent="." instance=ExtResource("7_kgewt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55097, -3.82902, 4.09943)
 =======
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [node name="Death_Zone" parent="Areas" instance=ExtResource("5_h46ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -71, 0)
 
@@ -65,6 +78,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.68098, 2, -0.671129)
 
 [node name="weapon" parent="." instance=ExtResource("4_gq7sd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.3835, 1.23638, -26.5501)
+<<<<<<< HEAD
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+=======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 
 [connection signal="set_ammo" from="." to="Player" method="_on_level_template_set_ammo"]

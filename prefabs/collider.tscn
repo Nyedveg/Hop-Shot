@@ -1,9 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://b8k7wuwngd6pi"]
 
 [ext_resource type="Script" path="res://scripts/bullet_collider_script.gd" id="1_lmeg2"]
 
 =======
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [gd_scene load_steps=4 format=3 uid="uid://b8k7wuwngd6pi"]
 
 [ext_resource type="Script" path="res://scripts/bullet_collider_script.gd" id="1_lmeg2"]
@@ -11,13 +14,20 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3vnj"]
 albedo_color = Color(1, 0, 0, 1)
 
+<<<<<<< HEAD
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+=======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [sub_resource type="SphereShape3D" id="SphereShape3D_4bhyt"]
 radius = 3.0
 
 [node name="Collider" type="CSGSphere3D"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 radius = 0.001
+=======
+material = SubResource("StandardMaterial3D_b3vnj")
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 material = SubResource("StandardMaterial3D_b3vnj")
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142

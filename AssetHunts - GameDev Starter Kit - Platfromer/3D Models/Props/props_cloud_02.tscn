@@ -1,8 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2raeqr58iuvt"]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://v65yu1u36mhy" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Source Files/Props_Cloud_02.glb" id="1_4olc3"]
 [ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_mkilk"]
+=======
+[ext_resource type="PackedScene" uid="uid://v65yu1u36mhy" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Cloud_02.glb" id="1_4olc3"]
+[ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_mkilk"]
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 [ext_resource type="PackedScene" uid="uid://v65yu1u36mhy" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Source Files/Props_Cloud_02.glb" id="1_4olc3"]
 [ext_resource type="Material" uid="uid://wahx2363pja2" path="res://AssetHunts - GameDev Starter Kit - Platfromer v1.0.0/Materials/GameDev_Starter_Kit_Platformer.tres" id="2_mkilk"]
@@ -13,9 +18,12 @@
 [node name="Props_Cloud_02" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_mkilk")
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 [node name="StaticBody3D" parent="Props_Cloud_02" index="0" groups=["shootable"]]
 collision_layer = 7
 collision_mask = 7
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142

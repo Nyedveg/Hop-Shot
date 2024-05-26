@@ -1,14 +1,20 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=11 format=3 uid="uid://bpxeqw342awpb"]
 
 [ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="1_iihfm"]
 [ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="2_i44ir"]
 [ext_resource type="Theme" uid="uid://bokc38lqrv7w0" path="res://ui/themes/main.tres" id="2_sndhc"]
 =======
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [gd_scene load_steps=10 format=3 uid="uid://bpxeqw342awpb"]
 
 [ext_resource type="Script" path="res://scripts/UI_main_script.gd" id="1_iihfm"]
 [ext_resource type="Theme" uid="uid://dpig1vjy8dnxr" path="res://ui/themes/debug.tres" id="2_i44ir"]
+<<<<<<< HEAD
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
+=======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 [ext_resource type="Script" path="res://scripts/debug.gd" id="3_os0xr"]
 
@@ -46,7 +52,10 @@ layout_mode = 0
 offset_right = 189.0
 offset_bottom = 88.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 theme = ExtResource("2_sndhc")
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 text = "Speed
@@ -60,7 +69,10 @@ offset_top = 89.0
 offset_right = 41.0
 offset_bottom = 177.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 theme = ExtResource("2_sndhc")
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 label_settings = SubResource("LabelSettings_652cf")
@@ -79,7 +91,10 @@ offset_bottom = -123.0
 grow_horizontal = 0
 grow_vertical = 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 theme = ExtResource("2_sndhc")
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 text = "Bullets"
@@ -101,7 +116,10 @@ offset_bottom = -23.0
 grow_horizontal = 0
 grow_vertical = 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 theme = ExtResource("2_sndhc")
+=======
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 >>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 label_settings = SubResource("LabelSettings_ovsp0")

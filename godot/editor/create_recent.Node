@@ -1,9 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 AnimationPlayer
 Node
 MeshInstance3D
 GPUParticles3D
 AudioStreamPlayer
+=======
+AudioStreamPlayer
+AnimationPlayer
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 AudioStreamPlayer
 AnimationPlayer
@@ -18,6 +23,12 @@ ColorRect
 RigidBody3D
 CSGCylinder3D
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+CSGBox3D
+Node3D
+Control
+>>>>>>> e4c1b3c7e3d6127ac1b3afbd249d65488d07f142
 =======
 CSGBox3D
 Node3D
